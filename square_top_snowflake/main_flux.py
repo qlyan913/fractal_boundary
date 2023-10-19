@@ -1,3 +1,6 @@
+import time
+start_time = time.time()
+from firedrake.petsc import PETSc
 import matplotlib.pyplot as plt
 from firedrake import *
 # choose a triangulation
@@ -31,12 +34,14 @@ for Lambda in LL:
   solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "cg", "pc_type": "none"})
   Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(4))
   Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(4))
-  print("flux ",Phi_temp)
-  print("flux computed by robin",Phi_temp2)
+  PETSc.Sys.Print("flux ",Phi_temp)
+  PETSc.Sys.Print("flux computed by robin",Phi_temp2)
   Phi.append(Phi_temp)
   cc_temp=D*(4/3)**nn/Lambda
-  print("DL_p/Lambda", cc_temp)
+  PETSc.Sys.Print("DL_p/Lambda", cc_temp)
   cc.append(cc_temp)
+
+PETSc.Sys.print("--- running in %s seconds ---" % (time.time() - start_time))
 
 fig, axes = plt.subplots()
 plt.loglog(LL, Phi,marker='o')
@@ -44,3 +49,4 @@ plt.loglog(LL, cc,marker='o')
 plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
 plt.xlabel('$\Lambda$')
 plt.savefig("Phi_Lam.png")
+PETSc.Sys.print("Result saved to Phi_Lam.png ")
