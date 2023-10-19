@@ -258,3 +258,6 @@ ax.set_zlabel('Z')
 plt.title('Koch Snowflake Mesh on Cube')
 plt.show()
 plt.savefig(f"snow_cube_n{n}.pdf")
+
+outfile = fd.File(f"cube_{n}.pvd")
+outfile.write(fd_mesh)
