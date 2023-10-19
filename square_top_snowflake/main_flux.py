@@ -41,7 +41,7 @@ for Lambda in LL:
   PETSc.Sys.Print("DL_p/Lambda", cc_temp)
   cc.append(cc_temp)
 
-PETSc.Sys.print("--- running in %s seconds ---" % (time.time() - start_time))
+PETSc.Sys.Print("--- running in %s seconds ---" % (time.time() - start_time))
 
 fig, axes = plt.subplots()
 plt.loglog(LL, Phi,marker='o')
@@ -49,4 +49,4 @@ plt.loglog(LL, cc,marker='o')
 plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
 plt.xlabel('$\Lambda$')
 plt.savefig("Phi_Lam.png")
-PETSc.Sys.print("Result saved to Phi_Lam.png ")
+PETSc.Sys.Print("Result saved to Phi_Lam.png ")
