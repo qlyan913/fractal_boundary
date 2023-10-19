@@ -1,5 +1,7 @@
 import math
 import numpy as np
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+mesh_size=input("Enter the meshsize: ")
 # Define the Koch snowflake vertices
 def koch_snowflake(vertices, level):
     # input
@@ -27,8 +29,8 @@ def koch_snowflake(vertices, level):
     return koch_snowflake(new_vertices, level - 1)
 
 # Parameters
-n =  4  # Number of iterations for Koch snowflake
-mesh_size =0.02# Mesh size
+#n =  4  # Number of iterations for Koch snowflake
+#mesh_size =0.02# Mesh size
 mesh_size2=mesh_size
 # Define the vertices for the Koch snowflake
 vertices_koch = koch_snowflake(np.array([[0, 1], [1, 1]]), n)
@@ -74,6 +76,7 @@ print("Gmsh script has been generated and saved as 'unit_square_with_koch.geo'."
 
 import os
 os.system('gmsh -2 unit_square_with_koch.geo')
+print("Mesh file saved as 'unit_square_with_koch.msh'.")
 
 import firedrake as fd
 import matplotlib.pyplot as plt
