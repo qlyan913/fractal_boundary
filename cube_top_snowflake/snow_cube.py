@@ -1,4 +1,6 @@
 # Qile Yan 2023-09-29
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+mesh_size=input("Enter the meshsize: ")
 import math
 import numpy as np
 #  Create a mesh a cube where the top is replaced by snowflake
@@ -109,8 +111,8 @@ def koch_snowflake(sq_list, level):
     return koch_snowflake(new_sq_list, level - 1)
 
 # Parameters
-n =  3  # Number of iterations for Koch snowflake
-mesh_size = 0.1  # Mesh size
+#n =  3  # Number of iterations for Koch snowflake
+#mesh_size = 0.1  # Mesh size
 mesh_size2= mesh_size
 # Define the list of squares for the Koch snowflake
 square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
@@ -247,7 +249,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # Load the Gmsh mesh file
 mesh_file = f'unit_cube_with_koch_n{n}.msh'
 fd_mesh = fd.Mesh(mesh_file)
-
+print(f"Mesh file  saved as 'unit_cube_with_koch_n{n}.msh'.")
 # Plot the mesh
 fig=plt.figure()
 ax = plt.axes(projection='3d')
@@ -261,3 +263,4 @@ plt.savefig(f"snow_cube_n{n}.pdf")
 
 outfile = fd.File(f"cube_{n}.pvd")
 outfile.write(fd_mesh)
+print(f"File for visualization in Paraview saved as 'cube_{n}_0.vtu'.")
