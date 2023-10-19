@@ -50,11 +50,11 @@ df=[]
 mh=[]
 err=[]
 err2=[]
-print("Test: Solution u=2+x^2+3xy+yz on UnitCube")
-print("Doing refinement ...")
+PETSc.Sys.Print("Test: Solution u=2+x^2+3xy+yz on UnitCube")
+PETSc.Sys.Print("Doing refinement ...")
 start_time = time.time()
 MH = MeshHierarchy(mesh, 3)
-PETSc.Sys.print("--- time used in doing refinement: %s seconds ---" % (time.time() - start_time))
+PETSc.Sys.Print("--- time used in doing refinement: %s seconds ---" % (time.time() - start_time))
 for i in range(0, len(MH)):
   start_time = time.time()
   mesh=MH[i]
