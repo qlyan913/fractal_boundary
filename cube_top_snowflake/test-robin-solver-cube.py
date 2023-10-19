@@ -25,8 +25,9 @@
 #  6: plane z == 1 replaced by snowflake
 import matplotlib.pyplot as plt
 from firedrake import *
+from firedrake.petsc import PETSc
 import numpy as np
-
+import time
 def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -51,8 +52,11 @@ err=[]
 err2=[]
 print("Test: Solution u=2+x^2+3xy+yz on UnitCube")
 print("Doing refinement ...")
+start_time = time.time()
 MH = MeshHierarchy(mesh, 3)
+PETSc.Sys.print("--- time used in doing refinement: %s seconds ---" % (time.time() - start_time))
 for i in range(0, len(MH)):
+  start_time = time.time()
   mesh=MH[i]
   x, y,z = SpatialCoordinate(mesh)
   D = Constant(1.)
@@ -74,11 +78,11 @@ for i in range(0, len(MH)):
   err.append(err_temp)
   err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
   err2.append(err2_temp)
-  print("Refined Mesh ", i, " with max mesh size " , mesh.cell_sizes.dat.data.max())
-  print("Error of solution in L2 norm is ", err_temp)
-  print("Error of solution in H1 norm is ", err2_temp)
-  print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
-
+  PETSc.Sys.Print("Refined Mesh ", i, " with max mesh size " , mesh.cell_sizes.dat.data.max())
+  PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
+  PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
+  PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
+  PETSc.Sys.print("--- time used in solving PDE: %s seconds ---" % (time.time() - start_time))
 
 NN=np.array([1.1*(mh[i]/mh[1])**2*err[1] for i in range(0,len(err))])
 NN2=np.array([1.1*(mh[i]/mh[1])*err2[1] for i in range(0,len(err))])
@@ -91,7 +95,7 @@ plt.legend(['$L^2$ error', '$H^1$ error', '$O(h^2)$','$O(h)$'])
 plt.xlabel('maximum of mesh size')
 plt.title('Test 4')
 plt.savefig("test_4.png")
-print("Error vs mesh size  saved to test_4.png")
+PETSc.Sys.Print("Error vs mesh size  saved to test_4.png")
 plt.close()
 
 NN=np.array([(df[0]/df[i])**(2./3.)*err[0] for i in range(0,len(err))])
@@ -105,5 +109,5 @@ plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-2/3})$','$O(dof^{-1/3})$'])
 plt.xlabel('degree of freedom')
 plt.title('Test 4')
 plt.savefig("test_4_dof.png")
-print("Error vs mesh size  saved to test_4_dof.png")
+PETSc.Sys.Print("Error vs mesh size  saved to test_4_dof.png")
 
