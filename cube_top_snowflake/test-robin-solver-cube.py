@@ -82,7 +82,7 @@ for i in range(0, len(MH)):
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
   PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
-  PETSc.Sys.print("--- time used in solving PDE: %s seconds ---" % (time.time() - start_time))
+  PETSc.Sys.Print("--- time used in solving PDE: %s seconds ---" % (time.time() - start_time))
 
 NN=np.array([1.1*(mh[i]/mh[1])**2*err[1] for i in range(0,len(err))])
 NN2=np.array([1.1*(mh[i]/mh[1])*err2[1] for i in range(0,len(err))])
