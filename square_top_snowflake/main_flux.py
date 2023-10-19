@@ -31,11 +31,11 @@ for Lambda in LL:
   solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "cg", "pc_type": "none"})
   Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(4))
   Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(4))
-  print(Phi_temp)
-  print(Phi_temp2)
+  print("flux ",Phi_temp)
+  print("flux computed by robin",Phi_temp2)
   Phi.append(Phi_temp)
   cc_temp=D*(4/3)**nn/Lambda
-  print(cc_temp)
+  print("DL_p/Lambda", cc_temp)
   cc.append(cc_temp)
 
 fig, axes = plt.subplots()
