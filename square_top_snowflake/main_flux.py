@@ -39,8 +39,8 @@ for Lambda in LL:
   cc.append(cc_temp)
 
 fig, axes = plt.subplots()
-plt.plot(LL, Phi,marker='o')
-plt.plot(LL, cc,marker='o')
+plt.loglog(LL, Phi,marker='o')
+plt.loglog(LL, cc,marker='o')
 plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
 plt.xlabel('$\Lambda$')
 plt.savefig("Phi_Lam.png")
