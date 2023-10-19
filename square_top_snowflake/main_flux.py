@@ -6,12 +6,12 @@ from firedrake import *
 # choose a triangulation
 mesh_file = 'unit_square_with_koch.msh'
 mesh = Mesh(mesh_file)
-MH = MeshHierarchy(mesh, 4)
-mesh=MH[4]
+MH = MeshHierarchy(mesh, 3)
+mesh=MH[3]
 n = FacetNormal(mesh)
 
 # functoin space
-V = FunctionSpace(mesh, "Lagrange", 2)
+V = FunctionSpace(mesh, "Lagrange", 1)
 
 # define the exact solution and f
 x, y = SpatialCoordinate(mesh)
@@ -34,11 +34,12 @@ for Lambda in LL:
   solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "cg", "pc_type": "none"})
   Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(4))
   Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(4))
-  PETSc.Sys.Print("flux ",Phi_temp)
-  PETSc.Sys.Print("flux computed by robin",Phi_temp2)
+  PETSc.Sys.Print("---Result with Lambda: %s  ---" % Lambda) 
+  PETSc.Sys.Print("flux:",Phi_temp)
+  PETSc.Sys.Print("flux computed by robin:",Phi_temp2)
   Phi.append(Phi_temp)
   cc_temp=D*(4/3)**nn/Lambda
-  PETSc.Sys.Print("DL_p/Lambda", cc_temp)
+  PETSc.Sys.Print("DL_p/Lambda:", cc_temp)
   cc.append(cc_temp)
 
 PETSc.Sys.Print("--- running in %s seconds ---" % (time.time() - start_time))
