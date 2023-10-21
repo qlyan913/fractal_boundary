@@ -15,8 +15,8 @@ def koch_snowflake(vertices,new_vertices, level):
    all_vertices = np.array([-1,-1]) # initiate the array
    vertices_d = np.array([-1,-1]) # initiate the array 
    for i in range(len(new_vertices) - 1):
-      xl = vertices[i]
-      xr = vertices[i + 1]
+      xl = new_vertices[i]
+      xr = new_vertices[i + 1]
       # Calculate the new points
       dx = xr - xl
       ndx = np.linalg.norm(dx)
