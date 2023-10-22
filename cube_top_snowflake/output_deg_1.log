@@ -1,47 +1,47 @@
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
 Test: Solution u=2+x^2+3xy+yz on Unit Cube
-Refined Mesh  0  with max mesh size  0.11284568978726049
+Refined Mesh  0  with max mesh size  0.11284568978726046
 Solving the PDE ...
-Error of solution in L2 norm is  0.003903310748368006
+Error of solution in L2 norm is  0.0039033107483679615
 Error of solution in H1 norm is  0.18224326179631564
 Error of solution at bottom in L2 norm is  0.0019167394339037538
-Refined Mesh  1  with max mesh size  0.06133717081714146
+Refined Mesh  1  with max mesh size  0.07413470402239171
 Solving the PDE ...
-Error of solution in L2 norm is  0.0012801106999728745
-Error of solution in H1 norm is  0.10109748487834072
-Error of solution at bottom in L2 norm is  0.0004791848584759386
-Refined Mesh  2  with max mesh size  0.03736359876530082
+Error of solution in L2 norm is  0.0012801106999727981
+Error of solution in H1 norm is  0.10109748487834068
+Error of solution at bottom in L2 norm is  0.00047918485847594014
+Refined Mesh  2  with max mesh size  0.04365581008004265
 Solving the PDE ...
-Error of solution in L2 norm is  0.00039370609006684804
-Error of solution in H1 norm is  0.05401324200050667
-Error of solution at bottom in L2 norm is  0.0001197962146190017
-Refined Mesh  3  with max mesh size  0.026135369212055577
+Error of solution in L2 norm is  0.00039370609006768683
+Error of solution in H1 norm is  0.05401324200050663
+Error of solution at bottom in L2 norm is  0.0001197962146189945
+Refined Mesh  3  with max mesh size  0.020985507421934016
 Solving the PDE ...
-Error of solution in L2 norm is  0.00011144937278725665
-Error of solution in H1 norm is  0.027937770785005443
-Error of solution at bottom in L2 norm is  2.994905365476204e-05
+Error of solution in L2 norm is  0.00011144937278522917
+Error of solution in H1 norm is  0.027937770785005513
+Error of solution at bottom in L2 norm is  2.994905365475984e-05
 Error vs mesh size  saved to test.png
 Error vs mesh size  saved to test_dof.png
 Test: Solution u=2+x+3*y+z on UnitCube
-Refined Mesh  0  with max mesh size  0.1128456897872605
+Refined Mesh  0  with max mesh size  0.11284568978726046
 Solving the PDE ... 
-Error of solution in L2 norm is  5.592302440600384e-15
-Error of solution in H1 norm is  4.5671685177925434e-14
+Error of solution in L2 norm is  4.8471016827313495e-15
+Error of solution in H1 norm is  4.506889050914052e-14
 Error of solution at bottom in L2 norm is  3.5002380962843884e-16
-Refined Mesh  1  with max mesh size  0.06133717081714146
+Refined Mesh  1  with max mesh size  0.07413470402239171
 Solving the PDE ... 
-Error of solution in L2 norm is  2.0389271257397457e-14
-Error of solution in H1 norm is  1.105126231304879e-13
-Error of solution at bottom in L2 norm is  3.6939272052046057e-16
-Refined Mesh  2  with max mesh size  0.03736359876530082
+Error of solution in L2 norm is  1.8341162908548377e-14
+Error of solution in H1 norm is  1.1043979016626961e-13
+Error of solution at bottom in L2 norm is  3.5969310059343957e-16
+Refined Mesh  2  with max mesh size  0.04365581008004265
 Solving the PDE ... 
-Error of solution in L2 norm is  8.514209722078086e-14
-Error of solution in H1 norm is  2.8466376318680393e-13
-Error of solution at bottom in L2 norm is  3.60486243974634e-16
-Refined Mesh  3  with max mesh size  0.026135369212055577
+Error of solution in L2 norm is  8.901184770798242e-14
+Error of solution in H1 norm is  2.869282301348875e-13
+Error of solution at bottom in L2 norm is  3.609282799589475e-16
+Refined Mesh  3  with max mesh size  0.020985507421934016
 Solving the PDE ... 
-Error of solution in L2 norm is  2.394972462328474e-13
-Error of solution in H1 norm is  7.26957054379525e-13
-Error of solution at bottom in L2 norm is  3.589686477272465e-16
+Error of solution in L2 norm is  2.6530483698643227e-13
+Error of solution in H1 norm is  7.487713841412347e-13
+Error of solution at bottom in L2 norm is  3.5488483115914504e-16
 Error vs mesh size  saved to test_2.png
 Error vs mesh size  saved to test_2_dof.png
