@@ -48,7 +48,7 @@ for Lambda in LL:
   boundary_ids = (5) # 
   bcs = DirichletBC(V, 1, boundary_ids)
   uh = Function(V)
-  solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "cg", "pc_type": "none"})
+  solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"}) 
   Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(6))
   Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(6))
   Phi.append(Phi_temp)
