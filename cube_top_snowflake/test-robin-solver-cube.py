@@ -42,7 +42,7 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
     solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
     return(uh)
 
-# Test 4: Domain is UnitSqaure with snow flake n=2, solution is u = 2 + x^2 + 3xy+y*z
+# Test 4: Domain is Unit Cube with snow flake n, solution is u = 2 + x^2 + 3xy+y*z
 n=3
 mesh_file =f'unit_cube_with_koch_n{n}.msh'
 mesh = Mesh(mesh_file)
