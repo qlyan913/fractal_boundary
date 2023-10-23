@@ -1,78 +1,190 @@
+# Qile Yan 2023-10-22
 import math
 import numpy as np
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 mesh_size=input("Enter the meshsize: ")
-# Define the Koch snowflake vertices
-def koch_snowflake(vertices,new_vertices, level):
-   # input
-   #   vertices - real array of shape n x 2 (list of vertices)
-   #   level - non-negative integer (number of steps of Koch snowflake generation
-   # return
-   # array of generated vertices  (m x 2)
-   if level == 0:
-      return vertices
-   Rot=np.array([[0, -1],[1, 0]]) # rotation matrix
-   all_vertices = np.array([-1,-1]) # initiate the array
-   vertices_d = np.array([-1,-1]) # initiate the array 
-   for i in range(len(new_vertices) - 1):
-      xl = new_vertices[i]
-      xr = new_vertices[i + 1]
-      # Calculate the new points
-      dx = xr - xl
-      ndx = np.linalg.norm(dx)
-      x1 = xl + dx/3.
-      x2 = x1 + np.matmul(Rot,dx/3.) # rotate the vector 60 degree
-      x3 = x2 + dx/3.
-      x4 = x1 + dx/3.
-      all_vertices = np.vstack([all_vertices,xl, x1,x2,x3,x4])
-      vertices_d = np.vstack([vertices_d, x1,x2,x3,x4])
+#  Create a mesh a cube where the top is replaced by snowflake
+#  Boundary surfaces are numbered as follows:
+#  1: Top    x == 1
+#  2: Right  y == 1
+#  3: Bottom x == 0
+#  4: Left  y == 0
 
-   # delete first row
-   all_vertices = np.delete(all_vertices,0,0)
-   vertices_d = np.delete(vertices_d,0,0)
-   all_vertices = np.vstack([all_vertices, vertices[-1]])  # Add the last point
-   return koch_snowflake(all_vertices, vertices_d, level - 1)
+def divide_line(vertices):
+    # input
+    # vertices - array of shape 2x3.
+    #          - two points P1 P2
+    # out put
+    # array of shape 2x3. Two points N1 and N2 on the line P1P2.
+    #
+    #          N3-------N4
+    #          |        |
+    #          |        |
+    #  P1 ---- N1 ----- N2 -----P2
+    Rot=np.array([[0, -1],[1, 0]]) # rotation matrix
+    P1 = vertices[0]
+    P2 = vertices[1]
+    dx = P2-P1
+    N1 = P1+dx/3.
+    N2 = N1+dx/3.
+    N3 = N1 + np.matmul(Rot,dx/3.) # rotate the vector 60 degree
+    N4 = N3 + dx/3. 
+    return np.array([N1,N2,N3,N4])
 
-# Parameters
-#n =  4  # Number of iterations for Koch snowflake
-#mesh_size =0.02# Mesh size
-mesh_size2=mesh_size
-# Define the vertices for the Koch snowflake on top
-vertices_koch = koch_snowflake(np.array([[0, 1], [1, 1]]),np.array([[0, 1], [1, 1]]),n)
+def koch_snowflake(line_segments,line_to_be_divide, level):
+    # line_segments: each element is a line of two points [P1,P2] those will never be divided again
+    #                P1--------->---------P2
+    # line_to_be_divide: each element is a line of two points [P1,P2]  those will be divided in next step
+    if level == 0:
+        return line_segments,line_to_be_divide
+    new_line_to_be_divide=[]
+    for i in range(len(line_to_be_divide)):
+        ld = line_to_be_divide[i]
+        P1 = ld[0]
+        P2 = ld[1]
+        N1, N2, N3, N4 =divide_line(np.array([P1,P2]))
+        new_line=[np.array([P1,N1]),np.array([N2,P2])]
+        for j in range(len(new_line)):
+            line_segments.append(new_line[j])  
+        new_line_tb_div=[np.array([N1,N3]),np.array([N3,N4]),np.array([N4,N2])]
+        for j in range(len(new_line_tb_div)):
+            new_line_to_be_divide.append(new_line_tb_div[j])
+            
+    return koch_snowflake(line_segments,new_line_to_be_divide, level - 1)
 
-# Generate the Gmsh script
 gmsh_script = f"""
-SetFactory("OpenCASCADE");
-
-// Define the unit square
-Point(1) ={{1, 1, 0, {mesh_size}}};
-Point(2) = {{1, 0, 0, {mesh_size}}};
-Point(3) = {{0, 0, 0, {mesh_size}}};
-Point(4) = {{0, 1, 0, {mesh_size}}};
-Line(1) = {{1, 2}};
-Line(2) = {{2, 3}};
-Line(3) = {{3, 4}};
-// Define the Koch snowflake
+//SetFactory("OpenCASCADE");
 """
-# Add Koch snowflake vertices and lines to the script
-gmsh_script += "".join(f"Point({i + 5})={{{vertex[0]},{vertex[1]},0,{mesh_size2}}};\n Line({i + 4}) = {{{i + 4}, {i + 5}}};\n" for i, vertex in enumerate(vertices_koch[1:-1]))
-gmsh_script += f"Line({2+len(vertices_koch)}) = {{{2+len(vertices_koch)},{1}}};\n"
+pp=0
+### Add points
+# top snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[0,1],[1,1]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Point({pp+1})={{"
+    gmsh_script += f"{P1[0]},{P1[1]},0,{mesh_size}}};\n"
+    gmsh_script += f"Point({pp+2})={{"
+    gmsh_script += f"{P2[0]},{P2[1]},0,{mesh_size}}};\n"
+    pp=pp+2
+  
+# right side snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[1,1],[1,0]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Point({pp+1})={{"
+    gmsh_script += f"{P1[0]},{P1[1]},0,{mesh_size}}};\n"
+    gmsh_script += f"Point({pp+2})={{"
+    gmsh_script += f"{P2[0]},{P2[1]},0,{mesh_size}}};\n"
+    pp=pp+2
 
-# Define a line loop for the Koch snowflake
+# bottom snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[1,0],[0,0]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Point({pp+1})={{"
+    gmsh_script += f"{P1[0]},{P1[1]},0,{mesh_size}}};\n"
+    gmsh_script += f"Point({pp+2})={{"
+    gmsh_script += f"{P2[0]},{P2[1]},0,{mesh_size}}};\n"
+    pp=pp+2
+ 
+# left side snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[0,0],[0,1]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Point({pp+1})={{"
+    gmsh_script += f"{P1[0]},{P1[1]},0,{mesh_size}}};\n"
+    gmsh_script += f"Point({pp+2})={{"
+    gmsh_script += f"{P2[0]},{P2[1]},0,{mesh_size}}};\n"
+    pp=pp+2
+
+pp=0
+ll=0
+##### add line
+# top snowflake
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Line({ll+1}) ={{{pp+1},{pp+2}}};\n"
+    pp=pp+2
+    ll=ll+1
+L1=int(ll)+1
+top_list=range(1,L1)
+# right side snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[1,1],[1,0]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Line({ll+1}) ={{{pp+1},{pp+2}}};\n"
+    pp=pp+2
+    ll=ll+1
+L2=int(ll)+1
+right_list=range(L1,L2)
+# bottom snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[1,0],[0,0]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Line({ll+1}) ={{{pp+1},{pp+2}}};\n"
+    pp=pp+2
+    ll=ll+1
+L3=int(ll)+1
+bot_list=range(L2,L3)
+# left side snowflake
+line_list,line_list2=koch_snowflake([],[np.array([[0,0],[0,1]])], n)
+line_list=line_list+line_list2
+for i in range(len(line_list)):
+    l=line_list[i]
+    P1=l[0]
+    P2=l[1]
+    gmsh_script += f"Line({ll+1}) ={{{pp+1},{pp+2}}};\n"
+    pp=pp+2
+    ll=ll+1
+L4=int(ll)+1
+left_list=range(L3,L4)
+
+gmsh_script+="""
+Coherence;
+"""
 gmsh_script += "Curve Loop(1) = {" + \
-    ", ".join([f"{i}" for i in range(1, len(vertices_koch) + 3)]) + \
+    ", ".join([f"{i}" for i in range(1, ll+1)]) + \
     "};\nPlane Surface(1) = {1};\n"
 
-gmsh_script += f"""
-Physical Curve("Right") = {{1}};
-Physical Curve("Bottom") = {{2}};
-Physical Curve("Left") = {{3}};\n"""
 gmsh_script += """Physical Curve("Top")= {""" + \
-    ", ".join([f"{i}" for i in range(4, 4+len(vertices_koch) - 1)]) + \
+    ", ".join([f"{i}" for i in top_list]) + \
+    "};\n"
+gmsh_script += """Physical Curve("Right")= {""" + \
+    ", ".join([f"{i}" for i in right_list]) + \
+    "};\n"
+gmsh_script += """Physical Curve("Bottom")= {""" + \
+    ", ".join([f"{i}" for i in bot_list]) + \
+    "};\n"
+gmsh_script += """Physical Curve("Left")= {""" + \
+    ", ".join([f"{i}" for i in left_list]) + \
     "};\n"
 
-gmsh_script += f"""
-Physical Surface("sur")={{1}};\n"""
+gmsh_script+="""
+Physical Surface(1)={1};\n
+Coherence;
+"""
+
+
 # Save the Gmsh script to a file
 with open("unit_square_with_koch.geo", "w") as f:
     f.write(gmsh_script)
@@ -97,3 +209,4 @@ plt.ylabel('Y')
 plt.title('Koch Snowflake Mesh')
 plt.show()
 plt.savefig("snow.png")
+
