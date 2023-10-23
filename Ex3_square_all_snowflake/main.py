@@ -22,7 +22,7 @@ def snowsolver(mesh, f,g,V):
     # list of boundary ids that corresponds to the exterior boundary of the domain
     boundary_ids = (1,2,3,4) # 1:top 2:right 3:bottom 4:left
     bcs = DirichletBC(V, g, boundary_ids)
-    uh = Function(V)
+    uh = Function(V,name="uh")
     solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
     return(uh)
 
@@ -31,7 +31,7 @@ mesh=MH[5]
 x, y = SpatialCoordinate(mesh)
 V = FunctionSpace(mesh, "Lagrange", 1)
 f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-g=0
+g=0.0
 uh = snowsolver(mesh, f,g,V)
 
 # plot f
@@ -47,5 +47,11 @@ fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
 plt.savefig("solution.png")
+
+with CheckpointFile("solution.h5",'w') as afile:
+  afile.save_mesh(mesh)
+  afile.save_function(uh)
+
+
 
 
