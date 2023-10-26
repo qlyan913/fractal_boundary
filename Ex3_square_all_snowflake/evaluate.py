@@ -18,6 +18,15 @@ plt.plot(ii,uu,marker='o')
 plt.ylabel('evaluation of solution')
 plt.xlabel('$i$-th point')
 plt.savefig("evaluate.png")
+plt.close()
+
+plt.figure()
+plt.semilogy(ii,uu,marker='o')
+plt.ylabel('evaluation of solution')
+plt.xlabel('$i$-th point')
+plt.savefig("evaluate_logy.png")
+plt.close()
+
 
 print("evaluation of solution  at points:")
 print(pp1)
