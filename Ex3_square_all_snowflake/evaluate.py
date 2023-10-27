@@ -6,8 +6,8 @@ with CheckpointFile("solution.h5",'r') as afile:
   uh=afile.load_function(mesh,"uh")
 
 plt.figure()
-ii=[1,2,3,4,5]
-uu=[]
+ii=[1,2,3,4,5] 
+uu=[] # value of solution at points
 x_list=[]
 pp1=[]
 pp2=[]
@@ -22,10 +22,14 @@ plt.xlabel('position of $x$')
 plt.savefig("evaluate.png")
 plt.close()
 
+tt=x_list
+tt=np.array([(x_list[1]/x_list[i])**3*uu[1] for i in range(0,len(uu))])
 plt.figure()
 plt.loglog(x_list,uu,marker='o')
+plt.loglog(x_list,tt,marker='v')
 plt.ylabel('evaluation of solution')
 plt.xlabel('position of $x$')
+plt.legend(['value of solution','$x^{-3}$'])
 plt.savefig("evaluate_log.png")
 plt.close()
 
