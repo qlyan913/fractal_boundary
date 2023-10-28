@@ -54,7 +54,7 @@ err2=[]
 PETSc.Sys.Print("Test: Solution u=2+x^2+3xy+yz on Unit Cube")
 #deg=input("Enter the degree of polynomial: ")
 deg=1
-for i in range(0, 4):
+for i in range(0, 5):
  # mesh=MH[i]
   with CheckpointFile(f"refined_cube_{i}.h5","r") as afile:
      mesh=afile.load_mesh()
@@ -121,7 +121,7 @@ err=[]
 err2=[]
 PETSc.Sys.Print("Test: Solution u=2+x+3*y+z on UnitCube")
 
-for i in range(0, 4):
+for i in range(0, 5):
   with CheckpointFile(f"refined_cube_{i}.h5","r") as afile:
      mesh=afile.load_mesh()
   PETSc.Sys.Print("Refined Mesh ", i, " with max mesh size " , mesh.cell_sizes.dat.data.max())
