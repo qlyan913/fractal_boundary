@@ -1,0 +1,312 @@
+\documentclass[12pt]{article}%
+\usepackage[T1]{fontenc}
+\usepackage[toc,page]{appendix}
+\usepackage[latin9]{inputenc}
+\usepackage{pdfsync}
+\usepackage{geometry}
+\usepackage{enumerate}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{amstext}
+\usepackage{amssymb,amsmath}
+\usepackage{esint}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\usepackage{graphicx}
+\numberwithin{equation}{section}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{col}{Corollary}[section]
+\newtheorem{dfn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{remark}{Remark}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\end{eqnarray}}
+\usepackage{hyperref}
+\setcounter{secnumdepth}{5}
+\hypersetup{bookmarksopen=true}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{color}
+\begin{document}
+
+\title{Notes on Laplacian on domains with fractal boundary}
+\author{Qile Yan}
+\date{\today}
+\maketitle
+\section{Problem setting } 
+\subsection{fractal boundary with a few steps of Koch snowflake}
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+         \caption{$n=2$}
+\includegraphics[width=\linewidth]{figures/Ex1/Ex1_snow_n2.pdf}
+\end{subfigure}
+ \begin{subfigure}[h]{0.45\linewidth}
+ \caption{$n=4$}
+\includegraphics[width=\linewidth]{figures/Ex1/Ex1_snow_n4.pdf}
+\end{subfigure}
+  \caption{Unit square with the top edge replaced by a Koch snowflake with $n$ iterations.}
+  \label{fig:snow_2d}
+ \end{figure}
+2D: Let $n$ be the number of iterations in the snowflake (See Fig. \ref{fig:snow_2d}, meshsize=0.02 for all vertices in .geo).  The total number of small sides is $4^n$ and the small length scale $l=\left(\frac{1}{3}\right)^n$. Thus, the perimeter of the snowflake $L_p=\left(\frac{4}{3}\right)^n$. 
+
+Python script for creating the 2D mesh: snow\_square.py. 
+
+3D: Let $n$ be the number of iterations in the snowflake (See Fig. \ref{fig:snow_3d}, meshsize=0.1 for all vertices in .geo). The total number of small squares is $13^n$ and the small area is $l=(\frac{1}{9})^n$. Thus, the perimeter of the snowflake $L_p=\left(\frac{13}{9}\right)^n$. 
+
+%Remark: In Fig. \ref{fig:snow_3d}(c), the figure is created by Matlab as following: convert .msh file to .stl file in gmsh then it is converted to .obj file in MeshLab. If we plot the mesh using firedrake directly, the top surface has the same color which make it hard to read.
+
+Python script for creating the 3D mesh: snow\_cube.py. 
+
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+         \caption{$n=2$}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_snow_cube_2.png}
+\end{subfigure}
+% \begin{subfigure}[h]{0.32\linewidth}
+ %\caption{$n=2$}
+%\includegraphics[width=\linewidth]{snow_cube_2.png}
+%\end{subfigure}
+ \begin{subfigure}[h]{0.45\linewidth}
+ \caption{$n=3$}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_snow_cube_3.png}
+\end{subfigure}
+  \caption{Unit cube with the top surface replaced by a Koch snowflake with $n$ iterations.}
+  \label{fig:snow_3d}
+ \end{figure}
+
+
+\subsection{PDEs}
+Solve 
+\begin{equation}
+-\text{div}(D\text{grad}u)=0\quad\text{on}\ \Omega
+\label{eq1}
+\end{equation}
+$\Omega$:
+\begin{enumerate}[(a)]
+\item the unit square in which the top edge has been replaced by a prefractal.
+\item the unit cube in which the top face is replaced by a prefractal.
+\end{enumerate}
+Boundary conditions: 
+\begin{enumerate}[(a)]
+\item on bottom edge, Dirichlet: $u=1$.
+\item on sides, homogeneous Neumann: $\frac{\partial u}{\partial n}=0$.
+\item on prefractal top edge, Robin boundary conditions: $\Lambda\frac{\partial u}{\partial n}+u=0$.
+\end{enumerate}
+
+The total flux through the top edge: 
+$$
+\Phi:=\int_{top}-D\frac{\partial u}{\partial n}d\sigma=\frac{D}{\Lambda}\int_{top}ud\sigma.
+$$
+We need to see how $\Phi$ depends on $\Lambda$ for $0\leq \Lambda\leq 2L_p$.
+
+\section{Test firedrake solver on 2D and 3D}
+Consider the Laplace equation $-\text{div}(D\text{grad}u)=f$ with non homogeneous condition: 
+\begin{enumerate}[(a)]
+\item on bottom edge/surface, Dirichlet: $u=g$.
+\item on sides, homogeneous Neumann: $\frac{\partial u}{\partial n}=k$.
+\item on prefractal top edge/surface, Robin boundary conditions: $\Lambda\frac{\partial u}{\partial n}+u=l$.
+\end{enumerate}
+
+The weak formulation: Find $u\in H^1$ with $u=g$ on bottom such that 
+$$
+\int_\Omega D\text{grad}(u)\cdot \text{grad}(v) dx+\int_{top}\frac{D}{\Lambda}u vds=\int_\Omega fv dx+\int_{top}\frac{1}{\Lambda} lvds+\int_{sides}kvds,\quad \forall v\in H^1_0
+$$
+\subsection{2D case}
+In Fig. \ref{fig:Ex1_test}, we plot the error in $L^2$ and $H^1$ norm with respect to mesh size $h$. The manufactured solution is $u(x,y)= 2+x^2+y$ on the unit square with snowflake ($n=4$ iterations). The Lagrange linear element is used. The uniform refinement is done by built-in function MeshHierarchy.
+
+The test python script on 2D is: test-robin-solver.py. 
+
+\begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex1/Ex1_test.png}
+\end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+   \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex1/Ex1_test_dof.png}
+\end{subfigure}
+  \caption{Unit square: Solution $u=x^2+y+2$.}
+  \label{fig:Ex1_test}
+ \end{figure}
+
+\subsection{3D case}
+In Fig. \ref{fig:Ex2_test} and Fig.  \ref{fig:Ex2_test_2}, we plot the error in $L^2$ and $H^1$ norm with respect to mesh size $h$ and degree of freedom where domain is unit cube with snowflake $n=3$ iterations. Here, we use the standard Lagrange linear element is used. To check the convergence rate, the uniform refinement is done by built-in function MeshHierarchy on the mesh in Fig. \ref{fig:snow_3d} (b). We consider two manufactured solutions (a).  $u(x,y,z)= 2+x+3y+z$.  (b). $u(x,y,z)= 2+x^2+3xy+yz$. The first one is a linear function in the element space while the second one is not.
+
+ In Fig. \ref{fig:Ex2_test}, the discrete linear system is solved by computing LU factorisation. In the code, we set " solver\_parameters={'ksp\_type': 'preonly', 'pc\_type': 'lu'}) "
+ 
+ In Fig. \ref{fig:Ex2_test_2}, the linear system is solved using Krylov subspace methods (conjugate gradient method since the operator is SPD). Besides, the preconditioner is chosen to be BoomerAMG. In the code, we set "solver\_parameters={'ksp\_type': 'cg', 'pc\_type': 'hypre','pc\_hypre\_type': 'boomeramg'} ".
+
+From the first row of Fig. \ref{fig:Ex2_test} and Fig. \ref{fig:Ex2_test_2}, we can see that for linear solution $u$ the only round off error appears in the case when LU factorisation is used. But the error from using Krylov subspace is around $5*10^{-7}$ to  $5*10^{-6}$. On the other hand, the Krylov subspace method solve the linear system faster and also could deal with a finer mesh when degree of freedom is $10^7$.
+
+The test python script on 3D is: test-robin-solver-cube.py.  The script is run by the following parallelsim command 
+
+mpiexec -n 16 python test-robin-solver-cube.py
+
+
+\begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_LU.png}
+\end{subfigure}
+    \begin{subfigure}[h]{0.45\linewidth}
+     \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_dof_LU.png}
+\end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_2_LU.png}
+\end{subfigure}
+    \begin{subfigure}[h]{0.45\linewidth}
+     \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_2_dof_LU.png}
+\end{subfigure}
+  \caption{Unit cube: The linear system is solved by  LU factorisation. }
+  \label{fig:Ex2_test}
+ \end{figure}
+\begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test.png}
+\end{subfigure}
+    \begin{subfigure}[h]{0.45\linewidth}
+     \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_dof.png}
+\end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_2.png}
+\end{subfigure}
+    \begin{subfigure}[h]{0.45\linewidth}
+     \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex2/Ex2_test_2_dof.png}
+\end{subfigure}
+  \caption{Unit cube. The linear system is solved by Krylov subspace methods }
+  \label{fig:Ex2_test_2}
+ \end{figure}
+
+
+
+\section{$\Omega$ is unit square and D is constant}
+Now, we solve the PDE (\ref{eq1}) on 2D unit square using firedrake with the finest mesh in Fig. \ref{fig:test_on_2d}. In Fig. \ref{flux_square}, we plot the flux $\Phi=\int_{top}-D\frac{\partial u}{\partial n}d\sigma$ with different choice of $\Lambda$.
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+         \caption{Solution when $D=1,\Lambda=1$}
+\includegraphics[width=\linewidth]{figures/Ex1/solution_D1_Lam1.png}
+\end{subfigure}
+ \begin{subfigure}[h]{0.45\linewidth}
+         \caption{Total flux vs $\Lambda$}
+\includegraphics[width=\linewidth]{figures/Ex1/Phi_Lam_n4.png}
+\end{subfigure}
+  \caption{Snowflake with $n=4$ iterations. (a). Solutions. (b) Total flux vs $\Lambda$ when $D=1$. Python script: main\_flux.py.}
+  \label{flux_square}
+ \end{figure}
+
+\section{$\Omega$ is unit cube and D is constant}
+Now, we solve the PDE (\ref{eq1}) on 3D unit cube using firedrake with the finest mesh in Fig. \ref{fig:test_on_3d_2}. In Fig. \ref{flux_cube}, we plot the flux $\Phi=\int_{top}-D\frac{\partial u}{\partial n}d\sigma$ with different choice of $\Lambda$.
+  \begin{figure}[H]%
+    \centering
+ \begin{subfigure}[h]{0.45\linewidth}
+         \caption{Total flux vs $\Lambda$}
+\includegraphics[width=\linewidth]{figures/Ex2/Phi_Lam_cube.png}
+\end{subfigure}
+  \caption{Snowflake with $n=3$ iterations on Cube. Total flux vs $\Lambda$ when $D=1$. Python script: main\_flux.py.}
+  \label{flux_cube}
+ \end{figure}
+
+
+
+\section{Fractal boundary with Dirichlet Boundary conditon}
+In this section, we solve the PDE 
+\begin{equation}
+-\Delta u =f \quad\text{on }\Omega
+\label{eqn:Ex3}
+\end{equation}
+with $u=0$ on $\partial \Omega$. Here, $\Omega$ is a unit square where each edges are replaced by the Koch snowflake (See Fig. \ref{fig:snow_2d_Dirichlet}).
+
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+         \caption{$n=2$}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_snow_square_2.pdf}
+\end{subfigure}
+ \begin{subfigure}[h]{0.45\linewidth}
+ \caption{$n=4$}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_snow_square_4.pdf}
+\end{subfigure}
+  \caption{Unit square with each edges replaced by a Koch snowflake with $n$ iterations. Meshsize is 0.1 for each vertices in .geo file.}
+  \label{fig:snow_2d_Dirichlet}
+ \end{figure}
+
+In Fig. \ref{fig:Ex3_test} and Fig.  \ref{fig:Ex3_test_2}, we plot the error in $L^2$ and $H^1$ norm with respect to mesh size $h$ and degree of freedom where domain is unit cube with snowflake ($n=3$ iterations). In Fig. \ref{fig:Ex3_test}, the manufactured solution is $u(x,y)= 2+x+3y$. In Fig. \ref{fig:Ex3_test_2}, the manufactured solution is $u(x,y,z)= 2+x^2+y$. The Lagrange linear element is used. The uniform refinement is done by built-in function MeshHierarchy.
+
+\begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_test.png}
+\end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+   \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_test_dof.png}
+\end{subfigure}
+  \caption{Unit square: Solution $u=x+3y+2$. linear finite element space. Note that only round off error appears here since the solution is in the finite element space.}
+  \label{fig:Ex3_test}
+ \end{figure}
+ \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+          \caption{Error vs mesh size}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_test_2.png}
+\end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+   \caption{Error vs degree of freedom}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_test_2_dof.png}
+\end{subfigure}
+  \caption{Unit square: Solution $u=x^2+y+2$. linear finite element space }
+  \label{fig:Ex3_test_2}
+ \end{figure}
+ 
+ In Fig. \ref{Ex3_solution}(b), we plot the solution of the PDE (\ref{eqn:Ex3}) with $f$ defined as in  Fig. \ref{Ex3_solution}(a). 
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+         \caption{f}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_f.png}
+\end{subfigure}
+ \begin{subfigure}[h]{0.45\linewidth}
+         \caption{Solution $u$}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_solution.png}
+\end{subfigure}
+  \caption{On unit square with snowflake. (a). force term $f$. (b) solution of the PDE (\ref{eqn:Ex3}). }
+  \label{Ex3_solution}
+ \end{figure}
+ 
+
+  \begin{figure}[H]%
+    \centering
+         \begin{subfigure}[h]{0.45\linewidth}
+\includegraphics[width=\linewidth]{figures/Ex3/Ex3_evaluate.png}
+\end{subfigure}
+  \caption{On unit square with snowflake.  Evaluation of solution at a sequence points $\{\textbf{x}_i\}_{i=0}^4$ where $\textbf{x}_i$ is the center of the square from $i$-th snowflake iteration. }
+  \label{Ex3_evaluation}
+ \end{figure}
+  
+\bibliographystyle{unsrt}
+\bibliography{bibfile}
+\end{document}
