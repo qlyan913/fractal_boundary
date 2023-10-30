@@ -4,7 +4,7 @@ $-\text{div}(D\text{grad}u)=0\ \\text{on}\ \Omega$
 
 $\Omega$: the unit square wherethe top edge has been replaced by a triangle prefractal.
 
-Boundary conditions: 
+The boundary conditions
 
 On bottom edge, Dirichlet: $u=1$.
 
