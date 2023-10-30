@@ -1,7 +1,7 @@
 In this example, we solve
-$$
+$
 -\text{div}(D\text{grad}u)=0\quad\text{on}\ \Omega
-$$
+$
 $\Omega$: the unit square wherethe top edge has been replaced by a triangle prefractal.
 Boundary conditions: 
 
