@@ -1,6 +1,6 @@
 In this example, we solve
 
-$-\text{div}(D\nabla u)=0\ \\text{on}\ \Omega$
+$-\text{div}(D\text{grad}u)=0\ \\text{on}\ \Omega$
 
 $\Omega$: the unit square wherethe top edge has been replaced by a triangle prefractal.
 
