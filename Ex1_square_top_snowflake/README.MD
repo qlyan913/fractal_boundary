@@ -12,6 +12,7 @@ On sides, homogeneous Neumann: $\frac{\partial u}{\partial n}=0$.
 
 On prefractal top edge, Robin boundary conditions: $\Lambda\frac{\partial u}{\partial n}+u=0$.
 
-
+1. To generate the domain, run 
+'python3 snow_square.py'
 
 
