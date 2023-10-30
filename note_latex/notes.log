@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.7)  28 OCT 2023 02:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.7)  30 OCT 2023 14:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -688,59 +688,85 @@ es/Ex2/Phi_Lam_cube.png>]
 <figures/Ex3/Ex3_test.png, id=213, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_test.png Graphic file (type png)
 <use figures/Ex3/Ex3_test.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test.png  used on input line 262.
+Package pdftex.def Info: figures/Ex3/Ex3_test.png  used on input line 263.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
 <figures/Ex3/Ex3_test_dof.png, id=214, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_test_dof.png Graphic file (type png)
 <use figures/Ex3/Ex3_test_dof.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_dof.png  used on input line 266.
+Package pdftex.def Info: figures/Ex3/Ex3_test_dof.png  used on input line 267.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
 <figures/Ex3/Ex3_test_2.png, id=215, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_test_2.png Graphic file (type png)
 <use figures/Ex3/Ex3_test_2.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_2.png  used on input line 275.
+Package pdftex.def Info: figures/Ex3/Ex3_test_2.png  used on input line 276.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
 <figures/Ex3/Ex3_test_2_dof.png, id=216, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_test_2_dof.png Graphic file (type png)
 <use figures/Ex3/Ex3_test_2_dof.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_2_dof.png  used on input line 279
+Package pdftex.def Info: figures/Ex3/Ex3_test_2_dof.png  used on input line 280
 .
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
  [7 <./figures/Ex3/Ex3_snow_square_2.pdf> <./figures/Ex3/Ex3_snow_square_4.pdf>
  <./figures/Ex3/Ex3_test.png> <./figures/Ex3/Ex3_test_dof.png>]
-<figures/Ex3/Ex3_f.png, id=288, 462.528pt x 346.896pt>
+
+LaTeX Warning: Reference `Ex3_solution_v2' on page 8 undefined on input line 29
+1.
+
+<figures/Ex3/Ex3_f.png, id=291, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_f.png Graphic file (type png)
 <use figures/Ex3/Ex3_f.png>
-Package pdftex.def Info: figures/Ex3/Ex3_f.png  used on input line 290.
+Package pdftex.def Info: figures/Ex3/Ex3_f.png  used on input line 299.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_solution.png, id=289, 462.528pt x 346.896pt>
+<figures/Ex3/Ex3_solution.png, id=292, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_solution.png Graphic file (type png)
 <use figures/Ex3/Ex3_solution.png>
-Package pdftex.def Info: figures/Ex3/Ex3_solution.png  used on input line 294.
+Package pdftex.def Info: figures/Ex3/Ex3_solution.png  used on input line 303.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_evaluate.png, id=292, 462.528pt x 346.896pt>
+<figures/Ex3/Ex3_evaluate.png, id=293, 462.528pt x 346.896pt>
 File: figures/Ex3/Ex3_evaluate.png Graphic file (type png)
 <use figures/Ex3/Ex3_evaluate.png>
-Package pdftex.def Info: figures/Ex3/Ex3_evaluate.png  used on input line 304.
+Package pdftex.def Info: figures/Ex3/Ex3_evaluate.png  used on input line 308.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
- [8 <./figures/Ex3/Ex3_test_2.png> <./figures/Ex3/Ex3_test_2_dof.png> <./figure
-s/Ex3/Ex3_f.png> <./figures/Ex3/Ex3_solution.png>]
+[8 <./figures/Ex3/Ex3_test_2.png> <./figures/Ex3/Ex3_test_2_dof.png>]
+<figures/Ex3/Ex3_f_2.png, id=304, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_f_2.png Graphic file (type png)
+<use figures/Ex3/Ex3_f_2.png>
+Package pdftex.def Info: figures/Ex3/Ex3_f_2.png  used on input line 319.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_solution_2.png, id=305, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_solution_2.png Graphic file (type png)
+<use figures/Ex3/Ex3_solution_2.png>
+Package pdftex.def Info: figures/Ex3/Ex3_solution_2.png  used on input line 323
+.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_evaluate_2.png, id=306, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_evaluate_2.png Graphic file (type png)
+<use figures/Ex3/Ex3_evaluate_2.png>
+Package pdftex.def Info: figures/Ex3/Ex3_evaluate_2.png  used on input line 328
+.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+ [9 <./figures/Ex3/Ex3_f.png> <./figures/Ex3/Ex3_solution.png> <./figures/Ex3/E
+x3_evaluate.png>]
 No file notes.bbl.
-[9 <./figures/Ex3/Ex3_evaluate.png>] (./notes.aux)
+[10 <./figures/Ex3/Ex3_f_2.png> <./figures/Ex3/Ex3_solution_2.png> <./figures/E
+x3/Ex3_evaluate_2.png>] (./notes.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 67A41C93CDBCD6B4F2FE0D41F36557AF;1705.
+(rerunfilecheck)             Checksum: B387EFB1E69DA55D0C2585E7CF1670BD;1571.
  ) 
 Here is how much of TeX's memory you used:
- 12665 strings out of 476025
- 206161 string characters out of 5790017
+ 12691 strings out of 476025
+ 206860 string characters out of 5790017
  1864388 words of memory out of 5000000
- 32848 multiletter control sequences out of 15000+600000
- 533737 words of font info for 101 fonts, out of 8000000 for 9000
+ 32869 multiletter control sequences out of 15000+600000
+ 534520 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,23n,77p,625b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,23n,77p,625b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -748,21 +774,23 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
 ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive
-/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2
-023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/202
-3/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/
-texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/te
-xmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on notes.pdf (9 pages, 2157955 bytes).
+al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/20
+23/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/public/cm-super/sfrm2074.pfb>
+Output written on notes.pdf (10 pages, 2331325 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 41 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 215 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 
