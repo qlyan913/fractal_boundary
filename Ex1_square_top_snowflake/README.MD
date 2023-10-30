@@ -1,8 +1,6 @@
 In this example, we solve
 
-$
--div(D\nabla u)=0\ \ on\ \Omega
-$
+$-div(D\nabla u)=0\ \ on\ \Omega$
 
 $\Omega$: the unit square wherethe top edge has been replaced by a triangle prefractal.
 
