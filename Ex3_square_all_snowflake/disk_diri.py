@@ -8,29 +8,24 @@
 #
 import matplotlib.pyplot as plt
 from firedrake.petsc import PETSc
-#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-#deg=int(input("Enter the degree of polynomial in FEM space:"))
-file=open('input.txt','r')
-n=int(file.readline())
-deg=int(file.readline())
-file.close()
+deg=int(input("Enter the degree of polynomial in FEM space:"))
 import numpy as np
 from firedrake import *
 # choose a triangulation
-mesh_file = f'domain/koch_{n}.msh'
-mesh = Mesh(mesh_file)
-def snowsolver(mesh, f,g,V):
-    # V = FunctionSpace(mesh, "Lagrange", 1)
+num_refinements = 4
+mesh = UnitDiskMesh(num_refinements)
+def PDE_solver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
     v = TestFunction(V)
     a = dot(grad(u), grad(v))*dx
     L = f*v*dx
     # list of boundary ids that corresponds to the exterior boundary of the domain
-    boundary_ids = (1,2,3,4) # 1:top 2:right 3:bottom 4:left
+    boundary_ids = (1) # 
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V,name="uh")
-    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
 MH = MeshHierarchy(mesh, 3)
@@ -38,9 +33,9 @@ mesh=MH[3]
 x, y = SpatialCoordinate(mesh)
 V = FunctionSpace(mesh, "Lagrange", deg)
 #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-f=exp(-4*((x-0.5)**2+(y-0.5)**2))
+f=exp(-4*((x)**2+(y)**2))
 g=0.0
-uh = snowsolver(mesh, f,g,V)
+uh = PDE_solver(mesh, f,g,V)
 
 # plot f
 fig, axes = plt.subplots()

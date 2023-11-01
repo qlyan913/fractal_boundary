@@ -6,4 +6,5 @@ file.write(f"{n}\n")
 file.write(f"{deg}")
 file.close()
 
-os.system('mpiexec -n 32 python3 h_solver.py')
+# run the script square_solver.py
+os.system('mpiexec -n 32 python3 square_solver.py')
