@@ -3,6 +3,7 @@
 #   -\Delta u =f in Omega
 # u = g on boundary
 #
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
@@ -22,8 +23,8 @@ def snowsolver(mesh, f,g):
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'}) 
     return(uh)
 
-# Test 1: Domain is UnitSqaure with snow flake n=4, solution is u = 2 + x + 3y
-mesh_file = 'unit_square_with_koch.msh'
+# Test 1: Domain is UnitSqaure with snow flake n, solution is u = 2 + x + 3y
+mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
 df=[]
 mh=[]
@@ -59,8 +60,8 @@ plt.loglog(mh, err2,marker='s')
 plt.legend(['$L^2$ error', '$H^1$ error'])
 plt.xlabel('maximum of mesh size')
 #plt.title('Test')
-plt.savefig("test.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test.png")
+plt.savefig(f"figures/koch_{n}_test1.png")
+PETSc.Sys.Print(f"Error vs mesh size  saved to figures/koch_{n}_test1.png")
 plt.close()
 
 NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
@@ -73,11 +74,11 @@ plt.loglog(df, err2,marker='s')
 plt.legend(['$L^2$ error', '$H^1$ error'])
 plt.xlabel('degree of freedom')
 #plt.title('Test')
-plt.savefig("test_dof.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_dof.png")
+plt.savefig(f"figures/koch_{n}_test1_dof.png")
+PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{n}_test1_dof.png")
 plt.close()
 
-# Test 2: Domain is UnitSqaure with snow flake n=4, solution is u = 2 + x^2 + 3xy
+# Test 2: Domain is UnitSqaure with snow flake n, solution is u = 2 + x^2 + 3xy
 df=[]
 mh=[]
 err=[]
@@ -109,9 +110,8 @@ plt.loglog(mh, NN)
 plt.loglog(mh, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(h^2)$','$O(h)$'])
 plt.xlabel('maximum of mesh size')
-#plt.title('Test 4')
-plt.savefig("test_2.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_2.png")
+plt.savefig(f"figures/koch_{n}_test2.png")
+PETSc.Sys.Print(f"Error vs mesh size  saved to figures/koch_{n}_test2.png")
 plt.close()
 
 NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
@@ -123,6 +123,5 @@ plt.loglog(df, NN)
 plt.loglog(df, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
-#plt.title('Test 4')
-plt.savefig("test_2_dof.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_2_dof.png")
+plt.savefig(f"figures/koch_{n}_test2_dof.png")
+PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{n}_test2_dof.png")
