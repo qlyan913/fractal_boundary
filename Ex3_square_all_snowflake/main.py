@@ -6,14 +6,14 @@
 #
 # In this example, we would like to evaluate the solution at center of small squares.
 #
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-deg=int(input("Enter the degree of polynomial of FEM space:"))
 import matplotlib.pyplot as plt
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+deg=int(input("Enter the degree of polynomial in FEM space:"))
 import numpy as np
 from firedrake import *
 from firedrake.petsc import PETSc
 # choose a triangulation
-mesh_file = f'koch_{n}.msh'
+mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
 def snowsolver(mesh, f,g,V):
     # V = FunctionSpace(mesh, "Lagrange", 1)
@@ -33,7 +33,8 @@ MH = MeshHierarchy(mesh, 3)
 mesh=MH[3]
 x, y = SpatialCoordinate(mesh)
 V = FunctionSpace(mesh, "Lagrange", deg)
-f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
+#f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
+f=exp(-4*((x-0.5)**2+(y-0.5)**2))
 g=0.0
 uh = snowsolver(mesh, f,g,V)
 
@@ -44,41 +45,46 @@ ff.interpolate(f)
 collection = tripcolor(ff, axes=axes)
 fig.colorbar(collection);
 plt.savefig(f"figures/f_{n}.png")
+PETSc.Sys.Print(f"The plot of force term f is saved to  figures/f_{n}.png")
 
 # plot solution
 fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
 plt.savefig(f"figures/solution_{n}.png")
+PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
-with CheckpointFile(f"solution_{n}.h5",'w') as afile:
+with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)
 
-x_list=[3/2-(1/3.)**i for i in range(0,n+1)]
+# center points at center of squares of i-th iteration
 pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
+# distance to boundary
+x_list=[(1/3.)**i for i in range(0,n+1)]
+
 uu=uh.at(pp)
 plt.figure()
 plt.plot(x_list,uu,marker='o')
 plt.ylabel('evaluation of solution')
-plt.xlabel('position of $x$')
+plt.xlabel('distance to boundary')
 plt.savefig(f"figures/evaluate_{n}.png")
 plt.close()
-print(f"plot of evaluation of solution is saved in figures/evaluate_{n}.png.")
+PETSc.Sys.Print(f"plot of evaluation of solution is saved in figures/evaluate_{n}.png.")
 
 tt=x_list
-tt=np.array([(x_list[1]/x_list[i])**3*uu[1] for i in range(0,len(uu))])
+tt=np.array([(x_list[i]/x_list[1])**3*uu[1] for i in range(0,len(uu))])
 plt.figure()
 plt.loglog(x_list,uu,marker='o')
 plt.loglog(x_list,tt,marker='v')
 plt.ylabel('evaluation of solution')
-plt.xlabel('position of $x$')
-plt.legend(['value of solution','$x^{-3}$'])
+plt.xlabel('distance to boundary')
+plt.legend(['value of solution','$dist^3$'])
 plt.savefig(f"figures/evaluate_log_{n}.png")
 plt.close()
-print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_log_{n}.png.")
+PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_log_{n}.png.")
 
-print("evaluation of solution  at points:")
-print(pp)
+PETSc.Sys.Print("evaluation of solution  at points:")
+PETSc.Sys.Print(pp)
 print("value:")
 print(uu)

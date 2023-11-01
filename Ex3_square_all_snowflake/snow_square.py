@@ -186,26 +186,25 @@ Coherence;
 
 
 # Save the Gmsh script to a file
-with open(f"koch_{n}.geo", "w") as f:
+with open(f"domain/koch_{n}.geo", "w") as f:
     f.write(gmsh_script)
-
-print(f"Gmsh script has been generated and saved as 'koch_{n}.geo'.")
+print(f"Gmsh script has been generated and saved to 'domain/koch_{n}.geo'.")
 
 import os
-os.system(f'gmsh -2 koch_{n}.geo')
-print("Mesh file saved as 'unit_square_with_koch.msh'.")
+os.system(f'gmsh -2 domain/koch_{n}.geo')
+print(f"Mesh file saved to 'domain/koch_{n}.msh'.")
 
 import firedrake as fd
 import matplotlib.pyplot as plt
 # Load the Gmsh mesh file
-mesh_file = f'koch_{n}.msh'
+mesh_file = f'domain/koch_{n}.msh'
 fd_mesh = fd.Mesh(mesh_file)
 
 # Plot the mesh
 print(f'Finite element mesh has {fd_mesh.num_cells()} cells and {fd_mesh.num_vertices()} vertices.')
 meshplot = fd.triplot(fd_mesh)
 meshplot[0].set_linewidth(0.1)
-meshplot[1].set_linewidth(0.5)
+meshplot[1].set_linewidth(1)
 #plt.xlabel('X')
 #plt.ylabel('Y')
 plt.xlim(-1, 2)
