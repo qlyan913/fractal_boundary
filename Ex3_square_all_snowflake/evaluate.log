@@ -1,9 +1,0 @@
-firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
-evaluation of solution  at points:
-[[0.5, 0.5], [0.5, 0.6666666666666666], [0.5, 0.7222222222222223], [0.5, 0.7407407407407408], [0.5, 0.7469135802469136]]
-value:
-[array(0.02858293), array(0.02127794), array(0.01667617), array(0.01534), array(0.01491376)]
-evaluation of solution  at points: 
-[[0.5, 0.5], [0.6666666666666666, 0.5], [0.7222222222222223, 0.5], [0.7407407407407408, 0.5], [0.7469135802469136, 0.5]]
-value:
-[array(0.02858293), array(0.02128021), array(0.01667811), array(0.01534177), array(0.0149155)]

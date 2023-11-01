@@ -186,27 +186,32 @@ Coherence;
 
 
 # Save the Gmsh script to a file
-with open("unit_square_with_koch.geo", "w") as f:
+with open(f "koch_{n}.geo", "w") as f:
     f.write(gmsh_script)
 
-print("Gmsh script has been generated and saved as 'unit_square_with_koch.geo'.")
+print(f"Gmsh script has been generated and saved as 'koch_{n}.geo'.")
 
 import os
-os.system('gmsh -2 unit_square_with_koch.geo')
+os.system(f'gmsh -2 koch_{n}.geo')
 print("Mesh file saved as 'unit_square_with_koch.msh'.")
 
 import firedrake as fd
 import matplotlib.pyplot as plt
 # Load the Gmsh mesh file
-mesh_file = 'unit_square_with_koch.msh'
+mesh_file = f'koch_{n}.msh'
 fd_mesh = fd.Mesh(mesh_file)
 
 # Plot the mesh
-plt.figure()
-fd.triplot(fd_mesh)
-plt.xlabel('X')
-plt.ylabel('Y')
+print(f'Finite element mesh has {fd_mesh.num_cells()} cells and {fd_mesh.num_vertices()} vertices.')
+meshplot = fd.triplot(fd_mesh)
+meshplot[0].set_linewidth(0.1)
+meshplot[1].set_linewidth(1)
+#plt.xlabel('X')
+#plt.ylabel('Y')
+plt.xlim(-1, 2)
+plt.axis('equal')
 plt.title('Koch Snowflake Mesh')
 plt.show()
-plt.savefig("snow.png")
+plt.savefig(f"figures/snow_{n}.pdf")
+print(f"Mesh plot saved to 'figures/snow_{n}.pdf'.")
 
