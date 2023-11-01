@@ -186,7 +186,7 @@ Coherence;
 
 
 # Save the Gmsh script to a file
-with open(f "koch_{n}.geo", "w") as f:
+with open(f"koch_{n}.geo", "w") as f:
     f.write(gmsh_script)
 
 print(f"Gmsh script has been generated and saved as 'koch_{n}.geo'.")
