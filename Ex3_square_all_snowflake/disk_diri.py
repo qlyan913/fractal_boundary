@@ -4,7 +4,7 @@
 # with u = 0 on boundary
 # Omega is unit disk
 # f: equal to 1 on [1/3,2/3]x[1/3,2/3] and equal to 0 elsewhere
-# or 
+# or
 # f = exp(-4(x^2+y^2))
 # We will evaluate the solution at (0,1-(1/2)^i), 0 <= i <= n_max
 import matplotlib.pyplot as plt
@@ -17,6 +17,10 @@ num_refinements = 4
 mesh = UnitDiskMesh(num_refinements)
 # number of points to be evaluated
 n_max=10 
+# max of refinement
+n_ref=3
+# threshold of refinement
+val_thr=10**(-5)
 def PDE_solver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -31,14 +35,28 @@ def PDE_solver(mesh, f,g,V):
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
-MH = MeshHierarchy(mesh, 3)
-mesh=MH[3]
-x, y = SpatialCoordinate(mesh)
-V = FunctionSpace(mesh, "Lagrange", deg)
-#f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-f=exp(-4*((x)**2+(y)**2))
-g=0.0
-uh = PDE_solver(mesh, f,g,V)
+# points goes to boundary of unit disk
+pp=[[0,1-(1/2.)**i] for i in range(0,n_max)]
+# distance to boundary
+x_list=[(1/2.)**i for i in range(0,n_max)]
+err=1
+it=0
+uu0=np.zeros(n_max)
+while err>val_thr and it <n_ref:
+   MH = MeshHierarchy(mesh, 1)
+   mesh=MH[1]
+   x, y = SpatialCoordinate(mesh)
+   V = FunctionSpace(mesh, "Lagrange", deg)
+   #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
+   f=exp(-4*((x)**2+(y)**2))
+   g=0.0
+   uh = PDE_solver(mesh, f,g,V)
+   uu = np.array(uh.at(pp))
+   err=np.linalg.norm(uu-uu0,np.inf)
+   uu0=uu
+ 
+if it == n_ref:
+   PETSc.Sys.Print("maximum number of refinement is reached")
 
 # plot f
 fig, axes = plt.subplots()
@@ -56,11 +74,6 @@ fig.colorbar(collection);
 plt.savefig(f"figures/solution_disk.png")
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_disk.png")
 
-# center points at center of squares of i-th iteration
-pp=[[0,1-(1/2.)**i] for i in range(0,n_max+1)]
-# distance to boundary
-x_list=[(1/2.)**i for i in range(0,n_max+1)]
-
 uu=uh.at(pp)
 plt.figure()
 plt.plot(x_list,uu,marker='o')
@@ -71,13 +84,13 @@ plt.close()
 PETSc.Sys.Print(f"plot of evaluation of solution is saved in figures/evaluate_disk.png.")
 
 tt=x_list
-tt=np.array([(x_list[i]/x_list[2])**2.5*uu[2] for i in range(0,len(uu))])
+tt=np.array([(x_list[i]/x_list[2])*uu[2] for i in range(0,len(uu))])
 plt.figure()
 plt.loglog(x_list,uu,marker='o')
 plt.loglog(x_list,tt,marker='v')
 plt.ylabel('evaluation of solution')
 plt.xlabel('distance to boundary')
-plt.legend(['value of solution','$dist^{2.5}$'])
+plt.legend(['value of solution','$dist^{1}$'])
 plt.savefig(f"figures/evaluate_disk_log.png")
 plt.close()
 PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_disk_log.png.")
