@@ -18,9 +18,9 @@ mesh = UnitDiskMesh(num_refinements)
 # number of points to be evaluated
 n_max=10 
 # max of refinement
-n_ref=3
-# threshold of refinement
-val_thr=10**(-5)
+n_ref=5
+# threshold of refinement for relative error 
+val_thr=10**(-2)
 def PDE_solver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -41,7 +41,7 @@ pp=[[0,1-(1/2.)**i] for i in range(0,n_max)]
 x_list=[(1/2.)**i for i in range(0,n_max)]
 err=1
 it=0
-uu0=np.zeros(n_max)
+uu0=np.ones(n_max)
 while err>val_thr and it <n_ref:
    MH = MeshHierarchy(mesh, 1)
    mesh=MH[1]
@@ -52,8 +52,9 @@ while err>val_thr and it <n_ref:
    g=0.0
    uh = PDE_solver(mesh, f,g,V)
    uu = np.array(uh.at(pp))
-   err=np.linalg.norm(uu-uu0,np.inf)
+   err=np.linalg.norm((uu-uu0)/uu0,np.inf)
    uu0=uu
+   it=it+1
  
 if it == n_ref:
    PETSc.Sys.Print("maximum number of refinement is reached")

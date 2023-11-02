@@ -19,6 +19,10 @@ from firedrake import *
 # choose a triangulation
 mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
+# max of refinement
+n_ref=5
+# threshold for refinement in relative error
+val_thr=10**(-2)
 def snowsolver(mesh, f,g,V):
     # V = FunctionSpace(mesh, "Lagrange", 1)
     # Test and trial functions
@@ -34,15 +38,30 @@ def snowsolver(mesh, f,g,V):
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
-MH = MeshHierarchy(mesh, 3)
-mesh=MH[3]
-x, y = SpatialCoordinate(mesh)
-V = FunctionSpace(mesh, "Lagrange", deg)
-#f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-f=exp(-4*((x-0.5)**2+(y-0.5)**2))
-g=0.0
-uh = snowsolver(mesh, f,g,V)
+# center points at center of squares of i-th iteration
+pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
+# distance to boundary
+x_list=[(1/3.)**i for i in range(0,n+1)]
+err=1
+it=0
+uu0=np.ones(n+1)
 
+while err>val_thr and it<n_ref:
+   MH = MeshHierarchy(mesh, 1)
+   mesh=MH[1]
+   x, y = SpatialCoordinate(mesh)
+   V = FunctionSpace(mesh, "Lagrange", deg)
+   #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
+   f=exp(-4*((x-0.5)**2+(y-0.5)**2))
+   g=0.0
+   uh = snowsolver(mesh, f,g,V)
+   uu = np.array(uh.at(pp))
+   err=np.linalg.norm((uu-uu0)/uu0,np.inf)
+   uu0=uu
+   it=it+1
+
+if it == n_ref:
+   PETSc.Sys.Print("maximum number of refinement is reached")
 # plot f
 fig, axes = plt.subplots()
 ff=Function(V)
@@ -62,11 +81,6 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)
-
-# center points at center of squares of i-th iteration
-pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
-# distance to boundary
-x_list=[(1/3.)**i for i in range(0,n+1)]
 
 uu=uh.at(pp)
 plt.figure()
