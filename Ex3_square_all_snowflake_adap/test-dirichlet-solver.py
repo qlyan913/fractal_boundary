@@ -3,14 +3,20 @@
 #   -\Delta u =f in Omega
 # u = g on boundary
 #
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-mesh_size=input("Enter the meshsize for initial mesh: ")
+#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+#mesh_size=float(input("Enter the meshsize for initial mesh: "))
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
-
+from netgen.geom2d import SplineGeometry
 from geogen import *
+file=open('input_test.txt','r')
+n=int(file.readline())
+mesh_size=float(file.readline())
+deg=int(file.readline())
+file.close()
+
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh = Mesh(ngmsh)
@@ -56,7 +62,7 @@ for i in range(0, len(MH)):
   f = Constant(0.)
   u = 2 + x +3*y
   uh = snowsolver(mesh, f,u)
-  V = FunctionSpace(mesh,"Lagrange",1)
+  V = FunctionSpace(mesh,"Lagrange",deg)
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
@@ -107,7 +113,7 @@ for i in range(0, len(MH)):
   f = Constant(-2.)
   u = 2 + x**2 + y
   uh = snowsolver(mesh, f,u)
-  V = FunctionSpace(mesh,"Lagrange",1)
+  V = FunctionSpace(mesh,"Lagrange",deg)
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
