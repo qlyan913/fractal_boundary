@@ -15,7 +15,7 @@ from geogen import *
 from Ex3_solver import *
 
 tolerance = 1e-5
-max_iterations = 20
+max_iterations = 10
 
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
@@ -63,7 +63,7 @@ while sum_eta>tolerance and it<max_iterations:
   err.append(err_temp)
   err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
   err2.append(err2_temp)
-  PETSc.Sys.Print("Refined Mesh ", i, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
+  PETSc.Sys.Print("Refined Mesh ", it, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
   

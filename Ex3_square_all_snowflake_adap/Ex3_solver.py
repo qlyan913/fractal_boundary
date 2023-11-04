@@ -15,8 +15,8 @@ def snowsolver(mesh, f,g,V):
     boundary_ids = (1,2,3,4) # 1:top 2:right 3:bottom 4:left
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
-    #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    #solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
 
