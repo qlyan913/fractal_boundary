@@ -3,7 +3,7 @@
 #   -\Delta u =f in Omega
 # u = g on boundary
 #
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np

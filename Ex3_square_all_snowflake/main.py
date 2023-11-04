@@ -1,5 +1,5 @@
 import os 
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
 file=open('input.txt','w')
 file.write(f"{n}\n")

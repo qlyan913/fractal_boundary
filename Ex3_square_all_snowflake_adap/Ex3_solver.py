@@ -3,7 +3,8 @@
 #   -\Delta u =f in Omega
 # u = g on boundary
 # Adaptive FEM
-
+from firedrake.petsc import PETSc
+from firedrake import *
 def snowsolver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -19,12 +20,11 @@ def snowsolver(mesh, f,g,V):
     return(uh)
 
 
-
-def Mark(msh, uh, f,tolerance):
+def Mark(msh, f, uh,V,tolerance):
      W = FunctionSpace(msh, "DG", 0)
      # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
-     R_T = f*uh + div(grad(uh))
+     R_T = f + div(grad(uh))
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
@@ -57,4 +57,4 @@ def Mark(msh, uh, f,tolerance):
                      frac -= delfrac
                  markedVec0.getArray()[:] = 1.0*marked[:]
              sct(markedVec0, markedVec, mode=PETSc.Scatter.Mode.REVERSE)
-     return mark
+     return mark, sum_eta
