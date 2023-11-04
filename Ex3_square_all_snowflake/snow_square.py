@@ -3,7 +3,7 @@ import math
 import numpy as np
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 mesh_size=input("Enter the meshsize: ")
-#  Create a mesh a cube where the top is replaced by snowflake
+#  Create a mesh of a unit square where each sides are replaced by snowflake
 #  Boundary surfaces are numbered as follows:
 #  1: Top    x == 1
 #  2: Right  y == 1
@@ -14,7 +14,7 @@ def divide_line(vertices):
     # input
     # vertices - array of shape 2x3.
     #          - two points P1 P2
-    # out put
+    # output
     # array of shape 2x3. Two points N1 and N2 on the line P1P2.
     #
     #          N3-------N4

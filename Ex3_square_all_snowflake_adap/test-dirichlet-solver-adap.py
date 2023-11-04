@@ -2,12 +2,32 @@
 # Solve
 #   -\Delta u =f in Omega
 # u = g on boundary
-# Omega is unit disk
+#
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+mesh_size=input("Enter the meshsize for initial mesh: ")
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
-def PDE_solver(mesh, f,g):
+
+from geogen import *
+geo = MakeGeometry(n)
+ngmsh = geo.GenerateMesh(maxh=mesh_size)
+mesh = Mesh(ngmsh)
+
+# Plot the mesh
+print(f'Finite element mesh has {fd_mesh.num_cells()} cells and {fd_mesh.num_vertices()} vertices.')
+meshplot = triplot(mesh)
+meshplot[0].set_linewidth(0.1)
+meshplot[1].set_linewidth(1)
+plt.xlim(-1, 2)
+plt.axis('equal')
+plt.title('Koch Snowflake Mesh')
+plt.show()
+plt.savefig(f"figures/snow_{n}.pdf")
+print(f"Mesh plot saved to 'figures/snow_{n}.pdf'.")
+
+def snowsolver(mesh, f,g):
     V = FunctionSpace(mesh, "Lagrange", 1)
     # Test and trial functions
     u = TrialFunction(V)
@@ -15,39 +35,27 @@ def PDE_solver(mesh, f,g):
     a = dot(grad(u), grad(v))*dx
     L = f*v*dx
     # list of boundary ids that corresponds to the exterior boundary of the domain
-    boundary_ids = (1) #
+    boundary_ids = (1,2,3,4) # 1:top 2:right 3:bottom 4:left
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
     #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'}) 
     return(uh)
-num_refinements = 4
-mesh0 = UnitDiskMesh(num_refinements)
-# Plot the mesh
-print(f'Finite element mesh has {mesh0.num_cells()} cells and {mesh0.num_vertices()} vertices.')
-meshplot = triplot(mesh0)
-meshplot[0].set_linewidth(0.1)
-#plt.xlim(-1, 1)
-plt.axis('equal')
-plt.title('Unit Disk Mesh')
-plt.show()
-plt.savefig(f"figures/unit_disk.pdf")
-PETSc.Sys.Print(f"Mesh plot saved to 'figures/unit_disk.pdf'.")
 
-# Test 1: manufactured  solution is u = 2 + x + 3y
+# Test 1: Domain is UnitSqaure with snow flake n, solution is u = 2 + x + 3y
 df=[]
 mh=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test with solution u=2+x+3y on Unit Disk")
+PETSc.Sys.Print("Test with solution u=2+x+3y on Unit Square")
 PETSc.Sys.Print("Doing refinement ...")
-MH = MeshHierarchy(mesh0, 5)
+MH = MeshHierarchy(mesh, 5)
 for i in range(0, len(MH)):
   mesh=MH[i]
   x, y = SpatialCoordinate(mesh)
   f = Constant(0.)
   u = 2 + x +3*y
-  uh = PDE_solver(mesh, f,u)
+  uh = snowsolver(mesh, f,u)
   V = FunctionSpace(mesh,"Lagrange",1)
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
@@ -69,8 +77,8 @@ plt.loglog(mh, err2,marker='s')
 plt.legend(['$L^2$ error', '$H^1$ error'])
 plt.xlabel('maximum of mesh size')
 #plt.title('Test')
-plt.savefig("figures/disk_test1.png")
-PETSc.Sys.Print("Error vs mesh size  saved to figures/disk_test1.png")
+plt.savefig(f"figures/koch_{n}_test1.png")
+PETSc.Sys.Print(f"Error vs mesh size  saved to figures/koch_{n}_test1.png")
 plt.close()
 
 NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
@@ -83,22 +91,22 @@ plt.loglog(df, err2,marker='s')
 plt.legend(['$L^2$ error', '$H^1$ error'])
 plt.xlabel('degree of freedom')
 #plt.title('Test')
-plt.savefig("figures/disk_test1_dof.png")
-PETSc.Sys.Print("Error vs degree of freedom  saved to figures/disk_test1_dof.png")
+plt.savefig(f"figures/koch_{n}_test1_dof.png")
+PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{n}_test1_dof.png")
 plt.close()
 
-# Test 2: Solution is u = 2 + x^2 + 3xy
+# Test 2: Domain is UnitSqaure with snow flake n, solution is u = 2 + x^2 + 3xy
 df=[]
 mh=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test with solution u=2+x^2+y+2 on Unit Disk")
+PETSc.Sys.Print("Test with solution u=2+x^2+y+2 on UnitSquare")
 for i in range(0, len(MH)):
   mesh=MH[i]
   x, y = SpatialCoordinate(mesh)
   f = Constant(-2.)
   u = 2 + x**2 + y
-  uh = PDE_solver(mesh, f,u)
+  uh = snowsolver(mesh, f,u)
   V = FunctionSpace(mesh,"Lagrange",1)
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
@@ -119,9 +127,8 @@ plt.loglog(mh, NN)
 plt.loglog(mh, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(h^2)$','$O(h)$'])
 plt.xlabel('maximum of mesh size')
-#plt.title('Test 4')
-plt.savefig("figures/disk_test2.png")
-PETSc.Sys.Print("Error vs mesh size  saved to figures/disk_test2.png")
+plt.savefig(f"figures/koch_{n}_test2.png")
+PETSc.Sys.Print(f"Error vs mesh size  saved to figures/koch_{n}_test2.png")
 plt.close()
 
 NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
@@ -133,6 +140,5 @@ plt.loglog(df, NN)
 plt.loglog(df, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
-#plt.title('Test 4')
-plt.savefig("figures/disk_test2_dof.png")
-PETSc.Sys.Print("Error vs degree of freedom  saved to figures/disk_test2_dof.png")
+plt.savefig(f"figures/koch_{n}_test2_dof.png")
+PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{n}_test2_dof.png")
