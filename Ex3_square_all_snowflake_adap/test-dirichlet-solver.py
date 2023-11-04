@@ -3,26 +3,22 @@
 #   -\Delta u =f in Omega
 # u = g on boundary
 #
-#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-#mesh_size=float(input("Enter the meshsize for initial mesh: "))
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+mesh_size=float(input("Enter the meshsize for initial mesh: "))
+deg=int(intput("Enter the degree of polynomial in FEM space:"))
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
 from netgen.geom2d import SplineGeometry
 from geogen import *
-file=open('input_test.txt','r')
-n=int(file.readline())
-mesh_size=float(file.readline())
-deg=int(file.readline())
-file.close()
 
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh = Mesh(ngmsh)
 
 # Plot the mesh
-print(f'Finite element mesh has {fd_mesh.num_cells()} cells and {fd_mesh.num_vertices()} vertices.')
+print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
 meshplot = triplot(mesh)
 meshplot[0].set_linewidth(0.1)
 meshplot[1].set_linewidth(1)
@@ -31,7 +27,7 @@ plt.axis('equal')
 plt.title('Koch Snowflake Mesh')
 plt.show()
 plt.savefig(f"figures/snow_{n}.pdf")
-print(f"Mesh plot saved to 'figures/snow_{n}.pdf'.")
+print(f"Initial mesh plot saved to 'figures/snow_{n}.pdf'.")
 
 def snowsolver(mesh, f,g):
     V = FunctionSpace(mesh, "Lagrange", 1)
