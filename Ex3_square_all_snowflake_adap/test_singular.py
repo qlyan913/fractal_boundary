@@ -25,7 +25,7 @@ from geogen import *
 from Ex3_solver import *
 deg=int(input("Enter the degree of polynomial in FEM space:"))
 tolerance = 1e-15
-max_iterations = 10
+max_iterations = 15
 
 geo = SplineGeometry()
 p1=geo.AppendPoint(*[-1,-1])

@@ -22,7 +22,7 @@ mesh = Mesh(mesh_file)
 # max of refinement
 n_ref=5
 # threshold for refinement in relative error
-val_thr=10**(-2)
+val_thr=0.05
 def snowsolver(mesh, f,g,V):
     # V = FunctionSpace(mesh, "Lagrange", 1)
     # Test and trial functions
@@ -62,6 +62,9 @@ while err>val_thr and it<n_ref:
 
 if it == n_ref:
    PETSc.Sys.Print("maximum number of refinement is reached")
+else:
+   PETSc.Sys.Print(f"Refined {it} times.")
+
 # plot f
 fig, axes = plt.subplots()
 ff=Function(V)
@@ -78,6 +81,7 @@ fig.colorbar(collection);
 plt.savefig(f"figures/solution_{n}.png")
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
+mesh.name="msh"
 with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)
