@@ -15,7 +15,7 @@
 #  1: Top    x == 1
 #  2: Right  y == 1
 #  3: Bottom x == 0
-#  4: Left   x == 1
+#  4: Left   y == 0
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
@@ -65,7 +65,7 @@ it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
-  f = 0.0
+  f =Constant( 0.0)
   u=conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
