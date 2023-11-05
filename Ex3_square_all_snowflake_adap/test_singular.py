@@ -122,15 +122,15 @@ for i in range(0, len(MH)):
 
 
 
-NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
-NN2=np.array([(df[0]/df[i])**(1./2.)*err2[0] for i in range(0,len(err))])
+NN=np.array([(df_u[0]/df_u[i])**(1.)*err_u[0] for i in range(0,len(err_u))])
+NN2=np.array([(df_u[0]/df_u[i])**(1./2.)*err2_u[0] for i in range(0,len(err2_u))])
 plt.figure()
 plt.loglog(df, err,marker='o')
 plt.loglog(df, err2,marker='s')
 plt.loglog(df_u, err_u,marker='o')
 plt.loglog(df_u, err2_u,marker='s')
-plt.loglog(df, NN)
-plt.loglog(df, NN2)
+plt.loglog(df_u, NN)
+plt.loglog(df_u, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error','$L^2$ error-MeshH', '$H^1$ error-MeshH', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
 plt.savefig(f"figures/singular_test_dof.png")
