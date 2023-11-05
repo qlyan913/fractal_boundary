@@ -14,8 +14,8 @@ from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
 
-tolerance = 1e-5
-max_iterations = 10
+tolerance = 1e-7
+max_iterations = 20
 
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
