@@ -37,13 +37,13 @@ print(f"Initial mesh plot saved to 'figures/snow_{n}.pdf'.")
 df=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test with solution u=2+x^3+y^2")
+PETSc.Sys.Print("Test with solution  u=2+x^2+y ")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
-  f = -6*x-2.
-  u = 2. + x**3 + y**2
+  f = Constant(-2.)
+  u = 2 + x**2 + y
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
@@ -73,7 +73,9 @@ NN2=np.array([(df[0]/df[i])**(1./2.)*err2[0] for i in range(0,len(err))])
 plt.figure()
 plt.loglog(df, err,marker='o')
 plt.loglog(df, err2,marker='s')
-plt.legend(['$L^2$ error', '$H^1$ error'])
+plt.loglog(df, NN)
+plt.loglog(df, NN2)
+plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
 plt.savefig(f"figures/koch_{n}_test_dof.png")
 PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{n}_test_dof.png")
