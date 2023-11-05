@@ -24,16 +24,16 @@ from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
 deg=int(input("Enter the degree of polynomial in FEM space:"))
-tolerance = 1e-7
+tolerance = 1e-15
 max_iterations = 20
 
 geo = SplineGeometry()
-p1=geo.AppendPoint(*[0,0])
-p2=geo.AppendPoint(*[1,0])
-p3=geo.AppendPoint(*[1,1])
-p4=geo.AppendPoint(*[2,1])
-p5=geo.AppendPoint(*[2,2])
-p6=geo.AppendPoint(*[0,2])
+p1=geo.AppendPoint(*[-1,-1])
+p2=geo.AppendPoint(*[0,-1])
+p3=geo.AppendPoint(*[0,0])
+p4=geo.AppendPoint(*[1,0])
+p5=geo.AppendPoint(*[1,1])
+p6=geo.AppendPoint(*[-1,1])
 geo.Append (["line",p1 ,p2], bc =3 )
 geo.Append (["line",p2 ,p3], bc =2 )
 geo.Append (["line",p3 ,p4], bc =2 )
@@ -60,13 +60,13 @@ print(f"Initial mesh plot saved to 'figures/singular.pdf'.")
 df=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test with solution  u=2+x^2+y ")
+PETSc.Sys.Print("Test with solution  u=r^{2/3}sin(2/3 theta) ")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
-  f = Constant(-2.)
-  u = 2 + x**2 + y
+  f = 0.0
+  u=conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
@@ -89,8 +89,11 @@ while sum_eta>tolerance and it<max_iterations:
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
 
+
+PETSc.Sys.Print(f"refined {it} times")
+
 # Check the uniform refinement result
-MH = MeshHierarchy(mesh_u, 5)
+MH = MeshHierarchy(mesh_u, 8)
 err_u=[]
 err2_u=[]
 df_u=[]
@@ -119,7 +122,6 @@ for i in range(0, len(MH)):
 
 
 
-PETSc.Sys.Print(f"refined {it} times")
 NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
 NN2=np.array([(df[0]/df[i])**(1./2.)*err2[0] for i in range(0,len(err))])
 plt.figure()
@@ -129,7 +131,7 @@ plt.loglog(df_u, err_u,marker='o')
 plt.loglog(df_u, err2_u,marker='s')
 plt.loglog(df, NN)
 plt.loglog(df, NN2)
-plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
+plt.legend(['$L^2$ error', '$H^1$ error','$L^2$ error-MeshH', '$H^1$ error-MeshH', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
 plt.savefig(f"figures/singular_test_dof.png")
 PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/singular_test_dof.png")
