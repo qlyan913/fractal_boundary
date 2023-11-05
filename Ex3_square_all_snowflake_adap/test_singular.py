@@ -60,13 +60,15 @@ print(f"Initial mesh plot saved to 'figures/singular.pdf'.")
 df=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test with solution  u=r^{2/3}sin(2/3 theta) ")
+#PETSc.Sys.Print("Test with solution  u=r^{2/3}sin(2/3 theta) ")
+PETSc.Sys.Print("Test with solution  u=2+x^2+y ")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
-  f =Constant( 0.0)
-  u=conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))
+  f =Constant( 1.)
+  u = Constant(0.) 
+  #u=conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
@@ -81,13 +83,13 @@ while sum_eta>tolerance and it<max_iterations:
   plt.close()
   print(f"refined mesh plot saved to 'refined_mesh/test_singular_mesh/ref_{it}.pdf'.")
   df.append(V.dof_dset.layout_vec.getSize())
-  err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
-  err.append(err_temp)
-  err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx)) 
-  err2.append(err2_temp)
-  PETSc.Sys.Print("Refined Mesh ", it, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
-  PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
-  PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
+ # err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
+ # err.append(err_temp)
+ # err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx)) 
+ # err2.append(err2_temp)
+ # PETSc.Sys.Print("Refined Mesh ", it, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
+ # PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
+ # PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
 
 
 PETSc.Sys.Print(f"refined {it} times")
@@ -100,8 +102,9 @@ df_u=[]
 for i in range(0, len(MH)):
   mesh=MH[i]
   x, y = SpatialCoordinate(mesh)
-  f = Constant(-2.)
-  u = 2 + x**2 + y
+  f = Constant(1.)
+  u = Constant(0.)
+  #u=conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
   meshplot = triplot(mesh)
@@ -113,29 +116,29 @@ for i in range(0, len(MH)):
   plt.close()
   print(f"refined mesh plot saved to 'refined_mesh/test_singular_mesh/ref_uniform_{i}.pdf'.")
   df_u.append(V.dof_dset.layout_vec.getSize())
-  err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
-  err_u.append(err_temp)
-  err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
-  err2_u.append(err2_temp)
-  PETSc.Sys.Print("Refined Mesh ", i, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
-  PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
+# err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
+  #err_u.append(err_temp)
+ # err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
+ # err2_u.append(err2_temp)
+ # PETSc.Sys.Print("Refined Mesh ", i, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
+ # PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
 
 
 
-NN=np.array([(df_u[0]/df_u[i])**(1.)*err_u[0] for i in range(0,len(err_u))])
-NN2=np.array([(df_u[0]/df_u[i])**(1./2.)*err2_u[0] for i in range(0,len(err2_u))])
-plt.figure()
-plt.loglog(df, err,marker='o')
-plt.loglog(df, err2,marker='s')
-plt.loglog(df_u, err_u,marker='o')
-plt.loglog(df_u, err2_u,marker='s')
-plt.loglog(df_u, NN)
-plt.loglog(df_u, NN2)
-plt.legend(['$L^2$ error', '$H^1$ error','$L^2$ error-MeshH', '$H^1$ error-MeshH', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
-plt.xlabel('degree of freedom')
-plt.savefig(f"figures/singular_test_dof.png")
-PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/singular_test_dof.png")
-plt.close()
+#NN=np.array([(df_u[0]/df_u[i])**(1.)*err_u[0] for i in range(0,len(err_u))])
+#NN2=np.array([(df_u[0]/df_u[i])**(1./2.)*err2_u[0] for i in range(0,len(err2_u))])
+#plt.figure()
+#plt.loglog(df, err,marker='o')
+#plt.loglog(df, err2,marker='s')
+#plt.loglog(df_u, err_u,marker='o')
+#plt.loglog(df_u, err2_u,marker='s')
+#plt.loglog(df_u, NN)
+#plt.loglog(df_u, NN2)
+#plt.legend(['$L^2$ error', '$H^1$ error','$L^2$ error-MeshH', '$H^1$ error-MeshH', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
+#plt.xlabel('degree of freedom')
+#plt.savefig(f"figures/singular_test_dof.png")
+#PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/singular_test_dof.png")
+#plt.close()
 
 
 

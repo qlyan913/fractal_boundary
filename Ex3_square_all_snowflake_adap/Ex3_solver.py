@@ -24,13 +24,13 @@ def Mark(msh, f, uh,V,tolerance):
      W = FunctionSpace(msh, "DG", 0)
      # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
-     R_T = f + div(grad(uh))
+     R_T = f 
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator.
      eta = assemble(h**2*R_T**2*w*dx +
-           (h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
+          0.5*(h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
      frac = .95
      delfrac = .05
      part = .2
