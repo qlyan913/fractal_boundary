@@ -24,7 +24,7 @@ def Mark(msh, f, uh,V,tolerance):
      W = FunctionSpace(msh, "DG", 0)
      # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
-     R_T = f 
+     R_T = f+div(grad(uh))
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
