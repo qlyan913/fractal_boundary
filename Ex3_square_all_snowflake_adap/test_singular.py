@@ -144,7 +144,7 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/soln_uniform.png")
 plt.close()
 
 
-# plot f
+# plot u
 fig, axes = plt.subplots()
 uu=Function(V)
 uu.interpolate(u)
