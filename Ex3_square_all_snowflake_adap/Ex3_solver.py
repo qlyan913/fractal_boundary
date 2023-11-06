@@ -30,7 +30,7 @@ def Mark(msh, f, uh,V,tolerance):
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator.
      eta = assemble(h**2*R_T**2*w*dx +
-          0.5*(h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
+          (h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation such that eta >= frac*eta_max
      frac = .95
      delfrac = .05
