@@ -24,8 +24,8 @@ from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
 deg=int(input("Enter the degree of polynomial in FEM space:"))
-tolerance = 1e-15
-max_iterations = 15
+tolerance = 1e-5
+max_iterations = 12
 
 geo = SplineGeometry()
 p1=geo.AppendPoint(*[-1,-1])
@@ -69,10 +69,10 @@ while sum_eta>tolerance and it<max_iterations:
  # u= conditional(x==0,conditional(y>0,(x**2+y**2)**(1/3.)*sin(pi/3.),-(x**2+y**2)**(1/3.)*sin(pi/3.)),conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi))))
 #  u = conditional(x>0,(x**2+y**2)**(1/3.)*sin(2/3*atan(y/x)),conditional(And(x==0,y>0), (x**2+y**2)**(1/3.)*sin(pi/3.),conditional(And(x==0,y<0), -(x**2+y**2)**(1/3.)*sin(pi/3.),(x**2+y**2)**(1/3.)*sin(2/3*(atan(y/x)+pi)))))
   V = FunctionSpace(mesh,"Lagrange",deg)
- # u=(x**2+y**2)**(1/3.)*sin(2./3.*atan2(y,x))
-  #f=Constant(0.) 
-  u=x**2+y**2
-  f=-4
+  #u=(x**2+y**2)**(1/3.)*sin(2./3.*atan2(y,x))
+ # f=Constant(0.) 
+  u=2+x**2+y
+  f=-2
   uh = snowsolver(mesh, f,u,V)
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
   mesh = mesh.refine_marked_elements(mark)
@@ -97,6 +97,13 @@ while sum_eta>tolerance and it<max_iterations:
 
 PETSc.Sys.Print(f"refined {it} times")
 
+fig, axes = plt.subplots()
+collection = tripcolor(uh, axes=axes)
+fig.colorbar(collection);
+plt.savefig(f"figures/soln_adap.png")
+PETSc.Sys.Print(f"The plot of solution is saved to figures/soln_adap.png")
+plt.close()
+
 # Check the uniform refinement result
 MH = MeshHierarchy(mesh_u, 8)
 err_u=[]
@@ -110,8 +117,8 @@ for i in range(0, len(MH)):
   V = FunctionSpace(mesh,"Lagrange",deg)
   #u=(x**2+y**2)**(1/3.)*sin(2./3.*atan2(y,x))
   #f=Constant(0.)
-  u=x**2+y**2
-  f=-4
+  u=2+x**2+y
+  f=-2
   uh = snowsolver(mesh, f,u,V)
   meshplot = triplot(mesh)
   meshplot[0].set_linewidth(0.1)
@@ -129,7 +136,22 @@ for i in range(0, len(MH)):
   PETSc.Sys.Print("Refined Mesh ", i, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
 
+fig, axes = plt.subplots()
+collection = tripcolor(uh, axes=axes)
+fig.colorbar(collection);
+plt.savefig(f"figures/soln_uniform.png")
+PETSc.Sys.Print(f"The plot of solution is saved to figures/soln_uniform.png")
+plt.close()
 
+
+# plot f
+fig, axes = plt.subplots()
+uu=Function(V)
+uu.interpolate(u)
+collection = tripcolor(uu, axes=axes)
+fig.colorbar(collection);
+plt.savefig(f"figures/soln_exact.png")
+PETSc.Sys.Print(f"The plot of force term f is saved to  figures/soln_exact.png")
 
 NN=np.array([(df_u[0]/df_u[i])**(1.)*err_u[0] for i in range(0,len(err_u))])
 NN2=np.array([(df_u[0]/df_u[i])**(1./2.)*err2_u[0] for i in range(0,len(err2_u))])
