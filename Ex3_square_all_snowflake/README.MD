@@ -10,7 +10,7 @@ The boundary conditions is $u=0$ on $\partial \Omega$.
 
 2. To get the solution, run `python3 main.py`. The plot of solution and force term is saved as f_n.png and solution_n.png. The solution is saved under the folder solutions/
 
-3. To get the evaluation of solution over a random path, run `python3 evaluate.py`.
+3. To get the evaluation of solution over a random path, run `python3 estimate.py`.
 
 
 
