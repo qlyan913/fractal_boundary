@@ -8,13 +8,6 @@ trial=int(input("Enter the number of random paths to be estimated: "))
 mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
 
-#meshplot = triplot(mesh)
-#meshplot[0].set_linewidth(0.1)
-#meshplot[1].set_linewidth(1)
-#plt.xlim(-1, 2)
-#plt.axis('equal')
-
-
 # distance to boundary
 x_list=[(1/3.)**i for i in range(0,n+1)]
 
@@ -56,10 +49,16 @@ def random_path(n):
 
 for i in range(0,trial):
    ppa=np.array(random_path(n))
-   plt.plot(ppa[:,0],ppa[:,1],'r-')
-   plt.savefig(f"figures/path_trial_{i}.pdf")
+   meshplot = triplot(mesh)
+   meshplot[0].set_linewidth(0.1)
+   meshplot[1].set_linewidth(1)
+   plt.plot(ppa[:,0],ppa[:,1],'r-o',markersize=1,linewidth=0.1)
+   plt.xlim(-1, 2)
+   plt.axis('equal')
+   plt.show()
+   plt.savefig(f"figures/path_{n}_trial_{i}.pdf")
    plt.close()
-   print(f"plot of path is saved in figures/path_trial_{i}.pdf.")
+   print(f"plot of path is saved in figures/path_{n}_trial_{i}.pdf.")
 
 
 
