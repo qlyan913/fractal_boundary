@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import random
+import statistics 
 from firedrake import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 trial=int(input("Enter the number of random paths to be estimated: "))
@@ -48,6 +49,8 @@ def random_path(n):
       x1=x2
    return pp
 
+alpha0=[]
+c0=[]
 for i in range(0,trial):
    uu=uh.at(random_path(n)) 
    # fitting log uu=log c+alpha log dx, 
@@ -57,17 +60,30 @@ for i in range(0,trial):
    beta=np.dot((np.dot(np.linalg.inv(np.dot(A.T,A)),A.T)),uu_log)
    c=exp(beta[1])
    alpha=beta[0]
+   c0.append(c)
+   alpha0.append(alpha)
    alpha=round(alpha,5)
    tt=c*(x_list)**alpha
-   plt.figure()
-   plt.loglog(x_list,uu,'b.')
-   plt.loglog(x_list,tt)
-   plt.ylabel('evaluation of solution')
-   plt.xlabel('distance to boundary')
-   plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha)])
-   plt.savefig(f"figures/evaluate_{n}_trial_{i}.png")
-   plt.close()
-   print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_{n}_trial_{i}.png.")
+   
+   if i < 5:
+      plt.figure()
+      plt.loglog(x_list,uu,'b.')
+      plt.loglog(x_list,tt)
+      plt.ylabel('evaluation of solution')
+      plt.xlabel('distance to boundary')
+      plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha)])
+      plt.savefig(f"figures/evaluate_{n}_trial_{i}.png")
+      plt.close()
+      print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_{n}_trial_{i}.png.")
+
+alpha_mean=statistics.mean(alpha0)
+alpha_std=statistics.stdev(alpha0)
+c_mean=statistics.mean(c0)
+c_std=statistics.stdev(c0)
+print("Total number of random path is ", trial)
+print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
+print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
+
 
 
 
