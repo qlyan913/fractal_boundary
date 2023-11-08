@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import statistics 
+from scipy import stats
 from firedrake import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 trial=int(input("Enter the number of random paths to be estimated: "))
@@ -55,11 +56,14 @@ for i in range(0,trial):
    uu=uh.at(random_path(n)) 
    # fitting log uu=log c+alpha log dx, 
    x_list_log=np.log(x_list)
-   A = np.vstack([x_list_log, np.ones(len(x_list_log))]).T
    uu_log=np.log(uu)
-   beta=np.dot((np.dot(np.linalg.inv(np.dot(A.T,A)),A.T)),uu_log)
-   c=exp(beta[1])
-   alpha=beta[0]
+   #A = np.vstack([x_list_log, np.ones(len(x_list_log))]).T
+   #beta=np.dot((np.dot(np.linalg.inv(np.dot(A.T,A)),A.T)),uu_log)
+   #c=exp(beta[1])
+   #alpha=beta[0]
+   res = stats.linregress(x_list_log, uu_log)
+   c=exp(res.intercept)
+   alpha=res.slope
    c0.append(c)
    alpha0.append(alpha)
    alpha=round(alpha,5)
