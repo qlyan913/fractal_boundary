@@ -2,7 +2,7 @@ In this example, we solve
 
 $-\Delta u=f\ \\text{on}\ \Omega$
 
-$\Omega$: the unit square wherethe each edge have been replaced by a square prefractal.
+$\Omega$: the unit square with each edge have been replaced by a square prefractal.
 
 The boundary conditions is $u=0$ on $\partial \Omega$. 
 
