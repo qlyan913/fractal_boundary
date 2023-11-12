@@ -38,19 +38,30 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Snowflake with $n=3$ iterations on Cube. Total flux vs $\Lambda $ when $D=1$. Python script: main\_flux.py.\relax }}{6}{figure.caption.7}\protected@file@percent }
 \newlabel{flux_cube}{{7}{6}{Snowflake with $n=3$ iterations on Cube. Total flux vs $\Lambda $ when $D=1$. Python script: main\_flux.py.\relax }{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Fractal harmonic measure}{6}{section.5}\protected@file@percent }
-\newlabel{eqn:Ex3}{{5.1}{6}{Fractal harmonic measure}{equation.5.1}{}}
-\newlabel{Ex3_domain}{{8b}{7}{$n=4$\relax }{figure.caption.8}{}}
-\newlabel{sub@Ex3_domain}{{b}{7}{$n=4$\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Unit square with each edges replaced by a Koch snowflake with $n$ iterations. Meshsize is 0.1 for each vertices in .geo file.\relax }}{7}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:snow_2d_Dirichlet}{{8}{7}{Unit square with each edges replaced by a Koch snowflake with $n$ iterations. Meshsize is 0.1 for each vertices in .geo file.\relax }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Unit square: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space.\relax }}{7}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:Ex3_test}{{9}{7}{Unit square: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space.\relax }{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Unit square: manufactured solution $u=x^2+y+2$.\relax }}{8}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:Ex3_test_2}{{10}{8}{Unit square: manufactured solution $u=x^2+y+2$.\relax }{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces On unit square with $4$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). (c). Evaluation of solution at a sequence points $\{\textbf  {x}_i\}_{i=0}^4$ where $\textbf  {x}_i$ is the center of the square from $i$-th snowflake iteration. \relax }}{9}{figure.caption.11}\protected@file@percent }
-\newlabel{Ex3_solution}{{11}{9}{On unit square with $4$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). (c). Evaluation of solution at a sequence points $\{\textbf {x}_i\}_{i=0}^4$ where $\textbf {x}_i$ is the center of the square from $i$-th snowflake iteration. \relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Result on unit disk}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Unit disk.\relax }}{7}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:unit_disk}{{8}{7}{Unit disk.\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Unit disk: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space. Remark: Here, we use the Krylov subspace method with BoomerAMG in preconditioner in the solver. If we change the solver to be LU factorisation, the error here would be around $10^{-14}\sim \nobreakspace  {}10^{-15}$.\relax }}{7}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:Ex3_disk_test}{{9}{7}{Unit disk: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space. Remark: Here, we use the Krylov subspace method with BoomerAMG in preconditioner in the solver. If we change the solver to be LU factorisation, the error here would be around $10^{-14}\sim ~10^{-15}$.\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Unit disk: manufactured solution $u=x^2+y+2$.\relax }}{8}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:Ex3_disk_test_2}{{10}{8}{Unit disk: manufactured solution $u=x^2+y+2$.\relax }{figure.caption.10}{}}
+\newlabel{eqn:unit_disk}{{5.2}{8}{Result on unit disk}{equation.5.2}{}}
+\newlabel{eqn:unit_disk_seq}{{5.3}{8}{Result on unit disk}{equation.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces On unit disk. (a). force term $f$. (b) solution $u$. (c). Evaluation of solution at a sequence points $\{\textbf  {x}_i\}_{i=0}^{10}$ where $\textbf  {x}_i$ is defined as in (\ref {eqn:unit_disk_seq}). (d). loglog plot\relax }}{9}{figure.caption.11}\protected@file@percent }
+\newlabel{Ex3_disk_solution}{{11}{9}{On unit disk. (a). force term $f$. (b) solution $u$. (c). Evaluation of solution at a sequence points $\{\textbf {x}_i\}_{i=0}^{10}$ where $\textbf {x}_i$ is defined as in (\ref {eqn:unit_disk_seq}). (d). loglog plot\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}On snowflake boundary domain}{9}{subsection.5.2}\protected@file@percent }
+\newlabel{eqn:Ex3}{{5.4}{9}{On snowflake boundary domain}{equation.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Unit square with each edges replaced by a Koch snowflake with $n$ iterations. Meshsize is 0.5 for each vertices in .geo file.\relax }}{10}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:snow_2d_Dirichlet}{{12}{10}{Unit square with each edges replaced by a Koch snowflake with $n$ iterations. Meshsize is 0.5 for each vertices in .geo file.\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Unit square: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space.\relax }}{10}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:Ex3_test}{{13}{10}{Unit square: manufactured solution $u=x+3y+2$. Note that only round off error appears here since the solution is in the linear finite element space.\relax }{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Unit square: manufactured solution $u=x^2+y+2$.\relax }}{11}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:Ex3_test_2}{{14}{11}{Unit square: manufactured solution $u=x^2+y+2$.\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces On unit square with $8$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). \relax }}{11}{figure.caption.15}\protected@file@percent }
+\newlabel{Ex3_solution}{{15}{11}{On unit square with $8$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). \relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces  Two random path on the unit square with $8$ snowflake iterations. \relax }}{12}{figure.caption.16}\protected@file@percent }
 \bibstyle{unsrt}
 \bibdata{bibfile}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces On unit square with $4$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). (c). Evaluation of solution at a sequence points $\{\textbf  {x}_i\}_{i=0}^4$ where $\textbf  {x}_i$ is the center of the square from $i$-th snowflake iteration. \relax }}{10}{figure.caption.12}\protected@file@percent }
-\newlabel{Ex3_solution_v2}{{12}{10}{On unit square with $4$ snowflake iterations. (a). force term $f$. (b) solution of the PDE (\ref {eqn:Ex3}). (c). Evaluation of solution at a sequence points $\{\textbf {x}_i\}_{i=0}^4$ where $\textbf {x}_i$ is the center of the square from $i$-th snowflake iteration. \relax }{figure.caption.12}{}}
-\gdef \@abspage@last{10}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces On unit square with $8$ snowflake iterations. Result of different random path \relax }}{13}{figure.caption.18}\protected@file@percent }
+\newlabel{Ex3_evaluation}{{17}{13}{On unit square with $8$ snowflake iterations. Result of different random path \relax }{figure.caption.18}{}}
+\gdef \@abspage@last{13}

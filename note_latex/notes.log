@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.7)  30 OCT 2023 14:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.7)  12 NOV 2023 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -536,23 +536,23 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 46
 (/usr/local/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<figures/Ex1/Ex1_snow_n2.pdf, id=40, 462.52798pt x 346.89601pt>
+<figures/Ex1/Ex1_snow_n2.pdf, id=48, 462.52798pt x 346.89601pt>
 File: figures/Ex1/Ex1_snow_n2.pdf Graphic file (type pdf)
 <use figures/Ex1/Ex1_snow_n2.pdf>
 Package pdftex.def Info: figures/Ex1/Ex1_snow_n2.pdf  used on input line 52.
 (pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
-<figures/Ex1/Ex1_snow_n4.pdf, id=41, 462.52798pt x 346.89601pt>
+<figures/Ex1/Ex1_snow_n4.pdf, id=49, 462.52798pt x 346.89601pt>
 File: figures/Ex1/Ex1_snow_n4.pdf Graphic file (type pdf)
 <use figures/Ex1/Ex1_snow_n4.pdf>
 Package pdftex.def Info: figures/Ex1/Ex1_snow_n4.pdf  used on input line 56.
 (pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
-<figures/Ex2/Ex2_snow_cube_2.png, id=44, 1967.35pt x 1264.725pt>
+<figures/Ex2/Ex2_snow_cube_2.png, id=52, 1967.35pt x 1264.725pt>
 File: figures/Ex2/Ex2_snow_cube_2.png Graphic file (type png)
 <use figures/Ex2/Ex2_snow_cube_2.png>
 Package pdftex.def Info: figures/Ex2/Ex2_snow_cube_2.png  used on input line 75
 .
 (pdftex.def)             Requested size: 225.21626pt x 144.77452pt.
-<figures/Ex2/Ex2_snow_cube_3.png, id=46, 1967.35pt x 1264.725pt>
+<figures/Ex2/Ex2_snow_cube_3.png, id=54, 1967.35pt x 1264.725pt>
 File: figures/Ex2/Ex2_snow_cube_3.png Graphic file (type png)
 <use figures/Ex2/Ex2_snow_cube_3.png>
 Package pdftex.def Info: figures/Ex2/Ex2_snow_cube_3.png  used on input line 83
@@ -564,55 +564,55 @@ Package pdftex.def Info: figures/Ex2/Ex2_snow_cube_3.png  used on input line 83
 al/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./figures
 /Ex1/Ex1_snow_n2.pdf> <./figures/Ex1/Ex1_snow_n4.pdf>] [2 <./figures/Ex2/Ex2_sn
 ow_cube_2.png> <./figures/Ex2/Ex2_snow_cube_3.png>]
-<figures/Ex1/Ex1_test.png, id=143, 462.528pt x 346.896pt>
+<figures/Ex1/Ex1_test.png, id=151, 462.528pt x 346.896pt>
 File: figures/Ex1/Ex1_test.png Graphic file (type png)
 <use figures/Ex1/Ex1_test.png>
 Package pdftex.def Info: figures/Ex1/Ex1_test.png  used on input line 135.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex1/Ex1_test_dof.png, id=144, 462.528pt x 346.896pt>
+<figures/Ex1/Ex1_test_dof.png, id=152, 462.528pt x 346.896pt>
 File: figures/Ex1/Ex1_test_dof.png Graphic file (type png)
 <use figures/Ex1/Ex1_test_dof.png>
 Package pdftex.def Info: figures/Ex1/Ex1_test_dof.png  used on input line 139.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_LU.png, id=152, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_LU.png, id=160, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_LU.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_LU.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_LU.png  used on input line 163.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_dof_LU.png, id=153, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_dof_LU.png, id=161, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_dof_LU.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_dof_LU.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_dof_LU.png  used on input line 16
 7.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_2_LU.png, id=154, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_2_LU.png, id=162, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_2_LU.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_2_LU.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_2_LU.png  used on input line 171.
 
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_2_dof_LU.png, id=155, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_2_dof_LU.png, id=163, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_2_dof_LU.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_2_dof_LU.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_2_dof_LU.png  used on input line 
 175.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test.png, id=156, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test.png, id=164, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test.png Graphic file (type png)
 <use figures/Ex2/Ex2_test.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test.png  used on input line 184.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_dof.png, id=157, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_dof.png, id=165, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_dof.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_dof.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_dof.png  used on input line 188.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_2.png, id=158, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_2.png, id=166, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_2.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_2.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_2.png  used on input line 192.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex2/Ex2_test_2_dof.png, id=159, 462.528pt x 346.896pt>
+<figures/Ex2/Ex2_test_2_dof.png, id=167, 462.528pt x 346.896pt>
 File: figures/Ex2/Ex2_test_2_dof.png Graphic file (type png)
 <use figures/Ex2/Ex2_test_2_dof.png>
 Package pdftex.def Info: figures/Ex2/Ex2_test_2_dof.png  used on input line 196
@@ -637,13 +637,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Warning: Reference `fig:test_on_2d' on page 5 undefined on input line 205
 .
 
-<figures/Ex1/solution_D1_Lam1.png, id=180, 462.528pt x 346.896pt>
+<figures/Ex1/solution_D1_Lam1.png, id=188, 462.528pt x 346.896pt>
 File: figures/Ex1/solution_D1_Lam1.png Graphic file (type png)
 <use figures/Ex1/solution_D1_Lam1.png>
 Package pdftex.def Info: figures/Ex1/solution_D1_Lam1.png  used on input line 2
 10.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex1/Phi_Lam_n4.png, id=181, 462.528pt x 346.896pt>
+<figures/Ex1/Phi_Lam_n4.png, id=189, 462.528pt x 346.896pt>
 File: figures/Ex1/Phi_Lam_n4.png Graphic file (type png)
 <use figures/Ex1/Phi_Lam_n4.png>
 Package pdftex.def Info: figures/Ex1/Phi_Lam_n4.png  used on input line 214.
@@ -666,131 +666,185 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Warning: Reference `fig:test_on_3d_2' on page 6 undefined on input line 2
 21.
 
-<figures/Ex2/Phi_Lam_cube.png, id=195, 462.528pt x 346.896pt>
+<figures/Ex2/Phi_Lam_cube.png, id=203, 462.528pt x 346.896pt>
 File: figures/Ex2/Phi_Lam_cube.png Graphic file (type png)
 <use figures/Ex2/Phi_Lam_cube.png>
 Package pdftex.def Info: figures/Ex2/Phi_Lam_cube.png  used on input line 226.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_snow_square_2.pdf, id=197, 462.52798pt x 346.89601pt>
-File: figures/Ex3/Ex3_snow_square_2.pdf Graphic file (type pdf)
-<use figures/Ex3/Ex3_snow_square_2.pdf>
-Package pdftex.def Info: figures/Ex3/Ex3_snow_square_2.pdf  used on input line 
-246.
-(pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
-<figures/Ex3/Ex3_snow_square_4.pdf, id=198, 462.52798pt x 346.89601pt>
-File: figures/Ex3/Ex3_snow_square_4.pdf Graphic file (type pdf)
-<use figures/Ex3/Ex3_snow_square_4.pdf>
-Package pdftex.def Info: figures/Ex3/Ex3_snow_square_4.pdf  used on input line 
-250.
+<figures/Ex3/unit_disk.pdf, id=205, 462.52798pt x 346.89601pt>
+File: figures/Ex3/unit_disk.pdf Graphic file (type pdf)
+<use figures/Ex3/unit_disk.pdf>
+Package pdftex.def Info: figures/Ex3/unit_disk.pdf  used on input line 241.
 (pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
 [6 <./figures/Ex1/solution_D1_Lam1.png> <./figures/Ex1/Phi_Lam_n4.png> <./figur
 es/Ex2/Phi_Lam_cube.png>]
-<figures/Ex3/Ex3_test.png, id=213, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_test.png Graphic file (type png)
-<use figures/Ex3/Ex3_test.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test.png  used on input line 263.
+<figures/Ex3/disk_test1.png, id=219, 462.528pt x 346.896pt>
+File: figures/Ex3/disk_test1.png Graphic file (type png)
+<use figures/Ex3/disk_test1.png>
+Package pdftex.def Info: figures/Ex3/disk_test1.png  used on input line 259.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_test_dof.png, id=214, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_test_dof.png Graphic file (type png)
-<use figures/Ex3/Ex3_test_dof.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_dof.png  used on input line 267.
-(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_test_2.png, id=215, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_test_2.png Graphic file (type png)
-<use figures/Ex3/Ex3_test_2.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_2.png  used on input line 276.
-(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_test_2_dof.png, id=216, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_test_2_dof.png Graphic file (type png)
-<use figures/Ex3/Ex3_test_2_dof.png>
-Package pdftex.def Info: figures/Ex3/Ex3_test_2_dof.png  used on input line 280
+<figures/Ex3/disk_test1_dof.png, id=220, 462.528pt x 346.896pt>
+File: figures/Ex3/disk_test1_dof.png Graphic file (type png)
+<use figures/Ex3/disk_test1_dof.png>
+Package pdftex.def Info: figures/Ex3/disk_test1_dof.png  used on input line 263
 .
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
- [7 <./figures/Ex3/Ex3_snow_square_2.pdf> <./figures/Ex3/Ex3_snow_square_4.pdf>
- <./figures/Ex3/Ex3_test.png> <./figures/Ex3/Ex3_test_dof.png>]
+<figures/Ex3/disk_test2.png, id=221, 462.528pt x 346.896pt>
+File: figures/Ex3/disk_test2.png Graphic file (type png)
+<use figures/Ex3/disk_test2.png>
+Package pdftex.def Info: figures/Ex3/disk_test2.png  used on input line 272.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/disk_test2_dof.png, id=222, 462.528pt x 346.896pt>
+File: figures/Ex3/disk_test2_dof.png Graphic file (type png)
+<use figures/Ex3/disk_test2_dof.png>
+Package pdftex.def Info: figures/Ex3/disk_test2_dof.png  used on input line 276
+.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+ [7 <./figures/Ex3/unit_disk.pdf> <./figures/Ex3/disk_test1.png> <./figures/Ex3
+/disk_test1_dof.png>]
+<figures/Ex3/Ex3_disk_f.png, id=259, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_disk_f.png Graphic file (type png)
+<use figures/Ex3/Ex3_disk_f.png>
+Package pdftex.def Info: figures/Ex3/Ex3_disk_f.png  used on input line 301.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_disk_solution.png, id=260, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_disk_solution.png Graphic file (type png)
+<use figures/Ex3/Ex3_disk_solution.png>
+Package pdftex.def Info: figures/Ex3/Ex3_disk_solution.png  used on input line 
+305.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_disk_evaluate.png, id=261, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_disk_evaluate.png Graphic file (type png)
+<use figures/Ex3/Ex3_disk_evaluate.png>
+Package pdftex.def Info: figures/Ex3/Ex3_disk_evaluate.png  used on input line 
+310.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_disk_evaluate_log.png, id=262, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_disk_evaluate_log.png Graphic file (type png)
+<use figures/Ex3/Ex3_disk_evaluate_log.png>
+Package pdftex.def Info: figures/Ex3/Ex3_disk_evaluate_log.png  used on input l
+ine 314.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+ [8 <./figures/Ex3/disk_test2.png> <./figures/Ex3/disk_test2_dof.png>]
+<figures/Ex3/Ex3_snow_square_2.pdf, id=276, 462.52798pt x 346.89601pt>
+File: figures/Ex3/Ex3_snow_square_2.pdf Graphic file (type pdf)
+<use figures/Ex3/Ex3_snow_square_2.pdf>
+Package pdftex.def Info: figures/Ex3/Ex3_snow_square_2.pdf  used on input line 
+332.
+(pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
+<figures/Ex3/Ex3_snow_square_4.pdf, id=277, 462.52798pt x 346.89601pt>
+File: figures/Ex3/Ex3_snow_square_4.pdf Graphic file (type pdf)
+<use figures/Ex3/Ex3_snow_square_4.pdf>
+Package pdftex.def Info: figures/Ex3/Ex3_snow_square_4.pdf  used on input line 
+336.
+(pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
+ [9 <./figures/Ex3/Ex3_disk_f.png> <./figures/Ex3/Ex3_disk_solution.png> <./fig
+ures/Ex3/Ex3_disk_evaluate.png> <./figures/Ex3/Ex3_disk_evaluate_log.png>]
+<figures/Ex3/Ex3_test1.png, id=293, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_test1.png Graphic file (type png)
+<use figures/Ex3/Ex3_test1.png>
+Package pdftex.def Info: figures/Ex3/Ex3_test1.png  used on input line 348.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_test1_dof.png, id=294, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_test1_dof.png Graphic file (type png)
+<use figures/Ex3/Ex3_test1_dof.png>
+Package pdftex.def Info: figures/Ex3/Ex3_test1_dof.png  used on input line 352.
 
-LaTeX Warning: Reference `Ex3_solution_v2' on page 8 undefined on input line 29
-1.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_test2.png, id=295, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_test2.png Graphic file (type png)
+<use figures/Ex3/Ex3_test2.png>
+Package pdftex.def Info: figures/Ex3/Ex3_test2.png  used on input line 361.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+<figures/Ex3/Ex3_test2_dof.png, id=296, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_test2_dof.png Graphic file (type png)
+<use figures/Ex3/Ex3_test2_dof.png>
+Package pdftex.def Info: figures/Ex3/Ex3_test2_dof.png  used on input line 365.
 
-<figures/Ex3/Ex3_f.png, id=291, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_f.png Graphic file (type png)
-<use figures/Ex3/Ex3_f.png>
-Package pdftex.def Info: figures/Ex3/Ex3_f.png  used on input line 299.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_solution.png, id=292, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_solution.png Graphic file (type png)
-<use figures/Ex3/Ex3_solution.png>
-Package pdftex.def Info: figures/Ex3/Ex3_solution.png  used on input line 303.
+ [10 <./figures/Ex3/Ex3_snow_square_2.pdf> <./figures/Ex3/Ex3_snow_square_4.pdf
+> <./figures/Ex3/Ex3_test1.png> <./figures/Ex3/Ex3_test1_dof.png>]
+<figures/Ex3/Ex3_f_n8.png, id=362, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_f_n8.png Graphic file (type png)
+<use figures/Ex3/Ex3_f_n8.png>
+Package pdftex.def Info: figures/Ex3/Ex3_f_n8.png  used on input line 379.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_evaluate.png, id=293, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_evaluate.png Graphic file (type png)
-<use figures/Ex3/Ex3_evaluate.png>
-Package pdftex.def Info: figures/Ex3/Ex3_evaluate.png  used on input line 308.
+<figures/Ex3/Ex3_solution_n8.png, id=363, 462.528pt x 346.896pt>
+File: figures/Ex3/Ex3_solution_n8.png Graphic file (type png)
+<use figures/Ex3/Ex3_solution_n8.png>
+Package pdftex.def Info: figures/Ex3/Ex3_solution_n8.png  used on input line 38
+3.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-[8 <./figures/Ex3/Ex3_test_2.png> <./figures/Ex3/Ex3_test_2_dof.png>]
-<figures/Ex3/Ex3_f_2.png, id=304, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_f_2.png Graphic file (type png)
-<use figures/Ex3/Ex3_f_2.png>
-Package pdftex.def Info: figures/Ex3/Ex3_f_2.png  used on input line 319.
-(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_solution_2.png, id=305, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_solution_2.png Graphic file (type png)
-<use figures/Ex3/Ex3_solution_2.png>
-Package pdftex.def Info: figures/Ex3/Ex3_solution_2.png  used on input line 323
+ [11 <./figures/Ex3/Ex3_test2.png> <./figures/Ex3/Ex3_test2_dof.png> <./figures
+/Ex3/Ex3_f_n8.png> <./figures/Ex3/Ex3_solution_n8.png>]
+<figures/Ex3/path_8_trial_0.pdf, id=380, 462.52798pt x 346.89601pt>
+File: figures/Ex3/path_8_trial_0.pdf Graphic file (type pdf)
+<use figures/Ex3/path_8_trial_0.pdf>
+Package pdftex.def Info: figures/Ex3/path_8_trial_0.pdf  used on input line 404
 .
-(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
-<figures/Ex3/Ex3_evaluate_2.png, id=306, 462.528pt x 346.896pt>
-File: figures/Ex3/Ex3_evaluate_2.png Graphic file (type png)
-<use figures/Ex3/Ex3_evaluate_2.png>
-Package pdftex.def Info: figures/Ex3/Ex3_evaluate_2.png  used on input line 328
+(pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
+<figures/Ex3/path_8_trial_1.pdf, id=381, 462.52798pt x 346.89601pt>
+File: figures/Ex3/path_8_trial_1.pdf Graphic file (type pdf)
+<use figures/Ex3/path_8_trial_1.pdf>
+Package pdftex.def Info: figures/Ex3/path_8_trial_1.pdf  used on input line 407
 .
+(pdftex.def)             Requested size: 225.21626pt x 168.9113pt.
+<figures/Ex3/evaluate_8_trial_1.png, id=382, 462.528pt x 346.896pt>
+File: figures/Ex3/evaluate_8_trial_1.png Graphic file (type png)
+<use figures/Ex3/evaluate_8_trial_1.png>
+Package pdftex.def Info: figures/Ex3/evaluate_8_trial_1.png  used on input line
+ 435.
 (pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
- [9 <./figures/Ex3/Ex3_f.png> <./figures/Ex3/Ex3_solution.png> <./figures/Ex3/E
-x3_evaluate.png>]
+<figures/Ex3/evaluate_8_trial_2.png, id=383, 462.528pt x 346.896pt>
+File: figures/Ex3/evaluate_8_trial_2.png Graphic file (type png)
+<use figures/Ex3/evaluate_8_trial_2.png>
+Package pdftex.def Info: figures/Ex3/evaluate_8_trial_2.png  used on input line
+ 439.
+(pdftex.def)             Requested size: 225.21626pt x 168.91129pt.
+
+[12 <./figures/Ex3/path_8_trial_0.pdf> <./figures/Ex3/path_8_trial_1.pdf>]
 No file notes.bbl.
-[10 <./figures/Ex3/Ex3_f_2.png> <./figures/Ex3/Ex3_solution_2.png> <./figures/E
-x3/Ex3_evaluate_2.png>] (./notes.aux)
+[13 <./figures/Ex3/evaluate_8_trial_1.png> <./figures/Ex3/evaluate_8_trial_2.pn
+g>] (./notes.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: B387EFB1E69DA55D0C2585E7CF1670BD;1571.
+(rerunfilecheck)             Checksum: E06A0FB8402CB3CDFC0791B25A1862E6;1938.
  ) 
 Here is how much of TeX's memory you used:
- 12691 strings out of 476025
- 206860 string characters out of 5790017
+ 12780 strings out of 476025
+ 209476 string characters out of 5790017
  1864388 words of memory out of 5000000
- 32869 multiletter control sequences out of 15000+600000
+ 32931 multiletter control sequences out of 15000+600000
  534520 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,23n,77p,625b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2023/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texliv
-e/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/
-2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/20
-23/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023
-/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/tex
-mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-d
-ist/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on notes.pdf (10 pages, 2331325 bytes).
+/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
+al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
+/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/
+2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/20
+23/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023
+/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2023/texmf
+-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dis
+t/fonts/type1/public/cm-super/sfrm2074.pfb>
+Output written on notes.pdf (13 pages, 11692797 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 42 named destinations out of 1000 (max. 500000)
- 218 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
