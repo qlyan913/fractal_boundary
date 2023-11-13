@@ -111,7 +111,14 @@ def koch_snowflake(sq_list, level):
 
 # define number of levels here
 def MakeGeometry(fractal_level):
-    cube = Box (Pnt(0,0,0),Pnt(1,1,1))
+    pnt1 = Pnt(0,0,0)
+    pnt2 = Pnt(1,0,0)
+    pnt3 = Pnt(1,1,0)
+    pnt4 = Pnt(0,1,0)
+    pnt5 = Pnt(0,0,1)
+    pnt6 = Pnt(1,0,1)
+    pnt7 = Pnt(1,1,1)
+    pnt8 = Pnt(0,1,1)
     fractal_domain = cube
 
     # Define the list of squares for the Koch snowflake    
