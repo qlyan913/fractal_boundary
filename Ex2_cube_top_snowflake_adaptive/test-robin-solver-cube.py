@@ -28,37 +28,34 @@ from firedrake import *
 from firedrake.petsc import PETSc
 import numpy as np
 import time
-def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
-    # Test and trial functions
-    u = TrialFunction(V)
-    v = TestFunction(V)
-    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(6)
-    L = f*v*dx + k1*v*ds(1) + k2*v*ds(2)+k3*v*ds(3) + k4*v*ds(4) + (1./Lambda)*l*v*ds(6)
-    # list of boundary ids that corresponds to the exterior boundary of the domain
-    boundary_ids = (5,)
-    bcs = DirichletBC(V, g, boundary_ids)
-    uh = Function(V)
-    #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
-    return(uh)
+from netgen.geom2d import SplineGeometry
+from geogen import *
+from Ex2_solver import *
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
+mesh_size=float(input("Enter the meshsize for initial mesh: "))
+deg=input("Enter the degree of polynomial: ")
+
+tolerance = 1e-7
+max_iterations = 20
+geo = MakeGeometry(n)
+ngmsh = geo.GenerateMesh(maxh=mesh_size)
+mesh0 = Mesh(ngmsh)
+
+# Plot the mesh
+PETSc.Sys.Print(f'Finite element mesh has {mesh0.num_cells()} cells and {mesh0.num_vertices()} vertices.')
+outfile = File(f"domain/cube_{n}.pvd")
+outfile.write(mesh0)
+PETSc.Sys.Print(f"File for visualization in Paraview saved as 'domain/cube_{n}.pvd.")
 
 # Test : Domain is Unit Cube with snow flake n, solution is u = 2 + x^2 + 3xy+y*z
-n=3
-#mesh_file =f'unit_cube_with_koch_n{n}.msh'
-#mesh = Mesh(mesh_file)
+mesh = mesh0
 df=[]
-mh=[]
 err=[]
 err2=[]
-
 PETSc.Sys.Print("Test: Solution u=2+x^2+3xy+yz on Unit Cube")
-#deg=input("Enter the degree of polynomial: ")
-deg=1
-for i in range(0, 5):
- # mesh=MH[i]
-  with CheckpointFile(f"refined_cube_{i}.h5","r") as afile:
-     mesh=afile.load_mesh()
-  PETSc.Sys.Print("Refined Mesh ", i, " with max mesh size " , mesh.cell_sizes.dat.data.max())
+it=0
+sum_eta=1
+while sum_eta>tolerance and it<max_iterations:
   x, y,z = SpatialCoordinate(mesh)
   D = Constant(1.)
   Lambda = Constant(1.)
@@ -74,7 +71,12 @@ for i in range(0, 5):
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ...")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V)
-  mh.append(mesh.cell_sizes.dat.data.max())
+  mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  mesh = mesh.refine_marked_elements(mark)
+  it=it+1
+  outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
+  outfile.write(mesh)
+  PETSc.Sys.Print(f"Refined mesh saved as 'refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err.append(err_temp)
@@ -83,21 +85,6 @@ for i in range(0, 5):
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
   PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
-
-
-NN=np.array([1.1*(mh[i]/mh[1])**2*err[1] for i in range(0,len(err))])
-NN2=np.array([1.1*(mh[i]/mh[1])*err2[1] for i in range(0,len(err))])
-plt.figure(2)
-plt.loglog(mh, err,marker='o')
-plt.loglog(mh, err2,marker='s')
-plt.loglog(mh, NN)
-plt.loglog(mh, NN2)
-plt.legend(['$L^2$ error', '$H^1$ error', '$O(h^2)$','$O(h)$'])
-plt.xlabel('maximum of mesh size')
-plt.title('Test with solution $u=2+x^2+3xy+yz$')
-plt.savefig("test.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test.png")
-plt.close()
 
 NN=np.array([(df[0]/df[i])**(2./3.)*err[0] for i in range(0,len(err))])
 NN2=np.array([(df[0]/df[i])**(1./3.)*err2[0] for i in range(0,len(err))])
@@ -109,21 +96,21 @@ plt.loglog(df, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-2/3})$','$O(dof^{-1/3})$'])
 plt.xlabel('degree of freedom')
 plt.title('Test with soluion $u=2+x^2+3xy+yz$')
-plt.savefig("test_dof.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_dof.png")
+plt.savefig("figures/test_dof.png")
+PETSc.Sys.Print("Error vs mesh size  saved to figures/test_dof.png")
 
 
 
 # Test 2: Domain is Unit Cube with snow flake n, solution is u = 2 + x^3 +y^2+3xy+y*z
 df=[]
-mh=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test: Solution u=2+x+3*y+z on UnitCube")
+PETSc.Sys.Print("Test: Solution u=2+x+3*y+z on Unit Cube")
 
-for i in range(0, 5):
-  with CheckpointFile(f"refined_cube_{i}.h5","r") as afile:
-     mesh=afile.load_mesh()
+it=0
+sum_eta=1
+mesh=mesh0
+while sum_eta>tolerance and it<max_iterations:
   PETSc.Sys.Print("Refined Mesh ", i, " with max mesh size " , mesh.cell_sizes.dat.data.max())
   x, y,z = SpatialCoordinate(mesh)
   D = Constant(1.)
@@ -139,8 +126,13 @@ for i in range(0, 5):
   l=inner(grad(u),n)+u
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ... ")
-  uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V) 
-  mh.append(mesh.cell_sizes.dat.data.max())
+  uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V)
+  mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  mesh = mesh.refine_marked_elements(mark)
+  it=it+1
+  outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
+  outfile.write(mesh)
+  PETSc.Sys.Print(f"Refined mesh saved as 'refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err.append(err_temp)
@@ -149,20 +141,6 @@ for i in range(0, 5):
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
   PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
-
-NN=np.array([1.1*(mh[i]/mh[1])**2*err[1] for i in range(0,len(err))])
-NN2=np.array([1.1*(mh[i]/mh[1])*err2[1] for i in range(0,len(err))])
-plt.figure()
-plt.loglog(mh, err,marker='o')
-plt.loglog(mh, err2,marker='s')
-#plt.loglog(mh, NN)
-#plt.loglog(mh, NN2)
-plt.legend(['$L^2$ error', '$H^1$ error'])
-plt.xlabel('maximum of mesh size')
-plt.title('Test with solution: $u=2+x+3*y+z$')
-plt.savefig("test_2.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_2.png")
-plt.close()
 
 NN=np.array([(df[0]/df[i])**(2./3.)*err[0] for i in range(0,len(err))])
 NN2=np.array([(df[0]/df[i])**(1./3.)*err2[0] for i in range(0,len(err))])
@@ -174,5 +152,5 @@ plt.loglog(df, err2,marker='s')
 plt.legend(['$L^2$ error', '$H^1$ error'])
 plt.xlabel('degree of freedom')
 plt.title('Test with solution: $u=2+x+3*y+z$')
-plt.savefig("test_2_dof.png")
-PETSc.Sys.Print("Error vs mesh size  saved to test_2_dof.png")
+plt.savefig("figures/test_2_dof.png")
+PETSc.Sys.Print("Error vs mesh size  saved to figures/test_2_dof.png")
