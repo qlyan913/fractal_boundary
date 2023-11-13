@@ -109,18 +109,14 @@ def koch_snowflake(sq_list, level):
 
     return koch_snowflake(new_sq_list, level - 1)
 
-# Parameters
-#n =  3  # Number of iterations for Koch snowflake
-#mesh_size = 0.1  # Mesh size
-mesh_size2= mesh_size
-# Define the list of squares for the Koch snowflake
-square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
-sq_list0=[[square0]]
-sq_list=koch_snowflake(sq_list0, n)
-
 # define number of levels here
 def MakeGeometry(fractal_level):
     cube = Box (Pnt(0,0,0),Pnt(1,1,1))
     fractal_domain = cube
+
+    # Define the list of squares for the Koch snowflake    
+    square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
+    sq_list0=[[square0]]
+    sq_list=koch_snowflake(sq_list0, fractal_level)
     geo = OCCGeometry(fractal_domain)
     return geo
