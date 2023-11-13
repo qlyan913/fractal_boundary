@@ -118,5 +118,6 @@ def MakeGeometry(fractal_level):
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
     sq_list0=[[square0]]
     sq_list=koch_snowflake(sq_list0, fractal_level)
+
     geo = OCCGeometry(fractal_domain)
     return geo
