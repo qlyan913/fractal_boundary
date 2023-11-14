@@ -42,8 +42,11 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
+
 # Test : Domain is Unit Cube with snow flake n, solution is u = 2 + x^2 + 3xy+y*z
-n=3
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
+deg=int(input("Enter the degree of polynomial: "))
+
 #mesh_file =f'unit_cube_with_koch_n{n}.msh'
 #mesh = Mesh(mesh_file)
 df=[]
@@ -53,7 +56,7 @@ err2=[]
 
 PETSc.Sys.Print("Test: Solution u=2+x^2+3xy+yz on Unit Cube")
 #deg=input("Enter the degree of polynomial: ")
-deg=1
+
 for i in range(0, 5):
  # mesh=MH[i]
   with CheckpointFile(f"refined_cube_{i}.h5","r") as afile:
@@ -70,7 +73,7 @@ for i in range(0, 5):
   k3 = -3*x-z
   k4 =3*x+z
   n = FacetNormal(mesh)
-  l=inner(grad(u),n)+u
+  l=Lambda*inner(grad(u),n)+u
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ...")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V)
@@ -136,7 +139,7 @@ for i in range(0, 5):
   k3 =-3
   k4 =3
   n = FacetNormal(mesh)
-  l=inner(grad(u),n)+u
+  l=Lambda*inner(grad(u),n)+u
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ... ")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V) 

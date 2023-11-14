@@ -1,5 +1,5 @@
 from firedrake import *
-n=3
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 mesh_file =f'unit_cube_with_koch_n{n}.msh'
 mesh=Mesh(mesh_file)
 MH = MeshHierarchy(mesh, 4)

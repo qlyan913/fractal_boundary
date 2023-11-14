@@ -1,4 +1,4 @@
-# Qile Yan 2023-10-21
+# Qile Yan 2023-11-13
 #
 # -div ( D grad u) = f in Omega
 # u = g on bottom
@@ -28,15 +28,15 @@ from firedrake import *
 from firedrake.petsc import PETSc
 import numpy as np
 import time
-from netgen.geom2d import SplineGeometry
+from netgen.csg import *
 from geogen import *
 from Ex2_solver import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 mesh_size=float(input("Enter the meshsize for initial mesh: "))
-deg=input("Enter the degree of polynomial: ")
+deg=int(input("Enter the degree of polynomial: "))
 
 tolerance = 1e-7
-max_iterations = 20
+max_iterations = 1
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
@@ -48,7 +48,7 @@ outfile.write(mesh0)
 PETSc.Sys.Print(f"File for visualization in Paraview saved as 'domain/cube_{n}.pvd.")
 
 # Test : Domain is Unit Cube with snow flake n, solution is u = 2 + x^2 + 3xy+y*z
-mesh = mesh0
+mesh=mesh0
 df=[]
 err=[]
 err2=[]
@@ -61,18 +61,20 @@ while sum_eta>tolerance and it<max_iterations:
   Lambda = Constant(1.)
   f = Constant(-2.)
   u = 2 + x**2 + 3*x*y+y*z
-  u_D=2 + x**2 + 3*x*y
+  u_D=2 + x**2+3*x*y
   k1 =-2*x-3*y
   k2 = 2*x+3*y
   k3 = -3*x-z
   k4 =3*x+z
   n = FacetNormal(mesh)
-  l=inner(grad(u),n)+u
+  l=Lambda*inner(grad(u),n)+u
+  #l=y+u
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ...")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V)
-  mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
-  mesh = mesh.refine_marked_elements(mark)
+ 
+  #mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  #mesh = mesh.refine_marked_elements(mark)
   it=it+1
   outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
   outfile.write(mesh)

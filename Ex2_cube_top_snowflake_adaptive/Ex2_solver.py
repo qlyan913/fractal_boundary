@@ -1,8 +1,27 @@
-# Qile Yan 2023-10-21
-# Solve
-#   -\Delta u =f in Omega
-# u = g on boundary
-# Adaptive FEM
+# Qile Yan 2023-11-13
+# -div ( D grad u) = f in Omega
+# u = g on bottom
+# du/dn = ki,  ki is function defined on boundary 1<= i<= 4 
+# Lambda du/dn + u = l on top
+#
+#  Weak formulation:
+#
+#  Find u in H1 with u = g on bottom such that
+#
+#    \int D grad(u).grad(v) dx  +  \int_{top} D/Lambda u v ds
+#         = \int f v dx  +  \int_{top} (1/Lambda) l v ds
+#           +  \int_{left} kl v ds   +  \int_{right} kr v ds
+#
+#  for all v in H1 which vanish on bottom.
+#
+#  Boundary surfaces are numbered as follows:
+#  1: plane x == 0
+#  2: plane x == 1
+#  3: plane y == 0
+#  4: plane y == 1
+#  5: plane z == 0
+#  6: plane z == 1 replaced by snowflake
+#  Adaptive FEM
 from firedrake.petsc import PETSc
 from firedrake import *
 
@@ -16,8 +35,8 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
     boundary_ids = (5,)
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
-    #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    #solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
 def Mark(msh, f, uh,V,tolerance):

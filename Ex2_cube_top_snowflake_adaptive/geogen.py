@@ -1,5 +1,5 @@
 #from netgen.geom2d import SplineGeometry
-from netgen.occ import *
+from netgen.csg import *
 import numpy as np
 #  Create a mesh a cube where the top is replaced by snowflake
 #  Boundary surfaces are numbered as follows:
@@ -111,20 +111,20 @@ def koch_snowflake(sq_list, level):
 
 # define number of levels here
 def MakeGeometry(fractal_level):
-    pnt1 = Pnt(0,0,0)
-    pnt2 = Pnt(1,0,0)
-    pnt3 = Pnt(1,1,0)
-    pnt4 = Pnt(0,1,0)
-    pnt5 = Pnt(0,0,1)
-    pnt6 = Pnt(1,0,1)
-    pnt7 = Pnt(1,1,1)
-    pnt8 = Pnt(0,1,1)
+    left = Plane(Pnt(0, 0, 0), Vec(-1, 0, 0)).bc(1)
+    right = Plane(Pnt(1, 1, 1), Vec(1, 0, 0)).bc(2)
+    front = Plane(Pnt(0, 0, 0), Vec(0, -1, 0)).bc(3)
+    back = Plane(Pnt(1, 1, 1), Vec(0, 1, 0)).bc(4)
+    bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc(5)
+    top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc(6)
+    cube = left * right * front * back * bot * top
     fractal_domain = cube
 
     # Define the list of squares for the Koch snowflake    
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
     sq_list0=[[square0]]
     sq_list=koch_snowflake(sq_list0, fractal_level)
-  
-    geo = OCCGeometry(fractal_domain)
+    
+    geo = CSGeometry()
+    geo.Add(fractal_domain)
     return geo
