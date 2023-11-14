@@ -111,12 +111,12 @@ def koch_snowflake(sq_list, level):
 
 # define number of levels here
 def MakeGeometry(fractal_level):
-    left = Plane(Pnt(0, 0, 0), Vec(-1, 0, 0)).bc(1)
-    right = Plane(Pnt(1, 1, 1), Vec(1, 0, 0)).bc(2)
-    front = Plane(Pnt(0, 0, 0), Vec(0, -1, 0)).bc(3)
-    back = Plane(Pnt(1, 1, 1), Vec(0, 1, 0)).bc(4)
-    bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc(5)
-    top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc(6)
+    left = Plane(Pnt(0, 0, 0), Vec(-1, 0, 0)).bc("left")
+    right = Plane(Pnt(1, 1, 1), Vec(1, 0, 0)).bc("right")
+    front = Plane(Pnt(0, 0, 0), Vec(0, -1, 0)).bc("front")
+    back = Plane(Pnt(1, 1, 1), Vec(0, 1, 0)).bc("back")
+    bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
+    top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
     cube = left * right * front * back * bot * top
     fractal_domain = cube
 

@@ -27,7 +27,6 @@ import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
 import numpy as np
-import time
 from netgen.csg import *
 from geogen import *
 from Ex2_solver import *
@@ -39,6 +38,15 @@ tolerance = 1e-7
 max_iterations = 1
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
+
+# Get label of boundary of Netgen mesh to index
+bc_left = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['left']][0]
+bc_right = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['right']][0]
+bc_front = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['front']][0] 
+bc_back = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['back']][0] 
+bc_bot = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['bot']][0] 
+bc_top = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['top']][0] 
+
 mesh0 = Mesh(ngmsh)
 
 # Plot the mesh
@@ -61,17 +69,16 @@ while sum_eta>tolerance and it<max_iterations:
   Lambda = Constant(1.)
   f = Constant(-2.)
   u = 2 + x**2 + 3*x*y+y*z
-  u_D=2 + x**2+3*x*y
-  k1 =-2*x-3*y
+  u_D=2+ x**2+3*x*y
+  k1 = -2*x-3*y
   k2 = 2*x+3*y
   k3 = -3*x-z
-  k4 =3*x+z
+  k4 = 3*x+z
   n = FacetNormal(mesh)
   l=Lambda*inner(grad(u),n)+u
-  #l=y+u
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ...")
-  uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V)
+  uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
  
   #mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
   #mesh = mesh.refine_marked_elements(mark)
@@ -86,7 +93,7 @@ while sum_eta>tolerance and it<max_iterations:
   err2.append(err2_temp)
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
-  PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(5))))
+  PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(bc_bot))))
 
 NN=np.array([(df[0]/df[i])**(2./3.)*err[0] for i in range(0,len(err))])
 NN2=np.array([(df[0]/df[i])**(1./3.)*err2[0] for i in range(0,len(err))])

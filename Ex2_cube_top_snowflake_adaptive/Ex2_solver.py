@@ -25,14 +25,14 @@
 from firedrake.petsc import PETSc
 from firedrake import *
 
-def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V):
+def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top):
     # Test and trial functions
     u = TrialFunction(V)
     v = TestFunction(V)
-    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(6)
-    L = f*v*dx + k1*v*ds(1) + k2*v*ds(2)+k3*v*ds(3) + k4*v*ds(4) + (1./Lambda)*l*v*ds(6)
+    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(bc_top)
+    L = f*v*dx  + k1*v*ds(bc_left)+k2*v*ds(bc_right)+k3*v*ds(bc_front) + k4*v*ds(bc_back) + (1./Lambda)*l*v*ds(bc_top)
     # list of boundary ids that corresponds to the exterior boundary of the domain
-    boundary_ids = (5,)
+    boundary_ids = (bc_bot,)
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
     solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
