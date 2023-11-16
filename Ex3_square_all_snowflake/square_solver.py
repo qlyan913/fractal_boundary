@@ -21,8 +21,9 @@ mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
 # max of refinement
 n_ref=3
+MH=MeshHierarchy(mesh,n_ref)
 # threshold for refinement in relative error
-val_thr=0.01
+val_thr=10**(-3)
 def snowsolver(mesh, f,g,V):
     # V = FunctionSpace(mesh, "Lagrange", 1)
     # Test and trial functions
@@ -45,13 +46,14 @@ x_list=[(1/3.)**i for i in range(0,n+1)]
 err=1
 it=0
 V = FunctionSpace(mesh, "Lagrange", deg)
-uh0=Function(V)
 x, y = SpatialCoordinate(mesh)
-uh0.interpolate(x)
+f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+g=0.0
+uh0=snowsolver(mesh,f,g,V)
 
 while err>val_thr and it<n_ref:
-   MH = MeshHierarchy(mesh, 1)
-   mesh=MH[1]
+   it=it+1
+   mesh=MH[it]
    x, y = SpatialCoordinate(mesh)
    V = FunctionSpace(mesh, "Lagrange", deg)
    f=exp(-20*((x-0.5)**2+(y-0.5)**2))
@@ -60,14 +62,10 @@ while err>val_thr and it<n_ref:
    uh0_c=Function(V)
    prolong(uh0,uh0_c)
    err=sqrt(assemble(dot(uh-uh0_c,uh-uh0_c)*dx))/sqrt(assemble(dot(uh,uh)*dx))
+   PETSc.Sys.Print("The relative difference in L2 norm of solutions on coarse and fine mesh is", err)
    uh0=uh
-   it=it+1
-
-if it == n_ref+1:
-   PETSc.Sys.Print("maximum number of refinement is reached")
-else:
-   PETSc.Sys.Print(f"Refined {it} times.")
-
+ 
+del MH
 # plot f
 fig, axes = plt.subplots()
 ff=Function(V)

@@ -19,7 +19,7 @@ n_max=10
 # max of refinement
 n_ref=5
 # threshold of refinement for relative error 
-val_thr=10**(-3)
+val_thr=1*10**(-5)
 def PDE_solver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -41,9 +41,10 @@ x_list=[(1/2.)**i for i in range(0,n_max)]
 err=1
 it=0
 V = FunctionSpace(mesh, "Lagrange", deg)
-uh0=Function(V)
 x, y = SpatialCoordinate(mesh)
-uh0.interpolate(x)
+f=exp(-20*(x**2+y**2))
+g=0.0
+uh0=PDE_solver(mesh,f,g,V)
 
 while err>val_thr and it <n_ref:
    MH = MeshHierarchy(mesh, 1)
@@ -56,6 +57,7 @@ while err>val_thr and it <n_ref:
    uh0_c=Function(V)
    prolong(uh0,uh0_c)
    err=sqrt(assemble(dot(uh-uh0_c,uh-uh0_c)*dx))/sqrt(assemble(dot(uh,uh)*dx))
+   print("The relative difference in L2 norm of solutions on coarse and fine mesh is ",err )
    uh0=uh
    it=it+1
  
