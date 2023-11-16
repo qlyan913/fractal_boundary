@@ -2,9 +2,9 @@
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
-# f: equal to 1 on [1/3,2/3]x[1/3,2/3] and equal to 0 elsewhere
+# f = exp(-20((x-0.5)^2+(x-0.5)^2))
 #
-# In this example, we would like to evaluate the solution at center of small squares.
+# In this example, we would like to evaluate the solution along a random path of center of small squares.
 #
 import matplotlib.pyplot as plt
 from firedrake.petsc import PETSc
@@ -20,9 +20,9 @@ from firedrake import *
 mesh_file = f'domain/koch_{n}.msh'
 mesh = Mesh(mesh_file)
 # max of refinement
-n_ref=5
+n_ref=3
 # threshold for refinement in relative error
-val_thr=0.05
+val_thr=0.01
 def snowsolver(mesh, f,g,V):
     # V = FunctionSpace(mesh, "Lagrange", 1)
     # Test and trial functions
@@ -44,23 +44,26 @@ pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
 x_list=[(1/3.)**i for i in range(0,n+1)]
 err=1
 it=0
-uu0=np.ones(n+1)
+V = FunctionSpace(mesh, "Lagrange", deg)
+uh0=Function(V)
+x, y = SpatialCoordinate(mesh)
+uh0.interpolate(x)
 
 while err>val_thr and it<n_ref:
    MH = MeshHierarchy(mesh, 1)
    mesh=MH[1]
    x, y = SpatialCoordinate(mesh)
    V = FunctionSpace(mesh, "Lagrange", deg)
-   #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-   f=exp(-4*((x-0.5)**2+(y-0.5)**2))
+   f=exp(-20*((x-0.5)**2+(y-0.5)**2))
    g=0.0
    uh = snowsolver(mesh, f,g,V)
-   uu = np.array(uh.at(pp))
-   err=np.linalg.norm((uu-uu0)/uu0,np.inf)
-   uu0=uu
+   uh0_c=Function(V)
+   prolong(uh0,uh0_c)
+   err=sqrt(assemble(dot(uh-uh0_c,uh-uh0_c)*dx))/sqrt(assemble(dot(uh,uh)*dx))
+   uh0=uh
    it=it+1
 
-if it == n_ref:
+if it == n_ref+1:
    PETSc.Sys.Print("maximum number of refinement is reached")
 else:
    PETSc.Sys.Print(f"Refined {it} times.")
@@ -85,6 +88,7 @@ mesh.name="msh"
 with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)
+PETSc.Sys.Print(f"The mesh and solution is saved to solutions/solution_{n}.h5")
 
 uu=uh.at(pp)
 plt.figure()
