@@ -70,7 +70,9 @@ while sum_eta>tolerance and it<max_iterations:
   u=(x**2+y**2)**(1/3.)*sin(2./3.*atan2(y,-x))
   f=Constant(0.) 
   uh = snowsolver(mesh, f,u,V)
-  mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  mark,sum_eta,max_eta = Mark(mesh, f,uh,V,tolerance)
+  print("sum_eta is ",sum_eta)
+  print("max of eta is ",max_eta) 
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
@@ -101,7 +103,7 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/Lshape_soln_adap.png"
 plt.close()
 
 # Check the uniform refinement result
-MH = MeshHierarchy(mesh_u, 8)
+MH = MeshHierarchy(mesh_u, 5)
 err_u=[]
 err2_u=[]
 df_u=[]
