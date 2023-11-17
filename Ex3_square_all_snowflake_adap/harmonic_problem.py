@@ -26,10 +26,10 @@ ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh = Mesh(ngmsh)
 # max of refinement
 tolerance = 1e-16
-max_iterations = 10
+max_iterations = 30
 
 # threshold for refinement in relative error
-val_thr=10**(-2)
+val_thr=10**(-4)
 
 # center points at center of squares of i-th iteration
 pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
@@ -37,17 +37,27 @@ pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
 x_list=[(1/3.)**i for i in range(0,n+1)]
 err=1
 it=0
+V = FunctionSpace(mesh, "Lagrange", deg)
+x, y = SpatialCoordinate(mesh)
+f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+g=0.0
+uh0=snowsolver(mesh,f,g,V)
 
-for i in range(max_iterations):
+while err>val_thr and it<max_iterations:
+   it=it+1
    x, y = SpatialCoordinate(mesh)
    V = FunctionSpace(mesh, "Lagrange", deg)
    #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-   f=exp(-4*((x-0.5)**2+(y-0.5)**2))
+   f=exp(-20*((x-0.5)**2+(y-0.5)**2))
    g=0.0
    uh = snowsolver(mesh, f,g,V)
+   uh0_c=Function(V)
+   prolong(uh0,uh0_c)
+   err=sqrt(assemble(dot(uh-uh0_c,uh-uh0_c)*dx))/sqrt(assemble(dot(uh,uh)*dx))
+   PETSc.Sys.Print("The relative difference in L2 norm of solutions on coarse and fine mesh is", err)
+   uh0=uh
    mark = Mark(mesh,f,uh,V,tolerance)
    mesh = mesh.refine_marked_elements(mark)
-   it=it+1
    meshplot = triplot(mesh)
    meshplot[0].set_linewidth(0.1)
    meshplot[1].set_linewidth(1)
@@ -57,6 +67,7 @@ for i in range(max_iterations):
    plt.savefig(f"figures/snow_{n}_ref_{i}.pdf")
    plt.close()
    PETSc.Sys.Print(f"refined mesh plot saved to 'figures/snow_{n}_ref_{i}.pdf'.")
+   
 
 PETSc.Sys.Print(f"refined {it} times")
 
