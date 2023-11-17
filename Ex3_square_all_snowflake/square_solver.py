@@ -72,14 +72,14 @@ ff=Function(V)
 ff.interpolate(f)
 collection = tripcolor(ff, axes=axes)
 fig.colorbar(collection);
-plt.savefig(f"figures/f_{n}.png")
+plt.savefig(f"figures/f_{n}.png", dpi=1000)
 PETSc.Sys.Print(f"The plot of force term f is saved to  figures/f_{n}.png")
 
 # plot solution
 fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
-plt.savefig(f"figures/solution_{n}.png")
+plt.savefig(f"figures/solution_{n}.png", dpi=1000)
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
 mesh.name="msh"
