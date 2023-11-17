@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from firedrake.petsc import PETSc
 import numpy as np
 import random
 import statistics 
@@ -6,7 +7,7 @@ from scipy import stats
 from firedrake import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 trial=int(input("Enter the number of random paths to be estimated: "))
-print("loading mesh")
+PETSc.Sys.Print("loading mesh")
 with CheckpointFile(f"solutions/solution_{n}.h5",'r') as afile:
     mesh=afile.load_mesh('msh')
     uh=afile.load_function(mesh,"uh")
@@ -78,15 +79,15 @@ for i in range(0,trial):
       plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha)])
       plt.savefig(f"figures/evaluate_{n}_trial_{i}.png")
       plt.close()
-      print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_{n}_trial_{i}.png.")
+      PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_{n}_trial_{i}.png.")
 
 alpha_mean=statistics.mean(alpha0)
 alpha_std=statistics.stdev(alpha0)
 c_mean=statistics.mean(c0)
 c_std=statistics.stdev(c0)
-print("Total number of random path is ", trial)
-print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
-print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
+PETSc.Sys.Print("Total number of random path is ", trial)
+PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
+PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
 
 

@@ -75,7 +75,7 @@ def divide_square(sq_vertices):
 
     return (new_hole, new_other, new_main)
 
-def koch_snowflake(sq_list, level):
+def koch_snowflake(sq_list,cube_list, level):
     # sq_list, each element consists of {main surface,{holes},{others}}
     # "other" are list subsquares which will be divided in next step whose holes will be added to the main_surface.
     # In gmsh script, plane surface = {main surface, holes} means take the main surface as outside boundary
@@ -107,7 +107,7 @@ def koch_snowflake(sq_list, level):
         for j in range(len(new_main)):
             new_sq_list.append([new_main[j]])
 
-    return koch_snowflake(new_sq_list, level - 1)
+    return koch_snowflake(new_sq_list,cube_list, level - 1)
 
 # define number of levels here
 def MakeGeometry(fractal_level):
@@ -118,12 +118,13 @@ def MakeGeometry(fractal_level):
     bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
     top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
     cube = left * right * front * back * bot * top
+    
     fractal_domain = cube
 
     # Define the list of squares for the Koch snowflake    
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
     sq_list0=[[square0]]
-    sq_list=koch_snowflake(sq_list0, fractal_level)
+    sq_list=koch_snowflake(sq_list0,cube_list, fractal_level)
     
     geo = CSGeometry()
     geo.Add(fractal_domain)

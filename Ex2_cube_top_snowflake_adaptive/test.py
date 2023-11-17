@@ -17,12 +17,12 @@
 #  for all v in H1 which vanish on bottom.
 #
 #  Boundary surfaces are numbered as follows:
-#  1: plane x == 0
-#  2: plane x == 1
-#  3: plane y == 0
-#  4: plane y == 1
-#  5: plane z == 0
-#  6: plane z == 1 replaced by snowflake
+#  bc_left: plane x == 0
+#  bc_right: plane x == 1
+#  bc_front: plane y == 0
+#  bc_back: plane y == 1
+#  bc_bot: plane z == 0
+#  bc_top: plane z == 1 replaced by snowflake
 import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
