@@ -35,7 +35,7 @@ mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))
 
 tolerance = 1e-7
-max_iterations = 1
+max_iterations = 5
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 
@@ -80,8 +80,8 @@ while sum_eta>tolerance and it<max_iterations:
   PETSc.Sys.Print("Solving the PDE ...")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
  
-  #mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
-  #mesh = mesh.refine_marked_elements(mark)
+  mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  mesh = mesh.refine_marked_elements(mark)
   it=it+1
   outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
   outfile.write(mesh)

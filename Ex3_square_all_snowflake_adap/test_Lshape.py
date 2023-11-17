@@ -103,7 +103,7 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/Lshape_soln_adap.png"
 plt.close()
 
 # Check the uniform refinement result
-MH = MeshHierarchy(mesh_u, 5)
+MH = MeshHierarchy(mesh_u, 8)
 err_u=[]
 err2_u=[]
 df_u=[]
