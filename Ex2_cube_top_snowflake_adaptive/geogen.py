@@ -148,10 +148,10 @@ def MakeGeometry(fractal_level):
     bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
     top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
     cube = left * right * front * back * bot * top
-    P1=np.array([0.33,0,1])
-    P2=np.array([0.66,0,1])
-    P4=np.array([0.33,0,1.33])
-    P5=np.array([0.33,0.33,1])
+    P1=np.array([0.33,0.33,1])
+    P2=np.array([0.66,0.33,1])
+    P4=np.array([0.33,0.33,1.33])
+    P5=np.array([0.33,0.66,1])
     small_cube=Makecube_on_top(P1,P2,P4,P5)
     fractal_domain = cube+small_cube
 
