@@ -35,9 +35,9 @@ def PDE_solver(mesh, f,g,V):
     return(uh)
 
 # points goes to boundary of unit disk
-pp=[[0,1-(1/2.)**i] for i in range(1,n_max)]
+pp=[[0,1-(1/2.)**i] for i in range(5,n_max)]
 # distance to boundary
-x_list=[(1/2.)**i for i in range(1,n_max)]
+x_list=[(1/2.)**i for i in range(5,n_max)]
 err=1
 it=0
 V = FunctionSpace(mesh, "Lagrange", deg)
