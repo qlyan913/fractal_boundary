@@ -109,6 +109,36 @@ def koch_snowflake(sq_list, level):
 
     return koch_snowflake(new_sq_list, level - 1)
 
+def Makecube_on_top(P1,P2,P4,P5):
+    #                 P7----------P8
+    #                /|         / |
+    #             P5/---------P6  |
+    #              |  P4------｜--P3
+    #              | /        ｜ /
+    #              |/         ｜/
+    #             P1-----------P2
+    n1=P1-P2
+    n1=n1/np.linalg.norm(n1)
+    left = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P2-P1
+    n1=n1/np.linalg.norm(n1)
+    right = Plane(Pnt(P2[0],P2[1],P2[2]), Vec(n1[0],n1[1],n1[2])) 
+    n1=P1-P4
+    n1=n1/np.linalg.norm(n1)
+    front = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P4-P1
+    n1=n1/np.linalg.norm(n1)
+    back = Plane(Pnt(P4[0],P4[1],P4[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P1-P5
+    n1=n1/np.linalg.norm(n1)
+    bot = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P5-P1
+    n1=n1/np.linalg.norm(n1)
+    top = Plane(Pnt(P5[0],P5[1],P5[2]), Vec(n1[0],n1[1],n1[2]))
+    cube = left * right * front * back * bot * top
+    cube.bc("top")
+    return cube
+
 # define number of levels here
 def MakeGeometry(fractal_level):
     left = Plane(Pnt(0, 0, 0), Vec(-1, 0, 0)).bc("left")
@@ -118,7 +148,12 @@ def MakeGeometry(fractal_level):
     bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
     top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
     cube = left * right * front * back * bot * top
-    fractal_domain = cube
+    P1=np.array([0.33,0,1])
+    P2=np.array([0.66,0,1])
+    P4=np.array([0.33,0,1.33])
+    P5=np.array([0.33,0.33,1])
+    small_cube=Makecube_on_top(P1,P2,P4,P5)
+    fractal_domain = cube+small_cube
 
     # Define the list of squares for the Koch snowflake    
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
