@@ -72,16 +72,18 @@ def divide_square(sq_vertices):
     H4 = N12 +ndx*normal
     new_main=[np.array([H1,N9,N10,H2]),np.array([H2,N10,N11,H3]),np.array([H3,N11,N12,H4]),
               np.array([H4,N12,N9,H1]),np.array([H1,H2,H3,H4])]
+    small_cube=[N10,N11,N9,H2]
+    return (new_hole, new_other, new_main,small_cube)
 
-    return (new_hole, new_other, new_main)
-
-def koch_snowflake(sq_list, level):
+def koch_snowflake(sq_cube, level):
     # sq_list, each element consists of {main surface,{holes},{others}}
     # "other" are list subsquares which will be divided in next step whose holes will be added to the main_surface.
     # In gmsh script, plane surface = {main surface, holes} means take the main surface as outside boundary
     # and the holes as inside boudary.
+    sq_list=sq_cube[0]
+    small_cube_list=sq_cube[1]
     if level == 0:
-        return sq_list
+        return sq_cube
     new_sq_list=[]
     for i in range(len(sq_list)):
         sq = sq_list[i]
@@ -97,17 +99,18 @@ def koch_snowflake(sq_list, level):
             s_others = [s_main]
 
         for j in range(len(s_others)):
-            temp_hole, temp_other, temp_main=divide_square(s_others[j])
+            temp_hole, temp_other, temp_main,small_cube=divide_square(s_others[j])
             new_holes=new_holes+temp_hole
             new_others=new_others+temp_other
             new_main=new_main+temp_main
-
+            small_cube_list.append(small_cube)
+       
         sq=[s_main,new_holes,new_others]
         new_sq_list.append(sq)
         for j in range(len(new_main)):
-            new_sq_list.append([new_main[j]])
-
-    return koch_snowflake(new_sq_list, level - 1)
+            new_sq_list.append([new_main[j]])   
+    sq_cube=[new_sq_list,small_cube_list]
+    return koch_snowflake(sq_cube, level - 1)
 
 def Makecube_on_top(P1,P2,P4,P5):
     #                 P7----------P8
@@ -148,18 +151,21 @@ def MakeGeometry(fractal_level):
     bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
     top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
     cube = left * right * front * back * bot * top
-    P1=np.array([0.33,0.33,1])
-    P2=np.array([0.66,0.33,1])
-    P4=np.array([0.33,0.33,1.33])
-    P5=np.array([0.33,0.66,1])
-    small_cube=Makecube_on_top(P1,P2,P4,P5)
-    fractal_domain = cube+small_cube
-
+    fractal_domain=cube
+ 
     # Define the list of squares for the Koch snowflake    
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
     sq_list0=[[square0]]
-    sq_list=koch_snowflake(sq_list0, fractal_level)
-    
+    sq_cube_list  = koch_snowflake([sq_list0,[]],fractal_level)
+    small_cube_list=sq_cube_list[1]
+    for i in range(len(small_cube_list)):
+       P1=small_cube_list[i][0]
+       P2=small_cube_list[i][1] 
+       P4=small_cube_list[i][2] 
+       P5=small_cube_list[i][3] 
+       small_cube=Makecube_on_top(P1,P2,P4,P5)
+       fractal_domain = fractal_domain+small_cube
+
     geo = CSGeometry()
     geo.Add(fractal_domain)
     return geo
