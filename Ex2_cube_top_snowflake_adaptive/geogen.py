@@ -160,15 +160,20 @@ def MakeGeometry(fractal_level):
     small_cube_list=sq_cube_list[1]
     print("len of cube_list", len(small_cube_list))
     print(small_cube_list)
-    #for i in range(len(small_cube_list)):
-    for i in range(5):
+    for i in range(len(small_cube_list)):
        P1=small_cube_list[i][0]
        P2=small_cube_list[i][1] 
        P4=small_cube_list[i][2] 
        P5=small_cube_list[i][3] 
        small_cube=Makecube_on_top(P1,P2,P4,P5)
        fractal_domain = fractal_domain+small_cube
-
+    
+    P1=np.array([1.444,1.444,1.33333333])
+    P2=np.array([1.555,1.444,1.33333333])
+    P4=np.array([1.444,1.555,1.33333333])
+    P5=np.array([1.444,1.444,1.444])
+    small_cube=Makecube_on_top(P1,P2,P4,P5)
+    fractal_domain = fractal_domain+small_cube
     geo = CSGeometry()
     geo.Add(fractal_domain)
     return geo
