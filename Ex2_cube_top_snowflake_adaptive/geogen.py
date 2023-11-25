@@ -158,7 +158,10 @@ def MakeGeometry(fractal_level):
     sq_list0=[[square0]]
     sq_cube_list  = koch_snowflake([sq_list0,[]],fractal_level)
     small_cube_list=sq_cube_list[1]
-    for i in range(len(small_cube_list)):
+    print("len of cube_list", len(small_cube_list))
+    print(small_cube_list)
+    #for i in range(len(small_cube_list)):
+    for i in range(5):
        P1=small_cube_list[i][0]
        P2=small_cube_list[i][1] 
        P4=small_cube_list[i][2] 
