@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
 import numpy as np
-from netgen.csg import *
+from netgen.occ import *
 from geogen import *
 from Ex2_solver import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))

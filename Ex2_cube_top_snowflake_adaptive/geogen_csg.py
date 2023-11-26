@@ -1,5 +1,5 @@
 # Qile Yan 2023-11-14
-from netgen.occ import *
+from netgen.csg import *
 import numpy as np
 #  Create a mesh a cube where the top is replaced by snowflake
 #  Boundary surfaces will be labelled as follows:
@@ -72,14 +72,7 @@ def divide_square(sq_vertices):
     H4 = N12 +ndx*normal
     new_main=[np.array([H1,N9,N10,H2]),np.array([H2,N10,N11,H3]),np.array([H3,N11,N12,H4]),
               np.array([H4,N12,N9,H1]),np.array([H1,H2,H3,H4])]
-    #                 H1---------H4
-    #                /|         / |
-    #             H2/---------H3  |
-    #              |  N9------｜--N12
-    #              | /        ｜ /
-    #              |/         ｜/
-    #             N10---------N11
-    small_cube=[N10,H4]
+    small_cube=[N10,N11,N9,H2]
     return (new_hole, new_other, new_main,small_cube)
 
 def koch_snowflake(sq_cube, level):
@@ -119,35 +112,75 @@ def koch_snowflake(sq_cube, level):
     sq_cube=[new_sq_list,small_cube_list]
     return koch_snowflake(sq_cube, level - 1)
 
+def Makecube_on_top(P1,P2,P4,P5):
+    #                 P7----------P8
+    #                /|         / |
+    #             P5/---------P6  |
+    #              |  P4------｜--P3
+    #              | /        ｜ /
+    #              |/         ｜/
+    #             P1-----------P2
+    n1=P1-P2
+    n1=n1/np.linalg.norm(n1)
+    left = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P2-P1
+    n1=n1/np.linalg.norm(n1)
+    right = Plane(Pnt(P2[0],P2[1],P2[2]), Vec(n1[0],n1[1],n1[2])) 
+    n1=P1-P4
+    n1=n1/np.linalg.norm(n1)
+    front = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P4-P1
+    n1=n1/np.linalg.norm(n1)
+    back = Plane(Pnt(P4[0],P4[1],P4[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P1-P5
+    n1=n1/np.linalg.norm(n1)
+    bot = Plane(Pnt(P1[0],P1[1],P1[2]), Vec(n1[0],n1[1],n1[2]))
+    n1=P5-P1
+    n1=n1/np.linalg.norm(n1)
+    top = Plane(Pnt(P5[0],P5[1],P5[2]), Vec(n1[0],n1[1],n1[2]))
+    cube = left * right * front * back * bot * top
+    cube.bc("top")
+    return cube
+
 # define number of levels here
 def MakeGeometry(fractal_level):
-    cube =  Box(Pnt(0,0,0), Pnt(1,1,1))
-    for i in range(6):
-        if cube.faces[i].center[0]==0:
-             cube.faces[i].name='left'
-        elif cube.faces[i].center[0]==1:
-             cube.faces[i].name='right'
-        elif cube.faces[i].center[1]==0:
-             cube.faces[i].name='front'
-        elif cube.faces[i].center[1]==1:
-             cube.faces[i].name='back'
-        elif cube.faces[i].center[2] == 0:
-             cube.faces[i].name = 'bot'
-        else:
-             cube.faces[i].name = 'top'
+    left = Plane(Pnt(0, 0, 0), Vec(-1, 0, 0)).bc("left")
+    right = Plane(Pnt(1, 1, 1), Vec(1, 0, 0)).bc("right")
+    front = Plane(Pnt(0, 0, 0), Vec(0, -1, 0)).bc("front")
+    back = Plane(Pnt(1, 1, 1), Vec(0, 1, 0)).bc("back")
+    bot = Plane(Pnt(0, 0, 0), Vec(0, 0, -1)).bc("bot")
+    top = Plane(Pnt(1, 1, 1), Vec(0, 0, 1)).bc("top")
+    cube = left * right * front * back * bot * top
     fractal_domain=cube
+ 
     # Define the list of squares for the Koch snowflake    
     square0=np.array([[0,1,1],[0,0,1],[1,0,1],[1,1,1]])
     sq_list0=[[square0]]
     sq_cube_list  = koch_snowflake([sq_list0,[]],fractal_level)
     small_cube_list=sq_cube_list[1]
-
+    print("len of cube_list", len(small_cube_list))
+    print(small_cube_list)
     for i in range(len(small_cube_list)):
        P1=small_cube_list[i][0]
-       P2=small_cube_list[i][1]
-       cube =  Box(Pnt(P1[0],P1[1],P1[2]), Pnt(P2[0],P2[1],P2[2]))
-       cube.bc('top')
-       fractal_domain= fractal_domain + cube
+       P2=small_cube_list[i][1] 
+       P4=small_cube_list[i][2] 
+       P5=small_cube_list[i][3] 
+       small_cube=Makecube_on_top(P1,P2,P4,P5)
+       fractal_domain = fractal_domain+small_cube
+#    P1=np.array([0.33333333,0.44444444,1.11111111])
+#    P2=np.array([0.33333333,0.44444444,1.22222222])
+#    P4=np.array([0.33333333,0.55555556,1.11111111]) 
+#    P5=np.array([0.22222222,0.44444444,1.11111111])
+#    small_cube=Makecube_on_top(P1,P2,P4,P5)
+#    fractal_domain = fractal_domain+small_cube
+#    i=3
+#    P1=small_cube_list[i][0]
+#    P2=small_cube_list[i][1] 
+#    P4=small_cube_list[i][2] 
+#    P5=small_cube_list[i][3] 
+#    small_cube=Makecube_on_top(P1,P2,P4,P5)
+#    fractal_domain = fractal_domain+small_cube
 
-    geo = OCCGeometry(fractal_domain)
+    geo = CSGeometry()
+    geo.Add(fractal_domain)
     return geo
