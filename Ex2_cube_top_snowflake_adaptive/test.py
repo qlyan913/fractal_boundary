@@ -12,7 +12,8 @@
 #
 #    \int D grad(u).grad(v) dx  +  \int_{top} D/Lambda u v ds
 #         = \int f v dx  +  \int_{top} (1/Lambda) l v ds
-#           +  \int_{left} kl v ds   +  \int_{right} kr v ds
+#           +  \int_{left} k1 v ds   +  \int_{right} k2 v ds
+#           +  \int_{front} k3 v ds   +  \int_{back} k4 v ds           
 #
 #  for all v in H1 which vanish on bottom.
 #
@@ -27,17 +28,20 @@ import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
 import numpy as np
+import csv
 from netgen.occ import *
 from geogen import *
 from Ex2_solver import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
-mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))
 
 tolerance = 1e-7
 max_iterations = 5
-geo = MakeGeometry(n)
-ngmsh = geo.GenerateMesh(maxh=mesh_size)
+
+# load the ngmesh
+from netgen import meshing
+ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
+ngmsh.Load(f"domain/cube_{n}.vol")
 
 # Get label of boundary of Netgen mesh to index
 bc_left = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['left']][0]
@@ -47,7 +51,7 @@ bc_back = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name
 bc_bot = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['bot']][0] 
 bc_top = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['top']][0] 
 
-mesh0 = Mesh(ngmsh)
+mesh0=Mesh(ngmsh)
 
 # Plot the mesh
 PETSc.Sys.Print(f'Finite element mesh has {mesh0.num_cells()} cells and {mesh0.num_vertices()} vertices.')
@@ -86,6 +90,7 @@ while sum_eta>tolerance and it<max_iterations:
   outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
   outfile.write(mesh)
   PETSc.Sys.Print(f"Refined mesh saved as 'refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
+  PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err.append(err_temp)

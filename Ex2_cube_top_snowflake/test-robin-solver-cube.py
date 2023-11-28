@@ -12,7 +12,8 @@
 #
 #    \int D grad(u).grad(v) dx  +  \int_{top} D/Lambda u v ds
 #         = \int f v dx  +  \int_{top} (1/Lambda) l v ds
-#           +  \int_{left} kl v ds   +  \int_{right} kr v ds
+#           +  \int_{left} k1 v ds   +  \int_{right} k2 v ds
+#           +  \int_{front} k3 v ds   +  \int_{back} k4 v ds
 #
 #  for all v in H1 which vanish on bottom.
 #

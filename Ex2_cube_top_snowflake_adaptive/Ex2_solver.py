@@ -10,7 +10,8 @@
 #
 #    \int D grad(u).grad(v) dx  +  \int_{top} D/Lambda u v ds
 #         = \int f v dx  +  \int_{top} (1/Lambda) l v ds
-#           +  \int_{left} kl v ds   +  \int_{right} kr v ds
+#           +  \int_{left} k1 v ds   +  \int_{right} k2 v ds
+#           +  \int_{front} k3 v ds   +  \int_{back} k4 v ds           
 #
 #  for all v in H1 which vanish on bottom.
 #
@@ -51,8 +52,8 @@ def Mark(msh, f, uh,V,tolerance):
      eta = assemble(h**2*R_T**2*w*dx +
           (h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation whose eta >= frac*eta_max
-     frac = .4
-     delfrac = .0
+     frac = .95
+     delfrac = .05
      # keep marking triangulation when sum_marked eta< part *sum of eta
      part = .15
      mark = Function(W)
