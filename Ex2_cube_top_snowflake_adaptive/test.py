@@ -82,8 +82,9 @@ while sum_eta>tolerance and it<max_iterations:
   V = FunctionSpace(mesh,"Lagrange",deg)
   PETSc.Sys.Print("Solving the PDE ...")
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
- 
+  PETSc.Sys.Print("Marking the mesh ...") 
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  PETSc.Sys.Print("Refining the marked elements ...")
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
