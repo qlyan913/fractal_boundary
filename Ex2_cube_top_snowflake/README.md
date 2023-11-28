@@ -2,7 +2,7 @@ In this example, we solve
 
 $-\text{div}(D\text{grad}u)=0\ \\text{on}\ \Omega$
 
-$\Omega$: the unit cube where the top edge has been replaced by a triangle prefractal.
+$\Omega$: the unit cube where the top edge has been replaced by a cube prefractal.
 
 The boundary conditions
 
