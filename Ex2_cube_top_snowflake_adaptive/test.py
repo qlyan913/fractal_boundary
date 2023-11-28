@@ -89,7 +89,7 @@ while sum_eta>tolerance and it<max_iterations:
   it=it+1
   outfile = File(f"refined_mesh/test_mesh/ref_n{n}_{it}.pvd")
   outfile.write(mesh)
-  PETSc.Sys.Print(f"Refined mesh saved as 'refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
+  PETSc.Sys.Print(f"Refined mesh saved as refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
   PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
