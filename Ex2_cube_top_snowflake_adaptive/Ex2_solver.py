@@ -30,10 +30,13 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V,bc_left,bc_right,bc_fro
     # Test and trial functions
     u = TrialFunction(V)
     v = TestFunction(V)
-    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(bc_top)
-    L = f*v*dx  + k1*v*ds(bc_left)+k2*v*ds(bc_right)+k3*v*ds(bc_front) + k4*v*ds(bc_back) + (1./Lambda)*l*v*ds(bc_top)
+    a = Constant(D)*dot(grad(u), grad(v))*dx
+    L = f*v*dx  + k1*v*ds(bc_left)+k2*v*ds(bc_right)+k3*v*ds(bc_front) + k4*v*ds(bc_back) 
+    for i in range(len(bc_top)):
+        a=a+ Constant(D)/Constant(Lambda)*u*v*ds(bc_top[i])
+        L = L+ (1./Lambda)*l*v*ds(bc_top[i])
     # list of boundary ids that corresponds to the exterior boundary of the domain
-    boundary_ids = (bc_bot,)
+    boundary_ids = bc_bot
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
     solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})

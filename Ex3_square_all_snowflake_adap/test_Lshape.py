@@ -42,6 +42,7 @@ geo.Append (["line",p5 ,p6], bc =1 )
 geo.Append (["line",p6 ,p1], bc =4 )
 
 ngmsh = geo.GenerateMesh(maxh=0.5)
+
 mesh = Mesh(ngmsh)
 mesh_u=mesh
 # Plot the mesh
