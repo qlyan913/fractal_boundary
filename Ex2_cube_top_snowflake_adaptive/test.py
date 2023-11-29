@@ -84,6 +84,7 @@ while sum_eta>tolerance and it<max_iterations:
   uh = snowsolver(mesh, D, Lambda, f, u, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
   PETSc.Sys.Print("Marking the mesh ...") 
   mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+  PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
   PETSc.Sys.Print("Refining the marked elements ...")
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
@@ -99,7 +100,7 @@ while sum_eta>tolerance and it<max_iterations:
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
   PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
   PETSc.Sys.Print("Error of solution at bottom in L2 norm is ", sqrt(assemble(dot(uh - u_D, uh - u_D) * ds(bc_bot))))
-
+ 
 NN=np.array([(df[0]/df[i])**(2./3.)*err[0] for i in range(0,len(err))])
 NN2=np.array([(df[0]/df[i])**(1./3.)*err2[0] for i in range(0,len(err))])
 plt.figure()
