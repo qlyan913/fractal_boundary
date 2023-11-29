@@ -1,0 +1,180 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+---Result with Lambda: 0.2  ---
+flux: 0.9183903294641338
+flux computed by robin: 0.8851678163972229
+DL_p/Lambda: 15.802469135802465
+---Result with Lambda: 0.5  ---
+flux: 0.8329009390934127
+flux computed by robin: 0.8017491360192049
+DL_p/Lambda: 6.320987654320986
+---Result with Lambda: 1.0  ---
+flux: 0.7297241188038547
+flux computed by robin: 0.7023574248708816
+DL_p/Lambda: 3.160493827160493
+---Result with Lambda: 1.5  ---
+flux: 0.652600345999095
+flux computed by robin: 0.6281558942902659
+DL_p/Lambda: 2.1069958847736623
+---Result with Lambda: 2.0  ---
+flux: 0.5914228943040513
+flux computed by robin: 0.5692970938065175
+DL_p/Lambda: 1.5802469135802466
+---Result with Lambda: 2.5  ---
+flux: 0.5412762107694267
+flux computed by robin: 0.5210463168568693
+DL_p/Lambda: 1.2641975308641973
+---Result with Lambda: 5.0  ---
+flux: 0.3817296906421558
+flux computed by robin: 0.3675004434184915
+DL_p/Lambda: 0.6320987654320986
+---Result with Lambda: 10.0  ---
+flux: 0.24099430440855146
+flux computed by robin: 0.23202671764303057
+DL_p/Lambda: 0.3160493827160493
+---Result with Lambda: 15.0  ---
+flux: 0.17620572943571305
+flux computed by robin: 0.1696532569555538
+DL_p/Lambda: 0.21069958847736622
+---Result with Lambda: 20.0  ---
+flux: 0.13889402718056462
+flux computed by robin: 0.13373081079785556
+DL_p/Lambda: 0.15802469135802466
+---Result with Lambda: 40.0  ---
+flux: 0.07521708487458138
+flux computed by robin: 0.07242253032290492
+DL_p/Lambda: 0.07901234567901233
+---Result with Lambda: 60.0  ---
+flux: 0.05157655098725691
+flux computed by robin: 0.04966062641022413
+DL_p/Lambda: 0.052674897119341556
+---Result with Lambda: 100.0  ---
+flux: 0.03167010464532305
+flux computed by robin: 0.030493855113787927
+DL_p/Lambda: 0.03160493827160493
+---Result with Lambda: 200.0  ---
+flux: 0.016118188201438007
+flux computed by robin: 0.015519625326193484
+DL_p/Lambda: 0.015802469135802466
+---Result with Lambda: 400.0  ---
+flux: 0.008131824513223989
+flux computed by robin: 0.007829871783155837
+DL_p/Lambda: 0.007901234567901233
+---Result with Lambda: 600.0  ---
+flux: 0.00543757203079334
+flux computed by robin: 0.005235675122184571
+DL_p/Lambda: 0.005267489711934155
+---Result with Lambda: 1000.0  ---
+flux: 0.0032704312715090065
+flux computed by robin: 0.0031490122307635095
+DL_p/Lambda: 0.003160493827160493
+Result for 0<Lambda<1000 saved to figures/Phi_Lam.png 
+---Result with Lambda: 0.001  ---
+flux: 0.9444255082214764
+flux computed by robin: 0.9784519918581864
+DL_p/Lambda: 3160.4938271604933
+---Result with Lambda: 0.002  ---
+flux: 0.9520800805239533
+flux computed by robin: 0.9773128077551533
+DL_p/Lambda: 1580.2469135802467
+---Result with Lambda: 0.005  ---
+flux: 0.9633925169591565
+flux computed by robin: 0.9742704147132484
+DL_p/Lambda: 632.0987654320986
+---Result with Lambda: 0.01  ---
+flux: 0.9718342255716859
+flux computed by robin: 0.9699216581103687
+DL_p/Lambda: 316.0493827160493
+---Result with Lambda: 0.02  ---
+flux: 0.9771011743908474
+flux computed by robin: 0.9626176401280387
+DL_p/Lambda: 158.02469135802465
+---Result with Lambda: 0.05  ---
+flux: 0.9721745038566943
+flux computed by robin: 0.9452719204751797
+DL_p/Lambda: 63.20987654320986
+---Result with Lambda: 0.08  ---
+flux: 0.9615701560673392
+flux computed by robin: 0.9309293279292505
+DL_p/Lambda: 39.50617283950616
+---Result with Lambda: 0.1  ---
+flux: 0.9540822837285844
+flux computed by robin: 0.9222809455952911
+DL_p/Lambda: 31.60493827160493
+---Result with Lambda: 0.2  ---
+flux: 0.9183903294641338
+flux computed by robin: 0.8851678163972229
+DL_p/Lambda: 15.802469135802465
+---Result with Lambda: 0.4  ---
+flux: 0.8585802143270886
+flux computed by robin: 0.8265850172278928
+DL_p/Lambda: 7.901234567901232
+---Result with Lambda: 0.8  ---
+flux: 0.7669480977463128
+flux computed by robin: 0.7381831174550658
+DL_p/Lambda: 3.950617283950616
+---Result with Lambda: 0.1  ---
+flux: 0.9540822837285844
+flux computed by robin: 0.9222809455952911
+DL_p/Lambda: 31.60493827160493
+Result for 0<Lambda<1 saved to figures/Phi_Lam_R1.png 
+---Result with Lambda: 1.0  ---
+flux: 0.7297241188038547
+flux computed by robin: 0.7023574248708816
+DL_p/Lambda: 3.160493827160493
+---Result with Lambda: 1.154320987654321  ---
+flux: 0.7037801472246519
+flux computed by robin: 0.6773947704503733
+DL_p/Lambda: 2.737967914438502
+---Result with Lambda: 1.308641975308642  ---
+flux: 0.6798582002768375
+flux computed by robin: 0.6543796957740494
+DL_p/Lambda: 2.415094339622641
+---Result with Lambda: 1.4629629629629628  ---
+flux: 0.6576861753354695
+flux computed by robin: 0.6330487925136026
+DL_p/Lambda: 2.160337552742616
+---Result with Lambda: 1.6172839506172838  ---
+flux: 0.6370481188168641
+flux computed by robin: 0.6131935406319562
+DL_p/Lambda: 1.9541984732824424
+---Result with Lambda: 1.7716049382716048  ---
+flux: 0.6177683351958683
+flux computed by robin: 0.5946446520635683
+DL_p/Lambda: 1.7839721254355398
+---Result with Lambda: 1.9259259259259256  ---
+flux: 0.5997011620053356
+flux computed by robin: 0.5772619314231633
+DL_p/Lambda: 1.641025641025641
+---Result with Lambda: 2.080246913580247  ---
+flux: 0.5827239712402448
+flux computed by robin: 0.5609273953833576
+DL_p/Lambda: 1.519287833827893
+---Result with Lambda: 2.2345679012345676  ---
+flux: 0.566732191751856
+flux computed by robin: 0.5455404814990021
+DL_p/Lambda: 1.4143646408839778
+---Result with Lambda: 2.3888888888888884  ---
+flux: 0.5516357015061654
+flux computed by robin: 0.5310145437863986
+DL_p/Lambda: 1.322997416020672
+---Result with Lambda: 2.5432098765432096  ---
+flux: 0.5373561560054878
+flux computed by robin: 0.5172742619875289
+DL_p/Lambda: 1.2427184466019416
+---Result with Lambda: 2.6975308641975304  ---
+flux: 0.5238248953832904
+flux computed by robin: 0.5042536354308622
+DL_p/Lambda: 1.17162471395881
+---Result with Lambda: 2.851851851851851  ---
+flux: 0.5109813653499721
+flux computed by robin: 0.49189445457332204
+DL_p/Lambda: 1.1082251082251082
+---Result with Lambda: 3.0061728395061724  ---
+flux: 0.4987718451699719
+flux computed by robin: 0.4801450780940451
+DL_p/Lambda: 1.051334702258727
+---Result with Lambda: 3.160493827160493  ---
+flux: 0.48714843117877976
+flux computed by robin: 0.46895945522880134
+DL_p/Lambda: 1.0
+Result for 1<Lambda<L_p saved to figures/Phi_Lam_R2.png 

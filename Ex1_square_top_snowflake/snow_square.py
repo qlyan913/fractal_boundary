@@ -69,19 +69,19 @@ gmsh_script += """Physical Curve("Top")= {""" + \
 gmsh_script += f"""
 Physical Surface("sur")={{1}};\n"""
 # Save the Gmsh script to a file
-with open("unit_square_with_koch.geo", "w") as f:
+with open(f"domain/unit_square_with_koch_{n}.geo", "w") as f:
     f.write(gmsh_script)
 
-print("Gmsh script has been generated and saved as 'unit_square_with_koch.geo'.")
+print(f"Gmsh script has been generated and saved as unit_square_with_koch_{n}.geo.")
 
 import os
-os.system('gmsh -2 unit_square_with_koch.geo')
-print("Mesh file saved as 'unit_square_with_koch.msh'.")
+os.system(f'gmsh -2 domain/unit_square_with_koch_{n}.geo')
+print(f"Mesh file saved as domain/unit_square_with_koch_{n}.msh.")
 
 import firedrake as fd
 import matplotlib.pyplot as plt
 # Load the Gmsh mesh file
-mesh_file = 'unit_square_with_koch.msh'
+mesh_file = f'domain/unit_square_with_koch_{n}.msh'
 fd_mesh = fd.Mesh(mesh_file)
 
 # Plot the mesh
@@ -91,4 +91,5 @@ plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Koch Snowflake Mesh')
 plt.show()
-plt.savefig("snow.png")
+plt.savefig(f"figures/snow_{n}.png")
+print(f"plot of the mesh saved as figures/snow_{n}.png")
