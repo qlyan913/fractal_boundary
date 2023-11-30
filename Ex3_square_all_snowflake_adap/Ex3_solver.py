@@ -16,7 +16,8 @@ def snowsolver(mesh, f,g,V):
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
     #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    #solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    solve(a == L, uh, bcs=bcs)
     return(uh)
 
 
@@ -29,12 +30,12 @@ def Mark(msh, f, uh,V,tolerance):
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator eta
-     eta = assemble(h**2*R_T**2*w*dx +(h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
+     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation whose eta >= frac*eta_max
-     frac = .7
+     frac = .75
      delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .4
+     part = .2
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:

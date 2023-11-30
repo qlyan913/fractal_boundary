@@ -23,9 +23,10 @@ from firedrake.petsc import PETSc
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
-deg=int(input("Enter the degree of polynomial in FEM space:"))
+#deg=int(input("Enter the degree of polynomial in FEM space:"))
+deg=2
 tolerance = 1e-5
-max_iterations = 12
+max_iterations = 10
 
 geo = SplineGeometry()
 p1=geo.AppendPoint(*[-1,-1])
@@ -41,7 +42,7 @@ geo.Append (["line",p4 ,p5], bc =2 )
 geo.Append (["line",p5 ,p6], bc =1 )
 geo.Append (["line",p6 ,p1], bc =4 )
 
-ngmsh = geo.GenerateMesh(maxh=0.5)
+ngmsh = geo.GenerateMesh(maxh=0.2)
 
 mesh = Mesh(ngmsh)
 mesh_u=mesh
@@ -63,6 +64,7 @@ df=[]
 err=[]
 err2=[]
 PETSc.Sys.Print("Test with solution  u=r^{2/3}sin(2/3 theta) ")
+PETSc.Sys.Print("--- Adaptive meshing ---")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
@@ -87,15 +89,14 @@ while sum_eta>tolerance and it<max_iterations:
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err.append(err_temp)
-  err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx)) 
+  err2_temp=sqrt(assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx)) 
   err2.append(err2_temp)
   PETSc.Sys.Print("Refined Mesh ", it, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
-  PETSc.Sys.Print("Error of solution in H1 norm is ", err2_temp)
+  PETSc.Sys.Print("Error of solution in semi H1 norm is ", err2_temp)
 
 
 PETSc.Sys.Print(f"refined {it} times")
-
 fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
@@ -104,7 +105,8 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/Lshape_soln_adap.png"
 plt.close()
 
 # Check the uniform refinement result
-MH = MeshHierarchy(mesh_u, 8)
+MH = MeshHierarchy(mesh_u, 5)
+PETSc.Sys.Print("--- uniform meshing ---")
 err_u=[]
 err2_u=[]
 df_u=[]
@@ -126,11 +128,11 @@ for i in range(0, len(MH)):
   df_u.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err_u.append(err_temp)
-  err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
+  err2_temp=sqrt(assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
   err2_u.append(err2_temp)
   PETSc.Sys.Print("Refined Mesh ", i, " with degree of freedom " , V.dof_dset.layout_vec.getSize())
   PETSc.Sys.Print("Error of solution in L2 norm is ", err_temp)
-
+  PETSc.Sys.Print("Error of solution in semi H1 norm is ", err2_temp)
 fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
@@ -164,4 +166,11 @@ PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/Lshape_test_dof.p
 plt.close()
 
 
+print("--- Uniform  meshing ---")
+for i in range(len(err2_u)):
+   print("semi-h1 error:", err2_u[i], " dof: ", df_u[i])
+
+print("--- Adaptive meshing ---")
+for i in range(len(err2)):
+   print("semi-h1 error:", err2[i], " dof: ", df[i])
 
