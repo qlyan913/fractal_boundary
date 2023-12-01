@@ -47,7 +47,7 @@ while sum_eta>tolerance and it<max_iterations:
   u = 2 + x**2 + y
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
-  mark,sum_eta,eta_max = Mark(mesh, f,uh,V,tolerance)
+  mark, sum_eta = Mark(mesh, f,uh,V,tolerance)
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
@@ -58,6 +58,7 @@ while sum_eta>tolerance and it<max_iterations:
   plt.title('Koch Snowflake Mesh')
   plt.savefig(f"refined_mesh/test_mesh/snow_{n}_ref_{it}.pdf")
   plt.close()
+  print("sum_eta is ", sum_eta)
   print(f"refined mesh plot saved to 'refined_mesh/test_mesh/snow_{n}_ref_{it}.pdf'.")
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
