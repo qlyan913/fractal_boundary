@@ -26,7 +26,7 @@ from Ex3_solver import *
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 deg=2
 tolerance = 1e-8
-max_iterations = 10
+max_iterations = 15
 
 geo = SplineGeometry()
 p1=geo.AppendPoint(*[-1,-1])
@@ -159,7 +159,7 @@ plt.loglog(df_u, err_u,marker='o')
 plt.loglog(df_u, err2_u,marker='s')
 plt.loglog(df_u, NN)
 plt.loglog(df_u, NN2)
-plt.legend(['$L^2$ error', '$H^1$ error','$L^2$ error-MeshH', '$H^1$ error-MeshH', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
+plt.legend(['$L^2$ error-adaptive', 'semi $H^1$ error-adaptive','$L^2$ error-uniform', 'semi $H^1$ error-uniform', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
 plt.savefig(f"figures/Lshape_test_dof.png")
 PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/Lshape_test_dof.png")
