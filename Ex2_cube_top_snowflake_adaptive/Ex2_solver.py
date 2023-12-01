@@ -50,20 +50,19 @@ def Mark(msh, f, uh,V,tolerance):
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator eta
-     eta = assemble(h**2*R_T**2*w*dx +
-          (h("+")+h("-"))*(R_dT("+")-R_dT("-"))**2*(w("+")+w("-"))*dS)
+     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation whose eta >= frac*eta_max
-     frac = .65
-     delfrac = .05
+     frac = .9
+     delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .2
+     part = .5
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
          with eta.dat.vec as etaVec:
              sum_eta = etaVec.sum()
              if sum_eta < tolerance:
-                 return markedVec
+                 return markedVec, sum_eta
              eta_max = etaVec.max()[1]
              sct, etaVec0 = PETSc.Scatter.toZero(etaVec)
              markedVec0 = etaVec0.duplicate()

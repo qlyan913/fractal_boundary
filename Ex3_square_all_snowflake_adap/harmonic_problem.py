@@ -19,9 +19,9 @@ from Ex3_solver import *
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
-mesh = Mesh(ngmsh)
+mesh0 = Mesh(ngmsh)
 # max of refinement
-max_iterations = 30
+max_iterations = 4
 
 # stop refinement when sum_eta less than tolerance
 tolerance=1e-8
@@ -35,14 +35,15 @@ it=0
 
 while sum_eta>tolerance and it<max_iterations:
    it=it+1
+   mesh=mesh0
    x, y = SpatialCoordinate(mesh)
-   V = FunctionSpace(mesh, "Lagrange", deg)
+   V = FunctionSpace(mesh0, "Lagrange", deg)
    #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
    f=exp(-20*((x-0.5)**2+(y-0.5)**2))
    g=0.0
    uh = snowsolver(mesh, f,g,V)
-   mark, sum_eta = Mark(mesh,f,uh,V,tolerance)
-   mesh = mesh.refine_marked_elements(mark)
+   mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
+   mesh0 = mesh.refine_marked_elements(mark)
    meshplot = triplot(mesh)
    meshplot[0].set_linewidth(0.1)
    meshplot[1].set_linewidth(1)
@@ -71,6 +72,7 @@ fig.colorbar(collection);
 plt.savefig(f"figures/solution_{n}.png")
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
+mesh.name="msh"
 with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)

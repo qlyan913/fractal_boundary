@@ -1,5 +1,5 @@
 # Qile Yan 2023-10-21
-# Solve
+sum_eta# Solve
 #   -\Delta u =f in Omega
 # u = g on boundary
 #
@@ -47,7 +47,7 @@ while sum_eta>tolerance and it<max_iterations:
   u = 2 + x**2 + y
   V = FunctionSpace(mesh,"Lagrange",deg)
   uh = snowsolver(mesh, f,u,V)
-  mark, sum_eta = Mark(mesh, f,uh,V,tolerance)
+  mark, sum_eta, eta_max = Mark(mesh, f,uh,V,tolerance)
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
