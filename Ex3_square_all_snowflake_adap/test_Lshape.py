@@ -25,7 +25,7 @@ from geogen import *
 from Ex3_solver import *
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 deg=2
-tolerance = 1e-5
+tolerance = 1e-8
 max_iterations = 10
 
 geo = SplineGeometry()
