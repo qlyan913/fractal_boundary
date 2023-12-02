@@ -15,6 +15,7 @@
 import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
+import csv 
 # choose a triangulation
 nn=3
 #mesh_file = f'unit_cube_with_koch_n{nn}.msh'
@@ -34,10 +35,11 @@ D = 1
 # Test and trial functions
 u = TrialFunction(V)
 v = TestFunction(V)
-Phi=[] # the flux through the top face 
-cc=[]  # DL_p/\Lambda
+
 import numpy as np
 def get_flux(mesh,LL,nn,deg):
+    Phi=[] # the flux through the top face 
+    cc=[]  # DL_p/\Lambda
     for Lambda in LL:
         a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(6)
         L = Constant(0)*v*dx
@@ -45,15 +47,17 @@ def get_flux(mesh,LL,nn,deg):
         boundary_ids = (5) #
         bcs = DirichletBC(V, 1, boundary_ids)
         uh = Function(V)
-        solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+        #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+        solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
         Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(6))
         Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(6))
         Phi.append(Phi_temp)
         cc_temp=D*(13/9)**nn/Lambda
         cc.append(cc_temp)
+        PETSc.Sys.Print("flux:",Phi_temp) 
     return Phi,cc
 LL = np.array([0.2,0.5,1,1.5,2,2.5,5,10,15,20,50,100,200,400,600,800,1000])
-Phi, cc =get_flux(mesh0,LL,nn,deg)
+Phi, cc =get_flux(mesh,LL,nn,deg)
 with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -72,7 +76,7 @@ PETSc.Sys.Print(f"Plot of flux vs Lambda saved to figures/Phi_Lam_{nn}.png ")
 
 # Region 1: Lambda <1
 LL = np.array([0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,1])
-Phi, cc =get_flux(mesh0,LL,nn,deg)
+Phi, cc =get_flux(mesh,LL,nn,deg)
 with open(f'results/Phi_Lam_{nn}_R1.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -92,7 +96,7 @@ PETSc.Sys.Print(f"Plot of flux vs Lambda  for 0<Lambda<1 saved to figures/Phi_La
 # Region 2: 1<Lambda <L_p
 Lp=(13/9)**nn
 LL = np.linspace(1,Lp,15)
-Phi, cc =get_flux(mesh0,LL,nn,deg)
+Phi, cc =get_flux(mesh,LL,nn,deg)
 with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
