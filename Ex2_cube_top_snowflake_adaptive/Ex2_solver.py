@@ -52,8 +52,8 @@ def Mark(msh, f, uh,V,tolerance):
      # Assembling the error indicator eta
      eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation whose eta >= frac*eta_max
-     frac = .9
-     delfrac =0.02
+     frac = .95
+     delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
      part = .5
      mark = Function(W)
@@ -62,7 +62,7 @@ def Mark(msh, f, uh,V,tolerance):
          with eta.dat.vec as etaVec:
              sum_eta = etaVec.sum()
              if sum_eta < tolerance:
-                 return markedVec, sum_eta
+                 return mark, sum_eta
              eta_max = etaVec.max()[1]
              sct, etaVec0 = PETSc.Scatter.toZero(etaVec)
              markedVec0 = etaVec0.duplicate()
