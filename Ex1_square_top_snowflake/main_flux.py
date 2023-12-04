@@ -76,7 +76,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 # Region 1: Lambda <1 
 Phi=[]
 cc=[]
-LL = np.array([10**(-4),0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,0.1])
+LL = np.array([10**(-4),0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,1])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -154,7 +154,7 @@ plt.loglog(LL,c*(LL)**alpha,marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_R2_{nn}.png")
-PETSc.Sys.Print(f"Plot for 1<Lambda<L_p saved to figures/Phi_Lam_R2_{nn}.png ")
+PETSc.Sys.Print(f"Plot for 1<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
 with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
