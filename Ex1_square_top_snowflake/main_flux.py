@@ -7,7 +7,8 @@ from scipy import stats
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=4
-deg=2
+deg=3
+l=(1/3)**nn
 Lp=(4/3)**nn
 # choose a triangulation
 mesh_file =f'domain/unit_square_with_koch_{nn}.msh'
@@ -87,10 +88,10 @@ with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
 PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 
-# Region 1: Lambda <1 
+# Region 1: Lambda <l 
 Phi=[]
 cc=[]
-LL = np.array([10**(-5),10**(-4),0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,1])
+LL = np.array([3**(-i) for i in range(nn,15)])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -123,19 +124,19 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
-PETSc.Sys.Print(f"plot for 0<Lambda<1 saved to figures/Phi_Lam_{nn}_R1.png ")
+PETSc.Sys.Print(f"plot for 0<Lambda<l saved to figures/Phi_Lam_{nn}_R1.png ")
 with open(f'results/Phi_Lam_{nn}_R1.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
-PETSc.Sys.Print(f"Result for 0<Lambda<1 saved to results/Phi_Lam_{nn}_R1.csv ")
+PETSc.Sys.Print(f"Result for 0<Lambda<\ell saved to results/Phi_Lam_{nn}_R1.csv ")
 
-# Region 2: 1< Lambda<L_p  
+# Region 2: l< Lambda<L_p  
 Phi=[]
 cc=[]
-LL = np.linspace(1,Lp,15) 
+LL = np.linspace(l,Lp,20) 
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -167,13 +168,13 @@ plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig(f"figures/Phi_Lam2_{nn}_R2.png")
-PETSc.Sys.Print(f"Plot for 1<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
+plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
+PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
 with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
-PETSc.Sys.Print(f"Result for 1<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv ")
+PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv ")
 
