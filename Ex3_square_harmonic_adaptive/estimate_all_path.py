@@ -97,7 +97,7 @@ PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c
 
 plt.hist(alpha0,density=True,bins=50)
 plt.ylabel('Probability')
-ply.xlabel('value of alpha')
+plt.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_alpha.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha.png.")
@@ -115,8 +115,7 @@ with open(f'results/Results_n{n}.csv', 'w', newline='') as csvfile:
     writer.writeheader()
     for i in range(len(alpha0)):
        writer.writerow({'alpha': alpha0[i], 'c':c0[i]})
-PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_{n}.csv")>
-  
+PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_{n}.csv")  
 
 
 
