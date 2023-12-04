@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from firedrake.petsc import PETSc
 import numpy as np
 import random
+import csv
 import statistics 
 from scipy import stats
 from firedrake import *
@@ -94,17 +95,28 @@ PETSc.Sys.Print("Total number of the path from center to boundary is ", len(path
 PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
 PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
-plt.hist(alpha0)
+plt.hist(alpha0,density=True,bins=50)
+plt.ylabel('Probability')
+ply.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_alpha.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha.png.")
 
-plt.hist(c0)
+plt.hist(c0,density=True,bins=50)
+plt.ylabel('Probability')
+plt.xlabel('value of c')
 plt.savefig(f"figures/distribution_c.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted c is saved in figures/distribution_c.png.")
 
-
+with open(f'results/Results_n{n}.csv', 'w', newline='') as csvfile:
+    fieldnames = ['alpha', 'c']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(alpha0)):
+       writer.writerow({'alpha': alpha0[i], 'c':c0[i]})
+PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_{n}.csv")>
+  
 
 
 
