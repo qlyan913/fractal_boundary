@@ -67,13 +67,12 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 phi_2_log=np.log(phi_2)
-LL_log=np.log(LL)
-res = stats.linregress(phi_2_log, LL_log)
-c=exp(res.intercept)
-alpha=res.slope
-print("slope ", alpha, "coefficients ",c)
+#LL_log=np.log(LL)
+#res = stats.linregress(phi_2_log, LL_log)
+#c=exp(res.intercept)
+alpha=1
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
@@ -113,12 +112,11 @@ fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
-phi_2_log=np.log(phi_2)
-LL_log=np.log(LL)
-res = stats.linregress(phi_2_log, LL_log)
-c=exp(res.intercept)
-alpha=res.slope
-print("slope ", alpha, "coefficients ",c)
+#phi_2_log=np.log(phi_2)
+#LL_log=np.log(LL)
+#res = stats.linregress(phi_2_log, LL_log)
+#c=exp(res.intercept)
+alpha=1
 plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
@@ -159,12 +157,11 @@ fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
-phi_2_log=np.log(phi_2)
-LL_log=np.log(LL)
-res = stats.linregress(phi_2_log, LL_log)
-c=exp(res.intercept)
-alpha=res.slope
-print("slope ", alpha, "coefficients ",c)
+#phi_2_log=np.log(phi_2)
+#LL_log=np.log(LL)
+#res = stats.linregress(phi_2_log, LL_log)
+#c=exp(res.intercept)
+alpha=0.8
 plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
