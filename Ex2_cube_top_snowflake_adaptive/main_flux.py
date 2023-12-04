@@ -79,7 +79,7 @@ def get_flux(mesh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,b
         cc.append(cc_temp)
     return Phi,cc  
 
-LL = np.array([0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,50,100,200,400,600,800,1000])
+LL = np.array([10**(-4),10**(-3),0.01,0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,50,100,200,400,600,800,1000])
 Phi, cc =get_flux(mesh0,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']

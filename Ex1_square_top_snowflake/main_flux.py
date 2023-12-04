@@ -1,6 +1,9 @@
 from firedrake.petsc import PETSc
+import csv
 import matplotlib.pyplot as plt
 from firedrake import *
+import statistics 
+from scipy import stats
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=4
@@ -26,7 +29,7 @@ v = TestFunction(V)
 Phi=[]
 cc=[]
 import numpy as np
-LL = np.array([0.2,0.5,1,1.5,2,2.5,5,10,15,20,40,60,100,200,400,600,1000])
+LL = np.array([0.00001,0.001,0.01,0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,40,60,100,200,400,600,1000])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -45,19 +48,35 @@ for Lambda in LL:
   PETSc.Sys.Print("DL_p/Lambda:", cc_temp)
   cc.append(cc_temp)
 
+Phi0=Phi[0]
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi,marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+phi_2_log=np.log(phi_2)
+LL_log=np.log(LL)
+res = stats.linregress(phi_2_log, LL_log)
+c=exp(res.intercept)
+alpha=res.slope
+plt.loglog(LL, phi_2,marker='o')
+plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig("figures/Phi_Lam.png")
-PETSc.Sys.Print("Result for 0<Lambda<1000 saved to figures/Phi_Lam.png ")
+plt.savefig(f"figures/Phi_Lam_{nn}.png")
+PETSc.Sys.Print(f"Plot for 0<Lambda<1000 saved to figures/Phi_Lam_{nn}.png ")
+with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(LL)):
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
+PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 
 # Region 1: Lambda <1 
 Phi=[]
 cc=[]
-LL = np.array([0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,0.1])
+LL = np.array([10**(-4),0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,0.1])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -77,17 +96,32 @@ for Lambda in LL:
   cc.append(cc_temp)
 
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi,marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+phi_2_log=np.log(phi_2)
+LL_log=np.log(LL)
+res = stats.linregress(phi_2_log, LL_log)
+c=exp(res.intercept)
+alpha=res.slope
+plt.loglog(LL, phi_2,marker='o')
+plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig("figures/Phi_Lam_R1.png")
-PETSc.Sys.Print("Result for 0<Lambda<1 saved to figures/Phi_Lam_R1.png ")
+plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
+PETSc.Sys.Print(f"plot for 0<Lambda<1 saved to figures/Phi_Lam_{nn}_R1.png ")
+with open(f'results/Phi_Lam_{nn}_R1.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(LL)):
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
+PETSc.Sys.Print(f"Result for 0<Lambda<1 saved to results/Phi_Lam_{nn}_R1.csv ")
 
 # Region 2: 1< Lambda<L_p  
 Phi=[]
 cc=[]
-LL = np.linspace(1,Lp,15) 
+LL = np.linspace(1,Lp,5) 
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -107,9 +141,25 @@ for Lambda in LL:
   cc.append(cc_temp)
 
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi,marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+phi_2_log=np.log(phi_2)
+LL_log=np.log(LL)
+res = stats.linregress(phi_2_log, LL_log)
+c=exp(res.intercept)
+alpha=res.slope
+plt.loglog(LL, phi_2,marker='o')
+plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig("figures/Phi_Lam_R2.png")
-PETSc.Sys.Print("Result for 1<Lambda<L_p saved to figures/Phi_Lam_R2.png ")
+plt.savefig(f"figures/Phi_Lam_R2_{nn}.png")
+PETSc.Sys.Print(f"Plot for 1<Lambda<L_p saved to figures/Phi_Lam_R2_{nn}.png ")
+with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(LL)):
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
+PETSc.Sys.Print(f"Result for 1<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv ")
+
