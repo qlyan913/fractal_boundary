@@ -72,7 +72,7 @@ phi_2_log=np.log(phi_2)
 #c=exp(res.intercept)
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]**alpha),marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
@@ -118,7 +118,7 @@ for i in range(len(Phi)):
 #c=exp(res.intercept)
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
@@ -134,7 +134,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1 saved to results/Phi_Lam_{nn}_R1.csv ")
 # Region 2: 1< Lambda<L_p  
 Phi=[]
 cc=[]
-LL = np.linspace(1,Lp,5) 
+LL = np.linspace(1,Lp,15) 
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -163,10 +163,10 @@ for i in range(len(Phi)):
 #c=exp(res.intercept)
 alpha=0.8
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig(f"figures/Phi_Lam_R2_{nn}.png")
+plt.savefig(f"figures/Phi_Lam2_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for 1<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
 with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
