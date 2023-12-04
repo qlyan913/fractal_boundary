@@ -26,6 +26,20 @@ D = 1
 # Test and trial functions
 u = TrialFunction(V)
 v = TestFunction(V)
+
+# get flux Phi0 at lambda = 0
+Lambda=10**(-7)
+a = Constant(D)*dot(grad(u), grad(v))*dx++Constant(D)/Constant(Lambda)*u*v*ds(4)
+L = Constant(0)*v*dx
+# list of boundary  ids that corresponds to the exterior boundary of the domain
+boundary_ids = (2) # 1: right; 2: bottom; 3:left; 4: top
+bc1= DirichletBC(V, 1, boundary_ids)
+uh = Function(V)
+solve(a == L, uh, bcs=[bc1], solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre':'boomeramg'})
+Phi0=assemble(Constant(D)/Constant(Lambda)*uh*ds(4))
+print("phi0 is", Phi0)
+
+# calculate flux for various Lambda 
 Phi=[]
 cc=[]
 import numpy as np
@@ -43,12 +57,11 @@ for Lambda in LL:
   PETSc.Sys.Print("---Result with Lambda: %s  ---" % Lambda) 
   PETSc.Sys.Print("flux:",Phi_temp)
   PETSc.Sys.Print("flux computed by robin:",Phi_temp2)
-  Phi.append(Phi_temp)
+  Phi.append(Phi_temp2)
   cc_temp=D*Lp/Lambda
   PETSc.Sys.Print("DL_p/Lambda:", cc_temp)
   cc.append(cc_temp)
 
-Phi0=Phi[0]
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -58,8 +71,9 @@ LL_log=np.log(LL)
 res = stats.linregress(phi_2_log, LL_log)
 c=exp(res.intercept)
 alpha=res.slope
+print("slope ", alpha, "coefficients ",c)
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
@@ -90,7 +104,7 @@ for Lambda in LL:
   PETSc.Sys.Print("---Result with Lambda: %s  ---" % Lambda) 
   PETSc.Sys.Print("flux:",Phi_temp)
   PETSc.Sys.Print("flux computed by robin:",Phi_temp2)
-  Phi.append(Phi_temp)
+  Phi.append(Phi_temp2)
   cc_temp=D*Lp/Lambda
   PETSc.Sys.Print("DL_p/Lambda:", cc_temp)
   cc.append(cc_temp)
@@ -104,8 +118,9 @@ LL_log=np.log(LL)
 res = stats.linregress(phi_2_log, LL_log)
 c=exp(res.intercept)
 alpha=res.slope
+print("slope ", alpha, "coefficients ",c)
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
@@ -135,7 +150,7 @@ for Lambda in LL:
   PETSc.Sys.Print("---Result with Lambda: %s  ---" % Lambda) 
   PETSc.Sys.Print("flux:",Phi_temp)
   PETSc.Sys.Print("flux computed by robin:",Phi_temp2)
-  Phi.append(Phi_temp)
+  Phi.append(Phi_temp2)
   cc_temp=D*Lp/Lambda
   PETSc.Sys.Print("DL_p/Lambda:", cc_temp)
   cc.append(cc_temp)
@@ -149,8 +164,9 @@ LL_log=np.log(LL)
 res = stats.linregress(phi_2_log, LL_log)
 c=exp(res.intercept)
 alpha=res.slope
+print("slope ", alpha, "coefficients ",c)
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,c*(LL)**alpha,marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]**alpha),marker='o')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_R2_{nn}.png")
