@@ -44,6 +44,7 @@ print("phi0 is", Phi0)
 Phi=[]
 cc=[]
 import numpy as np
+dim_frac=np.log(4)/np.log(3)
 #LL = np.array([10**(-5),0.0001,0.001,0.01,0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,40,60,100,200,400,600,1000])
 LL = np.array([2**i for i in range(-10,10)])
 for Lambda in LL:
@@ -136,7 +137,10 @@ PETSc.Sys.Print(f"Result for 0<Lambda<\ell saved to results/Phi_Lam_{nn}_R1.csv 
 # Region 2: l< Lambda<L_p  
 Phi=[]
 cc=[]
-LL = np.linspace(l,Lp,20) 
+l_log=np.log(l)
+Lp_log=np.log(Lp)
+LL_log = np.linspace(l_log,Lp_log,20) 
+LL=np.exp(LL_log)
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -163,10 +167,10 @@ for i in range(len(Phi)):
 #LL_log=np.log(LL)
 #res = stats.linregress(phi_2_log, LL_log)
 #c=exp(res.intercept)
-alpha=0.8
+alpha=1/dim_frac
 plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
+plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{1/dim_frac}$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
