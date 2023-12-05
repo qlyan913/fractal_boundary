@@ -29,7 +29,7 @@ u = TrialFunction(V)
 v = TestFunction(V)
 
 # get flux Phi0 at lambda = 0
-Lambda=10**(-10)
+Lambda=10**(-11)
 a = Constant(D)*dot(grad(u), grad(v))*dx++Constant(D)/Constant(Lambda)*u*v*ds(4)
 L = Constant(0)*v*dx
 # list of boundary  ids that corresponds to the exterior boundary of the domain
@@ -93,7 +93,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 # Region 1: Lambda <l 
 Phi=[]
 cc=[]
-LL = np.array([3**(-i) for i in range(nn,16)])
+LL = np.array([3**(-i) for i in range(nn,20)])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
