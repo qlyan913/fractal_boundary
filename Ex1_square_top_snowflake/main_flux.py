@@ -7,7 +7,7 @@ from scipy import stats
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=4
-deg=3
+deg=4
 l=(1/3)**nn
 Lp=(4/3)**nn
 # choose a triangulation
@@ -92,7 +92,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 # Region 1: Lambda <l 
 Phi=[]
 cc=[]
-LL = np.array([3**(-i) for i in range(nn,18)])
+LL = np.array([3**(-i) for i in range(nn,16)])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
