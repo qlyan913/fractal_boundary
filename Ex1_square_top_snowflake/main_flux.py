@@ -123,7 +123,9 @@ for i in range(len(Phi)):
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{{%s}})$' % (alpha)])
+alpha=1/dim_frac
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$','$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
 PETSc.Sys.Print(f"plot for 0<Lambda<l saved to figures/Phi_Lam_{nn}_R1.png ")
