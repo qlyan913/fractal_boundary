@@ -7,7 +7,7 @@ from scipy import stats
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=4
-deg=4
+deg=2
 l=(1/3)**nn
 Lp=(4/3)**nn
 # choose a triangulation
@@ -46,7 +46,7 @@ cc=[]
 import numpy as np
 dim_frac=np.log(4)/np.log(3)
 #LL = np.array([10**(-5),0.0001,0.001,0.01,0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,40,60,100,200,400,600,1000])
-LL = np.array([2**i for i in range(-10,10)])
+LL = np.array([2**i for i in range(-15,10)])
 for Lambda in LL:
   a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(4)
   L = Constant(0)*v*dx
@@ -75,8 +75,9 @@ phi_2_log=np.log(phi_2)
 #c=exp(res.intercept)
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{{%s}})$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
 PETSc.Sys.Print(f"Plot for 0<Lambda<1000 saved to figures/Phi_Lam_{nn}.png ")
@@ -121,8 +122,8 @@ for i in range(len(Phi)):
 #c=exp(res.intercept)
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{{%s}}$' % (alpha)])
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{{%s}})$' % (alpha)])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
 PETSc.Sys.Print(f"plot for 0<Lambda<l saved to figures/Phi_Lam_{nn}_R1.png ")
@@ -169,8 +170,8 @@ for i in range(len(Phi)):
 #c=exp(res.intercept)
 alpha=1/dim_frac
 plt.loglog(LL, phi_2,marker='o')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$~\Lambda^{1/dim_frac}$'])
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")

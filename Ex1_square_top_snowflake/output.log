@@ -207,3 +207,10 @@ DL_p/Lambda: 1.7926641922757114
 flux: 0.539412672646862
 flux computed by robin: 0.5336159871553032
 DL_p/Lambda: 1.3389041012244711
+---Result with Lambda: 3.1604938271604937  ---
+flux: 0.4740272040383201
+flux computed by robin: 0.4689526391081199
+DL_p/Lambda: 0.9999999999999999
+Plot for l<Lambda<L_p saved to figures/Phi_Lam_4_R2.png 
+Result for l<Lambda<L_p saved to results/Phi_Lam_4_R2.csv 
+phi0 is 0.9796440868279609
