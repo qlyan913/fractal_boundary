@@ -125,6 +125,18 @@ DL_p/Lambda: 5038847.999999999
 flux: 0.9266797515797784
 flux computed by robin: 0.9796749503379555
 DL_p/Lambda: 15116543.999999998
+---Result with Lambda: 6.969171937625632e-08  ---
+flux: 0.9260578683426349
+flux computed by robin: 0.9796759155640467
+DL_p/Lambda: 45349631.99999999
+---Result with Lambda: 2.3230573125418773e-08  ---
+flux: 0.925820513875438
+flux computed by robin: 0.9796757197240735
+DL_p/Lambda: 136048895.99999997
+---Result with Lambda: 7.743524375139592e-09  ---
+flux: 0.9257369106783317
+flux computed by robin: 0.979675725350169
+DL_p/Lambda: 408146687.99999994
 plot for 0<Lambda<l saved to figures/Phi_Lam_4_R1.png 
 Result for 0<Lambda<\ell saved to results/Phi_Lam_4_R1.csv 
 ---Result with Lambda: 0.012345679012345675  ---
@@ -209,4 +221,4 @@ flux computed by robin: 0.4689538737281514
 DL_p/Lambda: 0.9999999999999999
 Plot for l<Lambda<L_p saved to figures/Phi_Lam_4_R2.png 
 Result for l<Lambda<L_p saved to results/Phi_Lam_4_R2.csv 
-phi0 is 0.979675713107402
+phi0 is 0.9796757999314842
