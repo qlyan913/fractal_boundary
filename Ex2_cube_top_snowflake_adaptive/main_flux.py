@@ -22,12 +22,14 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=2
-deg=1
+nn=3
+deg=2
 tolerance = 1e-7
-max_iterations = 2
-
-
+max_iterations = 3
+# dimension of fractal boundary
+dim_frac=np.log(13)/np.log(9)
+l=(1/3.)**nn
+Lp=(5./3.)**nn
 # load the ngmesh
 from netgen import meshing
 ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
@@ -41,18 +43,18 @@ bc_front = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if nam
 bc_back = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['back']][0] 
 bc_bot = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['bot']][0] 
 bc_top = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['top']]
-mesh0=Mesh(ngmsh)
 
-mesh=mesh0
 
 Phi=[] # the flux through the top face 
-cc=[]  # DL_p/\Lambda
 import numpy as np
-def get_flux(mesh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top):
+def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top):
+    cc=[]
+    Phi=[]
     for Lambda in LL:
-        mesh=mesh0
+        mesh=Mesh(ngmsh)
         it=0
         sum_eta=1
+        print('Lambda is ', Lambda)
         while sum_eta>tolerance and it<max_iterations:
            x, y,z = SpatialCoordinate(mesh)
            D = Constant(1.)
@@ -65,73 +67,94 @@ def get_flux(mesh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,b
            n = FacetNormal(mesh)
            l=  Constant(0.)
            V = FunctionSpace(mesh,"Lagrange",deg)
-           Lambda=1
+           PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
            uh = snowsolver(mesh, D, Lambda, f, u_D, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
            mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
            PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
            #PETSc.Sys.Print("Refining the marked elements ...")
-           Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))
-           #Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(tuple(bc_top)))
+           #Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))
+           Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(tuple(bc_top)))
            mesh = mesh.refine_marked_elements(mark)
            it=it+1
-        Phi.append(Phi_temp)
-        cc_temp=D*(13/9)**nn/Lambda
-        cc.append(cc_temp)
-    return Phi,cc  
+        PETSc.Sys.Print("Lambda is ", Lambda, " flux is ", Phi_temp2)
+        Phi.append(Phi_temp2)
+ 
+    return Phi  
 
-LL = np.array([10**(-4),10**(-3),0.01,0.1,0.2,0.5,1,1.5,2,2.5,5,10,15,20,50,100,200,400,600,800,1000])
-Phi, cc =get_flux(mesh0,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+# get flux Phi0 at lambda = 0
+Lambda=10**(-11)
+Phi0 =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+PETSc.Sys.Print('Phi0 is ', Phi0)
+# calculate flux for various Lambda 
+LL = np.array([2**i for i in range(-15,10)])
+Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
-       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
  
 PETSc.Sys.Print(f"Results saved to results/Phi_Lam_{nn}.csv")
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi, marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+plt.loglog(LL, phi_2, marker='o')
+alpha=1
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{{%s}})$' % (alpha)])
 plt.xlabel('$\Lambda$')
-plt.savefig(f"figures/Phi_Lam_{nn}.png")
-PETSc.Sys.Print(f"Plot of flux vs Lambda saved to figures/Phi_Lam_{nn}.png ")
+plt.savefig(f"figures/Phi_Lam_n{nn}.png")
+PETSc.Sys.Print(f"Plot of flux vs Lambda saved to figures/Phi_Lam_n{nn}.png ")
 
-# Region 1: Lambda <1 
-LL = np.array([0.001,0.002,0.005,0.01,0.02,0.05,0.08,0.1,0.2,0.4,0.8,1])
-Phi, cc =get_flux(mesh0,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-with open(f'results/Phi_Lam_{nn}_R1.csv', 'w', newline='') as csvfile:
+# Region 1: 0<Lambda <l 
+LL = np.array([3**(-i) for i in range(nn,20)])
+Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+with open(f'results/Phi_Lam_n{nn}_R1.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux','DL_p/Lambda']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
-PETSc.Sys.Print(f"Results for 0<Lambda<1 saved to results/Phi_Lam_{nn}_R1.csv")  
-  
+PETSc.Sys.Print(f"Results for 0<Lambda<l saved to results/Phi_Lam_n{nn}_R1.csv")  
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi, marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+plt.loglog(LL, phi_2, marker='o')
+alpha=1
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black',linestyle='dashed')
+alpha=1/dim_frac
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$','$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
-plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
-PETSc.Sys.Print(f"Plot of flux vs Lambda  for 0<Lambda<1 saved to figures/Phi_Lam_{nn}_R1.png ")
+plt.savefig(f"figures/Phi_Lam_n{nn}_R1.png")
+PETSc.Sys.Print(f"Plot of flux vs Lambda  for 0<Lambda<l saved to figures/Phi_Lam_n{nn}_R1.png ")
 
-# Region 2: 1<Lambda <L_p
-Lp=(13/9)**nn
-LL = np.linspace(1,Lp,15) 
-Phi, cc =get_flux(mesh0,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
-    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+# Region 2: l<Lambda <L_p
+l_log=np.log(l)
+Lp_log=np.log(Lp)
+LL_log = np.linspace(l_log,Lp_log,20) 
+LL=np.exp(LL_log)
+Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+with open(f'results/Phi_Lam_n{nn}_R2.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
-       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
-PETSc.Sys.Print(f"Results for 1<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv")  
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
+PETSc.Sys.Print(f"Results for l<Lambda<L_p saved to results/Phi_Lam_n{nn}_R2.csv")  
   
 fig, axes = plt.subplots()
-plt.loglog(LL, Phi, marker='o')
-plt.loglog(LL, cc,marker='o')
-plt.legend(['$\Phi$', '$DL_p/\Lambda$'])
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+plt.loglog(LL, phi_2, marker='o')
+alpha=1/dim_frac
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
-plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
-PETSc.Sys.Print(f"Plot of flux vs Lambda  for 1<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
+plt.savefig(f"figures/Phi_Lam_n{nn}_R2.png")
+PETSc.Sys.Print(f"Plot of flux vs Lambda  for l<Lambda<L_p saved to figures/Phi_Lam_n{nn}_R2.png ")

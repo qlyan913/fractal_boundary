@@ -1,0 +1,19 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+error indicator sum_eta is  0.03912699960557444
+error indicator sum_eta is  0.016199809190424505
+error indicator sum_eta is  0.007248912102417221
+/home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  reg.get_or_register_dtype("bool", np.bool8)
+error indicator sum_eta is  0.0025140994289031176
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+[unset]: PMIU_write error; fd=-1 buf=:cmd=abort exitcode=59 message=application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+:
+system msg for write_line failure : Bad file descriptor
