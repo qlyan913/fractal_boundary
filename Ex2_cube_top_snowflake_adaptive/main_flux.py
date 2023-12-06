@@ -22,7 +22,7 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=2
+nn=3
 deg=2
 tolerance = 1e-7
 max_iterations = 4
