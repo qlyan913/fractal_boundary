@@ -22,10 +22,10 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=3
+nn=2
 deg=2
 tolerance = 1e-7
-max_iterations = 3
+max_iterations = 4
 # dimension of fractal boundary
 dim_frac=np.log(13)/np.log(9)
 l=(1/3.)**nn
@@ -51,10 +51,11 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
     cc=[]
     Phi=[]
     for Lambda in LL:
+        ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
+        ngmsh.Load(f"domain/cube_{nn}.vol")
         mesh=Mesh(ngmsh)
         it=0
         sum_eta=1
-        print('Lambda is ', Lambda)
         while sum_eta>tolerance and it<max_iterations:
            x, y,z = SpatialCoordinate(mesh)
            D = Constant(1.)
@@ -69,7 +70,7 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
            V = FunctionSpace(mesh,"Lagrange",deg)
            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
            uh = snowsolver(mesh, D, Lambda, f, u_D, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-           mark,sum_eta = Mark(mesh, f,uh,V,tolerance)
+           mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
            PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
            #PETSc.Sys.Print("Refining the marked elements ...")
            #Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))
@@ -83,13 +84,14 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
 
 # get flux Phi0 at lambda = 0
 Lambda=10**(-11)
-Phi0 =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+Phi =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+Phi0=Phi[0]
 PETSc.Sys.Print('Phi0 is ', Phi0)
 # calculate flux for various Lambda 
 LL = np.array([2**i for i in range(-15,10)])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
-    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+    fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
@@ -113,11 +115,11 @@ PETSc.Sys.Print(f"Plot of flux vs Lambda saved to figures/Phi_Lam_n{nn}.png ")
 LL = np.array([3**(-i) for i in range(nn,20)])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 with open(f'results/Phi_Lam_n{nn}_R1.csv', 'w', newline='') as csvfile:
-    fieldnames = ['Lambda', 'flux','DL_p/Lambda']
+    fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(LL)):
-       writer.writerow({'Lambda': LL[i], 'flux': Phi[i], 'DL_p/Lambda':cc[i] })
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
 PETSc.Sys.Print(f"Results for 0<Lambda<l saved to results/Phi_Lam_n{nn}_R1.csv")  
 phi_2=[]
 for i in range(len(Phi)):

@@ -41,7 +41,7 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V,bc_left,bc_right,bc_fro
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
-def Mark(msh, f, uh,V,tolerance):
+def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
      W = FunctionSpace(msh, "DG", 0)
      # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
@@ -50,12 +50,17 @@ def Mark(msh, f, uh,V,tolerance):
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator eta
-     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS)
+     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS
+           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_left)
+           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_right)
+           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_front)
+           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_back))
+#           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(tuple(bc_top)))
      # mark triangulation whose eta >= frac*eta_max
      frac = .95
      delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .25
+     part = .35
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:

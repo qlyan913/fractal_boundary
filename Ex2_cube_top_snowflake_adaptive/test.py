@@ -92,6 +92,7 @@ while sum_eta>tolerance and it<max_iterations:
   outfile.write(mesh)
   PETSc.Sys.Print(f"Refined mesh saved as refined_mesh/test_mesh/ref_n{n}_{it}.pvd.")
   PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
+  PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
   err.append(err_temp)
