@@ -11,7 +11,7 @@ from Ex1_solver import *
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
-deg=3
+deg=5
 nn=4
 l=(1/3)**nn
 Lp=(5/3)**nn
@@ -40,9 +40,9 @@ def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_
             kr=Constant(0.)
             l=Constant(0.)
             V = FunctionSpace(mesh,"Lagrange",deg)
-          
             uh = snowsolver(mesh, D, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+           # mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+            mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
             PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
             it=it+1
             Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))

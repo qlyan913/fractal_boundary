@@ -69,7 +69,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
-     R_dT_top=dot(grad(uh), n)+1/Lambda*uh
+     R_dT_top=Lambda*dot(grad(uh), n)+uh
      # Assembling the error indicator eta
      eta = assemble(h**2*R_T**2*w*dx +0.25*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS
            +h*(R_dT)**2*(w)*ds(bc_right)

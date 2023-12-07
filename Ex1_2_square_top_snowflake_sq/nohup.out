@@ -1,0 +1,13 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  reg.get_or_register_dtype("bool", np.bool8)
+Refined Mesh with degree of freedom  23280 sum_eta is  0.028023744095294862
+Refined Mesh with degree of freedom  25955 sum_eta is  0.016349269993297732
+Refined Mesh with degree of freedom  28595 sum_eta is  0.010456479989985768
+Refined Mesh with degree of freedom  34940 sum_eta is  0.006392909784598806
+Refined Mesh with degree of freedom  42065 sum_eta is  0.0039652588463278725
+Refined Mesh with degree of freedom  49850 sum_eta is  0.0025510378848660037
+Refined Mesh with degree of freedom  59615 sum_eta is  0.0015349908266666695
+Refined Mesh with degree of freedom  70685 sum_eta is  0.0009005880794323165

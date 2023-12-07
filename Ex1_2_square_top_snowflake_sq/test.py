@@ -51,11 +51,11 @@ while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
   D = Constant(1.)
   Lambda = Constant(1.)
-  f = -6*x
+  f = -30*x**4
 #  u = interpolate(2 + x**2 + y, FunctionSpace(mesh, "Lagrange",1))
-  u = 2 + x**3 + x*y
-  kl =-3*x**2-y
-  kr = 3*x**2+y
+  u = 2 + x**6 + x*y
+  kl =-6*x**5-y
+  kr = 6*x**5+y
   n = FacetNormal(mesh)
   l=inner(grad(u),n)+u
   uh = snowsolver(mesh, D, Lambda, f, u, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
