@@ -11,7 +11,7 @@ from Ex1_solver import *
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
-deg=5
+deg=3
 nn=4
 l=(1/3)**nn
 Lp=(5/3)**nn

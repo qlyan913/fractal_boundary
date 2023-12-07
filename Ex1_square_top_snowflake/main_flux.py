@@ -13,8 +13,8 @@ Lp=(4/3)**nn
 # choose a triangulation
 mesh_file =f'domain/unit_square_with_koch_{nn}.msh'
 mesh = Mesh(mesh_file)
-MH = MeshHierarchy(mesh, 5)
-mesh=MH[5]
+MH = MeshHierarchy(mesh, 6)
+mesh=MH[6]
 n = FacetNormal(mesh)
 
 # functoin space
