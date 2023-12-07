@@ -19,7 +19,7 @@ mesh0 = Mesh(ngmsh)
 PETSc.Sys.Print(f'Finite element mesh has {mesh0.num_cells()} cells and {mesh0.num_vertices()} vertices.')
 # Plot the mesh
 plt.figure()
-fd.triplot(mesh0)
+triplot(mesh0)
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Koch Snowflake Mesh')

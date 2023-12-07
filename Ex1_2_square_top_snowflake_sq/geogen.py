@@ -31,13 +31,12 @@ def divide_line(vertices,num_pts):
     New_p4=[N4,num_pts+4]
     return New_p1,New_p2,New_p3,New_p4
 
-def koch_snowflake(new_pts,num_pts,line_segments,line_to_be_divide, level):
+def koch_snowflake(new_pts,num_pts,line_to_be_divide, level):
     # pts:           list of points, each element consists of position of the point and the index of the point. 
-    # line_segments: each element is a line of two points [P1,P2] those will never be divided again
     #                P1--------->---------P2
     # line_to_be_divide: each element is a line of two points [P1,P2]  those will be divided in next step
     if level == 0:
-        return new_pts,num_pts,line_segments,line_to_be_divide
+        return new_pts,num_pts,line_to_be_divide
     new_line_to_be_divide=[]
     for i in range(len(line_to_be_divide)):
         ld = line_to_be_divide[i]
@@ -46,14 +45,12 @@ def koch_snowflake(new_pts,num_pts,line_segments,line_to_be_divide, level):
         New_p1, New_p2, New_p3, New_p4 =divide_line([P1,P2],num_pts) 
         num_pts=num_pts+4
         new_pts=new_pts+[New_p1, New_p2, New_p3, New_p4]
-        new_line=[[P1,New_p1],[New_p2,P2]]
-        for j in range(len(new_line)):
-            line_segments.append(new_line[j])
+        
         new_line_tb_div=[[P1,New_p1],[New_p1,New_p3],[New_p3,New_p4],[New_p4,New_p2],[New_p2,P2]]
         for j in range(len(new_line_tb_div)):
             new_line_to_be_divide.append(new_line_tb_div[j])
             
-    return koch_snowflake(new_pts,num_pts,line_segments,new_line_to_be_divide, level - 1)
+    return koch_snowflake(new_pts,num_pts,new_line_to_be_divide, level - 1)
 
 # define number of levels here
 def MakeGeometry(fractal_level):
@@ -70,14 +67,13 @@ def MakeGeometry(fractal_level):
     id_pts=3
 
     # top snowflake
-    new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p1,p2]], fractal_level)
+    new_pts,id_pts,line_list=koch_snowflake([],id_pts,[[p1,p2]], fractal_level)
     [geo.AppendPoint(*np[0]) for np in new_pts]
-    line_list=line_list+line_list2
     [geo.Append (["line", L[1][1], L[0][1]], bc = 1) for L in line_list]
     # left x==0
-    geo.Append (["line", P1, P4, bc = 4)
+    geo.Append (["line", P1, P4], bc = 4)
     # bot y==0
-    geo.Append (["line", P4, P3, bc = 3)
+    geo.Append (["line", P4, P3], bc = 3)
     # right x==1
-    geo.Append (["line", P3, P2, bc = 2)
+    geo.Append (["line", P3, P2], bc = 2)
     return geo
