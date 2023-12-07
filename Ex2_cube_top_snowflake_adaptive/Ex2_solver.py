@@ -49,12 +49,8 @@ def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
      # Assembling the error indicator eta
-     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS
-           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_left)
-           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_right)
-           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_front)
-           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(bc_back))
-#           +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS(tuple(bc_top)))
+     eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS)
+          
      # mark triangulation whose eta >= frac*eta_max
      frac = .95
      delfrac =0.05
