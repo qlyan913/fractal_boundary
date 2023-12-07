@@ -7,21 +7,23 @@ from scipy import stats
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex1_solver import *
-nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
-mesh_size=float(input("Enter the meshsize for initial mesh: "))
-deg=int(input("Enter the degree of polynomial: "))
+#nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
+#mesh_size=float(input("Enter the meshsize for initial mesh: "))
+#deg=int(input("Enter the degree of polynomial: "))
+mesh_size=1
+deg=3
+nn=4
 l=(1/3)**nn
 Lp=(5/3)**nn
 dim_frac=np.log(5)/np.log(3)
 tolerance = 1e-7
-max_iterations = 20
+max_iterations = 10
 bc_top=(1)
 bc_right=(2)
 bc_bot=(3)
 bc_left=(4)
 geo = MakeGeometry(nn)
-def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
-    cc=[]
+def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top):
     Phi=[]
     for Lambda in LL:
         ngmsh = geo.GenerateMesh(maxh=mesh_size)
@@ -30,6 +32,7 @@ def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_
         sum_eta=1
         while sum_eta>tolerance and it<max_iterations:
             x, y = SpatialCoordinate(mesh)
+            n = FacetNormal(mesh)
             D = Constant(1.)
             f = Constant(0.)
             u_D=Constant(1.)
@@ -37,19 +40,20 @@ def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_
             kr=Constant(0.)
             l=Constant(0.)
             V = FunctionSpace(mesh,"Lagrange",deg)
-            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
+          
             uh = snowsolver(mesh, D, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-            mark, sum_eta = Mark(mesh, f,uh,V,tolerance)
+            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
             it=it+1
-            Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(4))
-            Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(4))
+            Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
+            Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(bc_top))
             mesh = mesh.refine_marked_elements(mark)
         PETSc.Sys.Print("Lambda is ", Lambda, " flux is ", Phi_temp2)
         Phi.append(Phi_temp2)
     return Phi
 # get flux Phi0 at lambda = 0
 Lambda=10**(-11)
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+Phi=get_flux(geo, [Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
 Phi0=Phi[0]
 PETSc.Sys.Print("phi0 is", Phi0)
 

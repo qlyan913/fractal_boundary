@@ -61,6 +61,7 @@ while sum_eta>tolerance and it<max_iterations:
   uh = snowsolver(mesh, D, Lambda, f, u, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
   V = FunctionSpace(mesh,"Lagrange",deg)
   mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+#  mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
