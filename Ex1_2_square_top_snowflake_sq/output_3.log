@@ -1,0 +1,692 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025641875969545095
+Refined Mesh with degree of freedom  9548 sum_eta is  0.01530597821419635
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009977535634754129
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006654768763437766
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003959507905690723
+Refined Mesh with degree of freedom  18176 sum_eta is  0.002524882314155458
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014709219063938838
+Refined Mesh with degree of freedom  26972 sum_eta is  0.000860615322029473
+Refined Mesh with degree of freedom  32570 sum_eta is  0.0005107478760463805
+Refined Mesh with degree of freedom  40253 sum_eta is  0.0002974436910354839
+Lambda is  1e-11  flux is  0.9757347214382825
+phi0 is 0.9757347214382825
+Refined Mesh with degree of freedom  8696 sum_eta is  0.023861533107972694
+Refined Mesh with degree of freedom  9578 sum_eta is  0.013975508524035438
+Refined Mesh with degree of freedom  10652 sum_eta is  0.009347684465851358
+Refined Mesh with degree of freedom  12500 sum_eta is  0.005911716312243874
+Refined Mesh with degree of freedom  15305 sum_eta is  0.003314045683702087
+Refined Mesh with degree of freedom  18698 sum_eta is  0.0020004902660484608
+Refined Mesh with degree of freedom  21947 sum_eta is  0.0012296477771166494
+Refined Mesh with degree of freedom  26288 sum_eta is  0.0006972402414828295
+Refined Mesh with degree of freedom  31886 sum_eta is  0.0003995312343429052
+Refined Mesh with degree of freedom  38960 sum_eta is  0.00023594041466665208
+Lambda is  3.0517578125e-05  flux is  0.9756850388401467
+Refined Mesh with degree of freedom  8696 sum_eta is  0.022342963072505887
+Refined Mesh with degree of freedom  9578 sum_eta is  0.013126691392199682
+Refined Mesh with degree of freedom  10898 sum_eta is  0.007811524855845401
+Refined Mesh with degree of freedom  12854 sum_eta is  0.004965210676984941
+Refined Mesh with degree of freedom  15428 sum_eta is  0.0029040516662918454
+Refined Mesh with degree of freedom  18875 sum_eta is  0.0017177227791270375
+Refined Mesh with degree of freedom  22226 sum_eta is  0.0010236923169164329
+Refined Mesh with degree of freedom  26216 sum_eta is  0.0005957584035186735
+Refined Mesh with degree of freedom  31499 sum_eta is  0.0003493081073086398
+Refined Mesh with degree of freedom  38321 sum_eta is  0.00020552890077445645
+Lambda is  6.103515625e-05  flux is  0.9756370331442991
+Refined Mesh with degree of freedom  8696 sum_eta is  0.01989664975256165
+Refined Mesh with degree of freedom  9389 sum_eta is  0.01284321680368074
+Refined Mesh with degree of freedom  10517 sum_eta is  0.008172330878028175
+Refined Mesh with degree of freedom  12188 sum_eta is  0.005163913052703786
+Refined Mesh with degree of freedom  15140 sum_eta is  0.002654256245898598
+Refined Mesh with degree of freedom  18377 sum_eta is  0.0015917274733429519
+Refined Mesh with degree of freedom  21752 sum_eta is  0.0009041341683072296
+Refined Mesh with degree of freedom  26354 sum_eta is  0.0004802888657246914
+Refined Mesh with degree of freedom  31550 sum_eta is  0.0002860466628362245
+Refined Mesh with degree of freedom  40544 sum_eta is  0.0001465700021978847
+Lambda is  0.0001220703125  flux is  0.9755434057808999
+Refined Mesh with degree of freedom  8696 sum_eta is  0.01654211107283627
+Refined Mesh with degree of freedom  9389 sum_eta is  0.010623858187601944
+Refined Mesh with degree of freedom  10385 sum_eta is  0.007107666964825397
+Refined Mesh with degree of freedom  12191 sum_eta is  0.0042553050966612
+Refined Mesh with degree of freedom  15014 sum_eta is  0.0021700268565915956
+Refined Mesh with degree of freedom  18053 sum_eta is  0.0012782908564087211
+Refined Mesh with degree of freedom  22202 sum_eta is  0.0006606898393142338
+Refined Mesh with degree of freedom  27305 sum_eta is  0.00033479916132373057
+Refined Mesh with degree of freedom  33959 sum_eta is  0.00018753807092407258
+Refined Mesh with degree of freedom  43823 sum_eta is  8.974173951930181e-05
+Lambda is  0.000244140625  flux is  0.9753627758122747
+Refined Mesh with degree of freedom  8696 sum_eta is  0.012875611075250643
+Refined Mesh with degree of freedom  9389 sum_eta is  0.008121666412715738
+Refined Mesh with degree of freedom  10505 sum_eta is  0.005157575911844928
+Refined Mesh with degree of freedom  12299 sum_eta is  0.003180264025599844
+Refined Mesh with degree of freedom  15353 sum_eta is  0.001539801240537794
+Refined Mesh with degree of freedom  18560 sum_eta is  0.0008949743532167723
+Refined Mesh with degree of freedom  22670 sum_eta is  0.0004393230671482398
+Refined Mesh with degree of freedom  28637 sum_eta is  0.00021562707308499067
+Refined Mesh with degree of freedom  38774 sum_eta is  9.724658924054733e-05
+Refined Mesh with degree of freedom  52178 sum_eta is  4.309321122094424e-05
+Lambda is  0.00048828125  flux is  0.9750174665990604
+Refined Mesh with degree of freedom  8696 sum_eta is  0.009775641328613943
+Refined Mesh with degree of freedom  9515 sum_eta is  0.005624450513887217
+Refined Mesh with degree of freedom  10859 sum_eta is  0.0031602678103833676
+Refined Mesh with degree of freedom  13067 sum_eta is  0.0019218453135189236
+Refined Mesh with degree of freedom  15524 sum_eta is  0.0010608133932295792
+Refined Mesh with degree of freedom  19043 sum_eta is  0.0005859716348022343
+Refined Mesh with degree of freedom  24428 sum_eta is  0.0002800572577138573
+Refined Mesh with degree of freedom  30566 sum_eta is  0.00014277328107528562
+Refined Mesh with degree of freedom  39455 sum_eta is  6.80636972294023e-05
+Refined Mesh with degree of freedom  51269 sum_eta is  3.311134819151093e-05
+Lambda is  0.0009765625  flux is  0.9743667675071862
+Refined Mesh with degree of freedom  8696 sum_eta is  0.0076901803116769234
+Refined Mesh with degree of freedom  9536 sum_eta is  0.004480851947688483
+Refined Mesh with degree of freedom  10847 sum_eta is  0.0025324666127175305
+Refined Mesh with degree of freedom  13190 sum_eta is  0.0013849651575072413
+Refined Mesh with degree of freedom  16451 sum_eta is  0.0006903044205716463
+Refined Mesh with degree of freedom  20042 sum_eta is  0.0003829783901578681
+Refined Mesh with degree of freedom  25442 sum_eta is  0.00018573482710804442
+Refined Mesh with degree of freedom  32399 sum_eta is  9.292185520812121e-05
+Refined Mesh with degree of freedom  41852 sum_eta is  4.917989714750575e-05
+Refined Mesh with degree of freedom  55931 sum_eta is  2.406974078012873e-05
+Lambda is  0.001953125  flux is  0.9731679690779451
+Refined Mesh with degree of freedom  8696 sum_eta is  0.006749293792385545
+Refined Mesh with degree of freedom  9512 sum_eta is  0.0035838703699424173
+Refined Mesh with degree of freedom  10880 sum_eta is  0.0021366489589053354
+Refined Mesh with degree of freedom  12653 sum_eta is  0.0012824987175655464
+Refined Mesh with degree of freedom  16043 sum_eta is  0.000687382745243292
+Refined Mesh with degree of freedom  19712 sum_eta is  0.0003880248775278082
+Refined Mesh with degree of freedom  25328 sum_eta is  0.00021267850343428411
+Refined Mesh with degree of freedom  32483 sum_eta is  0.0001246067350426089
+Refined Mesh with degree of freedom  40484 sum_eta is  7.797364800252845e-05
+Refined Mesh with degree of freedom  51842 sum_eta is  4.8574120478738564e-05
+Lambda is  0.00390625  flux is  0.9710419724949494
+Refined Mesh with degree of freedom  8696 sum_eta is  0.007605497090151285
+Refined Mesh with degree of freedom  9395 sum_eta is  0.004084040635544434
+Refined Mesh with degree of freedom  10832 sum_eta is  0.0025796959430856186
+Refined Mesh with degree of freedom  12854 sum_eta is  0.001583429481108704
+Refined Mesh with degree of freedom  16238 sum_eta is  0.0009950109430689887
+Refined Mesh with degree of freedom  21011 sum_eta is  0.0006359274304804991
+Refined Mesh with degree of freedom  26330 sum_eta is  0.00043077250987248576
+Refined Mesh with degree of freedom  31331 sum_eta is  0.00031926645047382357
+Refined Mesh with degree of freedom  38015 sum_eta is  0.00022930654306368265
+Refined Mesh with degree of freedom  46037 sum_eta is  0.00016409033896530126
+Lambda is  0.0078125  flux is  0.9674779421139513
+Refined Mesh with degree of freedom  8696 sum_eta is  0.012137115265485193
+Refined Mesh with degree of freedom  9278 sum_eta is  0.0074479224652752845
+Refined Mesh with degree of freedom  10667 sum_eta is  0.004860833122157397
+Refined Mesh with degree of freedom  13253 sum_eta is  0.003387414565735848
+Refined Mesh with degree of freedom  16619 sum_eta is  0.0024487406008097345
+Refined Mesh with degree of freedom  21068 sum_eta is  0.0017852345912837697
+Refined Mesh with degree of freedom  25037 sum_eta is  0.0014288897049659266
+Refined Mesh with degree of freedom  30266 sum_eta is  0.0010793769040494316
+Refined Mesh with degree of freedom  35159 sum_eta is  0.0008716121137805724
+Refined Mesh with degree of freedom  41483 sum_eta is  0.0006722759315913817
+Lambda is  0.015625  flux is  0.9618785933433224
+Refined Mesh with degree of freedom  8696 sum_eta is  0.023735459924175834
+Refined Mesh with degree of freedom  9269 sum_eta is  0.015148344520407203
+Refined Mesh with degree of freedom  11024 sum_eta is  0.010814441085083589
+Refined Mesh with degree of freedom  13283 sum_eta is  0.00850263789147666
+Refined Mesh with degree of freedom  16085 sum_eta is  0.006991277366321397
+Refined Mesh with degree of freedom  19511 sum_eta is  0.005738012108748205
+Refined Mesh with degree of freedom  23582 sum_eta is  0.0046239645671627425
+Refined Mesh with degree of freedom  27557 sum_eta is  0.003891184269824954
+Refined Mesh with degree of freedom  32675 sum_eta is  0.0031928605111026303
+Refined Mesh with degree of freedom  36476 sum_eta is  0.002858362620343246
+Lambda is  0.03125  flux is  0.9535114205049395
+Refined Mesh with degree of freedom  8696 sum_eta is  0.04636774189515928
+Refined Mesh with degree of freedom  9371 sum_eta is  0.030488748010941272
+Refined Mesh with degree of freedom  11021 sum_eta is  0.02402530418340513
+Refined Mesh with degree of freedom  13250 sum_eta is  0.019158198677035592
+Refined Mesh with degree of freedom  15578 sum_eta is  0.01660239725965933
+Refined Mesh with degree of freedom  18557 sum_eta is  0.014527962699794911
+Refined Mesh with degree of freedom  21713 sum_eta is  0.013050724152400363
+Refined Mesh with degree of freedom  25523 sum_eta is  0.011517254568310912
+Refined Mesh with degree of freedom  29879 sum_eta is  0.010204284016786297
+Refined Mesh with degree of freedom  34568 sum_eta is  0.008980035612149296
+Lambda is  0.0625  flux is  0.9412629803958535
+Refined Mesh with degree of freedom  8696 sum_eta is  0.08215234465427758
+Refined Mesh with degree of freedom  9398 sum_eta is  0.05714359458672727
+Refined Mesh with degree of freedom  11102 sum_eta is  0.044372095548800845
+Refined Mesh with degree of freedom  13409 sum_eta is  0.03766468227963941
+Refined Mesh with degree of freedom  16232 sum_eta is  0.03333294749956409
+Refined Mesh with degree of freedom  19202 sum_eta is  0.029624961885676537
+Refined Mesh with degree of freedom  22580 sum_eta is  0.026740242368379442
+Refined Mesh with degree of freedom  26849 sum_eta is  0.02402378299716673
+Refined Mesh with degree of freedom  31271 sum_eta is  0.02173525679191665
+Refined Mesh with degree of freedom  35315 sum_eta is  0.019970372761269877
+Lambda is  0.125  flux is  0.9233297898067516
+Refined Mesh with degree of freedom  8696 sum_eta is  0.12916376018931527
+Refined Mesh with degree of freedom  9290 sum_eta is  0.09604036612788822
+Refined Mesh with degree of freedom  11018 sum_eta is  0.07518342668695477
+Refined Mesh with degree of freedom  14063 sum_eta is  0.06441888374747962
+Refined Mesh with degree of freedom  16751 sum_eta is  0.05777586937586892
+Refined Mesh with degree of freedom  20567 sum_eta is  0.05167882169403287
+Refined Mesh with degree of freedom  23903 sum_eta is  0.04766243113791126
+Refined Mesh with degree of freedom  27440 sum_eta is  0.04355986130985788
+Refined Mesh with degree of freedom  31733 sum_eta is  0.03958217932926975
+Refined Mesh with degree of freedom  35162 sum_eta is  0.036976554125863155
+Lambda is  0.25  flux is  0.8970328071156592
+Refined Mesh with degree of freedom  8696 sum_eta is  0.1797023024545704
+Refined Mesh with degree of freedom  9389 sum_eta is  0.13698998213340402
+Refined Mesh with degree of freedom  11075 sum_eta is  0.1067305123017856
+Refined Mesh with degree of freedom  14135 sum_eta is  0.09383794153301213
+Refined Mesh with degree of freedom  16913 sum_eta is  0.08631031981358074
+Refined Mesh with degree of freedom  19811 sum_eta is  0.08054737095954341
+Refined Mesh with degree of freedom  24200 sum_eta is  0.07323920718534857
+Refined Mesh with degree of freedom  28085 sum_eta is  0.06822447039212622
+Refined Mesh with degree of freedom  32063 sum_eta is  0.06330363533970852
+Refined Mesh with degree of freedom  37046 sum_eta is  0.058656934719444234
+Lambda is  0.5  flux is  0.85803807006859
+Refined Mesh with degree of freedom  8696 sum_eta is  0.2191080193752856
+Refined Mesh with degree of freedom  9578 sum_eta is  0.16718585427259713
+Refined Mesh with degree of freedom  10997 sum_eta is  0.13433768203936802
+Refined Mesh with degree of freedom  14369 sum_eta is  0.11964337506869677
+Refined Mesh with degree of freedom  17693 sum_eta is  0.11049488866878052
+Refined Mesh with degree of freedom  21542 sum_eta is  0.1036323530879715
+Refined Mesh with degree of freedom  25589 sum_eta is  0.09656881919625418
+Refined Mesh with degree of freedom  30317 sum_eta is  0.08996770240939951
+Refined Mesh with degree of freedom  35318 sum_eta is  0.08421605920176202
+Refined Mesh with degree of freedom  40697 sum_eta is  0.07880475241822008
+Lambda is  1.0  flux is  0.8000449822551923
+Refined Mesh with degree of freedom  8696 sum_eta is  0.22728548665708276
+Refined Mesh with degree of freedom  9743 sum_eta is  0.17286957197044064
+Refined Mesh with degree of freedom  11360 sum_eta is  0.13804149267148522
+Refined Mesh with degree of freedom  15971 sum_eta is  0.1265044978367887
+Refined Mesh with degree of freedom  19892 sum_eta is  0.11736534940993278
+Refined Mesh with degree of freedom  25061 sum_eta is  0.10943140810868623
+Refined Mesh with degree of freedom  29315 sum_eta is  0.10404823037917929
+Refined Mesh with degree of freedom  33125 sum_eta is  0.0997118715546493
+Refined Mesh with degree of freedom  37073 sum_eta is  0.09504962691537588
+Refined Mesh with degree of freedom  41312 sum_eta is  0.09092123985336423
+Lambda is  2.0  flux is  0.7153799560321483
+Refined Mesh with degree of freedom  8696 sum_eta is  0.1906923995298971
+Refined Mesh with degree of freedom  9833 sum_eta is  0.14612240147370634
+Refined Mesh with degree of freedom  11144 sum_eta is  0.1195130327932995
+Refined Mesh with degree of freedom  15503 sum_eta is  0.11125200255559094
+Refined Mesh with degree of freedom  19964 sum_eta is  0.10386872715714911
+Refined Mesh with degree of freedom  23885 sum_eta is  0.09912882831539667
+Refined Mesh with degree of freedom  28187 sum_eta is  0.09405032883889856
+Refined Mesh with degree of freedom  31889 sum_eta is  0.09051414540642333
+Refined Mesh with degree of freedom  35651 sum_eta is  0.08680928494030381
+Refined Mesh with degree of freedom  39767 sum_eta is  0.08313645709466574
+Lambda is  4.0  flux is  0.5983092315023281
+Refined Mesh with degree of freedom  8696 sum_eta is  0.12323559466119108
+Refined Mesh with degree of freedom  10154 sum_eta is  0.0887665015827152
+Refined Mesh with degree of freedom  14366 sum_eta is  0.07426992549922114
+Refined Mesh with degree of freedom  18284 sum_eta is  0.07034121415302379
+Refined Mesh with degree of freedom  21845 sum_eta is  0.06760692465027338
+Refined Mesh with degree of freedom  25496 sum_eta is  0.06492542820688163
+Refined Mesh with degree of freedom  28760 sum_eta is  0.06273062722487104
+Refined Mesh with degree of freedom  32099 sum_eta is  0.06066379623261218
+Refined Mesh with degree of freedom  35489 sum_eta is  0.05865555978480174
+Refined Mesh with degree of freedom  39383 sum_eta is  0.05648408089640439
+Lambda is  8.0  flux is  0.45459132550976705
+Refined Mesh with degree of freedom  8696 sum_eta is  0.06037722263379337
+Refined Mesh with degree of freedom  9854 sum_eta is  0.04605593006689541
+Refined Mesh with degree of freedom  14054 sum_eta is  0.0367507171747945
+Refined Mesh with degree of freedom  17549 sum_eta is  0.035101325900953655
+Refined Mesh with degree of freedom  21032 sum_eta is  0.033766917400439155
+Refined Mesh with degree of freedom  25250 sum_eta is  0.03195734054756247
+Refined Mesh with degree of freedom  28460 sum_eta is  0.030985102118090753
+Refined Mesh with degree of freedom  31973 sum_eta is  0.02991056887008372
+Refined Mesh with degree of freedom  35744 sum_eta is  0.028833495596252253
+Refined Mesh with degree of freedom  40202 sum_eta is  0.027690927694484873
+Lambda is  16.0  flux is  0.3083668963791874
+Refined Mesh with degree of freedom  8696 sum_eta is  0.023168624289274728
+Refined Mesh with degree of freedom  9728 sum_eta is  0.01824121328774875
+Refined Mesh with degree of freedom  11288 sum_eta is  0.014952813350764366
+Refined Mesh with degree of freedom  15365 sum_eta is  0.013852415040745048
+Refined Mesh with degree of freedom  19400 sum_eta is  0.013101511186666583
+Refined Mesh with degree of freedom  24023 sum_eta is  0.01245927392309952
+Refined Mesh with degree of freedom  27671 sum_eta is  0.012004217909074253
+Refined Mesh with degree of freedom  31271 sum_eta is  0.011581198047071962
+Refined Mesh with degree of freedom  34880 sum_eta is  0.011189119619990438
+Refined Mesh with degree of freedom  38495 sum_eta is  0.010853797154747486
+Lambda is  32.0  flux is  0.18799779590828108
+Refined Mesh with degree of freedom  8696 sum_eta is  0.007430909736774953
+Refined Mesh with degree of freedom  9728 sum_eta is  0.00585411763596209
+Refined Mesh with degree of freedom  11288 sum_eta is  0.004808390859710291
+Refined Mesh with degree of freedom  15407 sum_eta is  0.004443362023643793
+Refined Mesh with degree of freedom  19202 sum_eta is  0.00423462145784162
+Refined Mesh with degree of freedom  22268 sum_eta is  0.004110872333349448
+Refined Mesh with degree of freedom  25778 sum_eta is  0.003971322570001806
+Refined Mesh with degree of freedom  30842 sum_eta is  0.003753303502928479
+Refined Mesh with degree of freedom  34373 sum_eta is  0.0036446187328624934
+Refined Mesh with degree of freedom  38051 sum_eta is  0.003533389184373959
+Lambda is  64.0  flux is  0.10561904107965198
+Refined Mesh with degree of freedom  8696 sum_eta is  0.0021279550389685224
+Refined Mesh with degree of freedom  9896 sum_eta is  0.001611839741342706
+Refined Mesh with degree of freedom  11894 sum_eta is  0.0013590293807119454
+Refined Mesh with degree of freedom  16310 sum_eta is  0.0012500315566220201
+Refined Mesh with degree of freedom  19676 sum_eta is  0.0012047912202045735
+Refined Mesh with degree of freedom  23444 sum_eta is  0.001157267792657958
+Refined Mesh with degree of freedom  27290 sum_eta is  0.0011075638177148988
+Refined Mesh with degree of freedom  30803 sum_eta is  0.0010734521036934004
+Refined Mesh with degree of freedom  34331 sum_eta is  0.0010415681942228959
+Refined Mesh with degree of freedom  37472 sum_eta is  0.0010160245666811013
+Lambda is  128.0  flux is  0.05629635730352041
+Refined Mesh with degree of freedom  8696 sum_eta is  0.0005712141758190562
+Refined Mesh with degree of freedom  9896 sum_eta is  0.0004327781347252755
+Refined Mesh with degree of freedom  11801 sum_eta is  0.0003654662760940286
+Refined Mesh with degree of freedom  15707 sum_eta is  0.0003412153063051317
+Refined Mesh with degree of freedom  19466 sum_eta is  0.0003259124399845584
+Refined Mesh with degree of freedom  22541 sum_eta is  0.00031661972446418463
+Refined Mesh with degree of freedom  25943 sum_eta is  0.00030594247589790997
+Refined Mesh with degree of freedom  29087 sum_eta is  0.0002965617322937436
+Refined Mesh with degree of freedom  32312 sum_eta is  0.0002892167324776632
+Refined Mesh with degree of freedom  36020 sum_eta is  0.00027917257041923605
+Lambda is  256.0  flux is  0.029110488310515253
+Refined Mesh with degree of freedom  8696 sum_eta is  0.00014810392303581137
+Refined Mesh with degree of freedom  9896 sum_eta is  0.00011222461204022486
+Refined Mesh with degree of freedom  11786 sum_eta is  9.476397929787875e-05
+Refined Mesh with degree of freedom  15725 sum_eta is  8.838068763574774e-05
+Refined Mesh with degree of freedom  19427 sum_eta is  8.450066183627637e-05
+Refined Mesh with degree of freedom  23411 sum_eta is  8.092241827687037e-05
+Refined Mesh with degree of freedom  27323 sum_eta is  7.776112444043097e-05
+Refined Mesh with degree of freedom  30794 sum_eta is  7.558139425785524e-05
+Refined Mesh with degree of freedom  34085 sum_eta is  7.351079102245935e-05
+Refined Mesh with degree of freedom  37568 sum_eta is  7.14856624934862e-05
+Lambda is  512.0  flux is  0.014808183192498079
+Plot for 0<Lambda<1000 saved to figures/Phi_Lam_4.png 
+Result for 0<Lambda<1000 saved to results/Phi_Lam_4.csv 
+Refined Mesh with degree of freedom  8696 sum_eta is  0.01000359052589374
+Refined Mesh with degree of freedom  9311 sum_eta is  0.005834481258161258
+Refined Mesh with degree of freedom  10889 sum_eta is  0.0035502089439927178
+Refined Mesh with degree of freedom  13808 sum_eta is  0.00234757794461717
+Refined Mesh with degree of freedom  17690 sum_eta is  0.0015952392192170287
+Refined Mesh with degree of freedom  22451 sum_eta is  0.0011303410678502972
+Refined Mesh with degree of freedom  26978 sum_eta is  0.0008531705755702118
+Refined Mesh with degree of freedom  31820 sum_eta is  0.000659474964304295
+Refined Mesh with degree of freedom  37808 sum_eta is  0.000505313153158617
+Refined Mesh with degree of freedom  43664 sum_eta is  0.00039877002804447164
+Lambda is  0.012345679012345678  flux is  0.9640501718672855
+Refined Mesh with degree of freedom  8696 sum_eta is  0.006736496532985132
+Refined Mesh with degree of freedom  9554 sum_eta is  0.0034223475460738247
+Refined Mesh with degree of freedom  11186 sum_eta is  0.0019516642098130962
+Refined Mesh with degree of freedom  13652 sum_eta is  0.001053788513512332
+Refined Mesh with degree of freedom  16688 sum_eta is  0.0006213307137753886
+Refined Mesh with degree of freedom  21038 sum_eta is  0.00033934064005509664
+Refined Mesh with degree of freedom  27197 sum_eta is  0.00019448567918918595
+Refined Mesh with degree of freedom  34418 sum_eta is  0.00011899851235074484
+Refined Mesh with degree of freedom  42380 sum_eta is  7.613533990123006e-05
+Refined Mesh with degree of freedom  53297 sum_eta is  4.8328911596952955e-05
+Lambda is  0.00411522633744856  flux is  0.9708309656048082
+Refined Mesh with degree of freedom  8696 sum_eta is  0.008620165218458993
+Refined Mesh with degree of freedom  9443 sum_eta is  0.005215393527709628
+Refined Mesh with degree of freedom  10859 sum_eta is  0.002740114768354236
+Refined Mesh with degree of freedom  12896 sum_eta is  0.0016517154860703886
+Refined Mesh with degree of freedom  15863 sum_eta is  0.0008640235535073593
+Refined Mesh with degree of freedom  19898 sum_eta is  0.00045796764197340715
+Refined Mesh with degree of freedom  24170 sum_eta is  0.0002445822954073212
+Refined Mesh with degree of freedom  29762 sum_eta is  0.0001319991355993435
+Refined Mesh with degree of freedom  36914 sum_eta is  6.972113639852288e-05
+Refined Mesh with degree of freedom  47690 sum_eta is  3.569858826222348e-05
+Lambda is  0.0013717421124828531  flux is  0.973867711979707
+Refined Mesh with degree of freedom  8696 sum_eta is  0.013210933927155853
+Refined Mesh with degree of freedom  9389 sum_eta is  0.008352854710920026
+Refined Mesh with degree of freedom  10505 sum_eta is  0.00531018801498881
+Refined Mesh with degree of freedom  12299 sum_eta is  0.00327747015742107
+Refined Mesh with degree of freedom  14918 sum_eta is  0.00170897165882852
+Refined Mesh with degree of freedom  18224 sum_eta is  0.0009630225281710149
+Refined Mesh with degree of freedom  22358 sum_eta is  0.0004949100350406646
+Refined Mesh with degree of freedom  27230 sum_eta is  0.00026138006084110366
+Refined Mesh with degree of freedom  33803 sum_eta is  0.00014770255330346656
+Refined Mesh with degree of freedom  43559 sum_eta is  7.301159870868038e-05
+Lambda is  0.0004572473708276177  flux is  0.9750606886144
+Refined Mesh with degree of freedom  8696 sum_eta is  0.01890506358596008
+Refined Mesh with degree of freedom  9389 sum_eta is  0.012194911891888661
+Refined Mesh with degree of freedom  10385 sum_eta is  0.00815596091554517
+Refined Mesh with degree of freedom  12191 sum_eta is  0.004910297437387846
+Refined Mesh with degree of freedom  15089 sum_eta is  0.0025155673221003306
+Refined Mesh with degree of freedom  18467 sum_eta is  0.0014528786995191988
+Refined Mesh with degree of freedom  22106 sum_eta is  0.0008057978085948565
+Refined Mesh with degree of freedom  26504 sum_eta is  0.00044187353771348053
+Refined Mesh with degree of freedom  31910 sum_eta is  0.0002577343539526027
+Refined Mesh with degree of freedom  40946 sum_eta is  0.0001309957116873008
+Lambda is  0.00015241579027587258  flux is  0.9754978303871904
+Refined Mesh with degree of freedom  8696 sum_eta is  0.022826352313538
+Refined Mesh with degree of freedom  9578 sum_eta is  0.013398653516611007
+Refined Mesh with degree of freedom  10898 sum_eta is  0.007991449729606961
+Refined Mesh with degree of freedom  12854 sum_eta is  0.00509886750273099
+Refined Mesh with degree of freedom  15455 sum_eta is  0.0029987795710304235
+Refined Mesh with degree of freedom  18899 sum_eta is  0.001780146142522599
+Refined Mesh with degree of freedom  22205 sum_eta is  0.0010654621597333085
+Refined Mesh with degree of freedom  26399 sum_eta is  0.0006110119290850753
+Refined Mesh with degree of freedom  31718 sum_eta is  0.0003563719714181259
+Refined Mesh with degree of freedom  38225 sum_eta is  0.00021505743292100262
+Lambda is  5.080526342529086e-05  flux is  0.9756530213955814
+Refined Mesh with degree of freedom  8696 sum_eta is  0.024617911084758696
+Refined Mesh with degree of freedom  9548 sum_eta is  0.014707560720209269
+Refined Mesh with degree of freedom  10601 sum_eta is  0.009788120482674975
+Refined Mesh with degree of freedom  12413 sum_eta is  0.0062815182816964256
+Refined Mesh with degree of freedom  15263 sum_eta is  0.0035387217885105883
+Refined Mesh with degree of freedom  18467 sum_eta is  0.0022012940362986446
+Refined Mesh with degree of freedom  22229 sum_eta is  0.001305912958519915
+Refined Mesh with degree of freedom  26339 sum_eta is  0.0007708799593479939
+Refined Mesh with degree of freedom  31568 sum_eta is  0.0004591892484776602
+Refined Mesh with degree of freedom  38759 sum_eta is  0.00026721477310687745
+Lambda is  1.6935087808430286e-05  flux is  0.9757069537898341
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025289920426266387
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015100207760224306
+Refined Mesh with degree of freedom  10601 sum_eta is  0.010051142967553108
+Refined Mesh with degree of freedom  12413 sum_eta is  0.006508287574762921
+Refined Mesh with degree of freedom  14897 sum_eta is  0.0039051644652063197
+Refined Mesh with degree of freedom  17561 sum_eta is  0.0026235264199271223
+Refined Mesh with degree of freedom  21308 sum_eta is  0.0015894637878622652
+Refined Mesh with degree of freedom  26156 sum_eta is  0.0008901995465717468
+Refined Mesh with degree of freedom  32162 sum_eta is  0.0005063436572305265
+Refined Mesh with degree of freedom  38216 sum_eta is  0.00031287844654026234
+Lambda is  5.645029269476762e-06  flux is  0.9757256225309736
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025523328495890917
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015236653808127706
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009932739350847972
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006612708095840224
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003925381877600159
+Refined Mesh with degree of freedom  18176 sum_eta is  0.0024970659700540754
+Refined Mesh with degree of freedom  22502 sum_eta is  0.0014549251005612108
+Refined Mesh with degree of freedom  26942 sum_eta is  0.0008442456581634829
+Refined Mesh with degree of freedom  32522 sum_eta is  0.00049874502611746
+Refined Mesh with degree of freedom  39929 sum_eta is  0.000292086453930855
+Lambda is  1.8816764231589208e-06  flux is  0.9757315785741828
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025602222120282576
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015282787340256414
+Refined Mesh with degree of freedom  10634 sum_eta is  0.00996254214025012
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006640655139711296
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003948026528303963
+Refined Mesh with degree of freedom  18176 sum_eta is  0.0025154770857004345
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014630418468837203
+Refined Mesh with degree of freedom  26972 sum_eta is  0.0008540348888135913
+Refined Mesh with degree of freedom  32633 sum_eta is  0.0005021909099131216
+Refined Mesh with degree of freedom  39986 sum_eta is  0.00029690694316236466
+Lambda is  6.272254743863069e-07  flux is  0.9757336825472442
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025628642989514425
+Refined Mesh with degree of freedom  9548 sum_eta is  0.01529823889711889
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009972531071955079
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006650053863011768
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003955668912476601
+Refined Mesh with degree of freedom  18176 sum_eta is  0.002521732060352798
+Refined Mesh with degree of freedom  22577 sum_eta is  0.001468275064667872
+Refined Mesh with degree of freedom  26972 sum_eta is  0.0008583944284029505
+Refined Mesh with degree of freedom  32570 sum_eta is  0.0005089229677685691
+Refined Mesh with degree of freedom  40139 sum_eta is  0.0002976959256070237
+Lambda is  2.0907515812876897e-07  flux is  0.9757343792575467
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025637463678890228
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015303397656531766
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009975866839275205
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006653196108417719
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003958227024290754
+Refined Mesh with degree of freedom  18176 sum_eta is  0.002523830614137986
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014700374252701724
+Refined Mesh with degree of freedom  26972 sum_eta is  0.000859871958127091
+Refined Mesh with degree of freedom  32570 sum_eta is  0.0005101349574259056
+Refined Mesh with degree of freedom  40253 sum_eta is  0.00029693583821452157
+Lambda is  6.969171937625632e-08  flux is  0.9757346026046547
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025640405437058228
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015305118160481404
+Refined Mesh with degree of freedom  10634 sum_eta is  0.00997697944393299
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006654244565224854
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003959080918713641
+Refined Mesh with degree of freedom  18176 sum_eta is  0.002524531656807546
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014706269087864066
+Refined Mesh with degree of freedom  26972 sum_eta is  0.0008603672535424339
+Refined Mesh with degree of freedom  32570 sum_eta is  0.0005105430998582303
+Refined Mesh with degree of freedom  40253 sum_eta is  0.0002972737018235357
+Lambda is  2.3230573125418773e-08  flux is  0.975734681832128
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025641386193026368
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015305691763809802
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009977350388022681
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006654594166723321
+Refined Mesh with degree of freedom  15083 sum_eta is  0.003959365682729276
+Refined Mesh with degree of freedom  18176 sum_eta is  0.0025247655077845145
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014708236301713225
+Refined Mesh with degree of freedom  26972 sum_eta is  0.000860532664597215
+Refined Mesh with degree of freedom  32570 sum_eta is  0.000510679617065163
+Refined Mesh with degree of freedom  40253 sum_eta is  0.00029738699227975767
+Lambda is  7.743524375139592e-09  flux is  0.9757347082468976
+Refined Mesh with degree of freedom  8696 sum_eta is  0.02564171313056482
+Refined Mesh with degree of freedom  9548 sum_eta is  0.01530588297625604
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009977474044485077
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006654710713439289
+Refined Mesh with degree of freedom  15083 sum_eta is  0.0039594606188044345
+Refined Mesh with degree of freedom  18176 sum_eta is  0.0025248434770337607
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014708892292246351
+Refined Mesh with degree of freedom  26972 sum_eta is  0.0008605878364626456
+Refined Mesh with degree of freedom  32570 sum_eta is  0.0005107251753383758
+Refined Mesh with degree of freedom  40253 sum_eta is  0.00029742483093250506
+Lambda is  2.581174791713197e-09  flux is  0.9757347170524588
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025641822111842686
+Refined Mesh with degree of freedom  9548 sum_eta is  0.015305946714998374
+Refined Mesh with degree of freedom  10634 sum_eta is  0.009977515264242969
+Refined Mesh with degree of freedom  12404 sum_eta is  0.006654749563776274
+Refined Mesh with degree of freedom  15083 sum_eta is  0.0039594922658006525
+Refined Mesh with degree of freedom  18176 sum_eta is  0.0025248694688870745
+Refined Mesh with degree of freedom  22577 sum_eta is  0.0014709110983840928
+Refined Mesh with degree of freedom  26972 sum_eta is  0.0008606062309606923
+Refined Mesh with degree of freedom  32570 sum_eta is  0.000510740367279853
+Refined Mesh with degree of freedom  40253 sum_eta is  0.00029743745219897093
+Lambda is  8.603915972377324e-10  flux is  0.9757347199876837
+plot for 0<Lambda<l saved to figures/Phi_Lam_4_R1.png 
+Result for 0<Lambda<l saved to results/Phi_Lam_4_R1.csv 
+Refined Mesh with degree of freedom  8696 sum_eta is  0.010003590525893731
+Refined Mesh with degree of freedom  9311 sum_eta is  0.005834481258161251
+Refined Mesh with degree of freedom  10889 sum_eta is  0.0035502089439927373
+Refined Mesh with degree of freedom  13808 sum_eta is  0.002347577944617187
+Refined Mesh with degree of freedom  17690 sum_eta is  0.0015952392192170332
+Refined Mesh with degree of freedom  22451 sum_eta is  0.0011303410678503022
+Refined Mesh with degree of freedom  26978 sum_eta is  0.0008531705755702086
+Refined Mesh with degree of freedom  31820 sum_eta is  0.0006594749643042916
+Refined Mesh with degree of freedom  37808 sum_eta is  0.0005053131531586159
+Refined Mesh with degree of freedom  43664 sum_eta is  0.00039877002804447284
+Lambda is  0.012345679012345675  flux is  0.9640501718672855
+Refined Mesh with degree of freedom  8696 sum_eta is  0.013317661439480039
+Refined Mesh with degree of freedom  9299 sum_eta is  0.00819511133305764
+Refined Mesh with degree of freedom  10691 sum_eta is  0.0054610198373370115
+Refined Mesh with degree of freedom  12779 sum_eta is  0.004066743630232892
+Refined Mesh with degree of freedom  15890 sum_eta is  0.003053503986861219
+Refined Mesh with degree of freedom  19976 sum_eta is  0.0022403804694737456
+Refined Mesh with degree of freedom  24317 sum_eta is  0.0017414250446118151
+Refined Mesh with degree of freedom  29600 sum_eta is  0.0013406896910812644
+Refined Mesh with degree of freedom  34871 sum_eta is  0.001060387198534691
+Refined Mesh with degree of freedom  40823 sum_eta is  0.0008368620718911441
+Lambda is  0.01732473342973221  flux is  0.9608289118885877
+Refined Mesh with degree of freedom  8696 sum_eta is  0.01845630752495844
+Refined Mesh with degree of freedom  9290 sum_eta is  0.011870502203010015
+Refined Mesh with degree of freedom  10490 sum_eta is  0.008516644152251571
+Refined Mesh with degree of freedom  12758 sum_eta is  0.006404402169419805
+Refined Mesh with degree of freedom  15653 sum_eta is  0.005121828656198239
+Refined Mesh with degree of freedom  19238 sum_eta is  0.004001520595039462
+Refined Mesh with degree of freedom  22676 sum_eta is  0.003258354218435664
+Refined Mesh with degree of freedom  26846 sum_eta is  0.002656547298644985
+Refined Mesh with degree of freedom  31571 sum_eta is  0.0022248652556232803
+Refined Mesh with degree of freedom  36413 sum_eta is  0.0018595734400905016
+Lambda is  0.024311857461313733  flux is  0.9569228699287093
+Refined Mesh with degree of freedom  8696 sum_eta is  0.025918202900667896
+Refined Mesh with degree of freedom  9269 sum_eta is  0.016739152021306037
+Refined Mesh with degree of freedom  11096 sum_eta is  0.011907580882437995
+Refined Mesh with degree of freedom  13502 sum_eta is  0.00935632503293828
+Refined Mesh with degree of freedom  16100 sum_eta is  0.007906793750412542
+Refined Mesh with degree of freedom  19175 sum_eta is  0.006659669932760441
+Refined Mesh with degree of freedom  23171 sum_eta is  0.005401066833658787
+Refined Mesh with degree of freedom  27215 sum_eta is  0.004539085934917204
+Refined Mesh with degree of freedom  32351 sum_eta is  0.003734619219900282
+Refined Mesh with degree of freedom  36377 sum_eta is  0.003309704407940249
+Lambda is  0.03411691242561144  flux is  0.9522032059862207
+Refined Mesh with degree of freedom  8696 sum_eta is  0.03615341069985086
+Refined Mesh with degree of freedom  9278 sum_eta is  0.023762613579846655
+Refined Mesh with degree of freedom  11237 sum_eta is  0.017381681777412214
+Refined Mesh with degree of freedom  13634 sum_eta is  0.013905556285537817
+Refined Mesh with degree of freedom  15941 sum_eta is  0.012009880478929157
+Refined Mesh with degree of freedom  18767 sum_eta is  0.010424087433315845
+Refined Mesh with degree of freedom  22439 sum_eta is  0.00902971283751437
+Refined Mesh with degree of freedom  27392 sum_eta is  0.0073724809712509345
+Refined Mesh with degree of freedom  31670 sum_eta is  0.006489719784768751
+Refined Mesh with degree of freedom  36506 sum_eta is  0.00556622693662103
+Lambda is  0.04787637947075815  flux is  0.946521880848804
+Refined Mesh with degree of freedom  8696 sum_eta is  0.049479472644255985
+Refined Mesh with degree of freedom  9320 sum_eta is  0.03303899473896303
+Refined Mesh with degree of freedom  10925 sum_eta is  0.026143836422384804
+Refined Mesh with degree of freedom  13133 sum_eta is  0.020969624072425596
+Refined Mesh with degree of freedom  15476 sum_eta is  0.018126155114656338
+Refined Mesh with degree of freedom  18200 sum_eta is  0.016071053074334412
+Refined Mesh with degree of freedom  21329 sum_eta is  0.014243355953567193
+Refined Mesh with degree of freedom  24407 sum_eta is  0.013027831613252936
+Refined Mesh with degree of freedom  28199 sum_eta is  0.01162995517456436
+Refined Mesh with degree of freedom  32744 sum_eta is  0.01032834332266022
+Lambda is  0.06718508646483871  flux is  0.939711048087202
+Refined Mesh with degree of freedom  8696 sum_eta is  0.06601707963272924
+Refined Mesh with degree of freedom  9377 sum_eta is  0.04459750709573056
+Refined Mesh with degree of freedom  11081 sum_eta is  0.03514521765785486
+Refined Mesh with degree of freedom  13445 sum_eta is  0.028574990361889995
+Refined Mesh with degree of freedom  16292 sum_eta is  0.024778424329003457
+Refined Mesh with degree of freedom  18992 sum_eta is  0.022501607210804585
+Refined Mesh with degree of freedom  21827 sum_eta is  0.02069806580642873
+Refined Mesh with degree of freedom  25514 sum_eta is  0.018559841786630508
+Refined Mesh with degree of freedom  30302 sum_eta is  0.016379866255680164
+Refined Mesh with degree of freedom  34127 sum_eta is  0.015027910021679244
+Lambda is  0.09428106079000405  flux is  0.9314692507828296
+Refined Mesh with degree of freedom  8696 sum_eta is  0.08564435329529423
+Refined Mesh with degree of freedom  9239 sum_eta is  0.06208864755755713
+Refined Mesh with degree of freedom  11009 sum_eta is  0.046836540964901044
+Refined Mesh with degree of freedom  13193 sum_eta is  0.04009267783040836
+Refined Mesh with degree of freedom  16124 sum_eta is  0.03522091941999237
+Refined Mesh with degree of freedom  19361 sum_eta is  0.031136669345866962
+Refined Mesh with degree of freedom  23105 sum_eta is  0.027740700165047975
+Refined Mesh with degree of freedom  27335 sum_eta is  0.024934530121437305
+Refined Mesh with degree of freedom  31706 sum_eta is  0.02267255600958194
+Refined Mesh with degree of freedom  35849 sum_eta is  0.02081872771665242
+Lambda is  0.13230493389839504  flux is  0.9215235114660796
+Refined Mesh with degree of freedom  8696 sum_eta is  0.10795131839458859
+Refined Mesh with degree of freedom  9323 sum_eta is  0.07784520755933794
+Refined Mesh with degree of freedom  11048 sum_eta is  0.06074066096053631
+Refined Mesh with degree of freedom  13715 sum_eta is  0.05239750453202379
+Refined Mesh with degree of freedom  16583 sum_eta is  0.04666562500806833
+Refined Mesh with degree of freedom  20528 sum_eta is  0.04082191782919872
+Refined Mesh with degree of freedom  24440 sum_eta is  0.036687201454851104
+Refined Mesh with degree of freedom  28019 sum_eta is  0.03372375369140895
+Refined Mesh with degree of freedom  32153 sum_eta is  0.030645664162881527
+Refined Mesh with degree of freedom  36992 sum_eta is  0.027899188078692086
+Lambda is  0.1856639646094708  flux is  0.9095128819567461
+Refined Mesh with degree of freedom  8696 sum_eta is  0.13218730496831294
+Refined Mesh with degree of freedom  9350 sum_eta is  0.09682701684370931
+Refined Mesh with degree of freedom  11393 sum_eta is  0.07521922958120991
+Refined Mesh with degree of freedom  14312 sum_eta is  0.06525516840483662
+Refined Mesh with degree of freedom  17108 sum_eta is  0.05886045860706177
+Refined Mesh with degree of freedom  20930 sum_eta is  0.052917349475481955
+Refined Mesh with degree of freedom  24533 sum_eta is  0.048520763319872325
+Refined Mesh with degree of freedom  29249 sum_eta is  0.042874515011162934
+Refined Mesh with degree of freedom  33878 sum_eta is  0.03884408204105161
+Refined Mesh with degree of freedom  37385 sum_eta is  0.036402380984498314
+Lambda is  0.2605428742436717  flux is  0.8950194491146538
+Refined Mesh with degree of freedom  8696 sum_eta is  0.15721451407893397
+Refined Mesh with degree of freedom  9410 sum_eta is  0.11644690258871786
+Refined Mesh with degree of freedom  11462 sum_eta is  0.09090998503277656
+Refined Mesh with degree of freedom  14447 sum_eta is  0.07978766420174499
+Refined Mesh with degree of freedom  17471 sum_eta is  0.07287516474930852
+Refined Mesh with degree of freedom  20963 sum_eta is  0.06664376504391752
+Refined Mesh with degree of freedom  24527 sum_eta is  0.06114347351520369
+Refined Mesh with degree of freedom  28058 sum_eta is  0.05661167730085209
+Refined Mesh with degree of freedom  31973 sum_eta is  0.05232954477570228
+Refined Mesh with degree of freedom  35675 sum_eta is  0.04889446201093183
+Lambda is  0.36562070330631613  flux is  0.8775720431464232
+Refined Mesh with degree of freedom  8696 sum_eta is  0.18148287668442487
+Refined Mesh with degree of freedom  9389 sum_eta is  0.13857000452034468
+Refined Mesh with degree of freedom  11096 sum_eta is  0.10763141299533246
+Refined Mesh with degree of freedom  14069 sum_eta is  0.09512583069017133
+Refined Mesh with degree of freedom  17228 sum_eta is  0.08665530060045047
+Refined Mesh with degree of freedom  20906 sum_eta is  0.0790762591880272
+Refined Mesh with degree of freedom  24821 sum_eta is  0.07320698625176603
+Refined Mesh with degree of freedom  28457 sum_eta is  0.06853550852796289
+Refined Mesh with degree of freedom  33068 sum_eta is  0.06305299311408821
+Refined Mesh with degree of freedom  37991 sum_eta is  0.05841122410074721
+Lambda is  0.513076778915024  flux is  0.8561978223496881
+Refined Mesh with degree of freedom  8696 sum_eta is  0.2030280619522237
+Refined Mesh with degree of freedom  9557 sum_eta is  0.15312756512797845
+Refined Mesh with degree of freedom  11321 sum_eta is  0.12019529343542458
+Refined Mesh with degree of freedom  14486 sum_eta is  0.1078277579033817
+Refined Mesh with degree of freedom  17864 sum_eta is  0.0983091076291122
+Refined Mesh with degree of freedom  21470 sum_eta is  0.0910609076055344
+Refined Mesh with degree of freedom  25907 sum_eta is  0.08460314734174723
+Refined Mesh with degree of freedom  29861 sum_eta is  0.07934763400520023
+Refined Mesh with degree of freedom  33980 sum_eta is  0.07502936543599803
+Refined Mesh with degree of freedom  38786 sum_eta is  0.06960511481313313
+Lambda is  0.720002392318764  flux is  0.8303821624652128
+Refined Mesh with degree of freedom  8696 sum_eta is  0.21951102311664333
+Refined Mesh with degree of freedom  9578 sum_eta is  0.16758980232295106
+Refined Mesh with degree of freedom  10997 sum_eta is  0.1346387096112766
+Refined Mesh with degree of freedom  14345 sum_eta is  0.11995710618549925
+Refined Mesh with degree of freedom  17711 sum_eta is  0.11062380329312733
+Refined Mesh with degree of freedom  21389 sum_eta is  0.1040995379969389
+Refined Mesh with degree of freedom  25640 sum_eta is  0.09685699799057856
+Refined Mesh with degree of freedom  30437 sum_eta is  0.09009530326940815
+Refined Mesh with degree of freedom  35513 sum_eta is  0.08418274462829606
+Refined Mesh with degree of freedom  40844 sum_eta is  0.07885138780286716
+Lambda is  1.010381810771056  flux is  0.7989937157249826
+Refined Mesh with degree of freedom  8696 sum_eta is  0.22839245030474062
+Refined Mesh with degree of freedom  9599 sum_eta is  0.17655674833994278
+Refined Mesh with degree of freedom  10769 sum_eta is  0.14211161149021656
+Refined Mesh with degree of freedom  14507 sum_eta is  0.126967488538812
+Refined Mesh with degree of freedom  18725 sum_eta is  0.11685740277160685
+Refined Mesh with degree of freedom  22127 sum_eta is  0.11077155109975735
+Refined Mesh with degree of freedom  27224 sum_eta is  0.10343511565953507
+Refined Mesh with degree of freedom  32567 sum_eta is  0.09683921216233499
+Refined Mesh with degree of freedom  36254 sum_eta is  0.09259823191502997
+Refined Mesh with degree of freedom  42455 sum_eta is  0.08541768484435798
+Lambda is  1.4178722382425535  flux is  0.761133056886119
+Refined Mesh with degree of freedom  8696 sum_eta is  0.2273858698825533
+Refined Mesh with degree of freedom  9743 sum_eta is  0.17290717282701826
+Refined Mesh with degree of freedom  11360 sum_eta is  0.13808067414056216
+Refined Mesh with degree of freedom  15911 sum_eta is  0.12663696428012933
+Refined Mesh with degree of freedom  19892 sum_eta is  0.11738108549860894
+Refined Mesh with degree of freedom  25040 sum_eta is  0.10967388735570038
+Refined Mesh with degree of freedom  29258 sum_eta is  0.10426408954146903
+Refined Mesh with degree of freedom  33146 sum_eta is  0.0996249141137445
+Refined Mesh with degree of freedom  36959 sum_eta is  0.09512711421962597
+Refined Mesh with degree of freedom  41312 sum_eta is  0.09092198877469604
+Lambda is  1.989704943762569  flux is  0.7161274993434891
+Refined Mesh with degree of freedom  8696 sum_eta is  0.21521100432539628
+Refined Mesh with degree of freedom  9773 sum_eta is  0.16556475927148487
+Refined Mesh with degree of freedom  11024 sum_eta is  0.13384184646327627
+Refined Mesh with degree of freedom  16550 sum_eta is  0.12020313615655609
+Refined Mesh with degree of freedom  20207 sum_eta is  0.11422099423361425
+Refined Mesh with degree of freedom  24098 sum_eta is  0.10789895779086361
+Refined Mesh with degree of freedom  27857 sum_eta is  0.10271887101481535
+Refined Mesh with degree of freedom  32564 sum_eta is  0.09726291240507154
+Refined Mesh with degree of freedom  37367 sum_eta is  0.09196571384920353
+Refined Mesh with degree of freedom  40976 sum_eta is  0.08888199364389372
+Lambda is  2.792159728115054  flux is  0.663104602431685
+Refined Mesh with degree of freedom  8696 sum_eta is  0.19238015457201488
+Refined Mesh with degree of freedom  9833 sum_eta is  0.14735354135449463
+Refined Mesh with degree of freedom  11144 sum_eta is  0.12051536026362421
+Refined Mesh with degree of freedom  15503 sum_eta is  0.11216683971726829
+Refined Mesh with degree of freedom  19943 sum_eta is  0.1049468354756558
+Refined Mesh with degree of freedom  23885 sum_eta is  0.09992506818370771
+Refined Mesh with degree of freedom  28292 sum_eta is  0.09460310416195358
+Refined Mesh with degree of freedom  31916 sum_eta is  0.09122873218214429
+Refined Mesh with degree of freedom  35726 sum_eta is  0.08742399041202589
+Refined Mesh with degree of freedom  39632 sum_eta is  0.08409170551166617
+Lambda is  3.9182472616089785  flux is  0.6022694688909873
+Refined Mesh with degree of freedom  8696 sum_eta is  0.16153332260601494
+Refined Mesh with degree of freedom  9938 sum_eta is  0.12105670770382193
+Refined Mesh with degree of freedom  13754 sum_eta is  0.09815037168040096
+Refined Mesh with degree of freedom  17501 sum_eta is  0.09296672924795366
+Refined Mesh with degree of freedom  21398 sum_eta is  0.08812673137150677
+Refined Mesh with degree of freedom  25301 sum_eta is  0.08356717161783009
+Refined Mesh with degree of freedom  28667 sum_eta is  0.08077000683392833
+Refined Mesh with degree of freedom  32840 sum_eta is  0.07702052613091448
+Refined Mesh with degree of freedom  37133 sum_eta is  0.07361806475047895
+Refined Mesh with degree of freedom  41756 sum_eta is  0.07000347426373292
+Lambda is  5.498489734851452  flux is  0.5343754640964519
+Refined Mesh with degree of freedom  8696 sum_eta is  0.12694667105745377
+Refined Mesh with degree of freedom  10154 sum_eta is  0.09141065994846255
+Refined Mesh with degree of freedom  14396 sum_eta is  0.07638983384232584
+Refined Mesh with degree of freedom  18674 sum_eta is  0.0720537590855274
+Refined Mesh with degree of freedom  22766 sum_eta is  0.06865630270601181
+Refined Mesh with degree of freedom  26309 sum_eta is  0.06609393191058727
+Refined Mesh with degree of freedom  30158 sum_eta is  0.06341621674753448
+Refined Mesh with degree of freedom  33830 sum_eta is  0.06112442123595606
+Refined Mesh with degree of freedom  37559 sum_eta is  0.05888116084810464
+Refined Mesh with degree of freedom  41150 sum_eta is  0.05716988901133735
+Lambda is  7.716049382716051  flux is  0.4622998625069489
+Plot for l<Lambda<L_p saved to figures/Phi_Lam_4_R2.png 
+Result for l<Lambda<L_p saved to results/Phi_Lam_4_R2.csv 

@@ -7,7 +7,7 @@ from scipy import stats
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=4
-deg=2
+deg=3
 l=(1/3)**nn
 Lp=(4/3)**nn
 # choose a triangulation
