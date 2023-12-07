@@ -30,18 +30,16 @@ mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))
 
 tolerance = 1e-7
-max_iterations = 20
+max_iterations = 15
 bc_top=1
 bc_right=2
 bc_bot=3
 bc_left=4
-geo = MakeGeometry(n)
+geo = MakeGeometry(nn)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh = Mesh(ngmsh)
 
-# Test 4: Domain is UnitSqaure with snow flake nn, solution is u = 2 + x^2 + 3xy
-mesh_file = f'domain/unit_square_with_koch_{nn}.msh'
-mesh = Mesh(mesh_file)
+# Test 4: Domain is UnitSqaure with snow flake nn, solution is u = 2 + x^3 + 3xy
 df=[]
 mh=[]
 err=[]
@@ -53,15 +51,17 @@ while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
   D = Constant(1.)
   Lambda = Constant(1.)
-  f = Constant(-2.)
+  f = -6*x
 #  u = interpolate(2 + x**2 + y, FunctionSpace(mesh, "Lagrange",1))
-  u = 2 + x**2 + y
-  kl =-2*x
-  kr = 2*x
+  u = 2 + x**3 + x*y
+  kl =-3*x**2-y
+  kr = 3*x**2+y
   n = FacetNormal(mesh)
   l=inner(grad(u),n)+u
   uh = snowsolver(mesh, D, Lambda, f, u, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-  mark, sum_eta = Mark(mesh, f,uh,V,tolerance)
+  V = FunctionSpace(mesh,"Lagrange",deg)
+  mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+  mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
   meshplot[0].set_linewidth(0.1)
@@ -73,7 +73,6 @@ while sum_eta>tolerance and it<max_iterations:
   plt.close()
   print("sum_eta is ", sum_eta)
   print(f"refined mesh plot saved to 'refined_mesh/test_mesh/snow_{nn}_ref_{it}.pdf'.")
-  V = FunctionSpace(mesh,"Lagrange",deg)
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))

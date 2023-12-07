@@ -15,11 +15,11 @@ Lp=(5/3)**nn
 dim_frac=np.log(5)/np.log(3)
 tolerance = 1e-7
 max_iterations = 20
-bc_top=1
-bc_right=2
-bc_bot=3
-bc_left=4
-geo = MakeGeometry(n)
+bc_top=(1)
+bc_right=(2)
+bc_bot=(3)
+bc_left=(4)
+geo = MakeGeometry(nn)
 def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
     cc=[]
     Phi=[]
