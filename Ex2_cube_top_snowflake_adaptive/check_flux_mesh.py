@@ -22,7 +22,7 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=2
+nn=4
 deg=2
 tolerance = 1e-7
 max_iterations = 4
@@ -74,7 +74,7 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
            V = FunctionSpace(mesh,"Lagrange",deg)
            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
            uh = snowsolver(mesh, D, Lambda, f, u_D, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-           mark,sum_eta = Mark_v2(mesh,Lambda, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+           mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
            PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
            #PETSc.Sys.Print("Refining the marked elements ...")
            #Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))

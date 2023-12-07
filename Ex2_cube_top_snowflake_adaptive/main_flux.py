@@ -25,7 +25,7 @@ from Ex2_solver import *
 nn=3
 deg=2
 tolerance = 1e-7
-max_iterations = 4
+max_iterations = 3
 # dimension of fractal boundary
 dim_frac=np.log(13)/np.log(9)
 l=(1/3.)**nn
