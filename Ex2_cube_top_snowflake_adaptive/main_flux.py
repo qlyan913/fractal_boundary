@@ -23,7 +23,7 @@ from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=3
-deg=2
+deg=3
 tolerance = 1e-7
 max_iterations = 3
 # dimension of fractal boundary
@@ -156,6 +156,7 @@ for i in range(len(Phi)):
 plt.loglog(LL, phi_2, marker='o')
 alpha=1/dim_frac
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black',linestyle='dashed')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_n{nn}_R2.png")

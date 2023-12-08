@@ -63,3 +63,52 @@ DL_p/Lambda: 6.320987654320986
 flux: 0.709315556672242
 flux computed by robin: 0.7023412175101512
 DL_p/Lambda: 3.160493827160493
+---Result with Lambda: 2.0  ---
+flux: 0.5748748549939523
+flux computed by robin: 0.5692865858427938
+DL_p/Lambda: 1.5802469135802466
+---Result with Lambda: 4.0  ---
+flux: 0.42042381706317544
+flux computed by robin: 0.4163701732267123
+DL_p/Lambda: 0.7901234567901233
+---Result with Lambda: 8.0  ---
+flux: 0.2747236441931486
+flux computed by robin: 0.27208781182640984
+DL_p/Lambda: 0.39506172839506165
+---Result with Lambda: 16.0  ---
+flux: 0.16255568135680243
+flux computed by robin: 0.1610011216280254
+DL_p/Lambda: 0.19753086419753083
+---Result with Lambda: 32.0  ---
+flux: 0.08953930833348944
+flux computed by robin: 0.0886829349660338
+DL_p/Lambda: 0.09876543209876541
+---Result with Lambda: 64.0  ---
+flux: 0.04717418659711801
+flux computed by robin: 0.046723691493707135
+DL_p/Lambda: 0.049382716049382706
+---Result with Lambda: 128.0  ---
+flux: 0.024242293868721725
+flux computed by robin: 0.02400782331143728
+DL_p/Lambda: 0.024691358024691353
+---Result with Lambda: 256.0  ---
+flux: 0.012289351719051357
+flux computed by robin: 0.012172343328680474
+DL_p/Lambda: 0.012345679012345677
+---Result with Lambda: 512.0  ---
+flux: 0.0061884130151293095
+flux computed by robin: 0.006129190100983062
+DL_p/Lambda: 0.006172839506172838
+Plot for 0<Lambda<1000 saved to figures/Phi_Lam_4.png 
+Result for 0<Lambda<1000 saved to results/Phi_Lam_4.csv 
+---Result with Lambda: 0.012345679012345678  ---
+flux: 0.9728757197143194
+flux computed by robin: 0.9680724982757224
+DL_p/Lambda: 255.99999999999997
+[12]PETSC ERROR: ------------------------------------------------------------------------
+[12]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[12]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[12]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[12]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[12]PETSC ERROR: to get more information on the crash.
+application called MPI_Abort(MPI_COMM_WORLD, 59) - process 12
