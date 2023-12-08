@@ -37,8 +37,8 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V,bc_left,bc_right,bc_fro
     boundary_ids = bc_bot
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V)
-    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-#    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+#    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
 def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
