@@ -4,21 +4,17 @@ firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1
 Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
 Finite element mesh has 14918 cells and 3723 vertices.
 Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064820102941732
-Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
-Finite element mesh has 72338 cells and 17191 vertices.
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014786408944202621
-Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
-Finite element mesh has 311963 cells and 73214 vertices.
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.00654176071482624
-Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
-Finite element mesh has 2753402 cells and 552853 vertices.
-Lambda is  1e-11  flux is  0.994995376328719
-Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
-Finite element mesh has 14918 cells and 3723 vertices.
-Refined Mesh with degree of freedom  77663
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+[unset]: PMIU_write error; fd=-1 buf=:cmd=abort exitcode=59 message=application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+:
+system msg for write_line failure : Bad file descriptor
+ed Mesh with degree of freedom  77663
 error indicator sum_eta is  0.030465023494767065
 Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
 Finite element mesh has 68876 cells and 16628 vertices.

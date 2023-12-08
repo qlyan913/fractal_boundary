@@ -11,8 +11,8 @@ from Ex1_solver import *
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
-deg=3
-nn=4
+deg=4
+nn=5
 l=(1/3)**nn
 Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
@@ -134,4 +134,28 @@ with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
 PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv ")
+
+
+# Region 3: Lp< Lambda<infty
+Phi=[]
+LL=np.array([Lp*2**(i) for i in range(15)])
+Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+fig, axes = plt.subplots()
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+alpha=1
+plt.loglog(LL, phi_2,marker='o')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
+plt.xlabel('$\Lambda$')
+plt.savefig(f"figures/Phi_Lam_{nn}_R3.png")
+PETSc.Sys.Print(f"Plot for Lp<Lambda<infty saved to figures/Phi_Lam_{nn}_R3.png ")
+with open(f'results/Phi_Lam_{nn}_R3.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(LL)):
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
+PETSc.Sys.Print(f"Result for Lp<Lambda<infty saved to results/Phi_Lam_{nn}_R3.csv ")
 
