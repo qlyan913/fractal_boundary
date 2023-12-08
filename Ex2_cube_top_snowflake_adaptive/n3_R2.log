@@ -1,0 +1,322 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.04064820102941732
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 72338 cells and 17191 vertices.
+Refined Mesh with degree of freedom  367763
+error indicator sum_eta is  0.014786408944202621
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 311963 cells and 73214 vertices.
+Refined Mesh with degree of freedom  1574396
+error indicator sum_eta is  0.00654176071482624
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 2753402 cells and 552853 vertices.
+Lambda is  1e-11  flux is  0.994995376328719
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.030465023494767065
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68876 cells and 16628 vertices.
+Refined Mesh with degree of freedom  352226
+error indicator sum_eta is  0.011331558311363267
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 301370 cells and 71301 vertices.
+Refined Mesh with degree of freedom  1526285
+error indicator sum_eta is  0.0044769600879827984
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1289408 cells and 301713 vertices.
+Lambda is  0.037037037037037035  flux is  0.9632975832645255
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+/home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  reg.get_or_register_dtype("bool", np.bool8)
+error indicator sum_eta is  0.03759225503458735
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69059 cells and 16659 vertices.
+Refined Mesh with degree of freedom  353051
+error indicator sum_eta is  0.014297916097834231
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 302420 cells and 71475 vertices.
+Refined Mesh with degree of freedom  1531007
+error indicator sum_eta is  0.005817192498468379
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1294411 cells and 302528 vertices.
+Lambda is  0.04775291865030167  flux is  0.9557917649563513
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.04635497826123076
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69187 cells and 16680 vertices.
+Refined Mesh with degree of freedom  353626
+error indicator sum_eta is  0.01801380524852262
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 303639 cells and 71682 vertices.
+Refined Mesh with degree of freedom  1536504
+error indicator sum_eta is  0.007584436812185122
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1298520 cells and 303221 vertices.
+Lambda is  0.061569213469802916  flux is  0.9467673468879232
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.05684749458333034
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69235 cells and 16688 vertices.
+Refined Mesh with degree of freedom  353842
+error indicator sum_eta is  0.022747336596398555
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 304982 cells and 71897 vertices.
+Refined Mesh with degree of freedom  1542521
+error indicator sum_eta is  0.009909894008331359
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1303135 cells and 303983 vertices.
+Lambda is  0.07938296033903704  flux is  0.9359938612002092
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.06910941780097217
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69280 cells and 16695 vertices.
+Refined Mesh with degree of freedom  354043
+error indicator sum_eta is  0.02861606168982448
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 305774 cells and 72031 vertices.
+Refined Mesh with degree of freedom  1546091
+error indicator sum_eta is  0.012999652743765062
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1292104 cells and 302073 vertices.
+Lambda is  0.10235073727683436  flux is  0.9232188584518958
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.08311327099110553
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69349 cells and 16706 vertices.
+Refined Mesh with degree of freedom  354352
+error indicator sum_eta is  0.03573054091335808
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 304751 cells and 71852 vertices.
+Refined Mesh with degree of freedom  1541462
+error indicator sum_eta is  0.017049124741998784
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1268506 cells and 298056 vertices.
+Lambda is  0.1319637536364349  flux is  0.9081668678793625
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.09874210226372336
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69241 cells and 16689 vertices.
+Refined Mesh with degree of freedom  353869
+error indicator sum_eta is  0.044362629931589896
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 306980 cells and 72221 vertices.
+Refined Mesh with degree of freedom  1551485
+error indicator sum_eta is  0.02218143723913686
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1296599 cells and 302765 vertices.
+Lambda is  0.17014466858910643  flux is  0.8905403157944594
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.1157504211610398
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69259 cells and 16692 vertices.
+Refined Mesh with degree of freedom  353950
+error indicator sum_eta is  0.05438827426633495
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 302094 cells and 71428 vertices.
+Refined Mesh with degree of freedom  1529562
+error indicator sum_eta is  0.02876488168541022
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1275591 cells and 299231 vertices.
+Lambda is  0.21937242198378976  flux is  0.8700265595198718
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.13371179207053163
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69397 cells and 16715 vertices.
+Refined Mesh with degree of freedom  354571
+error indicator sum_eta is  0.06579593080605457
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 310744 cells and 72830 vertices.
+Refined Mesh with degree of freedom  1568368
+error indicator sum_eta is  0.03645632858143389
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1252724 cells and 295446 vertices.
+Lambda is  0.28284318237001227  flux is  0.8463031305899434
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.1519684485992299
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69340 cells and 16706 vertices.
+Refined Mesh with degree of freedom  354316
+error indicator sum_eta is  0.07821626932738619
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 302688 cells and 71523 vertices.
+Refined Mesh with degree of freedom  1532223
+error indicator sum_eta is  0.04567434673191132
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1249634 cells and 294922 vertices.
+Lambda is  0.36467786191970614  flux is  0.8190707235843163
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.16960249064204877
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69266 cells and 16694 vertices.
+Refined Mesh with degree of freedom  353984
+error indicator sum_eta is  0.09124111507955396
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 300007 cells and 71073 vertices.
+Refined Mesh with degree of freedom  1520149
+error indicator sum_eta is  0.055736979392429706
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1247998 cells and 294652 vertices.
+Lambda is  0.47018967139307744  flux is  0.7880597375978535
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.1854427081810798
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69157 cells and 16676 vertices.
+Refined Mesh with degree of freedom  353494
+error indicator sum_eta is  0.10374651081146848
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 297142 cells and 70580 vertices.
+Refined Mesh with degree of freedom  1507210
+error indicator sum_eta is  0.0660042389569891
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1246274 cells and 294384 vertices.
+Lambda is  0.606229086462634  flux is  0.7530763682013591
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.19811595432279722
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69297 cells and 16699 vertices.
+Refined Mesh with degree of freedom  354123
+error indicator sum_eta is  0.11496071181173063
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 296284 cells and 70437 vertices.
+Refined Mesh with degree of freedom  1503349
+error indicator sum_eta is  0.07574817636556161
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1251602 cells and 295238 vertices.
+Lambda is  0.7816286227310152  flux is  0.71403343795326
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.20615916572016846
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 69111 cells and 16670 vertices.
+Refined Mesh with degree of freedom  353292
+error indicator sum_eta is  0.12342413658202081
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 295406 cells and 70295 vertices.
+Refined Mesh with degree of freedom  1499411
+error indicator sum_eta is  0.08365000121730685
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1250079 cells and 294989 vertices.
+Lambda is  1.0077762969725812  flux is  0.6710159827472805
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.20821836452849157
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68959 cells and 16646 vertices.
+Refined Mesh with degree of freedom  352612
+error indicator sum_eta is  0.12807575246362102
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 294437 cells and 70141 vertices.
+Refined Mesh with degree of freedom  1495073
+error indicator sum_eta is  0.08883044855058106
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1248554 cells and 294743 vertices.
+Lambda is  1.299355007229916  flux is  0.6242918438971161
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.20334249835382623
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68674 cells and 16597 vertices.
+Refined Mesh with degree of freedom  351325
+error indicator sum_eta is  0.1282172602787684
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 294357 cells and 70131 vertices.
+Refined Mesh with degree of freedom  1494723
+error indicator sum_eta is  0.09085068140328316
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1248386 cells and 294718 vertices.
+Lambda is  1.6752958368690334  flux is  0.5743548779442399
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.19131410837045024
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68596 cells and 16584 vertices.
+Refined Mesh with degree of freedom  350974
+error indicator sum_eta is  0.12306369912010148
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 293981 cells and 70076 vertices.
+Refined Mesh with degree of freedom  1493054
+error indicator sum_eta is  0.08879251462620423
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1247410 cells and 294578 vertices.
+Lambda is  2.1600071769562925  flux is  0.5219697043071985
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.17288160311449624
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68578 cells and 16581 vertices.
+Refined Mesh with degree of freedom  350893
+error indicator sum_eta is  0.1131972737735443
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 293949 cells and 70072 vertices.
+Refined Mesh with degree of freedom  1492914
+error indicator sum_eta is  0.08295789642520135
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1247342 cells and 294568 vertices.
+Lambda is  2.7849594691420645  flux is  0.4681237834121421
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.1497429312000127
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68572 cells and 16580 vertices.
+Refined Mesh with degree of freedom  350866
+error indicator sum_eta is  0.09952653062820986
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 293913 cells and 70066 vertices.
+Refined Mesh with degree of freedom  1492752
+error indicator sum_eta is  0.07383661648464893
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1247016 cells and 294523 vertices.
+Lambda is  3.5907284603068637  flux is  0.41401083078773243
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_0.pvd.
+Finite element mesh has 14918 cells and 3723 vertices.
+Refined Mesh with degree of freedom  77663
+error indicator sum_eta is  0.12422671026688961
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_1.pvd.
+Finite element mesh has 68560 cells and 16578 vertices.
+Refined Mesh with degree of freedom  350812
+error indicator sum_eta is  0.08356967493032501
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_2.pvd.
+Finite element mesh has 293803 cells and 70052 vertices.
+Refined Mesh with degree of freedom  1492270
+error indicator sum_eta is  0.06275042484521483
+Refined mesh saved as refined_mesh/fractal_mesh/ref_n3_3.pvd.
+Finite element mesh has 1246966 cells and 294515 vertices.
+Lambda is  4.62962962962963  flux is  0.3609248584351798
+Results for l<Lambda<L_p saved to results/Phi_Lam_n3_R2.csv
+Plot of flux vs Lambda  for l<Lambda<L_p saved to figures/Phi_Lam_n3_R2.png 

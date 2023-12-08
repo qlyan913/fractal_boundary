@@ -22,10 +22,10 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=4
-deg=2
+nn=3
+deg=3
 tolerance = 1e-7
-max_iterations = 4
+max_iterations = 3
 # dimension of fractal boundary
 dim_frac=np.log(13)/np.log(9)
 l=(1/3.)**nn
@@ -94,4 +94,34 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
 # get flux Phi0 at lambda = 0
 Lambda=10**(-11)
 Phi =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+Phi0=Phi[0]
+
+# Region 2: l<Lambda <L_p
+l_log=np.log(l)
+Lp_log=np.log(Lp)
+LL_log = np.linspace(l_log,Lp_log,20) 
+LL=np.exp(LL_log)
+Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+with open(f'results/Phi_Lam_n{nn}_R2.csv', 'w', newline='') as csvfile:
+    fieldnames = ['Lambda', 'flux']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for i in range(len(LL)):
+       writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
+PETSc.Sys.Print(f"Results for l<Lambda<L_p saved to results/Phi_Lam_n{nn}_R2.csv")  
+  
+fig, axes = plt.subplots()
+phi_2=[]
+for i in range(len(Phi)):
+   phi_2.append(1/Phi[i]-1/Phi0)
+plt.loglog(LL, phi_2, marker='o')
+alpha=1/dim_frac
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
+plt.xlabel('$\Lambda$')
+plt.savefig(f"figures/Phi_Lam_n{nn}_R2.png")
+PETSc.Sys.Print(f"Plot of flux vs Lambda  for l<Lambda<L_p saved to figures/Phi_Lam_n{nn}_R2.png ")
+
+
 
