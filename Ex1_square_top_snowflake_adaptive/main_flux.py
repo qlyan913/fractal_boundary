@@ -77,7 +77,7 @@ plt.loglog(LL,(LL)**alpha/(LL[-3]**alpha)*(phi_2[-3]),marker='o',color='black',l
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{1/dim_frac})$', '$O(\Lambda^{1})$'])
-pyplot.xticks([l, Lp], ['l', 'Lp'])
+plt.xticks([l, Lp], ['l', 'Lp'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
 PETSc.Sys.Print(f"Plot for 0<Lambda<1000 saved to figures/Phi_Lam_{nn}.png ")

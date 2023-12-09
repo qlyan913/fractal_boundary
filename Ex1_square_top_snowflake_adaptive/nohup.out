@@ -703,3 +703,36 @@ Plot for l<Lambda<L_p saved to figures/Phi_Lam_5_R2.png
 Result for l<Lambda<L_p saved to results/Phi_Lam_5_R2.csv 
 /home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
   reg.get_or_register_dtype("bool", np.bool8)
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
