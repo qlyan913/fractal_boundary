@@ -11,13 +11,13 @@ from Ex1_solver import *
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
-deg=4
+deg=5
 nn=5
 l=(1/3)**nn
 Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
 tolerance = 1e-7
-max_iterations = 10
+max_iterations = 20
 bc_top=(1)
 bc_right=(2)
 bc_bot=(3)
