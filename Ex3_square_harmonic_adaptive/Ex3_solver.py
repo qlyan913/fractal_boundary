@@ -43,7 +43,7 @@ def Mark(msh, f, uh,V,tolerance):
              sum_eta = etaVec.sum()
              eta_max = etaVec.max()[1]
              if sum_eta < tolerance:
-                 return markedVec, sum_eta,eta_max
+                 return mark, sum_eta,eta_max
              sct, etaVec0 = PETSc.Scatter.toZero(etaVec)
              markedVec0 = etaVec0.duplicate()
              sct(etaVec, etaVec0)

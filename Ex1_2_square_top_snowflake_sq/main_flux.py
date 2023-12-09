@@ -16,8 +16,8 @@ nn=3
 l=(1/3)**nn
 Lp=(5/3)**nn
 dim_frac=np.log(5)/np.log(3)
-tolerance = 1e-7
-max_iterations = 20
+tolerance = 1e-6
+max_iterations = 100
 bc_top=(1)
 bc_right=(2)
 bc_bot=(3)
@@ -41,8 +41,8 @@ def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_
             l=Constant(0.)
             V = FunctionSpace(mesh,"Lagrange",deg)
             uh = snowsolver(mesh, D, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#            mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+#            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+            mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
             PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
             it=it+1
             Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
@@ -95,9 +95,9 @@ for i in range(len(Phi)):
 alpha=1
 plt.loglog(LL, phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),marker='o',color='black',linestyle='dashed')
-alpha=1/dim_frac
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',linestyle='dashed')
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$','$O(\Lambda^{1/dim_frac})$'])
+#alpha=1/dim_frac
+#plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',linestyle='dashed')
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
 PETSc.Sys.Print(f"plot for 0<Lambda<l saved to figures/Phi_Lam_{nn}_R1.png ")

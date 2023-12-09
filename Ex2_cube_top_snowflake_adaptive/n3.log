@@ -1,315 +1,53 @@
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
 /home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
   warnings.warn("Import Warning: it was not possible to import SLEPc")
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064820102941732
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014786408944202621
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.00654176071482624
-Lambda is  1e-11  flux is  0.994995376328719
-Phi0 is  0.994995376328719
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.039219949974283005
-Refined Mesh with degree of freedom  367713
-error indicator sum_eta is  0.013915217674199419
-Refined Mesh with degree of freedom  1573167
-error indicator sum_eta is  0.005859875614871247
-Lambda is  3.0517578125e-05  flux is  0.9949585165878035
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.03792253357066592
-Refined Mesh with degree of freedom  367713
-error indicator sum_eta is  0.013199998750772905
-Refined Mesh with degree of freedom  1573254
-error indicator sum_eta is  0.005385294789884143
-Lambda is  6.103515625e-05  flux is  0.9949221740532362
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.035650181228637425
-Refined Mesh with degree of freedom  367698
-error indicator sum_eta is  0.012096444892538487
-Refined Mesh with degree of freedom  1573848
-error indicator sum_eta is  0.004747023402300478
-Lambda is  0.0001220703125  flux is  0.9948506378834198
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.032059750207811454
-Refined Mesh with degree of freedom  367698
-error indicator sum_eta is  0.010638274146618727
-Refined Mesh with degree of freedom  1573970
-error indicator sum_eta is  0.004040727527992573
-Lambda is  0.000244140625  flux is  0.9947108348217836
-Refined Mesh with degree of freedom  77663
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+Refined Mesh with degree of freedom  339515
 /home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
   reg.get_or_register_dtype("bool", np.bool8)
-error indicator sum_eta is  0.027194251140578767
-Refined Mesh with degree of freedom  367906
-error indicator sum_eta is  0.009026264195332052
-Refined Mesh with degree of freedom  3078453
-error indicator sum_eta is  0.0030764667588274626
-Lambda is  0.00048828125  flux is  0.9944374231962757
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.021789108608834432
-Refined Mesh with degree of freedom  368068
-error indicator sum_eta is  0.007439521797508249
-Refined Mesh with degree of freedom  3079803
-error indicator sum_eta is  0.002387429154871549
-Lambda is  0.0009765625  flux is  0.9939078380642438
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.01699848051015762
-Refined Mesh with degree of freedom  368408
-error indicator sum_eta is  0.0059450107208663715
-Refined Mesh with degree of freedom  3082027
-error indicator sum_eta is  0.001744279208330332
-Lambda is  0.001953125  flux is  0.992879991395107
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.01380175696431404
-Refined Mesh with degree of freedom  369634
-error indicator sum_eta is  0.004742089190523721
-Refined Mesh with degree of freedom  1596742
-error indicator sum_eta is  0.0013877746758887929
-Lambda is  0.00390625  flux is  0.9908984110670587
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.013087021052906874
-Refined Mesh with degree of freedom  371656
-error indicator sum_eta is  0.004318338878223133
-Refined Mesh with degree of freedom  1562260
-error indicator sum_eta is  0.0013398294595854563
-Lambda is  0.0078125  flux is  0.987127836567713
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.016417622846022596
-Refined Mesh with degree of freedom  354870
-error indicator sum_eta is  0.005699667760249368
-Refined Mesh with degree of freedom  1524162
-error indicator sum_eta is  0.0019903683598844852
-Lambda is  0.015625  flux is  0.9801214382644063
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.026545169492343517
-Refined Mesh with degree of freedom  353008
-error indicator sum_eta is  0.009724654814188634
-Refined Mesh with degree of freedom  1524393
-error indicator sum_eta is  0.003766257571784064
-Lambda is  0.03125  flux is  0.9675737309149768
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04692578601742368
-Refined Mesh with degree of freedom  353653
-error indicator sum_eta is  0.018265896008475332
-Refined Mesh with degree of freedom  1536461
-error indicator sum_eta is  0.007705497495460042
-Lambda is  0.0625  flux is  0.9461821895635121
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.07998377613294524
-Refined Mesh with degree of freedom  354244
-error indicator sum_eta is  0.034129100193166166
-Refined Mesh with degree of freedom  1547056
-error indicator sum_eta is  0.016081626304667355
-Lambda is  0.125  flux is  0.9115835751203357
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.1249041463513992
-Refined Mesh with degree of freedom  353618
-error indicator sum_eta is  0.06009287417604835
-Refined Mesh with degree of freedom  1599027
-error indicator sum_eta is  0.03227365674797605
-Lambda is  0.25  flux is  0.8582464446058212
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.1736480616732478
-Refined Mesh with degree of freedom  355551
-error indicator sum_eta is  0.09419196573109787
-Refined Mesh with degree of freedom  1517112
-error indicator sum_eta is  0.05834601630955273
-Lambda is  0.5  flux is  0.7799640801287501
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.20599620970224414
-Refined Mesh with degree of freedom  353373
-error indicator sum_eta is  0.1232368144832633
-Refined Mesh with degree of freedom  1499809
-error indicator sum_eta is  0.08346922915225666
-Lambda is  1.0  flux is  0.6723832369425425
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.1956873042417501
-Refined Mesh with degree of freedom  351055
-error indicator sum_eta is  0.12515353238221802
-Refined Mesh with degree of freedom  1493690
-error indicator sum_eta is  0.08983156808791508
-Lambda is  2.0  flux is  0.5380392384296045
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.13905002018094062
-Refined Mesh with degree of freedom  350839
-error indicator sum_eta is  0.09292419469285527
-Refined Mesh with degree of freedom  1492305
-error indicator sum_eta is  0.06930244348409242
-Lambda is  4.0  flux is  0.3912607096525351
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.07212803915490544
-Refined Mesh with degree of freedom  350812
-error indicator sum_eta is  0.049488829299309055
-Refined Mesh with degree of freedom  1492046
-error indicator sum_eta is  0.03775580148100982
-Lambda is  8.0  flux is  0.2559454138274515
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.028474928614779942
-Refined Mesh with degree of freedom  350812
-error indicator sum_eta is  0.01983346930618531
-Refined Mesh with degree of freedom  1491976
-error indicator sum_eta is  0.015321560361234403
-Lambda is  16.0  flux is  0.15205721264316577
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.009250239541524452
-Refined Mesh with degree of freedom  350893
-error indicator sum_eta is  0.006503347391247878
-Refined Mesh with degree of freedom  1492413
-error indicator sum_eta is  0.005060106966133587
-Lambda is  32.0  flux is  0.08407657735983773
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.002663942561297812
-Refined Mesh with degree of freedom  350893
-error indicator sum_eta is  0.0018809493703874256
-Refined Mesh with degree of freedom  1492413
-error indicator sum_eta is  0.0014687036444847063
-Lambda is  64.0  flux is  0.04441188380549191
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.0007169243561477057
-Refined Mesh with degree of freedom  350893
-error indicator sum_eta is  0.0005073236869191182
-Refined Mesh with degree of freedom  1492343
-error indicator sum_eta is  0.0003968582624648986
-Lambda is  128.0  flux is  0.022854513733653284
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.00018610774383754264
-Refined Mesh with degree of freedom  350893
-error indicator sum_eta is  0.00013184458051780559
-Refined Mesh with degree of freedom  1492343
-error indicator sum_eta is  0.0001032322299594383
-Lambda is  256.0  flux is  0.01159707140732522
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  4.7420987307592334e-05
-Refined Mesh with degree of freedom  350893
-error indicator sum_eta is  3.361344279502988e-05
-Refined Mesh with degree of freedom  1492308
-error indicator sum_eta is  2.63314688950501e-05
-Lambda is  512.0  flux is  0.005842002644637173
-Results saved to results/Phi_Lam_3.csv
-Plot of flux vs Lambda saved to figures/Phi_Lam_n3.png 
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.030465023494767065
-Refined Mesh with degree of freedom  352226
-error indicator sum_eta is  0.011331558311363267
-Refined Mesh with degree of freedom  1526285
-error indicator sum_eta is  0.0044769600879827984
-Lambda is  0.037037037037037035  flux is  0.9632975832645255
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.014686147258490212
-Refined Mesh with degree of freedom  357108
-error indicator sum_eta is  0.005028157669997609
-Refined Mesh with degree of freedom  1531245
-error indicator sum_eta is  0.0016808133253753547
-Lambda is  0.012345679012345678  flux is  0.982988544967537
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.013648380823306716
-Refined Mesh with degree of freedom  369634
-error indicator sum_eta is  0.004676609889183189
-Refined Mesh with degree of freedom  1598011
-error indicator sum_eta is  0.0013634648400049805
-Lambda is  0.00411522633744856  flux is  0.9906907984407991
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.019294821405670945
-Refined Mesh with degree of freedom  368265
-error indicator sum_eta is  0.006690318233382884
-Refined Mesh with degree of freedom  3081206
-error indicator sum_eta is  0.0020588151012616712
-Lambda is  0.0013717421124828531  flux is  0.9934879244039304
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.027694944875785235
-Refined Mesh with degree of freedom  367802
-error indicator sum_eta is  0.009179481209278063
-Refined Mesh with degree of freedom  3077762
-error indicator sum_eta is  0.003141520906408206
-Lambda is  0.0004572473708276177  flux is  0.9944716450503072
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.03465352994051985
-Refined Mesh with degree of freedom  367698
-error indicator sum_eta is  0.011660467915030719
-Refined Mesh with degree of freedom  1574106
-error indicator sum_eta is  0.0045241480657475545
-Lambda is  0.00015241579027587258  flux is  0.9948155587379481
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.03834408383079362
-Refined Mesh with degree of freedom  367713
-error indicator sum_eta is  0.013425016215646136
-Refined Mesh with degree of freedom  1573386
-error indicator sum_eta is  0.005527211793143166
-Lambda is  5.080526342529086e-05  flux is  0.9949342947851445
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.03983822084646
-Refined Mesh with degree of freedom  367628
-error indicator sum_eta is  0.01428116283733813
-Refined Mesh with degree of freedom  1573167
-error indicator sum_eta is  0.006129831545381451
-Lambda is  1.6935087808430286e-05  flux is  0.9949748557168423
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04037317074686449
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.01461070808449233
-Refined Mesh with degree of freedom  1574311
-error indicator sum_eta is  0.006393954367243743
-Lambda is  5.645029269476762e-06  flux is  0.9949885241315329
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.040555949607386545
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.0147270440750532
-Refined Mesh with degree of freedom  1574215
-error indicator sum_eta is  0.006491748619207164
-Lambda is  1.8816764231589208e-06  flux is  0.9949931007298647
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.040617386410817115
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014766530501788932
-Refined Mesh with degree of freedom  1574215
-error indicator sum_eta is  0.006525567263222939
-Lambda is  6.272254743863069e-07  flux is  0.9949946291710385
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.040637922632258204
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.01477977290432087
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006536026965614564
-Lambda is  2.0907515812876897e-07  flux is  0.9949951214244414
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064477442570037
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014784196017617568
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006539847617038582
-Lambda is  6.969171937625632e-08  flux is  0.994995291364906
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064705906721987
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014785671388683908
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006541122972654162
-Lambda is  2.3230573125418773e-08  flux is  0.9949953480151478
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.040647820693352585
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014786163290231573
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006541548292103206
-Lambda is  7.743524375139592e-09  flux is  0.9949953668989422
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064807457750434
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014786327269772163
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006541690087588688
-Lambda is  2.581174791713197e-09  flux is  0.9949953731935827
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.04064815920652956
-Refined Mesh with degree of freedom  367763
-error indicator sum_eta is  0.014786381930992298
-Refined Mesh with degree of freedom  1574396
-error indicator sum_eta is  0.006541737355232923
-Lambda is  8.603915972377324e-10  flux is  0.9949953752918014
-Results for 0<Lambda<l saved to results/Phi_Lam_n3_R1.csv
-Plot of flux vs Lambda  for 0<Lambda<l saved to figures/Phi_Lam_n3_R1.png 
-Refined Mesh with degree of freedom  77663
-error indicator sum_eta is  0.030465023494767065
-Refined Mesh with degree of freedom  352226
-error indicator sum_eta is  0.011331558311363267
+error indicator sum_eta is  0.043692269898446504
+Refined Mesh with degree of freedom  1599830
+error indicator sum_eta is  0.016379468699853846
+Refined Mesh with degree of freedom  6863260
+error indicator sum_eta is  0.006816831232586222
+Refined Mesh with degree of freedom  58438320
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 589240 RUNNING AT vh512-2
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions

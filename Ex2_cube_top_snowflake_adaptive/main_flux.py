@@ -23,9 +23,9 @@ from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=3
-deg=3
+deg=5
 tolerance = 1e-7
-max_iterations = 10
+max_iterations = 15
 # dimension of fractal boundary
 dim_frac=np.log(13)/np.log(9)
 l=(1/3.)**nn
@@ -79,7 +79,7 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
            it=it+1
         PETSc.Sys.Print("Lambda is ", Lambda, " flux is ", Phi_temp2)
         Phi.append(Phi_temp2)
- 
+
     return Phi  
 
 # get flux Phi0 at lambda = 0
@@ -134,7 +134,7 @@ plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$','$O(\Lambda^{1/dim_frac})$']
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_n{nn}_R1.png")
 PETSc.Sys.Print(f"Plot of flux vs Lambda  for 0<Lambda<l saved to figures/Phi_Lam_n{nn}_R1.png ")
-
+  
 # Region 2: l<Lambda <L_p
 l_log=np.log(l)
 Lp_log=np.log(Lp)
@@ -172,7 +172,7 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1
-plt.loglog(LL, phi_2,marker='o')
+plt.loglog(LL,phi_2,marker='o')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),marker='o',color='black',linestyle='dashed')
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
