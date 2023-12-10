@@ -70,10 +70,10 @@ for i in range(len(Phi)):
 phi_2_log=np.log(phi_2)
 alpha=1/dim_frac
 plt.loglog(LL[0:-2], phi_2[0:-2],marker='o',color='blue')
-plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='red',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='red',linestyle='dashed',linewidth=0.8)
 alpha=1
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed')
-plt.loglog(LL,(LL)**alpha/(LL[-3]**alpha)*(phi_2[-3]),color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed',linewidth=0.8)
+plt.loglog(LL,(LL)**alpha/(LL[-3]**alpha)*(phi_2[-3]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{1/dim_frac})$', '$O(\Lambda^{1})$'])
@@ -85,6 +85,7 @@ with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    writer.writerow({'Lambda': 0, 'flux': Phi0})
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i]})
 PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
@@ -100,7 +101,7 @@ for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
-plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
@@ -109,6 +110,7 @@ with open(f'results/Phi_Lam_{nn}_R1.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    writer.writerow({'Lambda': 0, 'flux': Phi0})
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
 PETSc.Sys.Print(f"Result for 0<Lambda<l saved to results/Phi_Lam_{nn}_R1.csv ")
@@ -126,7 +128,7 @@ for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1/dim_frac
 plt.loglog(LL, phi_2,marker='o',color='blue')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashed',linewidth=0.8)
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
@@ -135,6 +137,7 @@ with open(f'results/Phi_Lam_{nn}_R2.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    writer.writerow({'Lambda': 0, 'flux': Phi0})
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
 PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv ")
@@ -150,7 +153,7 @@ for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
-plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed')
+plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed',linewidth=0.8)
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R3.png")
@@ -159,6 +162,7 @@ with open(f'results/Phi_Lam_{nn}_R3.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    writer.writerow({'Lambda': 0, 'flux': Phi0})
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i] })
 PETSc.Sys.Print(f"Result for Lp<Lambda<infty saved to results/Phi_Lam_{nn}_R3.csv ")
