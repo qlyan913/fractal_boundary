@@ -33,6 +33,7 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1
+fig, axes = plt.subplots()
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
@@ -56,6 +57,7 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1/dim_frac
+fig, axes = plt.subplots()
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
@@ -80,6 +82,7 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 alpha=1
+fig, axes = plt.subplots()
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
