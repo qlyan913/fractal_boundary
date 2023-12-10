@@ -12,7 +12,7 @@ from Ex1_solver import *
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
 deg=5
-nn=4
+nn=5
 l=(1/3)**nn
 Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
@@ -102,6 +102,8 @@ for i in range(len(Phi)):
 alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
+plt.axvline(x=l,color='cyan',linestyle='dashed')
+plt.xticks([10**(-9),10**(-8),10**(-7),10**(-6),10**(-5),10**(-4),10**(-3),l],['$10^{-9}$','$10^{-8}$','$10^{-7}$','$10^{-6}$','$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
@@ -129,6 +131,9 @@ for i in range(len(Phi)):
 alpha=1/dim_frac
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashed',linewidth=0.8)
+plt.axvline(x=l,color='cyan',linestyle='dashed')
+plt.axvline(x=Lp,color='cyan',linestyle='dashed')
+plt.xticks([10**(-2),10**(-1),1,l, Lp], ['$10^{-2}$','$10^{-1}$','$10^{0}$','l','Lp'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
@@ -154,6 +159,8 @@ for i in range(len(Phi)):
 alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='dashed',linewidth=0.8)
+plt.axvline(x=Lp,color='cyan',linestyle='dashed')
+plt.xticks([10**(1),10**(2),10**(3),10**(4),10**(5), Lp], ['$10^{1}$','$10^{2}$','$10^{3}$','$10^{4}$','$10^{5}$','Lp'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R3.png")
