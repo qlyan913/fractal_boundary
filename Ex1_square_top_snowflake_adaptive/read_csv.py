@@ -18,8 +18,8 @@ with open(f'results/Phi_Lam_{nn}.csv') as f:
 LL=np.array(columns['Lambda'])
 Phi=np.array(columns['flux'])
 Phi0=Phi[0]
-
 # R1: 0<Lambda <l
+columns = defaultdict(list)
 with open(f'results/Phi_Lam_{nn}_R1.csv') as f:
     reader = csv.DictReader(f) # read rows into a dictionary format
     for row in reader: # read a row as {column1: value1, column2: value2,...}
@@ -42,8 +42,10 @@ plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
 PETSc.Sys.Print(f"plot for 0<Lambda<l saved to figures/Phi_Lam_{nn}_R1.png ")
+plt.close()
 
 # R2: l<Lambda <Lp
+columns = defaultdict(list)
 with open(f'results/Phi_Lam_{nn}_R2.csv') as f:
     reader = csv.DictReader(f) # read rows into a dictionary format
     for row in reader: # read a row as {column1: value1, column2: value2,...}
@@ -67,8 +69,10 @@ plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
+plt.close()
 
 # R3:Lp<Lambda
+columns = defaultdict(list)
 with open(f'results/Phi_Lam_{nn}_R3.csv') as f:
     reader = csv.DictReader(f) # read rows into a dictionary format
     for row in reader: # read a row as {column1: value1, column2: value2,...}
@@ -91,3 +95,4 @@ plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R3.png")
 PETSc.Sys.Print(f"Plot for Lp<Lambda<infty saved to figures/Phi_Lam_{nn}_R3.png ")
+plt.close()
