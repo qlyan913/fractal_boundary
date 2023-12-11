@@ -24,8 +24,8 @@ from Ex2_solver import *
 #deg=int(input("Enter the degree of polynomial: "))
 nn=3
 deg=5
-tolerance = 1e-7
-max_iterations = 15
+tolerance = 1e-6
+max_iterations = 20
 # dimension of fractal boundary
 dim_frac=np.log(13)/np.log(9)
 l=(1/3.)**nn

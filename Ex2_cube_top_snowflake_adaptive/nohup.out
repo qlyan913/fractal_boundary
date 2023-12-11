@@ -46,3 +46,4 @@ IndentationError: unexpected indent
   File "/home/yan00082/fractal_boundary/Ex2_cube_top_snowflake_adaptive/main_flux.py", line 92
     0.00447696008Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 IndentationError: unexpected indent
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance

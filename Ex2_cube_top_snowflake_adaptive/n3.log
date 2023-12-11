@@ -31,19 +31,35 @@ firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1
   warnings.warn("Import Warning: it was not possible to import SLEPc")
 /home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
   warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
 Refined Mesh with degree of freedom  339515
-/home/yan00082/firedrake/src/loopy/loopy/target/c/compyte/dtypes.py:184: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
-  reg.get_or_register_dtype("bool", np.bool8)
-error indicator sum_eta is  0.043692269898446504
-Refined Mesh with degree of freedom  1599830
-error indicator sum_eta is  0.016379468699853846
-Refined Mesh with degree of freedom  6863260
-error indicator sum_eta is  0.006816831232586222
-Refined Mesh with degree of freedom  58438320
+error indicator sum_eta is  0.04369226360248554
+Refined Mesh with degree of freedom  1566920
+error indicator sum_eta is  0.016863406228466035
+Refined Mesh with degree of freedom  6696230
+error indicator sum_eta is  0.0071911728499005
+Refined Mesh with degree of freedom  28063520
 
 ===================================================================================
 =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
-=   PID 589240 RUNNING AT vh512-2
+=   PID 1137147 RUNNING AT vh512-2
 =   EXIT CODE: 9
 =   CLEANING UP REMAINING PROCESSES
 =   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
