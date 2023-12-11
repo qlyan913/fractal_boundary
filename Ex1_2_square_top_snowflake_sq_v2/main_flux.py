@@ -13,10 +13,10 @@ from Ex1_solver import *
 mesh_size=1
 deg=5
 nn=2
-l=(1/3)**nn
-Lp=(5/3)**nn
-dim_frac=np.log(5)/np.log(3)
-tolerance = 1e-7
+l=(1/5)**nn
+Lp=(7/5)**nn
+dim_frac=np.log(7)/np.log(5)
+tolerance = 1e-8
 max_iterations = 100
 bc_top=(1)
 bc_right=(2)
