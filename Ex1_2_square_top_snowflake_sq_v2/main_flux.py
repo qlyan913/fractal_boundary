@@ -12,7 +12,7 @@ from Ex1_solver import *
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
 deg=5
-nn=2
+nn=3
 l=(1/5)**nn
 Lp=(7/5)**nn
 dim_frac=np.log(7)/np.log(5)
