@@ -34,9 +34,9 @@ def Mark(msh, f,V, uh,tolerance):
      eta = assemble(h**2*R_T**2*w*dx +0.5*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS)
      # mark triangulation whose eta >= frac*eta_max
      frac = .95
-     delfrac =0.35
+     delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .2
+     part = .4
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
@@ -81,7 +81,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
      frac = .95
      delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .35
+     part = .4
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:

@@ -16,7 +16,7 @@ nn=2
 l=(1/5)**nn
 Lp=(7/5)**nn
 dim_frac=np.log(7)/np.log(5)
-tolerance = 1e-8
+tolerance = 5*1e-8
 max_iterations = 100
 bc_top=(1)
 bc_right=(2)
@@ -93,7 +93,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: Lambda <l 
 Phi=[]
-LL = np.array([3**(-i) for i in range(nn,20)])
+LL = np.array([3**(-i) for i in range(nn,15)])
 Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
