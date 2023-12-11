@@ -93,7 +93,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: Lambda <l 
 Phi=[]
-LL = np.array([3**(-i) for i in range(nn,15)])
+LL = np.array([5**(-i) for i in range(nn,15)])
 Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]

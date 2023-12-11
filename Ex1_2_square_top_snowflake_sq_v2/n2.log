@@ -1680,3 +1680,905 @@ Refined Mesh with degree of freedom  85296 sum_eta is  2.9753688227682396e-08
 Refined Mesh with degree of freedom  114496 sum_eta is  1.1371093441672666e-08
 Refined Mesh with degree of freedom  127621 sum_eta is  5.845984174578896e-09
 Refined Mesh with degree of freedom  144956 sum_eta is  2.6379283473696307e-09
+Refined Mesh with degree of freedom  165711 sum_eta is  1.1646133943473445e-09
+Refined Mesh with degree of freedom  188496 sum_eta is  5.202929038583961e-10
+Lambda is  0.3807102450353508  flux is  0.7896455905594231
+Refined Mesh with degree of freedom  2791 sum_eta is  0.0408177578871375
+Refined Mesh with degree of freedom  3046 sum_eta is  0.03200208058877366
+Refined Mesh with degree of freedom  3511 sum_eta is  0.019511970752644783
+Refined Mesh with degree of freedom  3921 sum_eta is  0.015593469649138497
+Refined Mesh with degree of freedom  4406 sum_eta is  0.013312118965782466
+Refined Mesh with degree of freedom  6626 sum_eta is  0.008411884887664015
+Refined Mesh with degree of freedom  8731 sum_eta is  0.005518801080617015
+Refined Mesh with degree of freedom  10361 sum_eta is  0.0036380046616627335
+Refined Mesh with degree of freedom  12216 sum_eta is  0.0024638237164651845
+Refined Mesh with degree of freedom  14251 sum_eta is  0.0015281738665979799
+Refined Mesh with degree of freedom  21986 sum_eta is  0.0006086643302011662
+Refined Mesh with degree of freedom  26956 sum_eta is  0.00024693657890674373
+Refined Mesh with degree of freedom  32106 sum_eta is  9.929447792198079e-05
+Refined Mesh with degree of freedom  37191 sum_eta is  4.1326353092092366e-05
+Refined Mesh with degree of freedom  42566 sum_eta is  1.7306783628773165e-05
+Refined Mesh with degree of freedom  48196 sum_eta is  7.362273751006674e-06
+Refined Mesh with degree of freedom  54011 sum_eta is  3.2383974165421825e-06
+Refined Mesh with degree of freedom  60566 sum_eta is  1.3515446399159869e-06
+Refined Mesh with degree of freedom  66696 sum_eta is  5.923401428891448e-07
+Refined Mesh with degree of freedom  73226 sum_eta is  2.642451891980276e-07
+Refined Mesh with degree of freedom  80256 sum_eta is  1.1735488475022149e-07
+Refined Mesh with degree of freedom  87536 sum_eta is  5.6970821167607465e-08
+Refined Mesh with degree of freedom  95456 sum_eta is  2.8848300490254905e-08
+Refined Mesh with degree of freedom  103751 sum_eta is  1.6507521162453184e-08
+Refined Mesh with degree of freedom  115931 sum_eta is  7.927013430022136e-09
+Refined Mesh with degree of freedom  130176 sum_eta is  4.100156178100576e-09
+Refined Mesh with degree of freedom  150311 sum_eta is  1.7523198205179201e-09
+Refined Mesh with degree of freedom  170626 sum_eta is  8.389956305995349e-10
+Lambda is  0.4672531656322902  flux is  0.7595843558839065
+Refined Mesh with degree of freedom  2791 sum_eta is  0.04090339976674004
+Refined Mesh with degree of freedom  3046 sum_eta is  0.03149178779836299
+Refined Mesh with degree of freedom  3791 sum_eta is  0.016209822601231744
+Refined Mesh with degree of freedom  6366 sum_eta is  0.008812557610521275
+Refined Mesh with degree of freedom  11221 sum_eta is  0.003831170322702271
+Refined Mesh with degree of freedom  15781 sum_eta is  0.0015813248068360674
+Refined Mesh with degree of freedom  20511 sum_eta is  0.0006330648110295046
+Refined Mesh with degree of freedom  25206 sum_eta is  0.00025619777913169915
+Refined Mesh with degree of freedom  29966 sum_eta is  0.00010462371313490308
+Refined Mesh with degree of freedom  34726 sum_eta is  4.344746079167746e-05
+Refined Mesh with degree of freedom  40076 sum_eta is  1.821592844696572e-05
+Refined Mesh with degree of freedom  45256 sum_eta is  7.777604690353923e-06
+Refined Mesh with degree of freedom  51136 sum_eta is  3.4073284709623697e-06
+Refined Mesh with degree of freedom  56891 sum_eta is  1.5523247930844917e-06
+Refined Mesh with degree of freedom  63021 sum_eta is  6.874116891544733e-07
+Refined Mesh with degree of freedom  69551 sum_eta is  3.012441067433666e-07
+Refined Mesh with degree of freedom  76231 sum_eta is  1.3992036016674773e-07
+Refined Mesh with degree of freedom  83986 sum_eta is  6.303365844997647e-08
+Refined Mesh with degree of freedom  91541 sum_eta is  3.290320975560363e-08
+Refined Mesh with degree of freedom  100451 sum_eta is  1.7276300760910255e-08
+Refined Mesh with degree of freedom  111806 sum_eta is  8.581794402235736e-09
+Refined Mesh with degree of freedom  125916 sum_eta is  4.297064167810898e-09
+Refined Mesh with degree of freedom  143711 sum_eta is  1.997811361545549e-09
+Refined Mesh with degree of freedom  165341 sum_eta is  8.841970956013413e-10
+Lambda is  0.5734689928639137  flux is  0.7263698436372856
+Refined Mesh with degree of freedom  2791 sum_eta is  0.04021398940022734
+Refined Mesh with degree of freedom  3046 sum_eta is  0.030433244660358898
+Refined Mesh with degree of freedom  3266 sum_eta is  0.024390322269575243
+Refined Mesh with degree of freedom  3791 sum_eta is  0.01565324950414678
+Refined Mesh with degree of freedom  6171 sum_eta is  0.008865844129743816
+Refined Mesh with degree of freedom  10681 sum_eta is  0.0039316537387422785
+Refined Mesh with degree of freedom  15216 sum_eta is  0.0016253196953533808
+Refined Mesh with degree of freedom  19896 sum_eta is  0.0006499031969747194
+Refined Mesh with degree of freedom  24541 sum_eta is  0.0002623685507859537
+Refined Mesh with degree of freedom  29161 sum_eta is  0.00010846105306224193
+Refined Mesh with degree of freedom  33961 sum_eta is  4.410987740706118e-05
+Refined Mesh with degree of freedom  38811 sum_eta is  1.8494880206552335e-05
+Refined Mesh with degree of freedom  43761 sum_eta is  8.108353051145926e-06
+Refined Mesh with degree of freedom  49441 sum_eta is  3.6416666179650836e-06
+Refined Mesh with degree of freedom  55346 sum_eta is  1.5790285022334364e-06
+Refined Mesh with degree of freedom  61251 sum_eta is  7.104738411932677e-07
+Refined Mesh with degree of freedom  67281 sum_eta is  3.3534514092200833e-07
+Refined Mesh with degree of freedom  73971 sum_eta is  1.5362741835577886e-07
+Refined Mesh with degree of freedom  82101 sum_eta is  7.213237296874177e-08
+Refined Mesh with degree of freedom  90266 sum_eta is  3.309264319451111e-08
+Refined Mesh with degree of freedom  98176 sum_eta is  1.8513781928789255e-08
+Refined Mesh with degree of freedom  109591 sum_eta is  9.103896937544812e-09
+Refined Mesh with degree of freedom  122311 sum_eta is  4.76407406491654e-09
+Refined Mesh with degree of freedom  140116 sum_eta is  2.1535286384059087e-09
+Refined Mesh with degree of freedom  160626 sum_eta is  9.981692196306774e-10
+Lambda is  0.7038297650296854  flux is  0.6900484927149435
+Refined Mesh with degree of freedom  2791 sum_eta is  0.038730964989110314
+Refined Mesh with degree of freedom  3046 sum_eta is  0.028849585879018824
+Refined Mesh with degree of freedom  3726 sum_eta is  0.016050047463359474
+Refined Mesh with degree of freedom  3921 sum_eta is  0.01384799723197546
+Refined Mesh with degree of freedom  4916 sum_eta is  0.01048627346023424
+Refined Mesh with degree of freedom  6321 sum_eta is  0.007609406088039975
+Refined Mesh with degree of freedom  9071 sum_eta is  0.004437843378930356
+Refined Mesh with degree of freedom  10756 sum_eta is  0.00289898942059721
+Refined Mesh with degree of freedom  12936 sum_eta is  0.0018148281781348021
+Refined Mesh with degree of freedom  14616 sum_eta is  0.001238225570787982
+Refined Mesh with degree of freedom  17081 sum_eta is  0.0007237982924862673
+Refined Mesh with degree of freedom  18546 sum_eta is  0.0004985023608916176
+Refined Mesh with degree of freedom  20901 sum_eta is  0.00029399412353780813
+Refined Mesh with degree of freedom  22341 sum_eta is  0.0002045486033974548
+Refined Mesh with degree of freedom  24736 sum_eta is  0.00011923087229140605
+Refined Mesh with degree of freedom  26176 sum_eta is  8.372717431999868e-05
+Refined Mesh with degree of freedom  28711 sum_eta is  4.8333380969979345e-05
+Refined Mesh with degree of freedom  30151 sum_eta is  3.424233285879164e-05
+Refined Mesh with degree of freedom  32481 sum_eta is  2.1441272322365298e-05
+Refined Mesh with degree of freedom  34226 sum_eta is  1.4405850968523058e-05
+Refined Mesh with degree of freedom  36556 sum_eta is  9.325021919566244e-06
+Refined Mesh with degree of freedom  38186 sum_eta is  6.770443259248562e-06
+Refined Mesh with degree of freedom  41231 sum_eta is  4.2614475526014824e-06
+Refined Mesh with degree of freedom  43241 sum_eta is  3.0434678166916006e-06
+Refined Mesh with degree of freedom  46066 sum_eta is  2.041665140237732e-06
+Refined Mesh with degree of freedom  48421 sum_eta is  1.44091020447831e-06
+Refined Mesh with degree of freedom  51911 sum_eta is  9.380766596664499e-07
+Refined Mesh with degree of freedom  54151 sum_eta is  6.356219068026376e-07
+Refined Mesh with degree of freedom  57616 sum_eta is  4.1643948303257373e-07
+Refined Mesh with degree of freedom  59861 sum_eta is  3.1031009988480677e-07
+Refined Mesh with degree of freedom  63806 sum_eta is  1.909514048102128e-07
+Refined Mesh with degree of freedom  66301 sum_eta is  1.408745896601735e-07
+Refined Mesh with degree of freedom  70586 sum_eta is  9.23168669548511e-08
+Refined Mesh with degree of freedom  94916 sum_eta is  2.9606702261367493e-08
+Refined Mesh with degree of freedom  102801 sum_eta is  1.6679798435583506e-08
+Refined Mesh with degree of freedom  113896 sum_eta is  8.278076510704264e-09
+Refined Mesh with degree of freedom  127591 sum_eta is  4.191892608445834e-09
+Refined Mesh with degree of freedom  144861 sum_eta is  1.8990351201890507e-09
+Refined Mesh with degree of freedom  164156 sum_eta is  9.157024155848257e-10
+Lambda is  0.8638241026211801  flux is  0.6507866570909019
+Refined Mesh with degree of freedom  2791 sum_eta is  0.036485024494230904
+Refined Mesh with degree of freedom  3046 sum_eta is  0.026790821679056758
+Refined Mesh with degree of freedom  3726 sum_eta is  0.01478627018784083
+Refined Mesh with degree of freedom  3921 sum_eta is  0.012798986981287223
+Refined Mesh with degree of freedom  5006 sum_eta is  0.009498324395550452
+Refined Mesh with degree of freedom  6871 sum_eta is  0.006144674631079711
+Refined Mesh with degree of freedom  9386 sum_eta is  0.003810621835692393
+Refined Mesh with degree of freedom  11341 sum_eta is  0.002524654677165481
+Refined Mesh with degree of freedom  12551 sum_eta is  0.0019187145125301999
+Refined Mesh with degree of freedom  14181 sum_eta is  0.0013006292736718948
+Refined Mesh with degree of freedom  17066 sum_eta is  0.0007022482760305569
+Refined Mesh with degree of freedom  18236 sum_eta is  0.000526177928292891
+Refined Mesh with degree of freedom  19891 sum_eta is  0.0003540288386638295
+Refined Mesh with degree of freedom  22916 sum_eta is  0.00018564620700295783
+Refined Mesh with degree of freedom  30966 sum_eta is  7.80381675268169e-05
+Refined Mesh with degree of freedom  36416 sum_eta is  3.1683129991088546e-05
+Refined Mesh with degree of freedom  41676 sum_eta is  1.3060975841925746e-05
+Refined Mesh with degree of freedom  47301 sum_eta is  5.483752643150905e-06
+Refined Mesh with degree of freedom  53206 sum_eta is  2.2767862608878274e-06
+Refined Mesh with degree of freedom  58971 sum_eta is  1.0215200931776353e-06
+Refined Mesh with degree of freedom  65076 sum_eta is  4.7450521499001257e-07
+Refined Mesh with degree of freedom  71806 sum_eta is  2.1291869313973196e-07
+Refined Mesh with degree of freedom  78986 sum_eta is  9.196450052664407e-08
+Refined Mesh with degree of freedom  86151 sum_eta is  4.625023115754045e-08
+Refined Mesh with degree of freedom  95006 sum_eta is  2.313737591889694e-08
+Refined Mesh with degree of freedom  104341 sum_eta is  1.2517892661957963e-08
+Refined Mesh with degree of freedom  115776 sum_eta is  6.533919199423576e-09
+Refined Mesh with degree of freedom  131561 sum_eta is  3.1982049996515877e-09
+Refined Mesh with degree of freedom  151411 sum_eta is  1.3665128355130776e-09
+Refined Mesh with degree of freedom  172621 sum_eta is  6.233821143232903e-10
+Lambda is  1.060188297432711  flux is  0.6088887402927485
+Refined Mesh with degree of freedom  2791 sum_eta is  0.03356557114450397
+Refined Mesh with degree of freedom  3046 sum_eta is  0.0243379985238422
+Refined Mesh with degree of freedom  3636 sum_eta is  0.01452763174018215
+Refined Mesh with degree of freedom  3921 sum_eta is  0.01157676719615065
+Refined Mesh with degree of freedom  5136 sum_eta is  0.008390981787836389
+Refined Mesh with degree of freedom  6746 sum_eta is  0.00569367741621753
+Refined Mesh with degree of freedom  8866 sum_eta is  0.003826154304976814
+Refined Mesh with degree of freedom  11101 sum_eta is  0.0022330132725649613
+Refined Mesh with degree of freedom  17261 sum_eta is  0.0009317633026689495
+Refined Mesh with degree of freedom  18436 sum_eta is  0.0006952579990501526
+Refined Mesh with degree of freedom  19916 sum_eta is  0.0004778743340835073
+Refined Mesh with degree of freedom  22101 sum_eta is  0.0002878816263049731
+Refined Mesh with degree of freedom  23771 sum_eta is  0.00019269785911308517
+Refined Mesh with degree of freedom  26766 sum_eta is  0.00010563329551206669
+Refined Mesh with degree of freedom  28031 sum_eta is  7.843877888119738e-05
+Refined Mesh with degree of freedom  30701 sum_eta is  4.3844410010938025e-05
+Refined Mesh with degree of freedom  31941 sum_eta is  3.304747902292452e-05
+Refined Mesh with degree of freedom  34786 sum_eta is  1.8108630661367998e-05
+Refined Mesh with degree of freedom  36141 sum_eta is  1.3419469308235104e-05
+Refined Mesh with degree of freedom  38886 sum_eta is  7.820884214687153e-06
+Refined Mesh with degree of freedom  40126 sum_eta is  6.1197385925935976e-06
+Refined Mesh with degree of freedom  42901 sum_eta is  3.6292740479139275e-06
+Refined Mesh with degree of freedom  44886 sum_eta is  2.540404667185029e-06
+Refined Mesh with degree of freedom  48276 sum_eta is  1.4979081114916346e-06
+Refined Mesh with degree of freedom  62881 sum_eta is  6.091205021741312e-07
+Refined Mesh with degree of freedom  68101 sum_eta is  3.1949410661850264e-07
+Refined Mesh with degree of freedom  76031 sum_eta is  1.3851299320640466e-07
+Refined Mesh with degree of freedom  82471 sum_eta is  5.905344203055844e-08
+Refined Mesh with degree of freedom  89226 sum_eta is  3.09190889421263e-08
+Refined Mesh with degree of freedom  96711 sum_eta is  1.6268488474312722e-08
+Refined Mesh with degree of freedom  105131 sum_eta is  9.398673272444148e-09
+Refined Mesh with degree of freedom  115801 sum_eta is  5.117445729980138e-09
+Refined Mesh with degree of freedom  132596 sum_eta is  2.3702475483469397e-09
+Refined Mesh with degree of freedom  152401 sum_eta is  1.05169508815211e-09
+Refined Mesh with degree of freedom  174376 sum_eta is  4.747211053384139e-10
+Lambda is  1.3011899327682768  flux is  0.5648081206711997
+Refined Mesh with degree of freedom  2791 sum_eta is  0.030120106415819633
+Refined Mesh with degree of freedom  3046 sum_eta is  0.021602156946332177
+Refined Mesh with degree of freedom  3546 sum_eta is  0.013801631891369865
+Refined Mesh with degree of freedom  3921 sum_eta is  0.010235486770181467
+Refined Mesh with degree of freedom  5331 sum_eta is  0.007136827378666953
+Refined Mesh with degree of freedom  7281 sum_eta is  0.004461546574368685
+Refined Mesh with degree of freedom  8971 sum_eta is  0.0032343733945119947
+Refined Mesh with degree of freedom  11596 sum_eta is  0.001825137212541579
+Refined Mesh with degree of freedom  12971 sum_eta is  0.0013660838963656205
+Refined Mesh with degree of freedom  16576 sum_eta is  0.0007156596362151138
+Refined Mesh with degree of freedom  17486 sum_eta is  0.0005841099760348028
+Refined Mesh with degree of freedom  21156 sum_eta is  0.0002744790380439833
+Refined Mesh with degree of freedom  22851 sum_eta is  0.00018309389606523832
+Refined Mesh with degree of freedom  25786 sum_eta is  9.91391564801717e-05
+Refined Mesh with degree of freedom  26936 sum_eta is  7.409102197055101e-05
+Refined Mesh with degree of freedom  29556 sum_eta is  4.191528533610957e-05
+Refined Mesh with degree of freedom  30911 sum_eta is  2.9960016551263802e-05
+Refined Mesh with degree of freedom  33531 sum_eta is  1.7193000381079093e-05
+Refined Mesh with degree of freedom  34681 sum_eta is  1.3243342483875334e-05
+Refined Mesh with degree of freedom  37591 sum_eta is  7.340307311541253e-06
+Refined Mesh with degree of freedom  38981 sum_eta is  5.621067607750255e-06
+Refined Mesh with degree of freedom  42166 sum_eta is  3.265662980675751e-06
+Refined Mesh with degree of freedom  43921 sum_eta is  2.3681482008530784e-06
+Refined Mesh with degree of freedom  46731 sum_eta is  1.4895540944664193e-06
+Refined Mesh with degree of freedom  64011 sum_eta is  5.354989342435274e-07
+Refined Mesh with degree of freedom  70691 sum_eta is  2.4119609919286226e-07
+Refined Mesh with degree of freedom  77746 sum_eta is  1.0528724400488223e-07
+Refined Mesh with degree of freedom  85026 sum_eta is  4.940072884219476e-08
+Refined Mesh with degree of freedom  92456 sum_eta is  2.56767757673591e-08
+Refined Mesh with degree of freedom  101291 sum_eta is  1.273615841863324e-08
+Refined Mesh with degree of freedom  111441 sum_eta is  6.791412894480949e-09
+Refined Mesh with degree of freedom  123326 sum_eta is  3.730848919302934e-09
+Refined Mesh with degree of freedom  141436 sum_eta is  1.699630788709434e-09
+Refined Mesh with degree of freedom  161561 sum_eta is  7.684193239476424e-10
+Lambda is  1.5969759760953892  flux is  0.5191446067032074
+Refined Mesh with degree of freedom  2791 sum_eta is  0.02634114834177385
+Refined Mesh with degree of freedom  3046 sum_eta is  0.018716267757878567
+Refined Mesh with degree of freedom  3546 sum_eta is  0.011790725241872028
+Refined Mesh with degree of freedom  3921 sum_eta is  0.008837976310289299
+Refined Mesh with degree of freedom  5371 sum_eta is  0.006105423737553642
+Refined Mesh with degree of freedom  7106 sum_eta is  0.003934332248428604
+Refined Mesh with degree of freedom  9136 sum_eta is  0.002630503652238614
+Refined Mesh with degree of freedom  10746 sum_eta is  0.0017563563609635955
+Refined Mesh with degree of freedom  13076 sum_eta is  0.0010995405818303656
+Refined Mesh with degree of freedom  16741 sum_eta is  0.0005568479381222715
+Refined Mesh with degree of freedom  23636 sum_eta is  0.0002208405009320654
+Refined Mesh with degree of freedom  28656 sum_eta is  8.95041259874634e-05
+Refined Mesh with degree of freedom  33856 sum_eta is  3.5967172794789466e-05
+Refined Mesh with degree of freedom  38876 sum_eta is  1.5273969833798032e-05
+Refined Mesh with degree of freedom  44276 sum_eta is  6.331003696038073e-06
+Refined Mesh with degree of freedom  50101 sum_eta is  2.577703395901917e-06
+Refined Mesh with degree of freedom  55831 sum_eta is  1.1039418784810927e-06
+Refined Mesh with degree of freedom  61201 sum_eta is  5.332647352830539e-07
+Refined Mesh with degree of freedom  68181 sum_eta is  2.363940622148795e-07
+Refined Mesh with degree of freedom  75211 sum_eta is  1.0224698695777085e-07
+Refined Mesh with degree of freedom  82441 sum_eta is  4.8009647739346606e-08
+Refined Mesh with degree of freedom  88896 sum_eta is  2.6168905323328385e-08
+Refined Mesh with degree of freedom  96301 sum_eta is  1.4014403557043543e-08
+Refined Mesh with degree of freedom  105276 sum_eta is  7.392738025045076e-09
+Refined Mesh with degree of freedom  114676 sum_eta is  4.188118674994623e-09
+Refined Mesh with degree of freedom  130501 sum_eta is  1.9782231021573875e-09
+Refined Mesh with degree of freedom  147276 sum_eta is  9.27069891761366e-10
+Lambda is  1.9599999999999997  flux is  0.47262400591389186
+Plot for l<Lambda<L_p saved to figures/Phi_Lam_2_R2.png 
+Result for l<Lambda<L_p saved to results/Phi_Lam_2_R2.csv 
+Refined Mesh with degree of freedom  2791 sum_eta is  0.02634114834177385
+Refined Mesh with degree of freedom  3046 sum_eta is  0.018716267757881197
+Refined Mesh with degree of freedom  3546 sum_eta is  0.011790725241868659
+Refined Mesh with degree of freedom  3921 sum_eta is  0.008837976310289299
+Refined Mesh with degree of freedom  5371 sum_eta is  0.00610542373755147
+Refined Mesh with degree of freedom  7106 sum_eta is  0.0039343322484287025
+Refined Mesh with degree of freedom  9136 sum_eta is  0.002630503652238614
+Refined Mesh with degree of freedom  10746 sum_eta is  0.0017563563609635955
+Refined Mesh with degree of freedom  13076 sum_eta is  0.001099540581832081
+Refined Mesh with degree of freedom  16741 sum_eta is  0.0005568479381221601
+Refined Mesh with degree of freedom  23636 sum_eta is  0.0002208405009320654
+Refined Mesh with degree of freedom  28656 sum_eta is  8.950412598733668e-05
+Refined Mesh with degree of freedom  33856 sum_eta is  3.596717279483107e-05
+Refined Mesh with degree of freedom  38876 sum_eta is  1.5273969833882434e-05
+Refined Mesh with degree of freedom  44276 sum_eta is  6.331003696038073e-06
+Refined Mesh with degree of freedom  50101 sum_eta is  2.577703395901917e-06
+Refined Mesh with degree of freedom  55831 sum_eta is  1.1039418784810927e-06
+Refined Mesh with degree of freedom  61201 sum_eta is  5.332647352830539e-07
+Refined Mesh with degree of freedom  68181 sum_eta is  2.3639406224043147e-07
+Refined Mesh with degree of freedom  75211 sum_eta is  1.0224698695777085e-07
+Refined Mesh with degree of freedom  82441 sum_eta is  4.800964773920307e-08
+Refined Mesh with degree of freedom  88896 sum_eta is  2.61689053278768e-08
+Refined Mesh with degree of freedom  96301 sum_eta is  1.4014403557043543e-08
+Refined Mesh with degree of freedom  105276 sum_eta is  7.392738025045076e-09
+Refined Mesh with degree of freedom  114676 sum_eta is  4.188118674994623e-09
+Refined Mesh with degree of freedom  130501 sum_eta is  1.9782231021573875e-09
+Refined Mesh with degree of freedom  147276 sum_eta is  9.270698905967064e-10
+Lambda is  1.9599999999999997  flux is  0.47262400591390263
+Refined Mesh with degree of freedom  2791 sum_eta is  0.013816222827653487
+Refined Mesh with degree of freedom  3046 sum_eta is  0.009605625979602475
+Refined Mesh with degree of freedom  3456 sum_eta is  0.006341179584432676
+Refined Mesh with degree of freedom  3856 sum_eta is  0.00472118567141129
+Refined Mesh with degree of freedom  5021 sum_eta is  0.003221886063533599
+Refined Mesh with degree of freedom  6416 sum_eta is  0.0023342391025778205
+Refined Mesh with degree of freedom  8291 sum_eta is  0.0015273496844496993
+Refined Mesh with degree of freedom  10126 sum_eta is  0.0009798845449342205
+Refined Mesh with degree of freedom  12521 sum_eta is  0.0005843517969480847
+Refined Mesh with degree of freedom  13761 sum_eta is  0.0004489741071392304
+Refined Mesh with degree of freedom  17561 sum_eta is  0.0002308293966959733
+Refined Mesh with degree of freedom  18721 sum_eta is  0.0001738916124713966
+Refined Mesh with degree of freedom  21506 sum_eta is  9.316056986724894e-05
+Refined Mesh with degree of freedom  22641 sum_eta is  7.056310065190113e-05
+Refined Mesh with degree of freedom  25376 sum_eta is  3.8535146488889124e-05
+Refined Mesh with degree of freedom  26576 sum_eta is  2.863486890166213e-05
+Refined Mesh with degree of freedom  29311 sum_eta is  1.592754822926867e-05
+Refined Mesh with degree of freedom  30536 sum_eta is  1.2054667511434765e-05
+Refined Mesh with degree of freedom  33561 sum_eta is  6.445730361963125e-06
+Refined Mesh with degree of freedom  34696 sum_eta is  5.033489568515389e-06
+Refined Mesh with degree of freedom  37621 sum_eta is  2.8654272572996466e-06
+Refined Mesh with degree of freedom  39156 sum_eta is  2.170822181239537e-06
+Refined Mesh with degree of freedom  42496 sum_eta is  1.1789707187099669e-06
+Refined Mesh with degree of freedom  56186 sum_eta is  4.76856738672448e-07
+Refined Mesh with degree of freedom  62611 sum_eta is  2.1602982181908774e-07
+Refined Mesh with degree of freedom  69176 sum_eta is  9.220238621462718e-08
+Refined Mesh with degree of freedom  75981 sum_eta is  4.080308819350455e-08
+Refined Mesh with degree of freedom  83096 sum_eta is  2.0018227179798913e-08
+Refined Mesh with degree of freedom  91001 sum_eta is  1.005642436020237e-08
+Refined Mesh with degree of freedom  99946 sum_eta is  5.180921499407749e-09
+Refined Mesh with degree of freedom  110926 sum_eta is  2.8079894508715226e-09
+Refined Mesh with degree of freedom  125431 sum_eta is  1.3658711516661034e-09
+Refined Mesh with degree of freedom  142701 sum_eta is  6.303388527732038e-10
+Lambda is  3.9199999999999995  flux is  0.3197614794422836
+Refined Mesh with degree of freedom  2791 sum_eta is  0.005551347729192189
+Refined Mesh with degree of freedom  3046 sum_eta is  0.0038159308685817516
+Refined Mesh with degree of freedom  3176 sum_eta is  0.0031357441231646367
+Refined Mesh with degree of freedom  3456 sum_eta is  0.0024634721529595326
+Refined Mesh with degree of freedom  3766 sum_eta is  0.0019709087948350306
+Refined Mesh with degree of freedom  4641 sum_eta is  0.0013796433906984706
+Refined Mesh with degree of freedom  5571 sum_eta is  0.0010668615958596118
+Refined Mesh with degree of freedom  7716 sum_eta is  0.0006417916030953489
+Refined Mesh with degree of freedom  8816 sum_eta is  0.0005114916956878613
+Refined Mesh with degree of freedom  9911 sum_eta is  0.0003953292876266067
+Refined Mesh with degree of freedom  13051 sum_eta is  0.00021410212604231082
+Refined Mesh with degree of freedom  15411 sum_eta is  0.0001244112778959556
+Refined Mesh with degree of freedom  16366 sum_eta is  0.0001023510681052196
+Refined Mesh with degree of freedom  18926 sum_eta is  6.105763774612873e-05
+Refined Mesh with degree of freedom  20886 sum_eta is  4.066969452583689e-05
+Refined Mesh with degree of freedom  23401 sum_eta is  2.304860339945652e-05
+Refined Mesh with degree of freedom  24756 sum_eta is  1.6801996825940338e-05
+Refined Mesh with degree of freedom  26386 sum_eta is  1.1263061898691907e-05
+Refined Mesh with degree of freedom  30086 sum_eta is  6.281028191762965e-06
+Refined Mesh with degree of freedom  32471 sum_eta is  3.911561583385168e-06
+Refined Mesh with degree of freedom  34461 sum_eta is  2.5646696161656835e-06
+Refined Mesh with degree of freedom  36291 sum_eta is  1.7523653711097274e-06
+Refined Mesh with degree of freedom  38471 sum_eta is  1.1532804950936053e-06
+Refined Mesh with degree of freedom  40916 sum_eta is  7.199085473880201e-07
+Refined Mesh with degree of freedom  43081 sum_eta is  4.77176300577246e-07
+Refined Mesh with degree of freedom  44936 sum_eta is  3.3806357537731024e-07
+Refined Mesh with degree of freedom  47471 sum_eta is  2.1551642427094e-07
+Refined Mesh with degree of freedom  49616 sum_eta is  1.4373566853235052e-07
+Refined Mesh with degree of freedom  51881 sum_eta is  1.0266301688324097e-07
+Refined Mesh with degree of freedom  54151 sum_eta is  7.131240877934504e-08
+Refined Mesh with degree of freedom  57061 sum_eta is  4.892319741056801e-08
+Refined Mesh with degree of freedom  59691 sum_eta is  3.179399910894515e-08
+Refined Mesh with degree of freedom  62361 sum_eta is  2.3470696633573678e-08
+Refined Mesh with degree of freedom  65141 sum_eta is  1.582745895546773e-08
+Refined Mesh with degree of freedom  68751 sum_eta is  1.1138684904539599e-08
+Refined Mesh with degree of freedom  72446 sum_eta is  7.426938412059848e-09
+Refined Mesh with degree of freedom  95541 sum_eta is  2.831989130588511e-09
+Refined Mesh with degree of freedom  106596 sum_eta is  1.3606734918683471e-09
+Refined Mesh with degree of freedom  119091 sum_eta is  6.943146036038922e-10
+Lambda is  7.839999999999999  flux is  0.19476873242839196
+Refined Mesh with degree of freedom  2791 sum_eta is  0.001830237066576655
+Refined Mesh with degree of freedom  3046 sum_eta is  0.001250872047207125
+Refined Mesh with degree of freedom  3176 sum_eta is  0.0010239146110342962
+Refined Mesh with degree of freedom  3456 sum_eta is  0.0007981051480050439
+Refined Mesh with degree of freedom  3676 sum_eta is  0.0006808504915639087
+Refined Mesh with degree of freedom  4576 sum_eta is  0.0004705057514043968
+Refined Mesh with degree of freedom  5521 sum_eta is  0.0003476085827767376
+Refined Mesh with degree of freedom  7531 sum_eta is  0.00022132151350353713
+Refined Mesh with degree of freedom  8906 sum_eta is  0.00015742129938186656
+Refined Mesh with degree of freedom  14191 sum_eta is  6.541673966620648e-05
+Refined Mesh with degree of freedom  18706 sum_eta is  2.647504393356362e-05
+Refined Mesh with degree of freedom  23401 sum_eta is  1.0706907471758513e-05
+Refined Mesh with degree of freedom  28086 sum_eta is  4.312926490156427e-06
+Refined Mesh with degree of freedom  32706 sum_eta is  1.8344249010708422e-06
+Refined Mesh with degree of freedom  37656 sum_eta is  7.489041152138853e-07
+Refined Mesh with degree of freedom  42991 sum_eta is  3.054893361882421e-07
+Refined Mesh with degree of freedom  48051 sum_eta is  1.3458893425893272e-07
+Refined Mesh with degree of freedom  53781 sum_eta is  5.486022920909474e-08
+Refined Mesh with degree of freedom  58676 sum_eta is  2.7879135780119053e-08
+Refined Mesh with degree of freedom  65106 sum_eta is  1.188265780046696e-08
+Refined Mesh with degree of freedom  71231 sum_eta is  5.777667466973806e-09
+Refined Mesh with degree of freedom  79171 sum_eta is  2.495729595004854e-09
+Refined Mesh with degree of freedom  86421 sum_eta is  1.321740614438326e-09
+Refined Mesh with degree of freedom  95916 sum_eta is  6.918087540172619e-10
+Lambda is  15.679999999999998  flux is  0.10943118391991927
+Refined Mesh with degree of freedom  2791 sum_eta is  0.000532180793064995
+Refined Mesh with degree of freedom  3046 sum_eta is  0.00036267155297780467
+Refined Mesh with degree of freedom  3176 sum_eta is  0.00029628528853746023
+Refined Mesh with degree of freedom  3456 sum_eta is  0.00023001562945393724
+Refined Mesh with degree of freedom  3676 sum_eta is  0.0001961382443469306
+Refined Mesh with degree of freedom  4576 sum_eta is  0.00013552270263721713
+Refined Mesh with degree of freedom  5521 sum_eta is  0.00010003935893213577
+Refined Mesh with degree of freedom  7416 sum_eta is  6.503263524801413e-05
+Refined Mesh with degree of freedom  8916 sum_eta is  4.603255523607433e-05
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 154, in <module>
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+  File "/home/yan00082/fractal_boundary/Ex1_2_square_top_snowflake_sq_v2/main_flux.py", line 50, in get_flux
+    mesh = mesh.refine_marked_elements(mark)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 54, in refineMarkedElements
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    return fd.Mesh(netgen.libngpy._meshing.Mesh(2))
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/mesh.py", line 2540, in Mesh
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+    netgen_firedrake_mesh = FiredrakeMesh(meshfile, netgen_flags, user_comm)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/utils/firedrake.py", line 170, in __init__
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+petsc4py.PETSc.Error: error code 98
+[12] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[12] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[12] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[12] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[12] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[12] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[12] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[12] General MPI error
+[12] MPI error 404835599 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55788cb12e00) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (0/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 12
+petsc4py.PETSc.Error: error code 98
+[13] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[13] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[13] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[13] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[13] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[13] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[13] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[13] General MPI error
+[13] MPI error 941706511 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x563fda918650) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 13
+petsc4py.PETSc.Error: error code 98
+[ 3] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 3] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 3] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 3] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 3] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 3] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 3] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 3] General MPI error
+[ 3] MPI error 539053327 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x5638df969a70) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 3
+petsc4py.PETSc.Error: error code 98
+[ 5] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 5] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 5] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 5] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 5] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 5] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 5] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 5] General MPI error
+[ 5] MPI error 471944463 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55f562995290) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 5
+petsc4py.PETSc.Error: error code 98
+[ 9] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 9] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 9] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 9] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 9] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 9] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 9] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 9] General MPI error
+[ 9] MPI error 1008815375 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x559d32db11c0) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 9
+petsc4py.PETSc.Error: error code 98
+[10] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[10] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[10] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[10] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[10] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[10] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[10] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[10] General MPI error
+[10] MPI error 337726735 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x56226b65a550) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 10
+petsc4py.PETSc.Error: error code 98
+[ 1] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 1] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 1] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 1] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 1] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 1] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 1] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 1] General MPI error
+[ 1] MPI error 1008815375 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x56481224bd10) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 1
+petsc4py.PETSc.Error: error code 98
+[ 2] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 2] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 2] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 2] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 2] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 2] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 2] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 2] General MPI error
+[ 2] MPI error 874597647 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x5563bf2babc0) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (0/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 2
+petsc4py.PETSc.Error: error code 98
+[ 4] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 4] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 4] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 4] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 4] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 4] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 4] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 4] General MPI error
+[ 4] MPI error 740379919 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55e4e8712360) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 4
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+petsc4py.PETSc.Error: error code 98
+[14] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[14] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[14] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[14] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[14] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[14] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[14] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[14] General MPI error
+[14] MPI error 1008815375 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55d30f413f20) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (0/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 14
+petsc4py.PETSc.Error: error code 98
+[15] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[15] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[15] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[15] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[15] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[15] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[15] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[15] General MPI error
+[15] MPI error 807488783 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x5647cbf5c470) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (0/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 15
+petsc4py.PETSc.Error: error code 98
+[ 7] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 7] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 7] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 7] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 7] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 7] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 7] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 7] General MPI error
+[ 7] MPI error 69291279 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55da9eeee490) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (0/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 7
+petsc4py.PETSc.Error: error code 98
+[ 8] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 8] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 8] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 8] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 8] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 8] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 8] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 8] General MPI error
+[ 8] MPI error 2182415 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55f901ade3a0) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 8
+petsc4py.PETSc.Error: error code 98
+[ 6] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[ 6] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[ 6] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[ 6] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[ 6] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[ 6] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[ 6] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[ 6] General MPI error
+[ 6] MPI error 270617871 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x557f09518860) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+    self.meshMap = MeshMapping(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 39, in __init__
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 6
+    self.createPETScDMPlex(mesh)
+  File "/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/plex.py", line 209, in createPETScDMPlex
+    plex = PETSc.DMPlex().createFromCellList(2,
+  File "petsc4py/PETSc/DMPlex.pyx", line 92, in petsc4py.PETSc.DMPlex.createFromCellList
+petsc4py.PETSc.Error: error code 98
+[11] DMPlexCreateFromCellListPetsc() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:5170
+[11] DMPlexInterpolate() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexinterpolate.c:1495
+[11] DMSetType() at /home/yan00082/firedrake/src/petsc/src/dm/interface/dm.c:3916
+[11] DMCreate_Plex() at /home/yan00082/firedrake/src/petsc/src/dm/impls/plex/plexcreate.c:4670
+[11] PetscPartitionerCreate() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:389
+[11] PetscPartitionerSetType() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/interface/partitioner.c:46
+[11] PetscPartitionerCreate_PTScotch() at /home/yan00082/firedrake/src/petsc/src/dm/partitioner/impls/ptscotch/partptscotch.c:336
+[11] General MPI error
+[11] MPI error 1008815375 Other MPI error, error stack:
+                internal_Comm_dup(85)...............: MPI_Comm_dup(comm=0x84000005, newcomm=0x55ec5f5e9b50) failed
+                MPIR_Comm_dup_impl(661).............: 
+                MPII_Comm_dup(871)..................: 
+                MPII_Comm_copy(913).................: 
+                MPIR_Get_contextid_sparse_group(591): Too many communicators (1/2048 free on this process; ignore_id=0)
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 11
