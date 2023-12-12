@@ -41,8 +41,8 @@ def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_
             l=Constant(0.)
             V = FunctionSpace(mesh,"Lagrange",deg)
             uh = snowsolver(mesh, D, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-    #        mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+     #       mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+            mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
             PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
             it=it+1
             Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
@@ -93,7 +93,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: Lambda <l 
 Phi=[]
-LL = np.array([5**(-i) for i in range(nn,15)])
+LL = np.array([5**(-i) for i in range(nn,10)])
 Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
@@ -103,7 +103,7 @@ alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
-plt.xticks([10**(-9),10**(-8),10**(-7),10**(-6),10**(-5),10**(-4),10**(-3),l],['$10^{-9}$','$10^{-8}$','$10^{-7}$','$10^{-6}$','$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
+plt.xticks([10**(-7),10**(-6),10**(-5),10**(-4),10**(-3),l],['$10^{-7}$','$10^{-6}$','$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
