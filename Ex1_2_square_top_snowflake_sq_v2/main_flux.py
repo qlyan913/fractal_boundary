@@ -12,7 +12,7 @@ from Ex1_solver import *
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
 deg=5
-nn=3
+nn=4
 l=(1/5)**nn
 Lp=(7/5)**nn
 dim_frac=np.log(7)/np.log(5)
@@ -150,7 +150,7 @@ PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv "
 
 # Region 3: Lp< Lambda<infty
 Phi=[]
-LL=np.array([Lp*2**(i) for i in range(15)])
+LL=np.array([Lp*2**(i) for i in range(12)])
 Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
