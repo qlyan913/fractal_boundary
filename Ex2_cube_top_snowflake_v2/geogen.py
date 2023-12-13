@@ -25,7 +25,7 @@ def divide_line(vertices):
     N2 = N1+dx/5.
     N3 = N2+dx/5.
     N4 = N3+dx/5.
-    return np.array([N1,N2])
+    return np.array([N1,N2,N3,N4])
 
 def divide_square(sq_vertices):
     # input
@@ -68,7 +68,7 @@ def divide_square(sq_vertices):
     N23, N17,N11,N5 =divide_line(np.array([P4,P1]))
     N6,N7,N8,N9 =divide_line(np.array([N5,N10]))
     N12, N13, N14, N15 =divide_line(np.array([N11,N16]))
-    N18,N19,N20,N21 = divide_line(np.array([N117,N22]))
+    N18,N19,N20,N21 = divide_line(np.array([N17,N22]))
     N24,N25,N26,N27 = divide_line(np.array([N23,N28]))
     new_other=[np.array([P1,N1,N6,N5]),np.array([N1,N2,N7,N6]),np.array([N2,N3,N8,N7]),
                          np.array([N3,N4,N9,N8]),np.array([N4,P2,N10,N9]),np.array([N5,N6,N12,N11]),
