@@ -48,3 +48,9 @@ IndentationError: unexpected indent
 IndentationError: unexpected indent
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+The initial netgen mesh is saved as 'domain/cube_3.vol.
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/eps.py:10: UserWarning: Import Warning: it was not possible to import SLEPc
+  warnings.warn("Import Warning: it was not possible to import SLEPc")
+Finite element mesh has 48016 cells and 11843 vertices.
+File for visualization in Paraview saved as 'domain/cube_3.pvd.
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance

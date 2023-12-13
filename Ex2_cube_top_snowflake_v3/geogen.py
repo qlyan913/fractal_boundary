@@ -72,20 +72,20 @@ def divide_square(sq_vertices):
     normal = np.cross(P3-P2,P1-P2)
     normal = normal/np.linalg.norm(normal)
     ndx = np.linalg.norm(P2-P1)/4.
-    H1 = N13+ndx*normal
-    H2 = N14+ndx*normal
-    H3 = N20+ndx*normal
-    H4 = N19 +ndx*normal
-    new_main=[np.array([H1,N13,N14,H2]),np.array([H2,N14,N20,H3]),np.array([H3,N20,N19,H4]),
-              np.array([H4,N19,N13,H1]),np.array([H1,H2,H3,H4])]
+    H1 = N12+ndx*normal
+    H2 = N13+ndx*normal
+    H3 = N19+ndx*normal
+    H4 = N18 +ndx*normal
+    new_main=[np.array([H1,N12,N13,H2]),np.array([H2,N13,N19,H3]),np.array([H3,N19,N18,H4]),
+              np.array([H4,N18,N12,H1]),np.array([H1,H2,H3,H4])]
     #                 H1---------H4
     #                /|         / |
     #             H2/---------H3  |
-    #              |  N13-----｜--N19
+    #              |  N12-----｜--N18
     #              | /        ｜ /
     #              |/         ｜/
-    #             N14---------N20
-    small_cube=[N14,H4]
+    #             N13---------N19
+    small_cube=[N13,H4]
     return (new_hole, new_other, new_main,small_cube)
 
 def koch_snowflake(sq_cube, level):
