@@ -14,15 +14,17 @@ def divide_line(vertices):
     # input
     # vertices - array of shape 2x3.
     #          - two points P1 P2
-    # P1 ---- N1 ----- N2 -----P2
+    # P1 ---- N1 ----- N2 -----N3-----N4-----P2
     # out put
-    # array of shape 2x3. Two points N1 and N2 on the line P1P2.
+    # array of shape 2x3. Four points N1, N2, N3, N4 on the line P1P2.
 
     P1 = vertices[0]
     P2 = vertices[1]
     dx = P2-P1
-    N1 = P1+dx/3.
-    N2 = N1+dx/3.
+    N1 = P1+dx/5.
+    N2 = N1+dx/5.
+    N3 = N2+dx/5.
+    N4 = N3+dx/5.
     return np.array([N1,N2])
 
 def divide_square(sq_vertices):
@@ -34,52 +36,62 @@ def divide_square(sq_vertices):
     # new_main - the 5 sqaures (over the holde)  which will be outside boundary of a plane surface
     # new_other- the subsqaures of the input square other than the hole
     # order of saved each sub-squares in the array are as follows:
-    #    P1 ------ N8 ----- N7 ----  P4
-    #    |         |        |         |
-    #    |         |        |         |
-    #    |         |        |         |
-    #    N1 ------ N9 ----- N12 ----  N6
-    #    |         |        |         |
-    #    |         |  hole  |         |
-    #    |         |        |         |
-    #    N2 ------ N10 ---- N11 ----  N5
-    #    |         |        |         |
-    #    |         |        |         |
-    #    |         |        |         |
-    #    P2 ------ N3 ----- N4 -----  P3
+    #    P1 ------ N5----- N11 ----- N17 ----- N23 ----- P4
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    N1 ------ N6 ---- N12 ----  N18 ----- N24 ----- N29
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    N2------- N7 ---- N13 ----- N19 ----- N25 ----- N30
+    #    |         |        |         |         |         |
+    #    |         |        |   Hole  |         |         |
+    #    |         |        |         |         |         |
+    #    N3------- N8 ---- N14 ----- N20 ----- N26 ----- N31
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    N4 ------ N9 ---- N15 ----  N21 ----- N27 ----- N32
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    |         |        |         |         |         |
+    #    P2 ------ N10 --- N16 ----- N22 ----- N28 -----  P3
     #
     P1 = sq_vertices[0]
     P2 = sq_vertices[1]
     P3 = sq_vertices[2]
     P4 = sq_vertices[3]
-    N1, N2 =divide_line(np.array([P1,P2]))
-    N3, N4 =divide_line(np.array([P2,P3]))
-    N5, N6 =divide_line(np.array([P3,P4]))
-    N7, N8 =divide_line(np.array([P4,P1]))
-    N9, N10 =divide_line(np.array([N8,N3]))
-    N11, N12 =divide_line(np.array([N4,N7]))
-    new_other=[np.array([P1,N1,N9,N8]),np.array([N1,N2,N10,N9]),np.array([N2,P2,N3,N10]),
-                         np.array([N10,N3,N4,N11]),np.array([N11,N4,P3,N5]),np.array([N12,N11,N5,N6]),
-                         np.array([N7,N12,N6,P4]),np.array([N8,N9,N12,N7])
+    N1, N2,N3,N4=divide_line(np.array([P1,P2]))
+    N10,N16,N22,N28 =divide_line(np.array([P2,P3]))
+    N32,N31,N30,N29 =divide_line(np.array([P3,P4]))
+    N23, N17,N11,N5 =divide_line(np.array([P4,P1]))
+    N6,N7,N8,N9 =divide_line(np.array([N5,N10]))
+    N12, N13, N14, N15 =divide_line(np.array([N11,N16]))
+    N18,N19,N20,N21 = divide_line(np.array([N117,N22]))
+    N24,N25,N26,N27 = divide_line(np.array([N23,N28]))
+    new_other=[np.array([P1,N1,N6,N5]),np.array([N1,N2,N7,N6]),np.array([N2,N3,N8,N7]),
+                         np.array([N3,N4,N9,N8]),np.array([N4,P2,N10,N9]),np.array([N5,N6,N12,N11]),
+                         np.array([N6,N7,N13,N12]),np.array([N7,N8,N14,N13]),np.array([N8,N9,N15,N14]),np.array([N9,N10,N16,N15]),np.array([N11,N12,N18,N17]),np.array([N12,N13,N19,N18]),np.array([N14,N15,N21,N20]),np.array([N15,N16,N22,N21]),np.array([N17,N18,N24,N23]),np.array([N18,N19,N25,N24]),np.array([N19,N20,N26,N25]),np.array([N20,N21,N27,N26]),np.array([N21,N22,N28,N27]),np.array([N23,N24,N29,P4]),np.array([N24,N25,N30,N29]),np.array([N25,N26,N31,N30]),np.array([N26,N27,N32,N31]),np.array([N27,N28,P3,N32])
                          ]
-    new_hole = [np.array([N9,N10,N11,N12])]
+    new_hole = [np.array([N13,N14,N20,N19])]
     normal = np.cross(P3-P2,P1-P2)
     normal = normal/np.linalg.norm(normal)
-    ndx = np.linalg.norm(P2-P1)/3.
-    H1 = N9+ndx*normal
-    H2 = N10+ndx*normal
-    H3 = N11+ndx*normal
-    H4 = N12 +ndx*normal
-    new_main=[np.array([H1,N9,N10,H2]),np.array([H2,N10,N11,H3]),np.array([H3,N11,N12,H4]),
-              np.array([H4,N12,N9,H1]),np.array([H1,H2,H3,H4])]
+    ndx = np.linalg.norm(P2-P1)/5.
+    H1 = N13+ndx*normal
+    H2 = N14+ndx*normal
+    H3 = N20+ndx*normal
+    H4 = N19 +ndx*normal
+    new_main=[np.array([H1,N13,N14,H2]),np.array([H2,N14,N20,H3]),np.array([H3,N20,N19,H4]),
+              np.array([H4,N19,N13,H1]),np.array([H1,H2,H3,H4])]
     #                 H1---------H4
     #                /|         / |
     #             H2/---------H3  |
-    #              |  N9------｜--N12
+    #              |  N13-----｜--N19
     #              | /        ｜ /
     #              |/         ｜/
-    #             N10---------N11
-    small_cube=[N10,H4]
+    #             N14---------N20
+    small_cube=[N14,H4]
     return (new_hole, new_other, new_main,small_cube)
 
 def koch_snowflake(sq_cube, level):
