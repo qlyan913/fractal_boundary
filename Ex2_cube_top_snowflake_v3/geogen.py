@@ -41,11 +41,11 @@ def divide_square(sq_vertices):
     #    |         |        |         |         |         
     #    N1 ------ N6 ---- N12 ----  N18 ----- N24 
     #    |         |        |         |         |         
-    #    |         |        |         |         |         
+    #    |         |        |  hole   |         |         
     #    |         |        |         |         |         
     #    N2------- N7 ---- N13 ----- N19 ----- N25 
     #    |         |        |         |         |         
-    #    |         |        |   Hole  |         |         
+    #    |         |        |         |         |         
     #    |         |        |         |         |         
     #    N3------- N8 ---- N14 ----- N20 ----- N26 
     #    |         |        |         |         |         
@@ -66,9 +66,9 @@ def divide_square(sq_vertices):
     N18,N19,N20 = divide_line(np.array([N17,N21]))
     new_other=[np.array([P1,N1,N6,N5]),np.array([N1,N2,N7,N6]),np.array([N2,N3,N8,N7]),
                          np.array([N3,P2,N9,N8]),np.array([N5,N6,N12,N11]),
-                         np.array([N6,N7,N13,N12]),np.array([N7,N8,N14,N13]),np.array([N8,N9,N15,N14]),np.array([N11,N12,N18,N17]),np.array([N12,N13,N19,N18]),np.array([N14,N15,N21,N20]),np.array([N17,N18,N24,P4]),np.array([N18,N19,N25,N24]),np.array([N19,N20,N26,N25]),np.array([N20,N21,P3,N26])
+                         np.array([N6,N7,N13,N12]),np.array([N7,N8,N14,N13]),np.array([N8,N9,N15,N14]),np.array([N11,N12,N18,N17]),np.array([N13,N14,N20,N19]),np.array([N14,N15,N21,N20]),np.array([N17,N18,N24,P4]),np.array([N18,N19,N25,N24]),np.array([N19,N20,N26,N25]),np.array([N20,N21,P3,N26])
                          ]
-    new_hole = [np.array([N13,N14,N20,N19])]
+    new_hole = [np.array([N12,N13,N19,N18])]
     normal = np.cross(P3-P2,P1-P2)
     normal = normal/np.linalg.norm(normal)
     ndx = np.linalg.norm(P2-P1)/4.
