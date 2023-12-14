@@ -22,14 +22,14 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=3
-deg=5
-tolerance = 1e-7
+nn=2
+deg=4
+tolerance = 1e-3
 max_iterations = 100
 # dimension of fractal boundary
-dim_frac=np.log(29)/np.log(25)
-l=(1/5.)**nn
-Lp=(7./5.)**nn
+dim_frac=np.log(20)/np.log(16)
+l=(1/4.)**nn
+Lp=(6./4.)**nn
 # load the ngmesh
 from netgen import meshing
 ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
@@ -69,8 +69,10 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
            l=  Constant(0.)
            V = FunctionSpace(mesh,"Lagrange",deg)
            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
+           PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
            uh = snowsolver(mesh, D, Lambda, f, u_D, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-           mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+           #mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+           mark,sum_eta =Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
            PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
            #PETSc.Sys.Print("Refining the marked elements ...")
            #Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))

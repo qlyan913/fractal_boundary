@@ -55,7 +55,7 @@ def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
      frac = .96
      delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .25
+     part = .45
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
@@ -90,7 +90,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_t
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
-     R_dT_top=dot(grad(uh), n)+1/Lambda*uh
+     R_dT_top=Lambda*dot(grad(uh), n)+uh
      # Assembling the error indicator eta
      eta = assemble(h**2*R_T**2*w*dx +0.25*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS
            +h*(R_dT)**2*(w)*ds(bc_right)
@@ -99,10 +99,10 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_t
            +h*(R_dT)**2*(w)*ds(bc_back)
            +h*(R_dT_top)**2*(w)*ds(tuple(bc_top)))
      # mark triangulation whose eta >= frac*eta_max
-     frac = .95
-     delfrac =0.05
+     frac = .98
+     delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .35
+     part = .2
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
