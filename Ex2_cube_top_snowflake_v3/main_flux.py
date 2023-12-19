@@ -24,7 +24,7 @@ from Ex2_solver import *
 #deg=int(input("Enter the degree of polynomial: "))
 nn=2
 deg=3
-tolerance = 1e-3
+tolerance = 2*1e-3
 max_iterations = 100
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(16)
@@ -177,9 +177,8 @@ PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv "
 
 
 # Region 3: Lp< Lambda<infty
-Phi=[]
 LL=np.array([Lp*2**(i) for i in range(11)])
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
