@@ -23,9 +23,9 @@ from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
 nn=2
-deg=3
-tolerance = 2*1e-3
-max_iterations = 100
+deg=4
+tolerance = 1e-4
+max_iterations = 5
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(16)
 l=(1/4.)**nn
@@ -34,7 +34,9 @@ Lp=(6./4.)**nn
 from netgen import meshing
 ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
 ngmsh.Load(f"domain/cube_{nn}.vol")
-
+#mesh_size=0.5
+#geo = MakeGeometry(nn)
+#ngmsh = geo.GenerateMesh(maxh=mesh_size)
 
 # Get label of boundary of Netgen mesh to index
 bc_left = [i+1 for [i, name] in enumerate(ngmsh.GetRegionNames(codim=1)) if name in ['left']][0]
@@ -53,31 +55,38 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
     for Lambda in LL:
         ngmsh = meshing.Mesh(3) # create a 3-dimensional mesh
         ngmsh.Load(f"domain/cube_{nn}.vol")
+#        ngmsh = geo.GenerateMesh(maxh=mesh_size)
         mesh=Mesh(ngmsh)
-        it=0
-        sum_eta=1
+        it=1
+        x, y,z = SpatialCoordinate(mesh)
+        D = Constant(1.)
+        f = Constant(0.)
+        u_D=Constant(1.)
+        V = FunctionSpace(mesh,"Lagrange",deg)
+        PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
+        #PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
+        uh = snowsolver_v2(mesh, D, Lambda, f, u_D,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+        mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+        #mark,sum_eta =Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+        PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
         while sum_eta>tolerance and it<max_iterations:
+           mesh = mesh.refine_marked_elements(mark)
            x, y,z = SpatialCoordinate(mesh)
            D = Constant(1.)
            f = Constant(0.)
            u_D=Constant(1.)
-           k1 =Constant(0.)
-           k2 =Constant(0.)
-           k3 =Constant(0.)
-           k4 =Constant(0.)
-           n = FacetNormal(mesh)
-           l=  Constant(0.)
+         #  n = FacetNormal(mesh) 
            V = FunctionSpace(mesh,"Lagrange",deg)
+           #PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize())
            #PETSc.Sys.Print(f'Finite element mesh has {mesh.num_cells()} cells and {mesh.num_vertices()} vertices.')
-           uh = snowsolver(mesh, D, Lambda, f, u_D, k1, k2,k3,k4, l,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
-           #mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
-           mark,sum_eta =Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+           uh = snowsolver_v2(mesh, D, Lambda, f, u_D,V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
+           mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
+#           mark,sum_eta =Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
            PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
            #PETSc.Sys.Print("Refining the marked elements ...")
            #Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(tuple(bc_top)))
            Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(tuple(bc_top)))
-           mesh = mesh.refine_marked_elements(mark)
            it=it+1
         PETSc.Sys.Print("Lambda is ", Lambda, " flux is ", Phi_temp2)
         Phi.append(Phi_temp2)
@@ -148,7 +157,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<l saved to results/Phi_Lam_{nn}_R1.csv ")
 # Region 2: l<Lambda <L_p
 l_log=np.log(l)
 Lp_log=np.log(Lp)
-LL_log = np.linspace(l_log,Lp_log,20) 
+LL_log = np.linspace(l_log,Lp_log,10) 
 LL=np.exp(LL_log)
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()

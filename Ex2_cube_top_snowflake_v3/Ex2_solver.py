@@ -41,6 +41,20 @@ def snowsolver(mesh, D, Lambda, f, g, k1, k2,k3,k4, l, V,bc_left,bc_right,bc_fro
     solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
+def snowsolver_v2(mesh, D, Lambda, f, g, V,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top):
+    # Test and trial functions
+    u = TrialFunction(V)
+    v = TestFunction(V)
+    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(tuple(bc_top))
+    L = f*v*dx
+    # list of boundary ids that corresponds to the exterior boundary of the domain
+    boundary_ids = bc_bot
+    bcs = DirichletBC(V, g, boundary_ids)
+    uh = Function(V)
+#    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg',"ksp_rtol":1e-6})
+    return(uh)
+    
 def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
      W = FunctionSpace(msh, "DG", 0) # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
@@ -55,7 +69,7 @@ def Mark(msh, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top):
      frac = .96
      delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .45
+     part = .35
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
