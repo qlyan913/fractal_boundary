@@ -100,6 +100,7 @@ Phi0=Phi[0]
 PETSc.Sys.Print('Phi0 is ', Phi0)
 # calculate flux for various Lambda 
 LL = np.array([2**i for i in range(-15,10)])
+LL=np.append(LL,[l,Lp])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
@@ -129,7 +130,7 @@ with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
 PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: 0<Lambda <l 
-LL = np.array([5**(-i) for i in range(nn,10)])
+LL = np.array([4**(-i) for i in range(nn,10)])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]
