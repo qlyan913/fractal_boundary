@@ -69,6 +69,7 @@ def get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,
         mark,sum_eta = Mark(mesh, f,uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
         #mark,sum_eta =Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_front,bc_back,bc_top)
         PETSc.Sys.Print("error indicator sum_eta is ", sum_eta)
+        Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(tuple(bc_top)))
         while sum_eta>tolerance and it<max_iterations:
            mesh = mesh.refine_marked_elements(mark)
            x, y,z = SpatialCoordinate(mesh)
