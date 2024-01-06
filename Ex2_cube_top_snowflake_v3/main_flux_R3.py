@@ -22,10 +22,10 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=2
-deg=4
+nn=3
+deg=5
 tolerance = 1e-4
-max_iterations = 5
+max_iterations = 2
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(16)
 l=(1/4.)**nn

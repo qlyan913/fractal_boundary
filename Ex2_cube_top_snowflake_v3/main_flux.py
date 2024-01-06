@@ -22,10 +22,10 @@ from geogen import *
 from Ex2_solver import *
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #deg=int(input("Enter the degree of polynomial: "))
-nn=2
-deg=4
+nn=3
+deg=5
 tolerance = 1e-4
-max_iterations = 5
+max_iterations = 2 # nn=2,deg =4, max it =5; nn=3
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(16)
 l=(1/4.)**nn
@@ -100,7 +100,7 @@ Phi =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc
 Phi0=Phi[0]
 PETSc.Sys.Print('Phi0 is ', Phi0)
 # calculate flux for various Lambda 
-LL = np.array([2**i for i in range(-15,10)])
+LL = np.array([2**i for i in range(-15,9)])
 LL=np.append(LL,[l,Lp])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()
