@@ -100,7 +100,7 @@ Phi =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc
 Phi0=Phi[0]
 PETSc.Sys.Print('Phi0 is ', Phi0)
 # Region 1: 0<Lambda <l 
-LL = np.array([4**(-i) for i in range(nn,9)])
+LL=np.array([l*2**(-i) for i in range(8)])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
 fig, axes = plt.subplots()
 phi_2=[]

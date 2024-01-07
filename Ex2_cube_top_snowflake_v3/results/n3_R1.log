@@ -60,3 +60,50 @@ firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1
 /home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
   warnings.warn("No NGSolve installed, only working with Netgen.")
 Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.013218259374587288
+Refined Mesh with degree of freedom  5391036
+error indicator sum_eta is  0.00450891002397678
+Lambda is  1e-11  flux is  0.9980451738723359
+Phi0 is  0.9980451738723359
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.007618330313290703
+Refined Mesh with degree of freedom  5674501
+error indicator sum_eta is  0.0026192731771238877
+Lambda is  0.015625  flux is  0.9835029449355028
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.003908110192837632
+Refined Mesh with degree of freedom  5670521
+error indicator sum_eta is  0.0012637020863919069
+Lambda is  0.0078125  flux is  0.9904311084777491
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.0027497486316747023
+Refined Mesh with degree of freedom  5430536
+error indicator sum_eta is  0.0008703152040001659
+Lambda is  0.00390625  flux is  0.9941150148283354
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.003069965149023619
+Refined Mesh with degree of freedom  5402901
+error indicator sum_eta is  0.0008547270586352538
+Lambda is  0.001953125  flux is  0.9960347940307032
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.00420166359929223
+Refined Mesh with degree of freedom  5399211
+error indicator sum_eta is  0.0011748837385919127
+Lambda is  0.0009765625  flux is  0.9970217401761104
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.00570183008902706
+Refined Mesh with degree of freedom  5399726
+error indicator sum_eta is  0.0016784611614016351
+Lambda is  0.00048828125  flux is  0.997525841066685
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.00734703542627728
+Refined Mesh with degree of freedom  5395261
+error indicator sum_eta is  0.0022142951580416594
+Lambda is  0.000244140625  flux is  0.997781427635876
+Refined Mesh with degree of freedom  1084696
+error indicator sum_eta is  0.009018492137049448
+Refined Mesh with degree of freedom  5396321
+error indicator sum_eta is  0.0026989796195291405
+Lambda is  0.0001220703125  flux is  0.9979133984707792
+plot for 0<Lambda<l saved to figures/Phi_Lam_3_R1.png 
+Result for 0<Lambda<l saved to results/Phi_Lam_3_R1.csv 
