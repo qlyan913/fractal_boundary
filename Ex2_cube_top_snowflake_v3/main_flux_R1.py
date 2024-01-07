@@ -110,7 +110,7 @@ alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
-plt.xticks([10**(-7),10**(-6),10**(-5),10**(-4),10**(-3),l],['$10^{-7}$','$10^{-6}$','$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
+plt.xticks([10**(-5),10**(-4),10**(-3),l],['$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
