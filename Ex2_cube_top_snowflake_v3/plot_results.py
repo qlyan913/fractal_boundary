@@ -4,7 +4,7 @@ import csv
 import numpy as np
 from collections import defaultdict
 
-nn=1
+nn=3
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(4)
 l=(1/4.)**nn
@@ -99,7 +99,7 @@ print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
 # plot for Region 3: Lp< Lambda<infty
 # load data
 columns = defaultdict(list) # each value in each column is appended to a list
-with open(f'results/Phi_Lam_{nn}_R2.csv') as f:
+with open(f'results/Phi_Lam_{nn}_R3.csv') as f:
     reader = csv.DictReader(f) # read rows into a dictionary format
     for row in reader: # read a row as {column1: value1, column2: value2,...}
         for (k,v) in row.items(): # go over each column name and value
