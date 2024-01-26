@@ -4,7 +4,7 @@ import csv
 import numpy as np
 from collections import defaultdict
 
-nn=2
+nn=3
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(4)
 l=(1/4.)**nn
@@ -28,7 +28,7 @@ phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
 phi_2_log=np.log(phi_2)
-alpha=1/(2*dim_frac)
+alpha=1/(dim_frac/2)
 plt.loglog(LL[0:-2], phi_2[0:-2],marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='red',linestyle='dashed',linewidth=0.8)
 alpha=1
@@ -85,7 +85,7 @@ fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
    phi_2.append(1/Phi[i]-1/Phi0)
-alpha=1/(2*dim_frac)
+alpha=1/(dim_frac/2)
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
