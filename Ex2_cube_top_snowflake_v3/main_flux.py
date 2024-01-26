@@ -25,9 +25,9 @@ from Ex2_solver import *
 nn=3
 deg=5
 tolerance = 1e-4
-max_iterations = 2 # nn=2,deg =4, max it =5; nn=3
+max_iterations = 2 # nn=2,deg =4, max it =5; nn=3, deg=5, max it =2;
 # dimension of fractal boundary
-dim_frac=np.log(20)/np.log(16)
+dim_frac=np.log(20)/np.log(4)
 l=(1/4.)**nn
 Lp=(6./4.)**nn
 # load the ngmesh

@@ -8,8 +8,8 @@ from geogen import *
 from Ex2_solver import *
 #n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-n=3
-mesh_size=0.2
+n=4
+mesh_size=1
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 ngmsh.Save(f"domain/cube_{n}.vol")
