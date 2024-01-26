@@ -4,7 +4,7 @@ import csv
 import numpy as np
 from collections import defaultdict
 
-nn=3
+nn=1
 # dimension of fractal boundary
 dim_frac=np.log(20)/np.log(4)
 l=(1/4.)**nn
@@ -36,7 +36,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='das
 plt.loglog(LL,(LL)**alpha/(LL[-3]**alpha)*(phi_2[-3]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
-plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{1/d})$', '$O(\Lambda^{1})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{2/d})$', '$O(\Lambda^{1})$'])
 plt.xticks([10**(-4),10**(-3),10**(-2),10**(-1),1,10**(1),10**(2),10**3,l, Lp], ['$10^{-4}$','$10^{-3}$','$10^{-2}$','$10^{-1}$','$10^{0}$','$10^{1}$','$10^{2}$','$10^{3}$','l', 'Lp'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
@@ -91,7 +91,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashe
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.xticks([10**(-2),10**(-1),1,l, Lp], ['$10^{-2}$','$10^{-1}$','$10^{0}$','l','Lp'])
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/d})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{2/d})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
