@@ -17,7 +17,7 @@ def snowsolver(mesh, D, Lambda, f, g, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_t
     L = f*v*dx + kl*v*ds(bc_left) + kr*v*ds(bc_right) + (1./Lambda)*l*v*ds(bc_top)
     boundary_ids = bc_bot
     bcs = DirichletBC(V, g, boundary_ids)
-    uh = Function(V)
+    uh = Function(V,name="u")
     solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
     return(uh)
 
@@ -148,7 +148,7 @@ def get_flux(mesh,uh,D,bc_top):
 def export_to_pvd(path,mesh,uh,grad_uh):
     V_out = VectorFunctionSpace(mesh, "CG", 1)
     outfile = File(path)
-    outfile.write(uh,project(grad_uh,V_out))
+    outfile.write(uh,project(grad_uh,V_out,name="grad_u"))
     PETSc.Sys.Print(f"The solution u and its gradient are saved to {path}")
 
 
