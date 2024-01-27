@@ -27,18 +27,18 @@ geo = MakeGeometry(nn)
 
 # get flux Phi0 at lambda = 0
 Lambda=10**(-11)
-mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
 Phi0=get_flux(mesh_adap,uh,D,bc_top)
 PETSc.Sys.Print("phi0 is", Phi0)
 file_name=f"results/solution_{nn}.pvd"
-export_to_pvd(file_name,uh,uh)
+export_to_pvd(file_name,mesh_adap,uh,grad_uh)
 
 # calculate flux for various Lambda
 Phi=[]
 LL = np.array([2**i for i in range(-15,10)])
 LL=np.append(LL,[l,Lp])
 for Lambda in LL:
-    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
     PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
@@ -75,7 +75,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 Phi=[]
 LL = np.array([3**(-i) for i in range(nn,20)])
 for Lambda in LL:
-    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
     PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
@@ -108,7 +108,7 @@ Lp_log=np.log(Lp)
 LL_log = np.linspace(l_log,Lp_log,20) 
 LL=np.exp(LL_log)
 for Lambda in LL:
-    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
     PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
@@ -140,7 +140,7 @@ PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv "
 Phi=[]
 LL=np.array([Lp*2**(i) for i in range(15)])
 for Lambda in LL:
-    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
     PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)

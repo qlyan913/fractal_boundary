@@ -135,7 +135,8 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc
         mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
 #       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-    return mesh, uh
+    grad_uh=grad(uh)
+    return mesh, uh,grad_uh
     
 def get_flux(mesh,uh,D,bc_top):
     n = FacetNormal(mesh)
@@ -144,9 +145,10 @@ def get_flux(mesh,uh,D,bc_top):
   
     return Phi
 
-def export_to_pvd(path,uh,grad_uh):
+def export_to_pvd(path,mesh,uh,grad_uh):
+    V_out = VectorFunctionSpace(mesh, "CG", 1)
     outfile = File(path)
-    outfile.write(uh,grad_uh)
+    outfile.write(uh,project(grad_uh,V_out))
     PETSc.Sys.Print(f"The solution u and its gradient are saved to {path}")
 
 
