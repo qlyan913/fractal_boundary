@@ -106,7 +106,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
              sct(markedVec0, markedVec, mode=PETSc.Scatter.Mode.REVERSE)
      return mark, sum_eta
 
-def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top):
     ngmsh = geo.GenerateMesh(maxh=mesh_size)
     mesh = Mesh(ngmsh)
     it = 0
@@ -144,7 +144,7 @@ def get_flux(mesh,uh,D,bc_top):
   
     return Phi
 
-def export_to_pvd(path,uh,grad_uh)
+def export_to_pvd(path,uh,grad_uh):
     outfile = File(path)
     outfile.write(uh,grad_uh)
     PETSc.Sys.Print(f"The solution u and its gradient are saved to {path}")

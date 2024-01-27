@@ -31,7 +31,7 @@ mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc
 Phi0=get_flux(mesh_adap,uh,D,bc_top)
 PETSc.Sys.Print("phi0 is", Phi0)
 file_name=f"results/solution_{nn}.pvd"
-export_to_pvd(file_name,uh,grad_uh)
+export_to_pvd(file_name,uh,uh)
 
 # calculate flux for various Lambda
 Phi=[]
@@ -40,6 +40,7 @@ LL=np.append(LL,[l,Lp])
 for Lambda in LL:
     mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
     
 fig, axes = plt.subplots()
@@ -76,6 +77,7 @@ LL = np.array([3**(-i) for i in range(nn,20)])
 for Lambda in LL:
     mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
@@ -108,6 +110,7 @@ LL=np.exp(LL_log)
 for Lambda in LL:
     mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
@@ -139,6 +142,7 @@ LL=np.array([Lp*2**(i) for i in range(15)])
 for Lambda in LL:
     mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
     Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
