@@ -115,7 +115,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashe
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.xticks([10**(-2),10**(-1),1,l, Lp], ['$10^{-2}$','$10^{-1}$','$10^{0}$','l','Lp'])
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/d})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")

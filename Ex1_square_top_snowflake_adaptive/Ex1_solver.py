@@ -7,6 +7,7 @@
 # Adaptive FEM
 from firedrake.petsc import PETSc
 from firedrake import *
+
 def snowsolver(mesh, D, Lambda, f, g, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top):
     V = FunctionSpace(mesh, "Lagrange", deg)
     # Test and trial functions
@@ -104,4 +105,49 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
                  markedVec0.getArray()[:] = 1.0*marked[:]
              sct(markedVec0, markedVec, mode=PETSc.Scatter.Mode.REVERSE)
      return mark, sum_eta
+
+def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    ngmsh = geo.GenerateMesh(maxh=mesh_size)
+    mesh = Mesh(ngmsh)
+    it = 0
+    x, y = SpatialCoordinate(mesh)
+    DD = Constant(D)
+    f = Constant(0.)
+    u_D=Constant(1.)
+    kl=Constant(0.)
+    kr=Constant(0.)
+    l=Constant(0.)
+    V = FunctionSpace(mesh,"Lagrange",deg)
+    uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
+    mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+    while sum_eta>tolerance and it<max_iterations:
+        it=it+1
+        mesh = mesh.refine_marked_elements(mark)
+        x, y = SpatialCoordinate(mesh)
+        DD = Constant(D)
+        f = Constant(0.)
+        u_D=Constant(1.)
+        kl=Constant(0.)
+        kr=Constant(0.)
+        l=Constant(0.)
+        V = FunctionSpace(mesh,"Lagrange",deg)
+        uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
+        mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+#       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+        PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
+    return mesh, uh
+    
+def get_flux(mesh,uh,D,bc_top):
+    n = FacetNormal(mesh)
+    x, y = SpatialCoordinate(mesh)
+    Phi=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
+  
+    return Phi
+
+def export_to_pvd(path,uh,grad_uh)
+    outfile = File(path)
+    outfile.write(uh,grad_uh)
+    PETSc.Sys.Print(f"The solution u and its gradient are saved to {path}")
+
+
 

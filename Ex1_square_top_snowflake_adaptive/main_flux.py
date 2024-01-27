@@ -1,4 +1,3 @@
-from firedrake.petsc import PETSc
 import csv
 import matplotlib.pyplot as plt
 from firedrake import *
@@ -7,6 +6,7 @@ from scipy import stats
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex1_solver import *
+import numpy as np
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #deg=int(input("Enter the degree of polynomial: "))
@@ -22,47 +22,26 @@ bc_top=(1)
 bc_right=(2)
 bc_bot=(3)
 bc_left=(4)
+D=1
 geo = MakeGeometry(nn)
-def get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top):
-    Phi=[]
-    for Lambda in LL:
-        ngmsh = geo.GenerateMesh(maxh=mesh_size)
-        mesh = Mesh(ngmsh)
-        it = 0
-        sum_eta=1
-        while sum_eta>tolerance and it<max_iterations:
-            x, y = SpatialCoordinate(mesh)
-            n = FacetNormal(mesh)
-            D = Constant(1.)
-            f = Constant(0.)
-            u_D=Constant(1.)
-            kl=Constant(0.)
-            kr=Constant(0.)
-            l=Constant(0.)
-            V = FunctionSpace(mesh,"Lagrange",deg)
-            uh = snowsolver(mesh, D, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-            mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#            mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
-            PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-            it=it+1
-            Phi_temp=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
-            Phi_temp2=assemble(Constant(D)/Constant(Lambda)*uh*ds(bc_top))
-            mesh = mesh.refine_marked_elements(mark)
-        PETSc.Sys.Print("Lambda is ", Lambda, " flux is ", Phi_temp2)
-        Phi.append(Phi_temp2)
-    return Phi
+
 # get flux Phi0 at lambda = 0
 Lambda=10**(-11)
-Phi=get_flux(geo, [Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
-Phi0=Phi[0]
+mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+Phi0=get_flux(mesh_adap,uh,D,bc_top)
 PETSc.Sys.Print("phi0 is", Phi0)
+file_name=f"results/solution_{nn}.pvd"
+export_to_pvd(file_name,uh,grad_uh)
 
-# calculate flux for various Lambda 
+# calculate flux for various Lambda
 Phi=[]
-import numpy as np
 LL = np.array([2**i for i in range(-15,10)])
 LL=np.append(LL,[l,Lp])
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+for Lambda in LL:
+    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    Phi.append(Phi0)
+    
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -94,7 +73,10 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 # Region 1: Lambda <l 
 Phi=[]
 LL = np.array([3**(-i) for i in range(nn,20)])
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+for Lambda in LL:
+    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -123,7 +105,10 @@ l_log=np.log(l)
 Lp_log=np.log(Lp)
 LL_log = np.linspace(l_log,Lp_log,20) 
 LL=np.exp(LL_log)
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+for Lambda in LL:
+    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -151,7 +136,10 @@ PETSc.Sys.Print(f"Result for l<Lambda<L_p saved to results/Phi_Lam_{nn}_R2.csv "
 # Region 3: Lp< Lambda<infty
 Phi=[]
 LL=np.array([Lp*2**(i) for i in range(15)])
-Phi=get_flux(geo, LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_bot,bc_top)
+for Lambda in LL:
+    mesh_adap,uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
+    Phi0=get_flux(mesh_adap,uh,D,bc_top)
+    Phi.append(Phi0)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
