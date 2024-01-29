@@ -1,19 +1,19 @@
 In this example, we solve
 
-$-\text{div}(D\text{grad}u)=0\ \\text{on}\ \Omega$
+$-\Delta u=f\ \\text{on}\ \Omega$
 
-$\Omega$: the unit square wherethe top edge has been replaced by a triangle prefractal.
+$\Omega$: the unit square with each edge have been replaced by a square prefractal.
 
-The boundary conditions
+The boundary conditions is $u=0$ on $\partial \Omega$. 
 
-On bottom edge, Dirichlet: $u=1$.
+Here, we implement with the adpative FEM. The adaptive meshing code is based on the firedrake tutorial here: https://www.firedrakeproject.org/demos/netgen_mesh.py.html. 
 
-On sides, homogeneous Neumann: $\frac{\partial u}{\partial n}=0$.
+1. In test_Lshape.py, it test the adaptive solver on the L shape domain. The manufacuted solution is $u(r,\theta)=r^{2/3}sin(2/3\theta)$. The error v.s. degree of freedom is saved in figures/Lshape_test_dof.png. The refined mesh is saved in refined_mesh/Lshape_mesh.
 
-On prefractal top edge, Robin boundary conditions: $\Lambda\frac{\partial u}{\partial n}+u=0$.
+2. In test.py, it solving the PDE on square with fractal boundary. 
 
-1. To generate the domain, run `python3 snow_square.py`. Then it will require the number of iterations for snowflake.
 
-2. In the script main_flux.py, it solves the PDE and draws the plot for the flux through the top edge as a function of $\Lambda$. 
+
+
 
 
