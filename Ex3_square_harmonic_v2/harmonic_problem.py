@@ -16,7 +16,7 @@ from Ex3_solver import *
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-n=8
+n=4
 deg=5
 mesh_size=1
 # choose a triangulation
@@ -25,30 +25,29 @@ ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 20
-
 # stop refinement when sum_eta less than tolerance
 tolerance=1e-8
 
 # center points at center of squares of i-th iteration
-pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
+pp=[[0.5,3/2-(1/3.)**i] for i in range(1,n+1)]
 # distance to boundary
 x_list=[(1/3.)**i for i in range(1,n+1)]
 
-uh=get_solution(mesh0,tolerance,max_iterations,deg)
-
-
-# plot solution
-fig, axes = plt.subplots()
-collection = tripcolor(uh, axes=axes)
-fig.colorbar(collection);
-plt.savefig(f"figures/solution_{n}.png")
-PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
+uh,mesh=get_solution(mesh0,tolerance,max_iterations,deg)
 
 mesh.name="msh"
 with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
   afile.save_mesh(mesh)
   afile.save_function(uh)
 PETSc.Sys.Print(f"The solution is saved to solutions/solution_{n}.h5")
+
+from firedrake.pyplot import tripcolor
+# plot solution
+fig, axes = plt.subplots()
+collection = tripcolor(uh, axes=axes)
+fig.colorbar(collection);
+plt.savefig(f"figures/solution_{n}.png")
+PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
 uu=uh.at(pp)
 plt.figure()

@@ -32,19 +32,19 @@ def get_solution(mesh,tolerance,max_iterations,deg):
     f=Constant(0.0)
     g=0.0
     g_int=10.0
-    uh = snowsolver(mesh, f,g,V)
+    uh = snowsolver(mesh, f,g,g_int,V)
     mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
         mesh = mesh.refine_marked_elements(mark)
         x, y = SpatialCoordinate(mesh)
-        V = FunctionSpace(mesh0, "Lagrange", deg)
+        V = FunctionSpace(mesh, "Lagrange", deg)
         f=Constant(0.0)
         g=0.0
         uh = snowsolver(mesh, f,g,g_int,V)
         mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-
+    return uh,mesh
 
 
 def Mark(msh, f, uh,V,tolerance):
