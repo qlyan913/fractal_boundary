@@ -92,13 +92,14 @@ def estimate_all(n,uh):
    PETSc.Sys.Print("Total number of the path from center to boundary is ", len(path_to_boundary), " which should be 4*3^(n-1)")
    PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
    PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
-
+   plt.figure() 
    plt.hist(alpha0,bins=60)
    plt.xlabel('value of alpha')
    plt.savefig(f"figures/distribution_alpha.png")
    plt.close()
    PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha.png.")
-
+  
+   plt.figure() 
    plt.hist(c0,bins=60)
    plt.xlabel('value of c')
    plt.savefig(f"figures/distribution_c.png")
