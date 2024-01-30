@@ -25,7 +25,7 @@ def all_path(n):
    # input: iterations for fractal
    # Output: sequence of points
    path_to_boundary=[]
-   h=[2*(1/3.)**(i+1) for i in range(1,n+1)]
+   h=[2*(1/3.)**(i+1) for i in range(0,n+1)]
    list_of_all_possible_number=generate_lists_of_length_n(n-1)
    for nn in range(4):
       pp0=[]
@@ -66,8 +66,6 @@ def all_path(n):
 def estimate_all(n,uh):
    # distance to boundary
    x_list=[(1/3.)**i for i in range(1,n+1)]
-   # step size 
-   h=[2*(1/3.)**(i+1) for i in range(1,n+1)]
    alpha0=[]
    c0=[]
    path_to_boundary=all_path(n)
