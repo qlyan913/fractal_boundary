@@ -16,7 +16,7 @@ from Ex3_solver import *
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-n=8
+n=4
 deg=5
 mesh_size=1
 # choose a triangulation
@@ -35,7 +35,7 @@ x_list=[(1/3.)**i for i in range(1,n+1)]
 
 uh,mesh=get_solution(mesh0,tolerance,max_iterations,deg)
 
-#mesh.name="msh"
+ #mesh.name="msh"
 #with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
 #  afile.save_mesh(mesh)
 #  afile.save_function(uh)
@@ -58,17 +58,17 @@ plt.savefig(f"figures/evaluate_{n}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of evaluation of solution is saved in figures/evaluate_{n}.png.")
 
-tt=x_list
-tt=np.array([(x_list[i]/x_list[2])**2.5*uu[2] for i in range(0,len(uu))])
-plt.figure()
-plt.loglog(x_list,uu,marker='o')
-plt.loglog(x_list,tt,marker='v')
-plt.ylabel('evaluation of solution')
-plt.xlabel('distance to boundary')
-plt.legend(['value of solution','$dist^{2.5}$'])
-plt.savefig(f"figures/evaluate_log_{n}.png")
-plt.close()
-PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_log_{n}.png.")
+#tt=x_list
+#tt=np.array([(x_list[i]/x_list[2])**2.5*uu[2] for i in range(0,len(uu))])
+#plt.figure()
+#plt.loglog(x_list,uu,marker='o')
+#plt.loglog(x_list,tt,marker='v')
+#plt.ylabel('evaluation of solution')
+#plt.xlabel('distance to boundary')
+#plt.legend(['value of solution','$dist^{2.5}$'])
+#plt.savefig(f"figures/evaluate_log_{n}.png")
+#plt.close()
+#PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_log_{n}.png.")
 
 PETSc.Sys.Print("evaluation of solution  at points:")
 PETSc.Sys.Print(pp)
