@@ -16,7 +16,7 @@ from Ex3_solver import *
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-n=4
+n=8
 deg=5
 mesh_size=1
 # choose a triangulation
