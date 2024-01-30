@@ -2,7 +2,7 @@
 # Solve
 #   -\Delta u =f in Omega
 # where Omega=Q\Q_int, Q=[0,1]x[0,1] with fractal boundary,
-# Q_int =[0.4,0.6]x[0.4,0.6]
+# Q_int =[0.45,0.55]x[0.45,0.55]
 # u=g on \partial Q, u=g_int on \partial Q_int
 # Adaptive FEM
 from firedrake.petsc import PETSc

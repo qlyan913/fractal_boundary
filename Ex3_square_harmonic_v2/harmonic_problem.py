@@ -1,8 +1,8 @@
 # Qile Yan 2023-01-29
-# Solve
+# Solveestimate_all_path.py
 #   -\Delta u =0 in Omega
 # where Omega=Q\Q_int, Q=[0,1]x[0,1] with fractal boundary,
-# Q_int =[0.4,0.6]x[0.4,0.6]
+# Q_int =[0.45,0.55]x[0.45,0.55]
 # u=0 on \partial Q, u=10 on \partial Q_int
 # In this example, we would like to evaluate the solution at center of small squares.
 #
@@ -16,7 +16,7 @@ from Ex3_solver import *
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-n=4
+n=8
 deg=5
 mesh_size=1
 # choose a triangulation
@@ -24,9 +24,9 @@ geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
-max_iterations = 20
+max_iterations = 60
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-8
+tolerance=1e-5
 
 # center points at center of squares of i-th iteration
 pp=[[0.5,3/2-(1/3.)**i] for i in range(1,n+1)]
@@ -35,11 +35,11 @@ x_list=[(1/3.)**i for i in range(1,n+1)]
 
 uh,mesh=get_solution(mesh0,tolerance,max_iterations,deg)
 
-mesh.name="msh"
-with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
-  afile.save_mesh(mesh)
-  afile.save_function(uh)
-PETSc.Sys.Print(f"The solution is saved to solutions/solution_{n}.h5")
+#mesh.name="msh"
+#with CheckpointFile(f"solutions/solution_{n}.h5",'w') as afile:
+#  afile.save_mesh(mesh)
+#  afile.save_function(uh)
+#PETSc.Sys.Print(f"The solution is saved to solutions/solution_{n}.h5")
 
 from firedrake.pyplot import tripcolor
 # plot solution
@@ -75,6 +75,5 @@ PETSc.Sys.Print(pp)
 PETSc.Sys.Print("value:")
 PETSc.Sys.Print(uu)
 
-
-
-
+from estimate_all_path import *
+estimate_all(n,uh)

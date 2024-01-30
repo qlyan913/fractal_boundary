@@ -1,0 +1,84 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+Refined Mesh with degree of freedom  2983510 sum_eta is  154.83096683015035
+Refined Mesh with degree of freedom  2984600 sum_eta is  88.48220505571068
+Refined Mesh with degree of freedom  2985270 sum_eta is  54.00259728311654
+Refined Mesh with degree of freedom  2986405 sum_eta is  32.18362351948142
+Refined Mesh with degree of freedom  2987770 sum_eta is  18.58586852133322
+Refined Mesh with degree of freedom  2989350 sum_eta is  11.238272566432345
+Refined Mesh with degree of freedom  2991250 sum_eta is  7.142096441603938
+Refined Mesh with degree of freedom  2993385 sum_eta is  4.247818517399413
+Refined Mesh with degree of freedom  2996385 sum_eta is  2.383646135896697
+Refined Mesh with degree of freedom  2999715 sum_eta is  1.3640291363719208
+Refined Mesh with degree of freedom  3002935 sum_eta is  0.6988577795670169
+Refined Mesh with degree of freedom  3005735 sum_eta is  0.4188078605008235
+Refined Mesh with degree of freedom  3009030 sum_eta is  0.2444069831903151
+Refined Mesh with degree of freedom  3013605 sum_eta is  0.13548394725603696
+Refined Mesh with degree of freedom  3018230 sum_eta is  0.07963156863612536
+Refined Mesh with degree of freedom  3023455 sum_eta is  0.04649002376566737
+Refined Mesh with degree of freedom  3030070 sum_eta is  0.025790970203101747
+Refined Mesh with degree of freedom  3037735 sum_eta is  0.014071224884737454
+Refined Mesh with degree of freedom  3046855 sum_eta is  0.007540998039888132
+Refined Mesh with degree of freedom  3054500 sum_eta is  0.004414221119385477
+Refined Mesh with degree of freedom  3065310 sum_eta is  0.002400611478603297
+Refined Mesh with degree of freedom  3077690 sum_eta is  0.0012621588644095955
+Refined Mesh with degree of freedom  3090670 sum_eta is  0.0006997247628195051
+Refined Mesh with degree of freedom  3110875 sum_eta is  0.0003755146760615326
+Refined Mesh with degree of freedom  3134700 sum_eta is  0.00019725939507221125
+Refined Mesh with degree of freedom  3167090 sum_eta is  9.972693750711316e-05
+Refined Mesh with degree of freedom  3202640 sum_eta is  4.852110514060512e-05
+Refined Mesh with degree of freedom  3242875 sum_eta is  2.3937183057923015e-05
+Refined Mesh with degree of freedom  3292840 sum_eta is  1.1751845814022021e-05
+Refined Mesh with degree of freedom  3352880 sum_eta is  5.876333371595638e-06
+The plot of solution is saved to figures/solution_8.png
+plot of evaluation of solution is saved in figures/evaluate_8.png.
+plot of evaluation of solution in loglog is saved in figures/evaluate_log_8.png.
+evaluation of solution  at points:
+[[0.5, 1.1666666666666667], [0.5, 1.3888888888888888], [0.5, 1.462962962962963], [0.5, 1.4876543209876543], [0.5, 1.4958847736625513], [0.5, 1.4986282578875172], [0.5, 1.4995427526291725], [0.5, 1.499847584209724]]
+value:
+[array(0.1885434), array(0.00423466), array(9.51089835e-05), array(2.13409143e-06), array(4.7876541e-08), array(1.07249173e-09), array(2.39314735e-11), array(4.79432626e-13)]
+Total number of the path from center to boundary is  8748  which should be 4*3^(n-1)
+Mean of the alpha is 0.015660466016909836, the standard deviation is 0.018878418653802884 
+Mean of the c is 3.887618777990603, the standard deviation is 0.2726579434549933 
+plot of distribution of all estiamted alpha is saved in figures/distribution_alpha.png.
+plot of distribution of all estiamted c is saved in figures/distribution_c.png.
+Results of alpha and c are saved to  results/Results_8.csv

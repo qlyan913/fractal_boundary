@@ -94,10 +94,10 @@ def MakeGeometry(fractal_level):
     [geo.Append (["line", L[1][1], L[0][1]], bc = 4) for L in line_list]
     
     # Add interior boundary
-    pnt1_int=(0.4,0.6)
-    pnt2_int=(0.6,0.6)
-    pnt3_int=(0.6,0.4)
-    pnt4_int=(0.4,0.4)
+    pnt1_int=(0.45,0.55)
+    pnt2_int=(0.55,0.55)
+    pnt3_int=(0.55,0.45)
+    pnt4_int=(0.45,0.45)
     p1_int=geo.AppendPoint(*pnt1_int)
     p2_int=geo.AppendPoint(*pnt2_int)
     p3_int=geo.AppendPoint(*pnt3_int)
