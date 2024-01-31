@@ -26,7 +26,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 60
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-5
+tolerance=1e-3
 
 # center points at center of squares of i-th iteration
 pp=[[0.5,3/2-(1/3.)**i] for i in range(1,n+1)]
