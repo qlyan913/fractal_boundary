@@ -41,9 +41,9 @@ firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1
   warnings.warn("No NGSolve installed, only working with Netgen.")
 Refined Mesh with degree of freedom  2983510 sum_eta is  1.5483096683014403
 Refined Mesh with degree of freedom  2984600 sum_eta is  0.8848220505572157
-Refined Mesh with degree of freedom  2985270 sum_eta is  0.5400259728311902
-Refined Mesh with degree of freedom  2986405 sum_eta is  0.3218362351948013
-Refined Mesh with degree of freedom  2987770 sum_eta is  0.18585868521337545
+Refined Mesh with degree of freedom  2985270 sum_eta is  0.5400259728311828
+Refined Mesh with degree of freedom  2986405 sum_eta is  0.3218362351948099
+Refined Mesh with degree of freedom  2987770 sum_eta is  0.18585868521337842
 Refined Mesh with degree of freedom  2989350 sum_eta is  0.11238272566434604
 Refined Mesh with degree of freedom  2991250 sum_eta is  0.0714209644160408
 Refined Mesh with degree of freedom  2993385 sum_eta is  0.04247818517400283
@@ -62,7 +62,7 @@ Refined Mesh with degree of freedom  3054500 sum_eta is  4.414221119394208e-05
 Refined Mesh with degree of freedom  3065310 sum_eta is  2.4006114786040993e-05
 Refined Mesh with degree of freedom  3077690 sum_eta is  1.262158864402854e-05
 Refined Mesh with degree of freedom  3090670 sum_eta is  6.9972476282461224e-06
-The plot of solution is saved to figures/solution_8.pdf
+The plot of solution is saved to figures/solution_8.png
 plot of evaluation of solution is saved in figures/evaluate_8.png.
 plot of evaluation of solution in loglog is saved in figures/evaluate_log_8.png.
 evaluation of solution  at points:
