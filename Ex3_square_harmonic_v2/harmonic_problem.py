@@ -13,6 +13,8 @@ from firedrake import *
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
+import statistics 
+from scipy import stats
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
@@ -26,7 +28,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 60
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-3
+tolerance=1e-5
 
 # center points at center of squares of i-th iteration
 pp=[[0.5,3/2-(1/3.)**i] for i in range(1,n+1)]
@@ -48,7 +50,7 @@ collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
 plt.xlim(-1, 2)
 plt.axis('equal')
-plt.savefig(f"figures/solution_{n}.png",dpi=2000)
+plt.savefig(f"figures/solution_{n}.png")
 plt.close()
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 #outfile = File(f"figures/solution_{n}.pvd")
@@ -63,14 +65,17 @@ plt.savefig(f"figures/evaluate_{n}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of evaluation of solution is saved in figures/evaluate_{n}.png.")
 
-tt=x_list
-tt=np.array([(x_list[i]/x_list[2])**1*uu[2] for i in range(0,len(uu))])
+x_list_log=np.log(x_list)
+uu_log=np.log(uu)
+res = stats.linregress(x_list_log, uu_log)
+alpha=res.slope
+tt=np.array([(x_list[i]/x_list[2])**alpha*uu[2] for i in range(0,len(uu))])
 plt.figure()
 plt.loglog(x_list,uu,marker='o')
 plt.loglog(x_list,tt,marker='v')
 plt.ylabel('evaluation of solution')
 plt.xlabel('distance to boundary')
-plt.legend(['value of solution','$dist^{1}$'])
+plt.legend(['value of solution',f'$O(dist^{{alpha}})$'])
 plt.savefig(f"figures/evaluate_log_{n}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of evaluation of solution in loglog is saved in figures/evaluate_log_{n}.png.")
