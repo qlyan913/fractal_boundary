@@ -46,9 +46,9 @@ from firedrake.pyplot import tripcolor
 fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
-plt.savefig(f"figures/solution_{n}.png")
+plt.savefig(f"figures/solution_{n}.pdf")
 plt.close()
-PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
+PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.pdf")
 
 uu=uh.at(pp)
 plt.figure()
