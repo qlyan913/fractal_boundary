@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
+from firedrake.pyplot import triplot
 import numpy as np
 import time
 from netgen.occ import *
