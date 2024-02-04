@@ -1,4 +1,4 @@
-# Qile Yan 2023-12-7
+# Qile Yan 2024-02-01
 
 # -div ( D grad u) = f in Omega
 # u = g on bottom
@@ -24,7 +24,7 @@ import numpy as np
 from firedrake.petsc import PETSc
 from netgen.geom2d import SplineGeometry
 from geogen import *
-from Ex1_solver import *
+from Ex4_solver import *
 nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))

@@ -11,8 +11,8 @@ mesh_size=float(input("Enter the meshsize for initial mesh: "))
 #mesh_size=1
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
-ngmsh.Save(f"domain/snow_{n}.vol")
-PETSc.Sys.Print(f"The initial netgen mesh is saved as 'domain/snow_{n}.vol.")
+ngmsh.Save(f"domain/cantor_{n}.vol")
+PETSc.Sys.Print(f"The initial netgen mesh is saved as 'domain/cantor_{n}.vol.")
 
 mesh0 = Mesh(ngmsh)
 # Save the mesh
@@ -22,10 +22,10 @@ plt.figure()
 triplot(mesh0)
 plt.xlabel('X')
 plt.ylabel('Y')
-plt.title('Koch Snowflake Mesh')
+plt.title('Cantor set Mesh')
 plt.show()
-plt.savefig(f"figures/snow_{n}.png")
-print(f"plot of the mesh saved as figures/snow_{n}.png")
+plt.savefig(f"figures/cantor_{n}.png")
+print(f"plot of the mesh saved as figures/cantor_{n}.png")
 
 
 

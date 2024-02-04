@@ -5,7 +5,7 @@ import statistics
 from scipy import stats
 from netgen.geom2d import SplineGeometry
 from geogen import *
-from Ex1_solver import *
+from Ex4_solver import *
 import numpy as np
 #nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
