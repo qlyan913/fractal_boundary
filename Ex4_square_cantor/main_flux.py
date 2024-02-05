@@ -19,8 +19,8 @@ import numpy as np
 mesh_size=1
 deg=5
 nn=3
-l=(1/9)**nn
-Lp=(16/9)**nn
+l=(1/3)**nn
+Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
 tolerance = 1e-8
 max_iterations = 40
