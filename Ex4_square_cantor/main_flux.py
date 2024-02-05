@@ -18,11 +18,11 @@ import numpy as np
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
 deg=5
-nn=2
+nn=3
 l=(1/3)**nn
 Lp=(2/3)**nn
 dim_frac=np.log(2)/np.log(3)
-tolerance = 1e-8
+tolerance = 1e-6
 max_iterations = 40
 bc_out=1
 bc_int=2
