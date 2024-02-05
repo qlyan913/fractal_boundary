@@ -1636,3 +1636,95 @@ Refined Mesh with degree of freedom  715757 sum_eta is  1.9312254665852846e-05
 Refined Mesh with degree of freedom  774722 sum_eta is  1.1056206190812705e-05
 Refined Mesh with degree of freedom  881767 sum_eta is  5.4053513064354445e-06
 Refined Mesh with degree of freedom  1018462 sum_eta is  2.4539638483448727e-06
+Refined Mesh with degree of freedom  1115817 sum_eta is  1.194129764619237e-06
+Refined Mesh with degree of freedom  1231837 sum_eta is  6.104010224149822e-07
+Lambda is  0.2655798803371424 flux is 6.923685995002346
+Refined Mesh with degree of freedom  20697 sum_eta is  0.5457826995685655
+Refined Mesh with degree of freedom  27877 sum_eta is  0.36591935182154467
+Refined Mesh with degree of freedom  40972 sum_eta is  0.2347456666043804
+Refined Mesh with degree of freedom  60652 sum_eta is  0.13746962947030825
+Refined Mesh with degree of freedom  86997 sum_eta is  0.08263381837955014
+Refined Mesh with degree of freedom  114767 sum_eta is  0.050542792574354255
+Refined Mesh with degree of freedom  150262 sum_eta is  0.028762908742060726
+Refined Mesh with degree of freedom  179462 sum_eta is  0.017618299877281002
+Refined Mesh with degree of freedom  208962 sum_eta is  0.01098766793226965
+Refined Mesh with degree of freedom  242217 sum_eta is  0.0065596087992202
+Refined Mesh with degree of freedom  276122 sum_eta is  0.0038763085427168274
+Refined Mesh with degree of freedom  318012 sum_eta is  0.0021614253917088292
+Refined Mesh with degree of freedom  378837 sum_eta is  0.0010807018121037093
+Refined Mesh with degree of freedom  415432 sum_eta is  0.0006437381220549682
+Refined Mesh with degree of freedom  488847 sum_eta is  0.0003078145919402065
+Refined Mesh with degree of freedom  536982 sum_eta is  0.00016829865687766196
+Refined Mesh with degree of freedom  580017 sum_eta is  0.00010149735048920959
+Refined Mesh with degree of freedom  634322 sum_eta is  5.7493025354877235e-05
+Refined Mesh with degree of freedom  692037 sum_eta is  3.2038407022111416e-05
+Refined Mesh with degree of freedom  743792 sum_eta is  1.8315423922866635e-05
+Refined Mesh with degree of freedom  813387 sum_eta is  9.949698250224866e-06
+Refined Mesh with degree of freedom  901422 sum_eta is  5.0020429162550534e-06
+Refined Mesh with degree of freedom  988687 sum_eta is  2.694731461860979e-06
+Refined Mesh with degree of freedom  1111347 sum_eta is  1.2519579008744368e-06
+Refined Mesh with degree of freedom  1230022 sum_eta is  6.677084307833527e-07
+Lambda is  0.2962962962962962 flux is 6.751009946622144
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+/home/yan00082/fractal_boundary/Ex4_square_cantor/main_flux.py:124: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  plt.axvline(x=l,color='cyan',linestyle='dashed')
+Plot for l<Lambda<L_p saved to figures/Phi_Lam_3_R2.png 
+Result for l<Lambda<L_p saved to results/Phi_Lam_3_R2.csv 
+Refined Mesh with degree of freedom  20697 sum_eta is  0.545781709964972
+Refined Mesh with degree of freedom  27877 sum_eta is  0.3659211932010874
+Refined Mesh with degree of freedom  40972 sum_eta is  0.2347456288129792
+Refined Mesh with degree of freedom  60652 sum_eta is  0.1374697085794937
+Refined Mesh with degree of freedom  86997 sum_eta is  0.08263340800580174
+Refined Mesh with degree of freedom  114767 sum_eta is  0.05054281400902512
+Refined Mesh with degree of freedom  150262 sum_eta is  0.028762989901442215
+Refined Mesh with degree of freedom  179462 sum_eta is  0.01761814789396384
+Refined Mesh with degree of freedom  208962 sum_eta is  0.01098771918232325
+Refined Mesh with degree of freedom  242217 sum_eta is  0.0065597027026459784
+Refined Mesh with degree of freedom  276122 sum_eta is  0.0038764129425813577
+Refined Mesh with degree of freedom  318012 sum_eta is  0.0021613790991189333
+Refined Mesh with degree of freedom  378837 sum_eta is  0.0010806677324488034
+Refined Mesh with degree of freedom  415432 sum_eta is  0.0006437503418648991
+Refined Mesh with degree of freedom  488847 sum_eta is  0.0003078347287202762
+Refined Mesh with degree of freedom  536982 sum_eta is  0.00016837092704760582
+Refined Mesh with degree of freedom  580017 sum_eta is  0.00010149403906447987
+Refined Mesh with degree of freedom  634322 sum_eta is  5.748105065963801e-05
+Refined Mesh with degree of freedom  692037 sum_eta is  3.203954378640438e-05
+Refined Mesh with degree of freedom  743792 sum_eta is  1.8305058555267065e-05
+Refined Mesh with degree of freedom  813462 sum_eta is  9.957681525077133e-06

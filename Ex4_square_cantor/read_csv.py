@@ -5,8 +5,8 @@ from collections import defaultdict
 import numpy as np
 columns = defaultdict(list) # each value in each column is appended to a list
 nn=3
-l=(1/3)**nn
-Lp=4*(4/3)**nn
+l=(1/9)**nn
+Lp=(4/9)**nn
 dim_frac=np.log(4)/np.log(3)
 
 with open(f'results/Phi_Lam_{nn}.csv') as f:

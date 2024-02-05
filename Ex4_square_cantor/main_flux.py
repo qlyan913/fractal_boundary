@@ -19,9 +19,9 @@ import numpy as np
 mesh_size=1
 deg=5
 nn=3
-l=(1/3)**nn
-Lp=(2/3)**nn
-dim_frac=np.log(2)/np.log(3)
+l=(1/9)**nn
+Lp=(4/9)**nn
+dim_frac=np.log(4)/np.log(3)
 tolerance = 1e-6
 max_iterations = 40
 bc_out=1
@@ -75,7 +75,7 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: Lambda <l 
 Phi=[]
-LL = np.array([3**(-i) for i in range(nn,10)])
+LL = np.array([3**(-i) for i in range(2*nn,10)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
     Phi_temp=get_flux(mesh_adap,uh,D,bc_int)
