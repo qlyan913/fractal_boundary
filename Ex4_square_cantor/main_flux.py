@@ -41,9 +41,9 @@ LL = np.array([2**i for i in range(-15,10)])
 LL=np.append(LL,[l,Lp])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
-    Phi0=get_flux(mesh_adap,uh,D,bc_int)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_int)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
     
 fig, axes = plt.subplots()
 phi_2=[]
@@ -75,12 +75,12 @@ PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
 
 # Region 1: Lambda <l 
 Phi=[]
-LL = np.array([3**(-i) for i in range(nn,20)])
+LL = np.array([3**(-i) for i in range(nn,10)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
-    Phi0=get_flux(mesh_adap,uh,D,bc_int)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_int)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -89,7 +89,7 @@ alpha=1
 plt.loglog(LL, phi_2,marker='o',color='blue')
 plt.loglog(LL,(LL)**alpha/(LL[-1]**alpha)*(phi_2[-1]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
-plt.xticks([10**(-9),10**(-8),10**(-7),10**(-6),10**(-5),10**(-4),10**(-3),l],['$10^{-9}$','$10^{-8}$','$10^{-7}$','$10^{-6}$','$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
+plt.xticks([10**(-5),10**(-4),10**(-3),l],['$10^{-5}$','$10^{-4}$','$10^{-3}$','l'])
 plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R1.png")
@@ -111,9 +111,9 @@ LL_log = np.linspace(l_log,Lp_log,20)
 LL=np.exp(LL_log)
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
-    Phi0=get_flux(mesh_adap,uh,D,bc_int)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_int)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -143,9 +143,9 @@ Phi=[]
 LL=np.array([Lp*2**(i) for i in range(15)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
-    Phi0=get_flux(mesh_adap,uh,D,bc_int)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_int)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):

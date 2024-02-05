@@ -39,9 +39,9 @@ LL = np.array([2**i for i in range(-15,10)])
 LL=np.append(LL,[l,Lp])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
-    Phi0=get_flux(mesh_adap,uh,D,bc_top)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
     
 fig, axes = plt.subplots()
 phi_2=[]
@@ -76,9 +76,9 @@ Phi=[]
 LL = np.array([3**(-i) for i in range(nn,20)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
-    Phi0=get_flux(mesh_adap,uh,D,bc_top)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -109,9 +109,9 @@ LL_log = np.linspace(l_log,Lp_log,20)
 LL=np.exp(LL_log)
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
-    Phi0=get_flux(mesh_adap,uh,D,bc_top)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
@@ -141,9 +141,9 @@ Phi=[]
 LL=np.array([Lp*2**(i) for i in range(15)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
-    Phi0=get_flux(mesh_adap,uh,D,bc_top)
-    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi0)
-    Phi.append(Phi0)
+    Phi_temp=get_flux(mesh_adap,uh,D,bc_top)
+    PETSc.Sys.Print("Lambda is ",Lambda,"flux is", Phi_temp)
+    Phi.append(Phi_temp)
 fig, axes = plt.subplots()
 phi_2=[]
 for i in range(len(Phi)):
