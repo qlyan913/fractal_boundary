@@ -22,11 +22,12 @@ from firedrake.petsc import PETSc
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex4_solver import *
+from firedrake.pyplot import triplot
 nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))
 tolerance = 1e-5
-max_iterations = 15
+max_iterations = 10
 bc_out=1
 bc_int=2
 geo = MakeGeometry(nn)
@@ -38,24 +39,22 @@ df=[]
 mh=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test 4: Solution u=x^2+y+2 on Domain with Cantor dust")
+PETSc.Sys.Print("Test 4: Solution u=x^4+xy+2 on Domain with Cantor dust")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
   x, y = SpatialCoordinate(mesh)
   D = Constant(1.)
   Lambda = Constant(1.)
-  f = -30*x**4
+  f = -12*x**2
 #  u = interpolate(2 + x**2 + y, FunctionSpace(mesh, "Lagrange",1))
-  u = 2 + x**6 + x*y
-  kl =-6*x**5-y
-  kr = 6*x**5+y
+  u = 2 + x**4 + x*y
   n = FacetNormal(mesh)
   l=inner(grad(u),n)+u
   uh = snowsolver(mesh, D, Lambda, f, u, l,deg,bc_out,bc_int)
   V = FunctionSpace(mesh,"Lagrange",deg)
-  mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#  mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+#  mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+  mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
   mesh = mesh.refine_marked_elements(mark)
   it=it+1
   meshplot = triplot(mesh)
@@ -64,10 +63,10 @@ while sum_eta>tolerance and it<max_iterations:
   plt.xlim(-1, 2)
   plt.axis('equal')
   plt.title('Koch Snowflake Mesh')
-  plt.savefig(f"refined_mesh/test_mesh/snow_{nn}_ref_{it}.pdf")
+  plt.savefig(f"refined_mesh/test_mesh/cantor_{nn}_ref_{it}.pdf")
   plt.close()
   print("sum_eta is ", sum_eta)
-  print(f"refined mesh plot saved to 'refined_mesh/test_mesh/snow_{nn}_ref_{it}.pdf'.")
+  print(f"refined mesh plot saved to 'refined_mesh/test_mesh/cantor_{nn}_ref_{it}.pdf'.")
   mh.append(mesh.cell_sizes.dat.data.max())
   df.append(V.dof_dset.layout_vec.getSize())
   err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
@@ -88,6 +87,6 @@ plt.loglog(df, NN)
 plt.loglog(df, NN2)
 plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
 plt.xlabel('degree of freedom')
-plt.savefig(f"figures/koch_{nn}_test_dof.png")
-PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/koch_{nn}_test_dof.png")
+plt.savefig(f"figures/cantor_{nn}_test_dof.png")
+PETSc.Sys.Print(f"Error vs degree of freedom  saved to figures/cantor_{nn}_test_dof.png")
 plt.close()
