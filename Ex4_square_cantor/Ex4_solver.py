@@ -118,6 +118,7 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_i
     V = FunctionSpace(mesh,"Lagrange",deg)
     uh = snowsolver(mesh, DD, Lambda, f, u_D, l,deg,bc_out,bc_int)
     mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+    PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta) 
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
         mesh = mesh.refine_marked_elements(mark)

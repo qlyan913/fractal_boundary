@@ -24,7 +24,7 @@ D=1
 geo = MakeGeometry(nn)
 
 # get flux Phi0 at lambda = 0
-Lambda=1
+Lambda=1000
 mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int)
 Phi0=get_flux(mesh_adap,uh,D,bc_int)
 PETSc.Sys.Print("Lambda is ", Lambda, "flux is", Phi0)
@@ -36,6 +36,6 @@ fig, axes = plt.subplots()
 colors = tripcolor(uh, axes=axes)
 fig.colorbar(colors)
 plt.show()
-plt.savefig(f"results/solution_n{nn}_lambda_1.png")
-print(f"plot of the mesh saved as results/solution_n{nn}_lambda_1.png")
+plt.savefig(f"results/solution_n{nn}_lambda_{Lambda}.png")
+print(f"plot of the mesh saved as results/solution_n{nn}_lambda_{Lambda}.png")
   
