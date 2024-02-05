@@ -78,7 +78,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_int):
      frac = .95
      delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .45
+     part = .4
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
@@ -112,12 +112,11 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_i
     DD = Constant(D)
     f = Constant(0.)
     u_D=Constant(1.)
-    kl=Constant(0.)
-    kr=Constant(0.)
     l=Constant(0.)
     V = FunctionSpace(mesh,"Lagrange",deg)
     uh = snowsolver(mesh, DD, Lambda, f, u_D, l,deg,bc_out,bc_int)
-    mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+#    mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+    mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
     PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta) 
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
@@ -129,8 +128,8 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_i
         l=Constant(0.)
         V = FunctionSpace(mesh,"Lagrange",deg)
         uh = snowsolver(mesh, DD, Lambda, f, u_D, l,deg,bc_out,bc_int)
-        mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
+ #       mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+        mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
     grad_uh=grad(uh)
     return mesh, uh,grad_uh
