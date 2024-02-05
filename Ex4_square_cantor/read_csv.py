@@ -7,7 +7,7 @@ columns = defaultdict(list) # each value in each column is appended to a list
 nn=3
 l=(1/3)**nn
 Lp=(2/3)**nn
-dim_frac=np.log(2)/np.log(3)
+dim_frac=np.log(4)/np.log(3)
 
 with open(f'results/Phi_Lam_{nn}.csv') as f:
     reader = csv.DictReader(f) # read rows into a dictionary format
