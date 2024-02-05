@@ -1,21 +1,20 @@
-# Qile Yan 2023-12-7
+# Qile Yan 2024-02-03
 # -div ( D grad u) = f in Omega
-# u = g on bottom
-# du/dn = kl / kr  on left and right
-# Lambda du/dn + u = l on top
+# u = g on outside boundary
+# Lambda du/dn + u = l on inside
 #
 # Adaptive FEM
 from firedrake.petsc import PETSc
 from firedrake import *
 
-def snowsolver(mesh, D, Lambda, f, g, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top):
+def snowsolver(mesh, D, Lambda, f, g, l,deg,bc_out,bc_int):
     V = FunctionSpace(mesh, "Lagrange", deg)
     # Test and trial functions
     u = TrialFunction(V)
     v = TestFunction(V)
-    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(bc_top)
-    L = f*v*dx + kl*v*ds(bc_left) + kr*v*ds(bc_right) + (1./Lambda)*l*v*ds(bc_top)
-    boundary_ids = bc_bot
+    a = Constant(D)*dot(grad(u), grad(v))*dx+Constant(D)/Constant(Lambda)*u*v*ds(bc_int)
+    L = f*v*dx + (1./Lambda)*l*v*ds(bc_int)
+    boundary_ids = bc_out
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V,name="u")
     # solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
@@ -63,7 +62,7 @@ def Mark(msh, f,V, uh,tolerance):
      return mark, sum_eta
 
 
-def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
+def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_int):
      W = FunctionSpace(msh, "DG", 0)
      # Both the error indicator and the marked element vector will be DG0 field.
      w = TestFunction(W)
@@ -71,12 +70,10 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
      n = FacetNormal(V.mesh())
      h = CellDiameter(msh)
      R_dT = dot(grad(uh), n)
-     R_dT_top=Lambda*dot(grad(uh), n)+uh
+     R_dT_int=Lambda*dot(grad(uh), n)+uh
      # Assembling the error indicator eta
      eta = assemble(h**2*R_T**2*w*dx +0.25*(h("+")+h("-"))*(R_dT("+")+R_dT("-"))**2*(w("+")+w("-"))*dS
-           +h*(R_dT)**2*(w)*ds(bc_right)
-           +h*(R_dT)**2*(w)*ds(bc_left)
-           +h*(R_dT_top)**2*(w)*ds(bc_top))
+           +h*(R_dT_int)**2*(w)*ds(bc_int))
      # mark triangulation whose eta >= frac*eta_max
      frac = .95
      delfrac =0.05
@@ -107,7 +104,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
              sct(markedVec0, markedVec, mode=PETSc.Scatter.Mode.REVERSE)
      return mark, sum_eta
 
-def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top):
+def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_int):
     ngmsh = geo.GenerateMesh(maxh=mesh_size)
     mesh = Mesh(ngmsh)
     it = 0
@@ -119,7 +116,7 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc
     kr=Constant(0.)
     l=Constant(0.)
     V = FunctionSpace(mesh,"Lagrange",deg)
-    uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
+    uh = snowsolver(mesh, DD, Lambda, f, u_D, l,deg,bc_out,bc_int)
     mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
@@ -128,21 +125,19 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc
         DD = Constant(D)
         f = Constant(0.)
         u_D=Constant(1.)
-        kl=Constant(0.)
-        kr=Constant(0.)
         l=Constant(0.)
         V = FunctionSpace(mesh,"Lagrange",deg)
-        uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
+        uh = snowsolver(mesh, DD, Lambda, f, u_D, l,deg,bc_out,bc_int)
         mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+#       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
     grad_uh=grad(uh)
     return mesh, uh,grad_uh
-    
-def get_flux(mesh,uh,D,bc_top):
+
+def get_flux(mesh,uh,D,bc_int):
     n = FacetNormal(mesh)
     x, y = SpatialCoordinate(mesh)
-    Phi=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_top))
+    Phi=assemble(-Constant(D)*inner(grad(uh), n)*ds(bc_int))
   
     return Phi
 

@@ -1,23 +1,20 @@
 # Qile Yan 2024-02-01
-
+#
 # -div ( D grad u) = f in Omega
-# u = g on bottom
-# du/dn = kl / kr  on left and right
-# Lambda du/dn + u = l on top
+# The domain is Omega=Q\Q_n where Q=[-1,1] x [-1, 1] and Q_n is the nth iteration of 2D cantor set （cantor dust) inside Q.
+# u = g on \partial Q
+# Lambda du/dn + u = l on \partial Q_n
 #
 #  Weak formulation:
 #
 #  Find u in H1 with u = g on bottom such that
 #
-#    \int D grad(u).grad(v) dx  +  \int_{top} D/Lambda u v ds
-#         = \int f v dx  +  \int_{top} (1/Lambda) l v ds
-#           +  \int_{left} kl v ds   +  \int_{right} kr v ds
-#
+#    \int D grad(u).grad(v) dx  +  \int_{\partial Q_n} D/Lambda u v ds
+#         = \int f v dx  +  \int_{\partial Q_n} (1/Lambda) l v ds
 #  for all v in H1 which vanish on bottom.
-#  1: Top    x == 1
-#  2: Right  y == 1
-#  3: Bottom x == 0
-#  4: Left  y == 0
+#  Index of boundary
+#  1: Outside boundary
+#  2: Inside boundary
 import matplotlib.pyplot as plt
 from firedrake import *
 import numpy as np
@@ -28,13 +25,10 @@ from Ex4_solver import *
 nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 mesh_size=float(input("Enter the meshsize for initial mesh: "))
 deg=int(input("Enter the degree of polynomial: "))
-
-tolerance = 1e-7
+tolerance = 1e-5
 max_iterations = 15
-bc_top=1
-bc_right=2
-bc_bot=3
-bc_left=4
+bc_out=1
+bc_int=2
 geo = MakeGeometry(nn)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh = Mesh(ngmsh)
@@ -44,7 +38,7 @@ df=[]
 mh=[]
 err=[]
 err2=[]
-PETSc.Sys.Print("Test 4: Solution u=x^2+y+2 on UnitSquare")
+PETSc.Sys.Print("Test 4: Solution u=x^2+y+2 on Domain with Cantor dust")
 it=0
 sum_eta=1
 while sum_eta>tolerance and it<max_iterations:
@@ -58,7 +52,7 @@ while sum_eta>tolerance and it<max_iterations:
   kr = 6*x**5+y
   n = FacetNormal(mesh)
   l=inner(grad(u),n)+u
-  uh = snowsolver(mesh, D, Lambda, f, u, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
+  uh = snowsolver(mesh, D, Lambda, f, u, l,deg,bc_out,bc_int)
   V = FunctionSpace(mesh,"Lagrange",deg)
   mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
 #  mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)

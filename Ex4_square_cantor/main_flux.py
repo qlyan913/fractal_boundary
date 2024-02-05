@@ -14,8 +14,8 @@ mesh_size=1
 deg=5
 nn=2
 l=(1/3)**nn
-Lp=(4/3)**nn
-dim_frac=np.log(4)/np.log(3)
+Lp=(2/3)**nn
+dim_frac=np.log(2)/np.log(3)
 tolerance = 1e-8
 max_iterations = 40
 bc_top=(1)
@@ -56,7 +56,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='black',linestyle='das
 plt.loglog(LL,(LL)**alpha/(LL[-3]**alpha)*(phi_2[-3]),color='black',linestyle='dashed',linewidth=0.8)
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
-plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{1/dim_frac})$', '$O(\Lambda^{1})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$','$O(\Lambda^{1/d})$', '$O(\Lambda^{1})$'])
 plt.xticks([10**(-4),10**(-3),10**(-2),10**(-1),1,10**(1),10**(2),10**3,l, Lp], ['$10^{-4}$','$10^{-3}$','$10^{-2}$','$10^{-1}$','$10^{0}$','$10^{1}$','$10^{2}$','$10^{3}$','l', 'Lp'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}.png")
@@ -122,7 +122,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashe
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.xticks([10**(-2),10**(-1),1,l, Lp], ['$10^{-2}$','$10^{-1}$','$10^{0}$','l','Lp'])
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/d})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
