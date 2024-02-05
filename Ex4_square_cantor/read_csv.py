@@ -5,8 +5,8 @@ from collections import defaultdict
 import numpy as np
 columns = defaultdict(list) # each value in each column is appended to a list
 nn=3
-l=(1/9)**nn
-Lp=(4/9)**nn
+l=(1/3)**nn
+Lp=(16/3)**nn
 dim_frac=np.log(4)/np.log(3)
 
 with open(f'results/Phi_Lam_{nn}.csv') as f:
@@ -86,7 +86,7 @@ plt.loglog(LL,(LL)**alpha/(LL[0]**alpha)*(phi_2[0]),color='red',linestyle='dashe
 plt.axvline(x=l,color='cyan',linestyle='dashed')
 plt.axvline(x=Lp,color='cyan',linestyle='dashed')
 plt.xticks([10**(-2),10**(-1),1,l, Lp], ['$10^{-2}$','$10^{-1}$','$10^{0}$','l','Lp'])
-plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/dim_frac})$'])
+plt.legend(['$1/\Phi-1/\Phi_0$', '$O(\Lambda^{1/d})$'])
 plt.xlabel('$\Lambda$')
 plt.savefig(f"figures/Phi_Lam_{nn}_R2.png")
 PETSc.Sys.Print(f"Plot for l<Lambda<L_p saved to figures/Phi_Lam_{nn}_R2.png ")
