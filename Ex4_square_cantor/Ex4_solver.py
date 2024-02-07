@@ -120,6 +120,7 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_i
     PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta) 
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
+        sum_eta0=sum_eta
         mesh = mesh.refine_marked_elements(mark)
         x, y = SpatialCoordinate(mesh)
         DD = Constant(D)
@@ -131,6 +132,10 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_out,bc_i
  #       mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
         mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_int)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
+        if sum_eta>sum_eta0:
+           break
+        else:
+           sum_eta0=sum_eta
     grad_uh=grad(uh)
     return mesh, uh,grad_uh
 
