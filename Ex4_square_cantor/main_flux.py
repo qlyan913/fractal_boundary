@@ -18,7 +18,7 @@ import numpy as np
 #deg=int(input("Enter the degree of polynomial: "))
 mesh_size=1
 deg=5
-nn=3
+nn=4
 l=(1/3)**nn
 Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
