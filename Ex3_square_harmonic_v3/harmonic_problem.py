@@ -15,7 +15,7 @@ from scipy import stats
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-N= int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+N= int(input("Enter the number of segments for estimation on the bottom  boundary: "))
 deg=5
 mesh_size=1
 # choose a triangulation
@@ -31,10 +31,9 @@ uh, mesh, f=get_solution(mesh0,tolerance,max_iterations,deg)
 
 from firedrake.pyplot import tripcolor
 fig, axes = plt.subplots()
-ff=Function(V)
-ff.interpolate(f)
-collection = tripcolor(ff, axes=axes)
+collection = tripcolor(f, axes=axes)
 fig.colorbar(collection);
+plt.show()
 plt.savefig(f"figures/f.png")
 plt.close()
 PETSc.Sys.Print(f"The plot of forcing term f is saved to  figures/f.png")
@@ -45,6 +44,7 @@ collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
 plt.xlim(0, 1)
 plt.axis('equal')
+plt.show()
 plt.savefig(f"figures/solution.png")
 plt.close()
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution.png")
@@ -52,11 +52,11 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/solution.png")
 #outfile.write(uh)
 
 n=10
-# divide the bottom into N segments
+# divide the bottom edge into N segments
 x_list= np.linspace(0,1,N)
 alpha_list=[]
 c_list=[]
-for i in range(1,len(y_list)-1):
+for i in range(1,len(x_list)-1):
     # distance to boundary
     dy_list=[(1/3.)**i for i in range(1,n+1)]
     # sequence of points
@@ -71,18 +71,18 @@ for i in range(1,len(y_list)-1):
     c_list.append(c)
     
 fig, axes = plt.subplots()
-plt.loglog(x_list[1:-1], alpha_list,marker='o',color='blue')
+plt.plot(x_list[1:-1], alpha_list,marker='o',color='blue')
 plt.xlabel('$x$')
-plt.ylabel('$\alpha$')
-plt.savefig(f"figures/distribution_alpha.png")
+plt.ylabel('$alpha$')
+plt.savefig(f"figures/distribution_alpha_N{N}.png")
 plt.close()
-print(f"Plot for alpha saved to figures/distribution_alpha.png ")
+print(f"Plot for alpha saved to figures/distribution_alpha_N{N}.png ")
 
 fig, axes = plt.subplots()
-plt.loglog(x_list[1:-1], c_list,marker='o',color='blue')
+plt.plot(x_list[1:-1], c_list,marker='o',color='blue')
 plt.xlabel('$x$')
 plt.ylabel('$c$')
-plt.savefig(f"figures/distribution_c.png")
+plt.savefig(f"figures/distribution_c_N{N}.png")
 plt.close()
-print(f"Plot for alpha saved to figures/distribution_c.png ")
+print(f"Plot for alpha saved to figures/distribution_c_N{N}.png ")
 

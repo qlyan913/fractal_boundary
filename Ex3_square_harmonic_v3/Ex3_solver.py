@@ -39,7 +39,9 @@ def get_solution(mesh,tolerance,max_iterations,deg):
         uh = snowsolver(mesh, f,g,V)
         mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-    return uh,mesh,f
+    ff=Function(V)
+    ff.interpolate(f)
+    return uh,mesh,ff
 
 
 def Mark(msh, f, uh,V,tolerance):
