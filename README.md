@@ -2,6 +2,7 @@
 Solve the PDE with fractal boundary. 
 
 Examples in the report
+
 Ex1: On a 2D unit square where the top is replaced by triangle snowflake. 
 
 The data of flux is saved in Ex1_square_top_snowflake_adaptive/results. 
