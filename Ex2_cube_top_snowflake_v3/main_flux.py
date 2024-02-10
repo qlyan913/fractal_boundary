@@ -100,15 +100,15 @@ Phi =get_flux(ngmsh,[Lambda],nn,deg,tolerance,max_iterations,bc_left,bc_right,bc
 Phi0=Phi[0]
 PETSc.Sys.Print('Phi0 is ', Phi0)
 # calculate flux for various Lambda 
-LL = np.array([2**i for i in np.linspace(-15,10,50) ])
-LL=np.append(LL,[l,Lp])
+# LL = np.array([2**i for i in range(-15,15) ])
+LL = np.array([2**i for i in range(9,14) ])
 Phi =get_flux(ngmsh,LL,nn,deg,tolerance,max_iterations,bc_left,bc_right,bc_front,bc_back,bc_bot,bc_top)
  
-with open(f'results/Phi_Lam_{nn}.csv', 'w', newline='') as csvfile:
+with open(f'results/Phi_Lam_{nn}_all.csv', 'w', newline='') as csvfile:
     fieldnames = ['Lambda', 'flux']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerow({'Lambda': 0, 'flux': Phi0})
     for i in range(len(LL)):
        writer.writerow({'Lambda': LL[i], 'flux': Phi[i]})
-PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}.csv ")
+PETSc.Sys.Print(f"Result for 0<Lambda<1000 saved to results/Phi_Lam_{nn}_all.csv ")

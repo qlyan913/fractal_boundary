@@ -1,6 +1,0 @@
-firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
-Traceback (most recent call last):
-  File "/home/yan00082/fractal_boundary/Ex2_cube_top_snowflake_v3/main_flux.py", line 36, in <module>
-    ngmsh.Load(f"domain/cube_{nn}.vol")
-netgen.libngpy._meshing.NgException: Error opening file domain/cube_4.vol
-application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 5

@@ -30,12 +30,12 @@ Lambda=10**(-11)
 mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
 Phi0=get_flux(mesh_adap,uh,D,bc_top)
 PETSc.Sys.Print("phi0 is", Phi0)
-file_name=f"results/solution_{nn}.pvd"
-export_to_pvd(file_name,mesh_adap,uh,grad_uh)
+#file_name=f"results/solution_{nn}.pvd"
+#export_to_pvd(file_name,mesh_adap,uh,grad_uh)
 
 # calculate flux for various Lambda
 Phi=[]
-LL = np.array([2**i for i in np.linspace(-18,14,50)])
+LL = np.array([2**i for i in np.linspace(-25,14,40)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi_temp=get_flux(mesh_adap,uh,D,bc_top)
