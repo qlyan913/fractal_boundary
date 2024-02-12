@@ -18,8 +18,8 @@ def snowsolver(mesh, D, Lambda, f, g, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_t
     boundary_ids = bc_bot
     bcs = DirichletBC(V, g, boundary_ids)
     uh = Function(V,name="u")
-#    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
+#    solve(a == L, uh, bcs=bcs, solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     return(uh)
 
 def Mark(msh, f,V, uh,tolerance):
@@ -36,7 +36,7 @@ def Mark(msh, f,V, uh,tolerance):
      frac = .95
      delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .35
+     part = .4
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
@@ -81,7 +81,7 @@ def Mark_v2(msh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top):
      frac = .95
      delfrac =0.05
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .35
+     part = .45
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:
@@ -120,8 +120,8 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc
     l=Constant(0.)
     V = FunctionSpace(mesh,"Lagrange",deg)
     uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-    mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
-#    mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+#    mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+    mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
     while sum_eta>tolerance and it<max_iterations:
         it=it+1
         mesh = mesh.refine_marked_elements(mark)
@@ -134,8 +134,8 @@ def get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc
         l=Constant(0.)
         V = FunctionSpace(mesh,"Lagrange",deg)
         uh = snowsolver(mesh, DD, Lambda, f, u_D, kl, kr, l,deg,bc_right,bc_bot,bc_left,bc_top)
-        mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
- #       mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
+#        mark, sum_eta = Mark(mesh, f,V,uh,tolerance)
+        mark,sum_eta=Mark_v2(mesh,Lambda, f, uh,V,tolerance,bc_left,bc_right,bc_top)
         PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
     grad_uh=grad(uh)
     return mesh, uh,grad_uh

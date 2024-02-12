@@ -17,7 +17,7 @@ l=(1/3)**nn
 Lp=(4/3)**nn
 dim_frac=np.log(4)/np.log(3)
 tolerance = 1e-8
-max_iterations = 40
+max_iterations = 100
 bc_top=(1)
 bc_right=(2)
 bc_bot=(3)
@@ -35,7 +35,7 @@ PETSc.Sys.Print("phi0 is", Phi0)
 
 # calculate flux for various Lambda
 Phi=[]
-LL = np.array([2**i for i in np.linspace(-25,14,40)])
+LL = np.array([2**i for i in np.linspace(-14,14,30)])
 for Lambda in LL:
     mesh_adap,uh,grad_uh=get_solution(geo,Lambda,D,mesh_size,tolerance,max_iterations,deg,bc_right,bc_bot,bc_left,bc_top)
     Phi_temp=get_flux(mesh_adap,uh,D,bc_top)

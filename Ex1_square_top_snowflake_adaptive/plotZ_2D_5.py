@@ -11,12 +11,12 @@ plt.clf()
 # with 1st row for column labels.  The data is sorted by increasing Lambda and
 # the least Lambda, typically Lambda, is not used for making this plot
 # Data from Qile Yan, fractal_boundary/Ex1_square_top_snowflake_adaptive.
-# plotfile is for the output
 resultsfile = './Phi_Lam_2D_5.csv'
+# file for graphical output
 plotfile = './plot_Z_2D_5.png'
 
 ### ADJUST COMMENT
-# read the data for Phi and Lambda.  Here for a square with asymmetric square Koch snowflake fractal top
+# read the data for Phi and Lambda.  Here for a square with a Koch snowflake prefractal top
 # of generation 5.  Data from Qile Yan, fractal_boundary/Ex1_square_top_snowflake_adaptive
 [lam, phi] = np.loadtxt(resultsfile, skiprows=1, delimiter=',').transpose()
 
@@ -37,19 +37,30 @@ pw = 1./dim_frac   #1/dim_frac in 2D, 2/dim_frac in 3D
 
 # set coefficients so that the power law approximation is exact at the points Lambda nearest
 # 0 and infinity
-c1 = z[1]/lam[1]  # lam[0] may be zero, so we use the second lowest lambda to fit in the near Dirichlet range
+c1 = z[2]/lam[2]  # lam[0] may be zero, so we use the second lowest lambda to fit in the near Dirichlet range
 c2 = z[-1]/lam[-1]
 p = np.exp((np.log(l) + np.log(Lp))/2)
 ind = np.argmin((lam - p)**2)
 c3 = z[ind]/lam[ind]**pw
 
 ### ADJUST
-# vertical lines at l and L_p
-plt.loglog([l, l], [10.**(-11), 10**8], linewidth=6, color='lavender', alpha=0.8)
-plt.text(4.e-4, 1.e-7, '$\\Lambda=\ell$')
-plt.text(7., 1.e-7, '$\\Lambda=L_p$')
-plt.loglog([Lp, Lp], [10.**(-9), 10**5], linewidth=6, color='lavender', alpha=0.8)
+# plot limits
+xmin = 1.e-4
+xmax = 1.e+4
+ymin = 1.e-4
+ymax = 1.e+4
+# annotation placement
+textlx = 1.1e-3
+textly = 3.e+3
+textLx = 5.e+0
+textLy = 3.e+3
 
+# vertical lines at l and L_p
+plt.loglog([l, l], [ymin, ymax], linewidth=6, color='lavender', alpha=0.8)
+plt.text(textlx, textly, '$\\Lambda=\ell$')
+plt.text(textLx, textLy, '$\\Lambda=L_p$')
+plt.loglog([Lp, Lp], [ymin, ymax], linewidth=6, color='lavender', alpha=0.8)
+# plot computed values of Z and comparison lines
 plt.loglog(lam[1:], c1*lam[1:], label= f'${c1:.2f}\,\Lambda$', linewidth=2, color='goldenrod', alpha=0.75)
 plt.loglog(lam[1:], c2*lam[1:], label= f'${c2:.2f}\,\Lambda$', linewidth=2, color='goldenrod', alpha=0.75)
 plt.loglog(lam[1:], c3*lam[1:]**(pw), label=f'${c3:.2f}\,\Lambda^{{ {pw:.2f} }}$', linewidth=2, color='yellowgreen')  
@@ -59,16 +70,26 @@ plt.xlabel('$\Lambda$')
 plt.ylabel('$Z(\Lambda$)')
 
 ### ADJUST
-# the title has to be adjusted for the actual problem parameters (nn, l, L_p, fractal dimension)
-plt.title(f'$Z$ as a function of $\Lambda$ in asymmetric Koch snowflake, generation $n=3$.\n$\ell=1/4^n\\approx {1/3**nn:.4f},\\ L_p=(6/4)^n\\approx {(6/4.)**nn:.2f},\\ \\dim = \\log 20/\\log 4,\\ 1/\\dim\\approx {np.log(4)/np.log(20):.2f}$.', fontsize=10)
+# the title has to be adjusted for the actual problem parameters (nn, l, L_p, fractal dimension),
+# or use a different title, or none at all
+plt.title(f'$Z$ as a function of $\Lambda$ in square w/ Koch snowflake top, generation $n=5$.\n$\ell=1/3^n\\approx {1/3**nn:.4f},\\ L_p=(4/3)^n\\approx {(4/3)**nn:.2f},\\ d = \\log 4/\\log 3,\\ 1/d\\approx {np.log(3)/np.log(4):.2f}$.', fontsize=6)
 
-#plt.axis('square')
-plt.grid()
+# optional settings
+### ADJUST: optional settings
+squareoutput = False
+grid = True
+if squareoutput:
+    plt.axis('square')
+    ticklocs = [10.**i for i in range(-6, 7)]
+    ticklabs = [ plt.Text(10.**i, 0, f'$\\mathdefault{{10^{{{i}}}}}$') for i in range(-6, 7) ]
+    plt.xticks(ticklocs, ticklabs)
+    plt.yticks(ticklocs, ticklabs)
+if grid:
+    plt.grid()
 
-### ADJUST
 # Set ranges for axes
-plt.xlim([10.**(-8), 10.**4.5])
-plt.ylim([10.**(-8), 10.**5])
+plt.xlim([xmin, xmax])
+plt.ylim([ymin, ymax])
 
 plt.savefig(plotfile, dpi=300)
 print(f'plot exported to {plotfile}')
