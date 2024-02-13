@@ -56,11 +56,11 @@ n=10
 x_list= np.linspace(0,1,N)
 alpha_list=[]
 c_list=[]
-for i in range(1,len(x_list)-1):
+for i in range(0,len(x_list)):
     # distance to boundary
     dy_list=[(1/3.)**i for i in range(1,n+1)]
     # sequence of points
-    pp=[[x_list[i],yy] for yy in dy_list]
+    pp=[[x_list[i]+1/(2*N),yy] for yy in dy_list]
     uu=uh.at(pp)
     dy_list_log=np.log(dy_list)
     uu_log=np.log(uu)
