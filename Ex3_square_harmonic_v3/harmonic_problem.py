@@ -53,14 +53,14 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/solution.png")
 
 n=10
 # divide the bottom edge into N segments
-x_list= np.linspace(0,1,N)
+x_list= np.linspace(0,1,N)+1/(2*N)
 alpha_list=[]
 c_list=[]
-for i in range(0,len(x_list)):
+for i in range(0,len(x_list)-1):
     # distance to boundary
     dy_list=[(1/3.)**i for i in range(1,n+1)]
     # sequence of points
-    pp=[[x_list[i]+1/(2*N),yy] for yy in dy_list]
+    pp=[[x_list[i],yy] for yy in dy_list]
     uu=uh.at(pp)
     dy_list_log=np.log(dy_list)
     uu_log=np.log(uu)
@@ -71,7 +71,7 @@ for i in range(0,len(x_list)):
     c_list.append(c)
     
 fig, axes = plt.subplots()
-plt.plot(x_list[1:-1], alpha_list,marker='o',color='blue')
+plt.plot(x_list[:-1], alpha_list,marker='o',color='blue')
 plt.xlabel('$x$')
 plt.ylabel('$alpha$')
 plt.savefig(f"figures/distribution_alpha_N{N}.png")
@@ -79,7 +79,7 @@ plt.close()
 print(f"Plot for alpha saved to figures/distribution_alpha_N{N}.png ")
 
 fig, axes = plt.subplots()
-plt.plot(x_list[1:-1], c_list,marker='o',color='blue')
+plt.plot(x_list[:-1], c_list,marker='o',color='blue')
 plt.xlabel('$x$')
 plt.ylabel('$c$')
 plt.savefig(f"figures/distribution_c_N{N}.png")
