@@ -12,8 +12,8 @@ def divide_line_N(vertices,N):
     #          - two points P1 P2
     # N        - number of segments
     # out put
-    # array of shape Nx3. N points at the center of N segments over the line P1P2
-    #
+    # x_list -  array of shape Nx3. N points at the center of N segments over the line P1P2
+    # nv     -  array of shape 1x3. the normal vector towards outside
     x_list=[]
     P1 = vertices[0][0]
     P2 = vertices[1][0]
@@ -23,7 +23,10 @@ def divide_line_N(vertices,N):
     for i in range(1,N):
         x0=x0+dx
         x_list.append(x0)
-    return x_list
+    Rot=np.array([[0, -1],[1, 0]]) # rotation matrix
+    nv=np.matmul(Rot,dx/3.)
+    nv=nv/ np.linalg.norm(nv)
+    return x_list, nv
 
 def divide_line(vertices,num_pts):
     # input
@@ -42,7 +45,7 @@ def divide_line(vertices,num_pts):
     dx = P2-P1
     N1 = P1+dx/3.
     N2 = N1+dx/3.
-    N3 = N1 + np.matmul(Rot,dx/3.) # rotate the vector 60 degree
+    N3 = N1 + np.matmul(Rot,dx/3.) # rotate the vector 90 degree
     N4 = N3 + dx/3.
     New_p1=[N1,num_pts+1]
     New_p2=[N2,num_pts+2]

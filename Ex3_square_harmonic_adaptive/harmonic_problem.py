@@ -19,6 +19,7 @@ from firedrake import *
 from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
+from firedrake.pyplot import tripcolor
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
