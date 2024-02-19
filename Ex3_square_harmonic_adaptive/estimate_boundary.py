@@ -29,7 +29,6 @@ for L in line_list:
     pts_list,nv=divide_line_N(L,N)
     for pt in pts_list:
        x_list.append([pt,nv])
-print(x_list)
 # estiamte alpha and c 
 alpha_list=[]
 c_list=[]
