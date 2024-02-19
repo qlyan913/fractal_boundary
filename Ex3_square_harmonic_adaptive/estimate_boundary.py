@@ -57,13 +57,13 @@ PETSc.Sys.Print("Total number of the points estimated on the bottom  boundary is
 PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
 PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
-plt.hist(alpha_list,bins=60)
+plt.hist(alpha_list,bins=100)
 plt.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_alpha_n{n}_N{N}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}.png.")
 
-plt.hist(c_list,bins=60)
+plt.hist(c_list,bins=100)
 plt.xlabel('value of c')
 plt.savefig(f"figures/distribution_c_n{n}_N{N}.png")
 plt.close()
