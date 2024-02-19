@@ -36,23 +36,24 @@ for x in x_list:
     pt=x[0]
     nv=x[1]
     # distance to boundary
-    dy_list=[0.5*(1/3.)**i for i in range(n,n+10)]
+    dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
     # sequence of points
     pp=[pt-yy*nv for yy in dy_list]
     uu=uh.at(pp)
-    dy_list_log=np.log(dy_list)
-    uu_log=np.log(uu)
-    res = stats.linregress(dy_list_log, uu_log)
-    c=exp(res.intercept)
-    alpha=res.slope
-    alpha_list.append(alpha)
-    c_list.append(c)
+    if min(uu)>0:
+       dy_list_log=np.log(dy_list)
+       uu_log=np.log(uu)
+       res = stats.linregress(dy_list_log, uu_log)
+       c=exp(res.intercept)
+       alpha=res.slope
+       alpha_list.append(alpha)
+       c_list.append(c)
 
 alpha_mean=statistics.mean(alpha_list)
 alpha_std=statistics.stdev(alpha_list)
 c_mean=statistics.mean(c_list)
 c_std=statistics.stdev(c_list)
-PETSc.Sys.Print("Total number of the points estimated on the bottom  boundary is ", len(x_list))
+PETSc.Sys.Print("Total number of the points estimated on the bottom  boundary is ", len(x_list), ", number of estimated points:", len(alpha_list))
 PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
 PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
