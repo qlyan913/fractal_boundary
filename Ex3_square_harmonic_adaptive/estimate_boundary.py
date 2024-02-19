@@ -43,8 +43,6 @@ for x in x_list:
     uu=uh.at(pp)
     dy_list_log=np.log(dy_list)
     uu_log=np.log(uu)
-    print("uu", uu)
-    print("dh", dy_list)
     res = stats.linregress(dy_list_log, uu_log)
     c=exp(res.intercept)
     alpha=res.slope
