@@ -6,6 +6,25 @@ import numpy as np
 #  2: Right  y == 1
 #  3: Bottom x == 0
 #  4: Left  y == 0
+def divide_line_N(vertices,N):
+    # input
+    # vertices - array of shape 2x3.
+    #          - two points P1 P2
+    # N        - number of segments
+    # out put
+    # array of shape Nx3. N points at the center of N segments over the line P1P2
+    #
+    x_list=[]
+    P1 = vertices[0][0]
+    P2 = vertices[1][0]
+    dx = (P2-P1)/N
+    x0=P1+dx/2.
+    x_list.append(x0)
+    for i in range(1,N):
+        x0=x0+dx
+        x_list.append(x0)
+    return x_list
+
 def divide_line(vertices,num_pts):
     # input
     # vertices - array of shape 2x3.

@@ -6,86 +6,43 @@ import csv
 import statistics 
 from scipy import stats
 from firedrake import *
+from geogen import *
 n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 PETSc.Sys.Print("loading mesh")
 with CheckpointFile(f"solutions/solution_{n}.h5",'r') as afile:
     mesh=afile.load_mesh('msh')
     uh=afile.load_function(mesh,"uh")
-
-# distance to boundary
-x_list=[(1/3.)**i for i in range(0,n+1)]
-
-# step size 
-h=[2*(1/3.)**(i+1) for i in range(0,n+1)] 
-
-from itertools import product
-
-def generate_lists_of_length_n(n):
-    # Generate all possible combinations of 0, 1, and 2 for the given length n
-    all_combinations = product([0, 1, 2], repeat=n)
-    # Convert the combinations to lists
-    result_lists = [list(combination) for combination in all_combinations]
-    return result_lists
-list_of_all_possible_number=generate_lists_of_length_n(n-1)
-
-def all_path(n):
-   # input: iterations for fractal
-   # Output: sequence of points
-   path_to_boundary=[]
-   for nn in range(4):
-      pp0=[np.array([0.5,0.5])]
-      if nn==0:
-          x10=np.array([0.5,0.5])+h[0]*np.array([1,0])
-      elif nn==1:
-          x10=np.array([0.5,0.5])+h[0]*np.array([0,1])
-      elif nn==2:
-          x10=np.array([0.5,0.5])+h[0]*np.array([-1,0])
-      else:
-          x10=np.array([0.5,0.5])+h[0]*np.array([0,-1])
-      pp0.append(x10)
-      R1=np.array([[1, 0],[0,1]])
-      R2=np.array([[0 ,1],[1,0]])
-      R3=np.array([[0 ,1],[-1,0]])
-      for j in range(len(list_of_all_possible_number)):
-         pp=pp0.copy()
-         pj=list_of_all_possible_number[j]
-         x0=np.array([0.5,0.5])
-         x1=x10
-         for i in range(1,n):
-            d = (x1-x0)/np.linalg.norm(x1-x0)
-            if pj[i-1]==0:
-               d=np.matmul(R1,d)
-            elif pj[i-1]==1:
-               d=np.matmul(R2,d)
-            else :
-               d=np.matmul(R3,d)
-            x2=x1+h[i]*d
-            pp.append(x2)
-            x0=x1
-            x1=x2
-         path_to_boundary.append(pp)
-     
-   return path_to_boundary
-
+N= int(input("Enter the number of segments for estimation on the bottom  boundary: "))
+# check the order alpha in u(x)=r^\alpha for x is close to the bottom boundary.
 alpha0=[]
 c0=[]
-path_to_boundary=all_path(n)
-
-for i in range(0,len(path_to_boundary)):
-   uu=uh.at(path_to_boundary[i])
-   # fitting log uu=log c+alpha log dx,
-   x_list_log=np.log(x_list)
-   uu_log=np.log(uu)
-   #A = np.vstack([x_list_log, np.ones(len(x_list_log))]).T
-   #beta=np.dot((np.dot(np.linalg.inv(np.dot(A.T,A)),A.T)),uu_log)
-   #c=exp(beta[1])
-   #alpha=beta[0]
-   res = stats.linregress(x_list_log, uu_log)
-   c=exp(res.intercept)
-   alpha=res.slope
-   c0.append(c)
-   alpha0.append(alpha)
-   alpha=round(alpha,5)
+# get the vertex on the bottom edge
+p3=[np.array([1,0]),2]
+p4=[np.array([0,0]),3]
+id_pts=0
+new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
+line_list=line_list+line_list2
+x_list=[]
+# divide the bottom edge into N segments
+for L in line_list:
+    x0_list=divide_line_N(L,N):
+    x_list.append(x0_list)
+print(x_list)
+alpha_list=[]
+c_list=[]
+for i in range(0,len(x_list)-1):
+    # distance to boundary
+    dy_list=[(1/3.)**i for i in range(1,n+1)]
+    # sequence of points
+    pp=[[x_list[i],yy] for yy in dy_list]
+    uu=uh.at(pp)
+    dy_list_log=np.log(dy_list)
+    uu_log=np.log(uu)
+    res = stats.linregress(dy_list_log, uu_log)
+    c=exp(res.intercept)
+    alpha=res.slope
+    alpha_list.append(alpha)
+    c_list.append(c)
 
 alpha_mean=statistics.mean(alpha0)
 alpha_std=statistics.stdev(alpha0)
