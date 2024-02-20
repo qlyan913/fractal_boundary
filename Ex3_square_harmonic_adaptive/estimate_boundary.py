@@ -7,14 +7,14 @@ import statistics
 from scipy import stats
 from firedrake import *
 from geogen import *
-#n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
+n=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 PETSc.Sys.Print("loading mesh")
-n=8
+#n=8
 with CheckpointFile(f"solutions/solution_{n}.h5",'r') as afile:
     mesh=afile.load_mesh('msh')
     uh=afile.load_function(mesh,"uh")
-#N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
-N=1000
+N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
+#N=1000
 
 # check the order alpha in u(x)=r^\alpha for x is close to the bottom boundary.
 alpha0=[]
@@ -76,7 +76,7 @@ with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
     fieldnames = ['alpha', 'c']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
-    for i in range(len(alpha0)):
+    for i in range(len(alpha_list)):
        writer.writerow({'alpha': alpha_list[i], 'c':c_list[i]})
 PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")  
 
