@@ -1,2 +1,8 @@
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
 loading mesh
+Total number of the points estimated on the bottom  boundary is  13121000 , number of estimated points: 12903142
+Mean of the alpha is 0.9407994226886712, the standard deviation is 0.13269303606360308 
+Mean of the c is 6.076353646688559, the standard deviation is 19977.01852190893 
+plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n8_N1000.png.
+plot of distribution of all estiamted c is saved in figures/distribution_c_n8_N1000.png.
+Results of alpha and c are saved to  results/Results_n8_N1000.csv
