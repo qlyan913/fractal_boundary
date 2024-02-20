@@ -1,0 +1,182 @@
+firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+loading mesh
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+Traceback (most recent call last):
+  File "/home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/estimate_boundary.py", line 44, in <module>
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+    uu=uh.at(pp)
+  File "petsc4py/PETSc/Log.pyx", line 188, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "petsc4py/PETSc/Log.pyx", line 189, in petsc4py.PETSc.Log.EventDecorator.decorator.wrapped_func
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+    raise RuntimeError("Point evaluation gave different results across processes.")
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 8
+  File "/home/yan00082/firedrake/src/firedrake/firedrake/function.py", line 701, in at
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 9
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 0
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 1
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 2
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 3
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 4
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 5
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 6
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 7
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 10
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 11
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 12
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 13
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 14
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 15
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 16
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 17
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 18
+    raise RuntimeError("Point evaluation gave different results across processes.")
+RuntimeError: Point evaluation gave different results across processes.
+application called MPI_Abort(PYOP2_COMM_WORLD, 1) - process 19
