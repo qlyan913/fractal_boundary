@@ -60,3 +60,32 @@ def Mark(msh, f, uh,V,tolerance):
                  markedVec0.getArray()[:] = 1.0*marked[:]
              sct(markedVec0, markedVec, mode=PETSc.Scatter.Mode.REVERSE)
      return mark, sum_eta, eta_max
+
+
+
+def harmonic_get_solution(mesh0,tolerance,max_iterations,deg):
+   sum_eta=1
+   it=0
+   while sum_eta>tolerance and it<max_iterations:
+      it=it+1
+      mesh=mesh0
+      x, y = SpatialCoordinate(mesh)
+      V = FunctionSpace(mesh0, "Lagrange", deg)
+   #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
+      f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+      g=0.0
+      uh = snowsolver(mesh, f,g,V)
+      mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
+      mesh0 = mesh.refine_marked_elements(mark)
+  # meshplot = triplot(mesh)
+  # meshplot[0].set_linewidth(0.1)
+  # meshplot[1].set_linewidth(1)
+  # plt.xlim(-1, 2)
+  # plt.axis('equal')
+  # plt.title('Koch Snowflake Mesh')
+  # plt.savefig(f"figures/snow_{n}_ref_{it}.pdf")
+  # plt.close()
+  # PETSc.Sys.Print(f"refined mesh plot saved to 'figures/snow_{n}_ref_{it}.pdf'.")
+      PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
+      
+   return uh,f,V

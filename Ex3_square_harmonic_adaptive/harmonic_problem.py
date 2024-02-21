@@ -1,4 +1,4 @@
-# Qile Yan 2023-10-23
+# Qile Yan 2024-02-20
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
@@ -20,49 +20,23 @@ from firedrake.pyplot import tripcolor
 
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
+#n=8
+#deg=5
+
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 mesh_size=1
 N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
+# N=400
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 20
-
 # stop refinement when sum_eta less than tolerance
 tolerance=1e-8
 
-# center points at center of squares of i-th iteration
-pp=[[0.5,3/2-(1/3.)**i] for i in range(0,n+1)]
-# distance to boundary
-x_list=[(1/3.)**i for i in range(0,n+1)]
-sum_eta=1
-it=0
-
-while sum_eta>tolerance and it<max_iterations:
-   it=it+1
-   mesh=mesh0
-   x, y = SpatialCoordinate(mesh)
-   V = FunctionSpace(mesh0, "Lagrange", deg)
-   #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-   f=exp(-20*((x-0.5)**2+(y-0.5)**2))
-   g=0.0
-   uh = snowsolver(mesh, f,g,V)
-   mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
-   mesh0 = mesh.refine_marked_elements(mark)
-  # meshplot = triplot(mesh)
-  # meshplot[0].set_linewidth(0.1)
-  # meshplot[1].set_linewidth(1)
-  # plt.xlim(-1, 2)
-  # plt.axis('equal')
-  # plt.title('Koch Snowflake Mesh')
-  # plt.savefig(f"figures/snow_{n}_ref_{it}.pdf")
-  # plt.close()
-  # PETSc.Sys.Print(f"refined mesh plot saved to 'figures/snow_{n}_ref_{it}.pdf'.")
-   PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-
-PETSc.Sys.Print(f"refined {it} times")
+uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
 fig, axes = plt.subplots()
 ff=Function(V)
@@ -85,8 +59,7 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 #  afile.save_function(uh)
 #PETSc.Sys.Print(f"The solution is saved to solutions/solution_{n}.h5")
 
-
-
+PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
 # check the order alpha in u(x)=r^\alpha for x is close to the bottom boundary.
 alpha0=[]
 c0=[]
