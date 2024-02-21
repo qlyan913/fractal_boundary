@@ -52,6 +52,17 @@ for x in x_list:
        alpha_list.append(alpha)
        c_list.append(c)
 
+tt=c*(dy_list)**alpha
+plt.figure()
+plt.loglog(dy_list,uu,'b.')
+plt.loglog(dy_list,tt)
+plt.ylabel('evaluation of solution')
+plt.xlabel('distance to boundary')
+plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha)])
+plt.savefig(f"figures/u_vs_h_n{n}_N{N}.png")
+plt.close()
+print(f"plot of one example of solution in loglog is saved in figures/u_vs_h_n{n}_N{N}.png")
+
 alpha_mean=statistics.mean(alpha_list)
 alpha_std=statistics.stdev(alpha_list)
 c_mean=statistics.mean(c_list)
