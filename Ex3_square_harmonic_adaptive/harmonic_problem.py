@@ -44,6 +44,7 @@ ff.interpolate(f)
 collection = tripcolor(ff, axes=axes)
 fig.colorbar(collection);
 plt.savefig(f"figures/f_{n}.png")
+plt.close()
 PETSc.Sys.Print(f"The plot of forcing term f is saved to  figures/f_{n}.png")
 
 # plot solution
@@ -51,6 +52,7 @@ fig, axes = plt.subplots()
 collection = tripcolor(uh, axes=axes)
 fig.colorbar(collection);
 plt.savefig(f"figures/solution_{n}.png")
+plt.close()
 PETSc.Sys.Print(f"The plot of solution is saved to figures/solution_{n}.png")
 
 #mesh.name="msh"
