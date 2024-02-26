@@ -84,6 +84,7 @@ alpha_list=[]
 c_list=[]
 pt_xlist=[]
 pt_ylist=[]
+std_list=[]
 for x in x_list:
     pt=x[0]
     nv=x[1]
@@ -102,6 +103,7 @@ for x in x_list:
        c_list.append(c)
        pt_xlist.append(pt[0])
        pt_ylist.append(pt[1])
+       std_list.append(res.stderr)
 
 tt=c*(dy_list)**alpha
 plt.figure()
@@ -143,11 +145,11 @@ plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted c is saved in figures/distribution_c_n{n}_N{N}.png.")
 
 with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
-    fieldnames = ['x','y','alpha', 'c']
+    fieldnames = ['x','y','alpha','std_alpha', 'c']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(alpha_list)):
-       writer.writerow({'x':pt_xlist[i],'y':pt_ylist[i],'alpha': alpha_list[i], 'c':c_list[i]})
+       writer.writerow({'x':pt_xlist[i],'y':pt_ylist[i],'alpha': alpha_list[i],'std_alpha':std_list[i], 'c':c_list[i]})
 PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")
 
 
