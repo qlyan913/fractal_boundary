@@ -7,6 +7,7 @@
 # In this example, we would like to evaluate the solution at center of small squares.
 #
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from firedrake.petsc import PETSc
 import numpy as np
 import csv
@@ -81,7 +82,8 @@ for L in line_list:
 # estiamte alpha and c
 alpha_list=[]
 c_list=[]
-pt_list=[]
+pt_xlist=[]
+pt_ylist=[]
 for x in x_list:
     pt=x[0]
     nv=x[1]
@@ -98,7 +100,8 @@ for x in x_list:
        alpha=res.slope
        alpha_list.append(alpha)
        c_list.append(c)
-       pt_list.append(pt)
+       pt_xlist.append(pt[0])
+       pt_ylist.append(pt[1])
 
 tt=c*(dy_list)**alpha
 plt.figure()
@@ -125,6 +128,14 @@ plt.savefig(f"figures/distribution_alpha_n{n}_N{N}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}.png.")
 
+fig=plt.figure()
+im=plot_colourline(pt_xlist,pt_ylist,alpha_list)
+fig.colorbar(im)
+plt.savefig(f"figures/distribution_alpha_cm_n{n}_N{N}.png")
+plt.close()
+PETSc.Sys.Print(f"plot of distribution of all alpha with color is saved in figures/distributi_alpha_cm_n{n}_N{N}.png")
+
+plt.figure()
 plt.hist(c_list,bins=100)
 plt.xlabel('value of c')
 plt.savefig(f"figures/distribution_c_n{n}_N{N}.png")
@@ -136,7 +147,7 @@ with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(alpha_list)):
-       writer.writerow({'x':pt_list[i][0],'y':pt_list[i][1],'alpha': alpha_list[i], 'c':c_list[i]})
+       writer.writerow({'x':pt_xlist[i],'y':pt_ylist[i],'alpha': alpha_list[i], 'c':c_list[i]})
 PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")
 
 

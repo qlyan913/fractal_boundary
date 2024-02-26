@@ -5,6 +5,9 @@
 # Adaptive FEM
 from firedrake.petsc import PETSc
 from firedrake import *
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
+
 def snowsolver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -89,3 +92,13 @@ def harmonic_get_solution(mesh0,tolerance,max_iterations,deg):
       PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
       
    return uh,f,V
+
+
+def plot_colourline(x,y,c):
+    col = cm.jet((c-np.min(c))/(np.max(c)-np.min(c)))
+    ax = plt.gca()
+    for i in np.arange(len(x)-1):
+        ax.plot([x[i],x[i+1]], [y[i],y[i+1]], c=col[i])
+    im = ax.scatter(x, y, c=c, s=0, cmap=cm.jet)
+    return im
+
