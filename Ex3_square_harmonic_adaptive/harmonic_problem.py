@@ -132,11 +132,11 @@ plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted c is saved in figures/distribution_c_n{n}_N{N}.png.")
 
 with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
-    fieldnames = ['point','alpha', 'c']
+    fieldnames = ['x','y','alpha', 'c']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for i in range(len(alpha_list)):
-       writer.writerow({'point':pt_list[i],'alpha': alpha_list[i], 'c':c_list[i]})
+       writer.writerow({'x':pt_list[i][0],'y':pt_list[i][1],'alpha': alpha_list[i], 'c':c_list[i]})
 PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")
 
 
