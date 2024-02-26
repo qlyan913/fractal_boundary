@@ -79,6 +79,7 @@ for L in line_list:
     pts_list,nv=divide_line_N(L,N)
     for pt in pts_list:
        x_list.append([pt,nv])
+
 # estiamte alpha and c
 alpha_list=[]
 c_list=[]
@@ -130,8 +131,10 @@ plt.savefig(f"figures/distribution_alpha_n{n}_N{N}.png")
 plt.close()
 PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}.png.")
 
+
 fig=plt.figure()
-im=plot_colourline(pt_xlist,pt_ylist,alpha_list)
+indx_list=sort_index(line_list,pt_xlist,pt_ylist) # this function is in geogen.py
+im=plot_colourline(pt_xlist,pt_ylist,alpha_list,indx_list)
 fig.colorbar(im)
 plt.savefig(f"figures/distribution_alpha_cm_n{n}_N{N}.png")
 plt.close()

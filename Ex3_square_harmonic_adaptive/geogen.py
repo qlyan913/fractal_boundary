@@ -6,12 +6,57 @@ import numpy as np
 #  2: Right  y == 1
 #  3: Bottom x == 0
 #  4: Left  y == 0
+def sort_index(line_list,x_list,y_list):
+    # Input
+    # line_list       - a sequence of lines
+    # (x_list,y_list) - a list of points
+    # Output
+    # idx  - ordered index for plot
+    pt_list=np.column_stack((x_list,y_list))
+    idx_list=[]
+    for line in line_list:
+        indx,flag=get_index_P1P2(line,pt_list)
+        if flag==0:
+           sub_list=[x_list[i] for i in indx]
+           sub_indx=np.argsort(sub_list)
+           indx=[indx[i] for i in sub_indx]
+           idx_list.append(indx)
+        else:
+           sub_list=[y_list[i] for i in indx]
+           sub_indx=np.argsort(sub_list)
+           indx=[indx[i] for i in sub_indx]
+           idx_list.append(indx)
+    return idx_list
+def get_index_P1P2(vertices,pt_list):
+    # Input
+    # vertices - array of shape 2 x 3.
+    #          - two points P1 P2
+    # pt_list  - a list of points 
+    # Output
+    # pts_idx  - index of points from (x_list,y_list) that are between P1 and P2 
+    # flag     - ==0 will sort in x, ==1 will sort in y 
+    P1=vertices[0][0]
+    P2=vertices[1][0]
+    if P1[0]==P2[0]:
+       x=P1[0]
+       flag=1
+       y_max=max(P1[1],P2[1])
+       y_min=min(P1[1],P2[1])
+       idx=[i for i,pt in enumerate(pt_list) if pt[0]==x and pt[1]<=y_max and pt[1]>=y_min]
+    else:
+       y=P1[1]
+       flag=0
+       x_max=max(P1[0],P2[0])
+       x_min=min(P1[0],P2[0])
+       idx=[i for i,pt in enumerate(pt_list) if pt[1]==y and pt[0]<=x_max and pt[0]>=x_min ]
+    return idx,flag
+
 def divide_line_N(vertices,N):
-    # input
+    # Input
     # vertices - array of shape 2x3.
     #          - two points P1 P2
     # N        - number of segments
-    # out put
+    # Output
     # x_list -  array of shape Nx3. N points at the center of N segments over the line P1P2
     # nv     -  array of shape 1x3. the normal vector towards outside
     x_list=[]

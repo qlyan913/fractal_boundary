@@ -94,11 +94,12 @@ def harmonic_get_solution(mesh0,tolerance,max_iterations,deg):
    return uh,f,V
 
 
-def plot_colourline(x,y,c):
+def plot_colourline(x,y,c,indx_list):
     col = cm.jet((c-np.min(c))/(np.max(c)-np.min(c)))
     ax = plt.gca()
-    for i in np.arange(len(x)-1):
-        ax.plot([x[i],x[i+1]], [y[i],y[i+1]], c=col[i])
+    for idx in indx_list:
+        for i in np.arange(len(idx)-1):
+           ax.plot([x[idx[i]],x[idx[i+1]]], [y[idx[i]],y[idx[i+1]]], c=col[idx[i]])
     im = ax.scatter(x, y, c=c, s=0, cmap=cm.jet)
     return im
 
