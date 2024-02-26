@@ -18,3 +18,5 @@ The data of flux is saved in Ex2_cube_top_snowflake_v3/results.
 
 Ex3: On the unit square where each sides are replaced by square snowflake.
 
+The code is under the folder Ex3_square_harmonic_adaptive
+
