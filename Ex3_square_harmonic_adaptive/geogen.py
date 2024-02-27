@@ -6,6 +6,17 @@ import numpy as np
 #  2: Right  y == 1
 #  3: Bottom x == 0
 #  4: Left  y == 0
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
+def plot_colourline(x,y,c,indx_list):
+    col = cm.jet((c-np.min(c))/(np.max(c)-np.min(c)))
+    ax = plt.gca()
+    for idx in indx_list:
+        for i in np.arange(len(idx)-1):
+           ax.plot([x[idx[i]],x[idx[i+1]]], [y[idx[i]],y[idx[i+1]]], c=col[idx[i]],linewidth=0.01)
+    im = ax.scatter(x, y, c=c, s=0, cmap=cm.jet)
+    return im
+
 def sort_index(line_list,x_list,y_list):
     # Input
     # line_list       - a sequence of lines

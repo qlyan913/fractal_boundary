@@ -27,7 +27,7 @@ deg=5
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 mesh_size=1
 #N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
-N=10
+N=50
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
