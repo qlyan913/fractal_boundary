@@ -75,7 +75,7 @@ def harmonic_get_solution(mesh0,tolerance,max_iterations,deg):
       x, y = SpatialCoordinate(mesh)
       V = FunctionSpace(mesh0, "Lagrange", deg)
    #f=conditional(And(And(And(1./3.<x,x<2./3.),1./3.<y),y<2./3.),1,0)
-      f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+      f=exp(-40*((x-0.5)**2+(y-0.5)**2))
       g=0.0
       uh = snowsolver(mesh, f,g,V)
       mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
