@@ -138,17 +138,19 @@ im=plot_colourline(pt_xlist,pt_ylist,alpha_list,indx_list)
 fig.colorbar(im)
 plt.xlim(0,1)
 plt.axis('equal')
-plt.savefig(f"figures/alpha_n{n}_N{N}.pdf")
+plt.savefig(f"figures/alpha_n{n}_N{N}.png")
 plt.close()
-PETSc.Sys.Print(f"plot of alpha with color is saved in figures/alpha_n{n}_N{N}.pdf")
+PETSc.Sys.Print(f"plot of alpha with color is saved in figures/alpha_n{n}_N{N}.png")
 
 fig=plt.figure()
 indx_list=sort_index(line_list,pt_xlist,pt_ylist) # this function is in geogen.py
 im=plot_colourline(pt_xlist,pt_ylist,std_list,indx_list)
 fig.colorbar(im)
-plt.savefig(f"figures/alpha_std_n{n}_N{N}.pdf")
+plt.xlim(0,1)
+plt.axis('equal')
+plt.savefig(f"figures/alpha_std_n{n}_N{N}.png")
 plt.close()
-PETSc.Sys.Print(f"plot of std of alpha with color is saved in figures/alpha_std_cm_n{n}_N{N}.pdf")
+PETSc.Sys.Print(f"plot of std of alpha with color is saved in figures/alpha_std_cm_n{n}_N{N}.png")
 
 
 
