@@ -135,6 +135,7 @@ PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figure
 fig=plt.figure()
 indx_list=sort_index(line_list,pt_xlist,pt_ylist) # this function is in geogen.py
 im=plot_colourline(pt_xlist,pt_ylist,alpha_list,indx_list)
+im.set_clim(0.6,1.2)
 fig.colorbar(im)
 plt.xlim(0,1)
 plt.axis('equal')
