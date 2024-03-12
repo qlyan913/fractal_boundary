@@ -9,8 +9,8 @@ import numpy as np
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 def plot_colourline(x,y,c,indx_list):
-    #col = cm.jet((c-np.min(c))/(np.max(c)-np.min(c)))
-    col = cm.jet(c)
+    col = cm.jet((c-np.min(c))/(np.max(c)-np.min(c)))
+    #col = cm.jet(c)
     ax = plt.gca()
     for idx in indx_list:
         for i in np.arange(len(idx)-1):
