@@ -18,16 +18,16 @@ from netgen.geom2d import SplineGeometry
 from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
-
-#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-#deg=int(input("Enter the degree of polynomial in FEM space:"))
-n=8
-deg=5
+from matplotlib.ticker import PercentFormatter
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+deg=int(input("Enter the degree of polynomial in FEM space:"))
+#n=8
+#deg=5
 
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 mesh_size=1
-#N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
-N=50
+N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
+#N=50
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
@@ -125,7 +125,8 @@ PETSc.Sys.Print("Total number of the points estimated on the bottom  boundary is
 PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
 PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
-plt.hist(alpha_list,bins=100,range=[0.6,1.25])
+plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
 plt.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_alpha_n{n}_N{N}.png")
 plt.close()
