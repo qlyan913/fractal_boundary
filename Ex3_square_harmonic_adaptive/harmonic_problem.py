@@ -19,15 +19,15 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-deg=int(input("Enter the degree of polynomial in FEM space:"))
-#n=8
-#deg=5
+#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+#deg=int(input("Enter the degree of polynomial in FEM space:"))
+n=8
+deg=5
 
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 mesh_size=1
-N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
-#N=40
+#N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
+N=50
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
