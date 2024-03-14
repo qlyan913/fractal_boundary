@@ -1,0 +1,73 @@
+Solve -\Delta u+u=f on unit square 
+Mesh 100 x 100
+Degree 5 
+Degree of freedom 251001
+
+# Test on 1 node npc
+Solver: default direct solver
+Time used: 1.731362816999999
+
+Solver: LU factorization 
+Time used: 2.3590632629999995
+
+Solver: conjugate gradient method without preconditioner 
+Time used: 10.559950258
+
+Solver: BoomerAMG preconditioner
+Time used: 3.709529742000001
+
+Solver: conjugate gradient method with BoomerAMG preconditioner
+Time used: 3.9338292280000005
+
+# Test on 1 node hpc with mpiexec -n 2
+Solver: default direct solver
+Time used: 1.5706326700000002
+
+Solver: LU factorization 
+Time used: 1.6475165440000001
+
+Solver: conjugate gradient method without preconditioner 
+Time used: 8.978533961
+
+Solver: BoomerAMG preconditioner
+Time used:3.3505371219999986
+
+Solver: conjugate gradient method with BoomerAMG preconditioner
+Time used: 2.9978848980000024
+
+# Test on 1 node hpc with mpiexec -n 4
+Solver: default direct solver
+Time used: 1.2172793240000006
+
+Solver: LU factorization 
+Time used: 1.168740326
+
+Solver: conjugate gradient method without preconditioner 
+Time used: 3.729727403
+
+Solver: BoomerAMG preconditioner
+Time used: 1.2420530879999996
+
+Solver: conjugate gradient method with BoomerAMG preconditioner
+Time used: 1.3443664060000007
+
+# Test on 1 node hpc with mpiexec -n 8
+Solver: default direct solver
+Time used: 1.0726190020000006
+
+Solver: LU factorization 
+Time used: 1.0342359449999998
+
+Solver: conjugate gradient method without preconditioner 
+Time used: 2.28679408
+
+Solver: BoomerAMG preconditioner
+Time used: 0.7122705649999999
+
+Solver: conjugate gradient method with BoomerAMG preconditioner
+Time used: 0.7776020839999997
+
+
+
+
+
