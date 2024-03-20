@@ -28,8 +28,3 @@ Total number of the points estimated on the bottom  boundary is  656050 , number
 Mean of the alpha is 0.9408749619866307, the standard deviation is 0.13336804759820414 
 Mean of the c is 0.686320006724156, the standard deviation is 541.9483419044379 
 plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n8_N50.png.
-plot of alpha with color is saved in figures/alpha_n8_N50.png
-plot of std of alpha with color is saved in figures/alpha_std_cm_n8_N50.png
-plot of distribution of all estiamted c is saved in figures/distribution_c_n8_N50.png.
-Results of alpha and c are saved to  results/Results_n8_N50.csv
-plot of one example of solution in loglog is saved in figures/u_vs_h_n8_N50.png
