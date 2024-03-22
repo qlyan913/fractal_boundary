@@ -73,7 +73,7 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 x_list=[]
-nv_list=[]
+
 # divide the bottom edge into N segments
 for L in line_list:
     pts_list,nv=divide_line_N(L,N)

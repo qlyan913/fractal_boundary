@@ -46,47 +46,25 @@ p4=[np.array([0,0]),2]
 id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
-x_list=[]
-nv_list=[]
+# distance to boundary
+dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
 
-N=10
-# divide the bottom edge into N segments
-for L in line_list:
-    pts_list,nv=divide_line_N(L,N)
-    for pt in pts_list:
-       x_list.append([pt,nv])
-
-# estiamte alpha and c
-alpha_list=[]
-c_list=[]
-pt_xlist=[]
-pt_ylist=[]
-std_list=[]
-for x in x_list:
-    pt=x[0]
-    nv=x[1]
-    # distance to boundary
-    dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
-    # sequence of points
-    pp=[pt-yy*nv for yy in dy_list]
-    uu=uh.at(pp)
-    if min(uu)>0:
-       dy_list_log=np.log(dy_list)
-       uu_log=np.log(uu)
-       res = stats.linregress(dy_list_log, uu_log)
-       c=exp(res.intercept)
-       alpha=res.slope
-       alpha_list.append(alpha)
-       c_list.append(c)
-       pt_xlist.append(pt[0])
-       pt_ylist.append(pt[1])
-       std_list.append(res.stderr)
-
+N_all=[20,40,80,160,320,640]
+l_list=[] # size of segments
+ms_list=[]
+for N in N_all:
+   l= (1./3.)**n/N
+   l_list.append(l)
+   ms=0
+   alpha_list,c_list=get_alpha(uh,line_list,dy_list,N)[0:2]
+   for i in range(len(alpha_list)):
+     if alpha_list[i]>1:
+        ms=ms+c_list[i]*l**alpha_list[i]
+   ms_list.append(ms)
 
 plt.figure()
-plt.loglog(dy_list,uu,'b.')
-plt.ylabel('evaluation of solution')
-plt.xlabel('distance to boundary')
+plt.plot(l_list,ms_list,'b.')
+plt.xlabel('size of segments, $|l|$')
 plt.legend([r'$\sum_{\alpha_l>1}c_l|l|^{\alpha_l}$'  ])
 plt.savefig(f"figures/hm_n{n}.png")
 plt.close()

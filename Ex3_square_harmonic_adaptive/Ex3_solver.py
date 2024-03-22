@@ -7,7 +7,8 @@ from firedrake.petsc import PETSc
 from firedrake import *
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
-
+from geogen import *
+from scipy import stats
 def snowsolver(mesh, f,g,V):
     # Test and trial functions
     u = TrialFunction(V)
@@ -113,3 +114,38 @@ def plot_colourline_std(x,y,c,indx_list):
            ax.plot([x[idx[i]],x[idx[i+1]]], [y[idx[i]],y[idx[i+1]]], c=col[idx[i]],linewidth=0.3)
     im = ax.scatter(x, y, c=c, s=0,cmap=cm.jet)
     return im
+
+
+
+
+def get_alpha(uh,line_list,dy_list,N):
+   x_list=[]
+   # divide the bottom edge into N segments
+   for L in line_list:
+      pts_list,nv=divide_line_N(L,N)
+      for pt in pts_list:
+         x_list.append([pt,nv])
+   # estiamte alpha and c
+   alpha_list=[]
+   c_list=[]
+   pt_xlist=[]
+   pt_ylist=[]
+   std_list=[]
+   for x in x_list:
+      pt=x[0]
+      nv=x[1]
+      # sequence of points
+      pp=[pt-yy*nv for yy in dy_list]
+      uu=uh.at(pp)
+      if min(uu)>0:
+         dy_list_log=np.log(dy_list)
+         uu_log=np.log(uu)
+         res = stats.linregress(dy_list_log, uu_log)
+         c=exp(res.intercept)
+         alpha=res.slope
+         alpha_list.append(alpha)
+         c_list.append(c)
+         pt_xlist.append(pt[0])
+         pt_ylist.append(pt[1])
+         std_list.append(res.stderr)
+   return alpha_list, c_list,pt_xlist,pt_ylist,std_list
