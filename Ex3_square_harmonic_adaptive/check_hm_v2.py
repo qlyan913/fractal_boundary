@@ -60,7 +60,7 @@ for N in N_all:
    ms_u=0
    alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
    for i in range(len(alpha_list)):
-     if alpha_list[i]>1.01:
+     if alpha_list[i]>1.05:
         ms=ms+c_list[i]*l**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i]) 
    ms_list.append(ms)
@@ -70,10 +70,10 @@ plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')
 plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1}c_l|l|^{\alpha_l}$',r'$\sum_{\alpha_l>1}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}.png")
+plt.legend([r'$\sum_{\alpha_l>1.05}c_l|l|^{\alpha_l}$',r'$\sum_{\alpha_l>1.05}u(x_l)$'])
+plt.savefig(f"figures/hm_n{n}_v2.png")
 plt.close()
-print(f"plot of harmonic measure of edges  with alpha larger than 1 is saved in figures/hm_n{n}.png")
+print(f"plot of harmonic measure of edges  with alpha larger than 1.05 is saved in figures/hm_n{n}_v2.png")
 
 
 
