@@ -60,7 +60,7 @@ for N in N_all:
    ms_u=0
    alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
    for i in range(len(alpha_list)):
-     if alpha_list[i]>1:
+     if alpha_list[i]>1.01:
         ms=ms+c_list[i]*l**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i]) 
    ms_list.append(ms)
