@@ -52,20 +52,27 @@ dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
 N_all=[2*2**i for i in range(10)]
 l_list=[] # size of segments
 ms_list=[]
+ms_sum_list=[]
 ms_u_list=[]
+ms_u_sum_list=[]
 for N in N_all:
    l= (1./3.)**n/N
    l_list.append(l)
    ms=0
+   ms_sum=0
    ms_u=0
+   ms_u_sum=0
    alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
    for i in range(len(alpha_list)):
+     ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
+     ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
      if alpha_list[i]>1.05:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
-        ms_u=ms_u+uh.at(xl_list[i]) 
+        ms_u=ms_u+uh.at(xl_list[i])
    ms_list.append(ms)
+   ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
-
+   ms_u_sum_list.append(ms_u_sum)
 plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')
@@ -75,5 +82,18 @@ plt.savefig(f"figures/hm_n{n}_v2.png")
 plt.close()
 print(f"plot of harmonic measure of edges  with alpha larger than 1.05 is saved in figures/hm_n{n}_v2.png")
 
+ms_p=[]
+ms_u_p=[]
+for i in range(len(ms_list)):
+   ms_p.append(ms_list[i]/ms_sum_list[i])
+   ms_u_p.append(ms_u_list[i]/ms_u_sum_list[i])
+plt.figure()
+plt.loglog(l_list,ms_p,'b.')
+plt.loglog(l_list,ms_u_p,'k*')
+plt.xlabel('size of segments, $|l|$')
+plt.legend([r'$\sum_{\alpha_l>1.05}c_l|l|^{\alpha_l}/\sum_{l}c_l|l|^{\alpha_l}$',r'$\sum_{\alpha_l>1.05}u(x_l)/\sum_{l}u(x_l)$'])
+plt.savefig(f"figures/hm_n{n}_p_v2.png")
+plt.close()
+print(f"plot of percentage of  harmonic measure of edges  with alpha larger than 1.05 is saved in figures/hm_n{n}_p_v2.png")
 
 

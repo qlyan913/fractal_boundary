@@ -1,1 +1,40 @@
 firedrake:WARNING OMP_NUM_THREADS is not set or is set to a value greater than 1, we suggest setting OMP_NUM_THREADS=1 to improve performance
+/home/yan00082/firedrake/src/ngsPETSc/ngsPETSc/__init__.py:30: UserWarning: No NGSolve installed, only working with Netgen.
+  warnings.warn("No NGSolve installed, only working with Netgen.")
+Refined Mesh with degree of freedom  2984601 sum_eta is  0.00021017640636051285
+Refined Mesh with degree of freedom  2985451 sum_eta is  0.00011533619337757374
+Refined Mesh with degree of freedom  2987166 sum_eta is  6.693853393136176e-05
+Refined Mesh with degree of freedom  2989041 sum_eta is  3.8116949636222196e-05
+Refined Mesh with degree of freedom  2991416 sum_eta is  1.9918754497732566e-05
+Refined Mesh with degree of freedom  2993711 sum_eta is  1.0801107185486165e-05
+Refined Mesh with degree of freedom  2996331 sum_eta is  5.7785646533899355e-06
+Refined Mesh with degree of freedom  2999171 sum_eta is  3.1364449976531545e-06
+Refined Mesh with degree of freedom  3002996 sum_eta is  1.650171604213665e-06
+Refined Mesh with degree of freedom  3007821 sum_eta is  9.031894211825738e-07
+Refined Mesh with degree of freedom  3013241 sum_eta is  5.145150591289557e-07
+Refined Mesh with degree of freedom  3020946 sum_eta is  2.9356132615326186e-07
+Refined Mesh with degree of freedom  3028351 sum_eta is  1.6145260385857954e-07
+Refined Mesh with degree of freedom  3036911 sum_eta is  8.284264455038228e-08
+Refined Mesh with degree of freedom  3046361 sum_eta is  4.3663378459046085e-08
+Refined Mesh with degree of freedom  3057211 sum_eta is  2.3917494043877174e-08
+Refined Mesh with degree of freedom  3069456 sum_eta is  1.4273813692975552e-08
+Refined Mesh with degree of freedom  3088236 sum_eta is  7.804545299562223e-09
+Refined Mesh with degree of freedom  3109751 sum_eta is  4.191618012345007e-09
+Refined Mesh with degree of freedom  3136501 sum_eta is  2.2261566722478802e-09
+Refined Mesh with degree of freedom  3169291 sum_eta is  1.1252381406103116e-09
+Refined Mesh with degree of freedom  3205366 sum_eta is  5.533121403646442e-10
+Refined Mesh with degree of freedom  3246796 sum_eta is  2.8132866135345854e-10
+Refined Mesh with degree of freedom  3302636 sum_eta is  1.4014943830228235e-10
+Refined Mesh with degree of freedom  3372351 sum_eta is  6.848041566157322e-11
+The plot of forcing term f is saved to  figures/f_8.png
+The plot of solution is saved to figures/solution_8.png
+Calculating the alpha for points on the bottom boundary ...
+Total number of the points estimated on the bottom  boundary is  262420 , number of estimated points: 258075
+Mean of the alpha is 0.9418669470099363, the standard deviation is 0.1372646195920202 
+Mean of the c is 0.00016135788196505946, the standard deviation is 0.03290328052516514 
+plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n8_N20.png.
+plot of alpha with color is saved in figures/alpha_n8_N20.png
+plot of std of alpha with color is saved in figures/alpha_std_cm_n8_N20.png
+plot of distribution of all estiamted c is saved in figures/distribution_c_n8_N20.png.
+Results of alpha and c are saved to  results/Results_n8_N20.csv
+plot of one example of solution in loglog is saved in figures/u_vs_h_n8_N20.png
