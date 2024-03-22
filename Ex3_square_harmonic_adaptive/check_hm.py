@@ -49,7 +49,7 @@ line_list=line_list+line_list2
 # distance to boundary
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
 
-N_all=[2*2**i for i in range(6)]
+N_all=[2*2**i for i in range(10)]
 l_list=[] # size of segments
 ms_list=[]
 ms_u_list=[]
@@ -60,7 +60,7 @@ for N in N_all:
    ms_u=0
    alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
    for i in range(len(alpha_list)):
-     if alpha_list[i]>1.001:
+     if alpha_list[i]>1.01:
         ms=ms+c_list[i]*l**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i]) 
    ms_list.append(ms)
