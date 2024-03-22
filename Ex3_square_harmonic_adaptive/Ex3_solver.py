@@ -1,6 +1,5 @@
 # Qile Yan 2023-10-21
-# Solve
-#   -\Delta u =f in Omega
+# Solve -\Delta u =f in Omega
 # u = g on boundary
 # Adaptive FEM
 from firedrake.petsc import PETSc
@@ -118,8 +117,9 @@ def plot_colourline_std(x,y,c,indx_list):
 
 
 
-def get_alpha(uh,line_list,dy_list,N):
+def get_alpha(uh,line_list,dy_list,N,l):
    x_list=[]
+   xl_list=[]
    # divide the bottom edge into N segments
    for L in line_list:
       pts_list,nv=divide_line_N(L,N)
@@ -134,6 +134,7 @@ def get_alpha(uh,line_list,dy_list,N):
    for x in x_list:
       pt=x[0]
       nv=x[1]
+      xl_list.append(pt-nv*l)
       # sequence of points
       pp=[pt-yy*nv for yy in dy_list]
       uu=uh.at(pp)
@@ -148,4 +149,4 @@ def get_alpha(uh,line_list,dy_list,N):
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
          std_list.append(res.stderr)
-   return alpha_list, c_list,pt_xlist,pt_ylist,std_list
+   return alpha_list, c_list,xl_list,pt_xlist,pt_ylist,std_list
