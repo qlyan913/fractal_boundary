@@ -134,7 +134,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
    for x in x_list:
       pt=x[0]
       nv=x[1]
-      xl_list.append(pt-nv*l)
+      xl_list.append(pt-nv*l/2.)
       # sequence of points
       pp=[pt-yy*nv for yy in dy_list]
       uu=uh.at(pp)
