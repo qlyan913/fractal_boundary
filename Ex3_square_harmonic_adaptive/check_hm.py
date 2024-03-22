@@ -49,7 +49,7 @@ line_list=line_list+line_list2
 # distance to boundary
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
 
-N_all=[20,40,80,160,320,640]
+N_all=[20,40,80,160,320,640,1280]
 l_list=[] # size of segments
 ms_list=[]
 for N in N_all:
@@ -63,7 +63,7 @@ for N in N_all:
    ms_list.append(ms)
 
 plt.figure()
-plt.plot(l_list,ms_list,'b.')
+plt.loglog(l_list,ms_list,'b.')
 plt.xlabel('size of segments, $|l|$')
 plt.legend([r'$\sum_{\alpha_l>1}c_l|l|^{\alpha_l}$'  ])
 plt.savefig(f"figures/hm_n{n}.png")
