@@ -1,11 +1,12 @@
-# Qile Yan 2024-02-20
+# Qile Yan 2024-03-23
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
 # f=exp(-20*((x-0.5)**2+(y-0.5)**2))
 #
 # In this example, we would like to evaluate the solution at center of small squares.
-#
+# n=2, N=100
+# Check the distribution of alpha when x 1/3\leq x \leq 2/3 at bottom
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from firedrake.petsc import PETSc
@@ -19,11 +20,9 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-deg=int(input("Enter the degree of polynomial in FEM space:"))
-#n=8
-#deg=5
-
+n=2
+deg=5
+N=100
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
@@ -48,52 +47,21 @@ new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
+l= (1./3.)**n/N
+alpha_list,c_list,xl_list,pt_xlist,pt_ylist=get_alpha(uh,line_list,dy_list,N,l)[0:5]
 
-N_all=[2*2**i for i in range(10)]
-l_list=[] # size of segments
-ms_list=[]
-ms_sum_list=[]
-ms_u_list=[]
-ms_u_sum_list=[]
-for N in N_all:
-   l= (1./3.)**n/N
-   l_list.append(l)
-   ms=0
-   ms_sum=0
-   ms_u=0
-   ms_u_sum=0
-   alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
-   for i in range(len(alpha_list)):
-     ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
-     ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
-     if alpha_list[i]>1:
-        ms=ms+c_list[i]*(l/2.)**alpha_list[i]
-        ms_u=ms_u+uh.at(xl_list[i])
-   ms_list.append(ms)
-   ms_sum_list.append(ms_sum)
-   ms_u_list.append(ms_u)
-   ms_u_sum_list.append(ms_u_sum)
-plt.figure()
-plt.loglog(l_list,ms_list,'b.')
-plt.loglog(l_list,ms_u_list,'k*')
-plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1}c_l|l/2|^{\alpha_l}$',r'$\sum_{\alpha_l>1}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}.png")
-plt.close()
-print(f"plot of harmonic measure of edges  with alpha larger than 1 is saved in figures/hm_n{n}.png")
+sub_alpha=[]
+for i in range(len(pt_xlist)):
+   if pt_xlist[i]<=2./3. and pt_xlist[i]>=1./3.:
+      sub_alpha.append(alpha_list[i])
 
-ms_p=[]
-ms_u_p=[]
-for i in range(len(ms_list)):
-   ms_p.append(ms_list[i]/ms_sum_list[i])
-   ms_u_p.append(ms_u_list[i]/ms_u_sum_list[i])
-plt.figure()
-plt.loglog(l_list,ms_p,'b.')
-plt.loglog(l_list,ms_u_p,'k*')
-plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1}c_l|l/2|^{\alpha_l}/\sum_{l}c_l|l/2|^{\alpha_l}$',r'$\sum_{\alpha_l>1}u(x_l)/\sum_{l}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}_p.png")
+
+plt.hist(alpha_list,bins=50,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
+plt.xlabel('value of alpha')
+plt.savefig(f"figures/distribution_subalpha_n{n}_N{N}.png")
 plt.close()
-print(f"plot of percentage of  harmonic measure of edges  with alpha larger than 1 is saved in figures/hm_n{n}_p.png")
+PETSc.Sys.Print(f"plot of distribution of estiamted alpha is saved in figures/distribution_subalpha_n{n}_N{N}")
+
 
 
