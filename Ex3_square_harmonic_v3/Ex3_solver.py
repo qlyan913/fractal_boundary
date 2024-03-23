@@ -34,7 +34,7 @@ def get_solution(mesh,tolerance,max_iterations,deg):
         mesh = mesh.refine_marked_elements(mark)
         x, y = SpatialCoordinate(mesh)
         V = FunctionSpace(mesh, "Lagrange", deg)
-        f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+        f=exp(-2000*((x-0.5)**2+(y-0.5)**2))
         g=0.0
         uh = snowsolver(mesh, f,g,V)
         mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
