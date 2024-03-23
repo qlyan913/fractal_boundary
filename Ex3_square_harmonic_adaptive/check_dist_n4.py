@@ -20,7 +20,7 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
-n=2
+n=4
 deg=5
 N=100
 mesh_size=1
