@@ -2,7 +2,7 @@
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
-# f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+# f=exp(-2000*((x-0.5)**2+(y-0.5)**2)) point source as in  https://github.com/firedrakeproject/firedrake/discussions/2510
 #
 # In this example, we would like to evaluate the solution at center of small squares.
 #
@@ -19,15 +19,15 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
-#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-#deg=int(input("Enter the degree of polynomial in FEM space:"))
-n=8
-deg=5
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+deg=int(input("Enter the degree of polynomial in FEM space:"))
+#n=8
+#deg=5
 
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
 mesh_size=1
-#N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
-N=20
+N= int(input("Enter the number of segments for estimation on each sides of the bottom  boundary: "))
+#N=20
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)

@@ -25,7 +25,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 60
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-7
+tolerance=1e-10
 
 uh, mesh, f=get_solution(mesh0,tolerance,max_iterations,deg)
 
