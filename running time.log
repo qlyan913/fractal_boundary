@@ -5,67 +5,61 @@ Degree of freedom 251001
 
 # Test on 1 node npc
 Solver: default direct solver
-Time used: 1.731362816999999
+Time used: 1.933000464
 
 Solver: LU factorization 
-Time used: 2.3590632629999995
+Time used: 3.761173515
 
 Solver: conjugate gradient method without preconditioner 
-Time used: 10.559950258
+Time used: 16.615996492
+
+Solver: conjugate gradient method with Jacobian
+Time used: 16.885727893999995
 
 Solver: BoomerAMG preconditioner
-Time used: 3.709529742000001
+Time used: 4.5765195139999975
 
 Solver: conjugate gradient method with BoomerAMG preconditioner
-Time used: 3.9338292280000005
+Time used: 4.702495707000004
 
-# Test on 1 node hpc with mpiexec -n 2
-Solver: default direct solver
-Time used: 1.5706326700000002
-
-Solver: LU factorization 
-Time used: 1.6475165440000001
-
-Solver: conjugate gradient method without preconditioner 
-Time used: 8.978533961
-
-Solver: BoomerAMG preconditioner
-Time used:3.3505371219999986
-
-Solver: conjugate gradient method with BoomerAMG preconditioner
-Time used: 2.9978848980000024
 
 # Test on 1 node hpc with mpiexec -n 4
 Solver: default direct solver
-Time used: 1.2172793240000006
+Time used: 1.2484801289999994
 
 Solver: LU factorization 
-Time used: 1.168740326
+Time used: 1.6255826
 
 Solver: conjugate gradient method without preconditioner 
-Time used: 3.729727403
+Time used: 3.9844129440000007
+
+Solver: conjugate gradient method with Jacobian
+Time used: 4.693946898
 
 Solver: BoomerAMG preconditioner
-Time used: 1.2420530879999996
+Time used: 1.2926792900000006
 
 Solver: conjugate gradient method with BoomerAMG preconditioner
-Time used: 1.3443664060000007
+Time used: 1.2155934169999991
 
 # Test on 1 node hpc with mpiexec -n 8
 Solver: default direct solver
-Time used: 1.0726190020000006
+Time used: 1.2211485180000006
 
 Solver: LU factorization 
-Time used: 1.0342359449999998
+Time used: 1.375494437
 
 Solver: conjugate gradient method without preconditioner 
-Time used: 2.28679408
+Time used: 2.0643679500000003
+
+Solver: conjugate gradient method with Jacobian
+Time used: 2.07045380099999935
 
 Solver: BoomerAMG preconditioner
-Time used: 0.7122705649999999
+Time used: 0.5696711370000003
 
 Solver: conjugate gradient method with BoomerAMG preconditioner
-Time used: 0.7776020839999997
+Time used: 0.5856185609999986
 
 
 
