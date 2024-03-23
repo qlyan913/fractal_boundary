@@ -21,6 +21,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
+alpha_0=float(input("Enter the alpha0:"))
 #n=8
 #deg=5
 
@@ -66,7 +67,7 @@ for N in N_all:
    for i in range(len(alpha_list)):
      ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
      ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
-     if alpha_list[i]>1.05:
+     if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
    ms_list.append(ms)
@@ -77,10 +78,10 @@ plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')
 plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1.05}c_l|l|^{\alpha_l}$',r'$\sum_{\alpha_l>1.05}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}_v2.png")
+plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}$' % alpha_0,r'$\sum_{\alpha_l>{%s}}u(x_l)$'% alpha_0])
+plt.savefig(f"figures/hm_n{n}_v2_{alpha_0}.png")
 plt.close()
-print(f"plot of harmonic measure of edges  with alpha larger than 1.05 is saved in figures/hm_n{n}_v2.png")
+print(f"plot of harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_v2_{alpha_0}.png")
 
 ms_p=[]
 ms_u_p=[]
@@ -91,9 +92,9 @@ plt.figure()
 plt.loglog(l_list,ms_p,'b.')
 plt.loglog(l_list,ms_u_p,'k*')
 plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1.05}c_l|l|^{\alpha_l}/\sum_{l}c_l|l|^{\alpha_l}$',r'$\sum_{\alpha_l>1.05}u(x_l)/\sum_{l}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}_p_v2.png")
+plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}/\sum_{l}c_l|l/2|^{\alpha_l}$' % (alpha_0),r'$\sum_{\alpha_l>{%s}}u(x_l)/\sum_{l}u(x_l)$' % (alpha_0)])
+plt.savefig(f"figures/hm_n{n}_p_v2_{alpha_0}.png")
 plt.close()
-print(f"plot of percentage of  harmonic measure of edges  with alpha larger than 1.05 is saved in figures/hm_n{n}_p_v2.png")
+print(f"plot of percentage of  harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_p_v2_{alpha_0}.png")
 
 
