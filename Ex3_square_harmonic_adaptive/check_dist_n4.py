@@ -56,7 +56,7 @@ for i in range(len(pt_xlist)):
       sub_alpha.append(alpha_list[i])
 
 
-plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.hist(sub_alpha,bins=100,range=[0.6,1.25],weights=np.ones(len(sub_alpha))/len(sub_alpha))
 plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
 plt.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_subalpha_n{n}_N{N}.png")
