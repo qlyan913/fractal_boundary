@@ -10,7 +10,7 @@ plt.clf()
 # resultsfile should be a csv file with 2 columns, one for Lambda, one for Phi,
 # with 1st row for column labels.  The data is sorted by increasing Lambda and
 # the least Lambda, typically Lambda, is not used for making this plot
-# Data from Qile Yan, fractal_boundary/Ex1_square_top_snowflake_adaptive.
+# Data from Qile Yan, fractal_boundary/Ex2_cube_top_snowflake_v3.
 resultsfile = 'results/Phi_Lam_3.csv'
 # file for graphical output
 plotfile = 'plot_Z_3D_3.png'
