@@ -72,7 +72,7 @@ plt.ylabel('$Z(\Lambda$)')
 ### ADJUST
 # the title has to be adjusted for the actual problem parameters (nn, l, L_p, fractal dimension),
 # or use a different title, or none at all
-plt.title(f'$Z$ as a function of $\Lambda$ in square w/ Koch snowflake top, generation $n=3$.\n$\ell=1/4^n\\approx {1/4**nn:.4f},\\ L_p=(6/4)^n\\approx {(6/4)**nn:.2f},\\ d = \\log 20/\\log 4,\\ 2/d\\approx {2*np.log(4)/np.log(20):.2f}$.', fontsize=6)
+plt.title(f'$Z$ as a function of $\Lambda$ in cube w/ Koch snowflake top, generation $n=3$.\n$\ell=1/4^n\\approx {1/4**nn:.4f},\\ L_p=(6/4)^n\\approx {(6/4)**nn:.2f},\\ d = \\log 20/\\log 4,\\ 2/d\\approx {2*np.log(4)/np.log(20):.2f}$.', fontsize=6)
 
 # optional settings
 ### ADJUST: optional settings
