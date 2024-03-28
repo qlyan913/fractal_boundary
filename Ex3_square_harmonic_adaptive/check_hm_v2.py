@@ -48,10 +48,10 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-d_ins = np.linspace(0,6,20)
+d_ins = np.linspace(0,7,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 
-N_all=[2*2**i for i in range(5)]
+N_all=[2*2**i for i in range(7)]
 l_list=[] # size of segments
 ms_list=[]
 ms_sum_list=[]
@@ -72,7 +72,7 @@ for N in N_all:
      if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
-        if nf<10:
+        if nf<5:
            plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
            nf=nf+1
    ms_list.append(ms)
