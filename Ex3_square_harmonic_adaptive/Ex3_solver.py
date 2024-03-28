@@ -6,6 +6,7 @@ from firedrake.petsc import PETSc
 from firedrake import *
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
+import numpy as np
 from geogen import *
 from scipy import stats
 def snowsolver(mesh, f,g,V):
@@ -143,14 +144,17 @@ def get_alpha(uh,line_list,dy_list,N,l):
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
          uu_log=np.log(uu)
-         res = stats.linregress(dy_list_log, uu_log)
-         c=exp(res.intercept)
-         alpha=res.slope
+         alpha,b,std=std_linreg(dy_list_log, uu_log) 
+         c=exp(b)
+         #res = stats.linregress(dy_list_log, uu_log)
+         #c=exp(res.intercept)
+         #alpha=res.slope
+         # std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
-         std_list.append(res.stderr)
+         std_list.append(std)
    return alpha_list, c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist
 
 def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
@@ -167,3 +171,17 @@ def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    print(f"plot of one example of solution in loglog is saved in ", filename)
 
 
+def std_linreg(x,y):
+    x_mean=np.mean(x)
+    x_std=np.std(x)
+    x_tilde=(x-x_mean)/x_std
+    y_mean=np.mean(y)
+    y_std=np.std(y)
+    y_tilde=(y-y_mean)/y_std
+    res = stats.linregress(x_tilde, y_tilde)
+    std=res.stderr
+    b_tilde=res.intercept
+    a_tilde=res.slope
+    a=a_tilde*y_std/x_std
+    b=-a_tilde*y_std/x_std*x_mean+y_std*b_tilde+y_mean
+    return a,b, std
