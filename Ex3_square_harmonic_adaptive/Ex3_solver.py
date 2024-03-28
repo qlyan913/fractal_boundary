@@ -158,7 +158,7 @@ def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    plt.figure()
    plt.loglog(dy_list,uu,'b.')
    plt.loglog(dy_list,tt)
-   plt.loglog(l_half,uxl,'g.')
+   plt.loglog(l_half,uxl,'r*')
    plt.ylabel('evaluation of solution')
    plt.xlabel('distance to boundary')
    plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha),'$u(x_l)$'])
