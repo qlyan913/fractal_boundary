@@ -144,7 +144,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
          uu_log=np.log(uu)
-         alpha,b,std=std_linreg(dy_list_log, uu_log) 
+         alpha,b,std=std_linreg_v2(dy_list_log, uu_log) 
          c=exp(b)
          #res = stats.linregress(dy_list_log, uu_log)
          #c=exp(res.intercept)
@@ -184,4 +184,16 @@ def std_linreg(x,y):
     a_tilde=res.slope
     a=a_tilde*y_std/x_std
     b=-a_tilde*y_std/x_std*x_mean+y_std*b_tilde+y_mean
+    return a,b, std
+
+def std_linreg_v2(x,y):
+    y_mean=np.mean(y)
+    y_std=np.std(y)
+    y_tilde=(y-y_mean)/y_std
+    res = stats.linregress(x, y_tilde)
+    std=res.stderr
+    b_tilde=res.intercept
+    a_tilde=res.slope
+    a=a_tilde*y_std
+    b=y_std*b_tilde+y_mean
     return a,b, std
