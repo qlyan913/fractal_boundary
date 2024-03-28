@@ -1,8 +1,8 @@
-# Qile Yan 2024-02-20
+# Qile Yan 2024-03-25
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
-# f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+# f=exp(-2000*((x-0.5)**2+(y-0.5)**2))
 #
 # In this example, we would like to evaluate the solution at center of small squares.
 #
@@ -33,7 +33,6 @@ mesh0 = Mesh(ngmsh)
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
 tolerance=1e-10
-
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
 PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
@@ -62,7 +61,7 @@ for N in N_all:
    ms_sum=0
    ms_u=0
    ms_u_sum=0
-   alpha_list,c_list,xl_list=get_alpha(uh,line_list,dy_list,N,l)[0:3]
+   alpha_list,c_list,xl_list,uu_all_list=get_alpha(uh,line_list,dy_list,N,l)[0:4]
    for i in range(len(alpha_list)):
      ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
      ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
@@ -73,6 +72,9 @@ for N in N_all:
    ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
    ms_u_sum_list.append(ms_u_sum)
+   i_tmp=1
+   plot_regression(f"reg_n{n}_N{N}.png",uu_all_list[i_tmp],c_list[i_tmp],dy_list,alpha_list[i_tmp],uh.at(xl_list[i_tmp]),l/2.)
+
 plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')

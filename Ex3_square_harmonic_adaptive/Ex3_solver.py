@@ -127,6 +127,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
          x_list.append([pt,nv])
    # estiamte alpha and c
    alpha_list=[]
+   uu_all_list=[]
    c_list=[]
    pt_xlist=[]
    pt_ylist=[]
@@ -138,6 +139,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
       # sequence of points
       pp=[pt-yy*nv for yy in dy_list]
       uu=uh.at(pp)
+      uu_all_list.append(uu)
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
          uu_log=np.log(uu)
@@ -149,4 +151,19 @@ def get_alpha(uh,line_list,dy_list,N,l):
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
          std_list.append(res.stderr)
-   return alpha_list, c_list,xl_list,pt_xlist,pt_ylist,std_list
+   return alpha_list, c_list,xl_list,uu_all_list,pt_xlist,pt_ylist,std_list
+
+def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
+   tt=c*(dy_list)**alpha
+   plt.figure()
+   plt.loglog(dy_list,uu,'b.')
+   plt.loglog(dy_list,tt)
+   plt.loglog(l_half,uxl,'g.')
+   plt.ylabel('evaluation of solution')
+   plt.xlabel('distance to boundary')
+   plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha),'$u(x_l)$'])
+   plt.savefig(filename)
+   plt.close()
+   print(f"plot of one example of solution in loglog is saved in ", filename)
+
+
