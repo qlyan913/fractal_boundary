@@ -143,11 +143,11 @@ def get_alpha(uh,line_list,dy_list,N,l):
       uu_all_list.append(uu)
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
-         uu_log=np.log(uu)+15
+         uu_log=np.log(uu)+25
        #  alpha,b,std=std_linreg(dy_list_log, uu_log) 
        #  c=exp(b)
          res = stats.linregress(dy_list_log,uu_log)
-         c=exp(res.intercept-15)
+         c=exp(res.intercept)*exp(-25)
          alpha=res.slope
          std=res.stderr
          alpha_list.append(alpha)
