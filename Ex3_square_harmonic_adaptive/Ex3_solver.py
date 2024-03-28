@@ -146,10 +146,10 @@ def get_alpha(uh,line_list,dy_list,N,l):
          uu_log=np.log(uu)
          alpha,b,std=std_linreg_v2(dy_list_log, uu_log) 
          c=exp(b)
-         #res = stats.linregress(dy_list_log, uu_log)
-         #c=exp(res.intercept)
-         #alpha=res.slope
-         # std=res.stderr
+        # res = stats.linregress(dy_list_log, uu_log)
+        # c=exp(res.intercept)
+        # alpha=res.slope
+        # std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
          pt_xlist.append(pt[0])
