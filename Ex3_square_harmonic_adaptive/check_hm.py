@@ -73,7 +73,7 @@ for N in N_all:
    ms_u_list.append(ms_u)
    ms_u_sum_list.append(ms_u_sum)
    i_tmp=1
-   plot_regression(f"reg_n{n}_N{N}.png",uu_all_list[i_tmp],c_list[i_tmp],dy_list,alpha_list[i_tmp],uh.at(xl_list[i_tmp]),l/2.)
+   plot_regression(f"reg_figs/reg_n{n}_N{N}.png",uu_all_list[i_tmp],c_list[i_tmp],dy_list,alpha_list[i_tmp],uh.at(xl_list[i_tmp]),l/2.)
 
 plt.figure()
 plt.loglog(l_list,ms_list,'b.')
