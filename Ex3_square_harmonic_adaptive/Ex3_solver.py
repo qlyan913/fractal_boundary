@@ -151,7 +151,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
          std_list.append(res.stderr)
-   return alpha_list, c_list,xl_list,uu_all_list,pt_xlist,pt_ylist,std_list
+   return alpha_list, c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist
 
 def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    tt=c*(dy_list)**alpha
