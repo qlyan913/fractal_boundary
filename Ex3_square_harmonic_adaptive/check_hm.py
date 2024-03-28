@@ -46,10 +46,10 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-d_ins = np.linspace(0,5,20)
+d_ins = np.linspace(0,6,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 
-N_all=[2*2**i for i in range(4)]
+N_all=[2*2**i for i in range(5)]
 l_list=[] # size of segments
 ms_list=[]
 ms_sum_list=[]
