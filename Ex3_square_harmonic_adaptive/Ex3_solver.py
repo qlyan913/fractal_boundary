@@ -143,12 +143,12 @@ def get_alpha(uh,line_list,dy_list,N,l):
       uu_all_list.append(uu)
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
-         uu_log=np.log(uu)
+         uu_log=np.log(uu)+15
        #  alpha,b,std=std_linreg(dy_list_log, uu_log) 
        #  c=exp(b)
-         res = stats.linregress(dy_list_log,(10**8)*uu_log)
-         c=exp(10**(-8)*res.intercept)
-         alpha=(10**(-8))*res.slope
+         res = stats.linregress(dy_list_log,uu_log)
+         c=exp(res.intercept-15)
+         alpha=res.slope
          std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
@@ -165,7 +165,7 @@ def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    plt.loglog(l_half,uxl,'r*')
    plt.ylabel('evaluation of solution')
    plt.xlabel('distance to boundary')
-   plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (round(c,5),alpha),'$u(x_l)$'])
+   plt.legend(['value of solution','${%s}(dx)^{{%s}}$' % (c,alpha),'$u(x_l)$'])
    plt.savefig(filename)
    plt.close()
    print(f"plot of one example of solution in loglog is saved in ", filename)
