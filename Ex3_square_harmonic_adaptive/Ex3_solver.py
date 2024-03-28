@@ -147,9 +147,9 @@ def get_alpha(uh,line_list,dy_list,N,l):
        #  alpha,b,std=std_linreg(dy_list_log, uu_log) 
        #  c=exp(b)
          res = stats.linregress(dy_list_log,(10**8)*uu_log)
-         c=exp(res.intercept)
+         c=exp(10**(-8)*res.intercept)
          alpha=(10**(-8))*res.slope
-         std=(10**(-8))*res.stderr
+         std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
          pt_xlist.append(pt[0])
