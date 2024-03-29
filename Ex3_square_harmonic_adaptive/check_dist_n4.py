@@ -5,7 +5,7 @@
 # f=exp(-2000*((x-0.5)**2+(y-0.5)**2))
 #
 # In this example, we would like to evaluate the solution at center of small squares.
-# n=4, N=100
+# n=4, N=128
 # Check the distribution of alpha when x 2/3\leq x \leq 7/9 y \leq -2/9 at bottom
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
@@ -22,7 +22,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=4
 deg=5
-N=100
+N=128
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
@@ -46,10 +46,12 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in range(5)]
-l= (1./3.)**n/N
-alpha_list,c_list,xl_list,pt_xlist,pt_ylist=get_alpha(uh,line_list,dy_list,N,l)[0:5]
+d_ins = np.linspace(0,7,20)
+dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 
+l= (1./3.)**n/N
+uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
 sub_alpha=[]
 for i in range(len(pt_xlist)):
    if pt_xlist[i]>=2./3. and pt_xlist[i]<=7./9. and pt_ylist[i]<=-2./9.:

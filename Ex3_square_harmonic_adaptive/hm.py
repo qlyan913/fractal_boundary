@@ -74,7 +74,7 @@ for N in N_all:
      if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
-     if nf<3 and std_list[i]>0.5*max(std_list):
+     if nf<1 and std_list[i]>0.5*max(std_list):
         plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
         nf=nf+1
 #     if nc<3 and std_list[i]<0.1*max(std_list):
@@ -108,10 +108,10 @@ plt.close()
 print(f"plot of percentage of  harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_p_v2_{alpha_0}.png")
 
 
-plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
-plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
-plt.xlabel('value of alpha')
-plt.savefig(f"reg_figs/distribution_alpha_n{n}_N{N}.png")
-plt.close()
-PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}")
+#plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+#plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
+#plt.xlabel('value of alpha')
+#plt.savefig(f"reg_figs/distribution_alpha_n{n}_N{N}.png")
+#plt.close()
+#PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}")
 

@@ -75,7 +75,10 @@ line_list=line_list+line_list2
 d_ins = np.linspace(0,7,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 l= (1./3.)**n/N
-alpha_list,c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist=get_alpha(uh,line_list,dy_list,N,l)
+
+#alpha_list,c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist=get_alpha(uh,line_list,dy_list,N,l)
+uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
 
 
 alpha_mean=statistics.mean(alpha_list)
