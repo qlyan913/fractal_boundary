@@ -142,11 +142,8 @@ def get_alpha(uh,line_list,dy_list,N,l):
       uu=uh.at(pp)
       uu_all_list.append(uu)
       if min(uu)>0:
-         u_tilde=np.zeros(len(uu),dtype=float)
-         for i in range(len(uu)):
-            u_tilde[i]=uu[i]
          dy_list_log=np.log(dy_list)
-         uu_log=np.log(u_tilde)
+         uu_log=np.log(uu)
          alpha,b,std=std_linreg(dy_list_log, uu_log) 
          c=exp(b)
         # res = stats.linregress(dy_list_log,uu_log)
