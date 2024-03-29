@@ -66,14 +66,14 @@ for N in N_all:
    ms_u_sum=0
    nf=0
    nc=0
-   alpha_list,c_list,xl_list,uu_all_list,std_list=get_alpha(uh,line_list,dy_list,N,l)[0:5]
+   uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+   alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,dy_list)
    for i in range(len(alpha_list)):
      ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
      ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
      if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
-     
      if nf<3 and std_list[i]>0.5*max(std_list):
         plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
         nf=nf+1

@@ -115,24 +115,16 @@ def plot_colourline_std(x,y,c,indx_list):
     im = ax.scatter(x, y, c=c, s=0,cmap=cm.jet)
     return im
 
-
-
-
-def get_alpha(uh,line_list,dy_list,N,l):
-   x_list=[]
+def get_uu(uh,line_list,dy_list,N,l):
    xl_list=[]
+   x_list=[]
+   uu_all_list=[]
    # divide the bottom edge into N segments
    for L in line_list:
       pts_list,nv=divide_line_N(L,N)
       for pt in pts_list:
          x_list.append([pt,nv])
-   # estiamte alpha and c
    alpha_list=[]
-   uu_all_list=[]
-   c_list=[]
-   pt_xlist=[]
-   pt_ylist=[]
-   std_list=[]
    for x in x_list:
       pt=x[0]
       nv=x[1]
@@ -141,8 +133,19 @@ def get_alpha(uh,line_list,dy_list,N,l):
       pp=[pt-yy*nv for yy in dy_list]
       uu=np.array(uh.at(pp))
       uu_all_list.append(uu)
+   return  uu_all_list, xl_list,x_list
+
+def get_alpha(uu_all,x_list,dy_list):
+   dy_list_log=np.log(dy_list)
+   # estiamte alpha and c
+   alpha_list=[]
+   c_list=[]
+   pt_xlist=[]
+   pt_ylist=[]
+   std_list=[]
+   for i in range(len(uu_all)):
+      uu=uu_all[i]
       if min(uu)>0:
-         dy_list_log=np.log(dy_list)
          uu_log=np.log(uu)
          alpha,b,std=std_linreg(dy_list_log, uu_log) 
          c=exp(b)
@@ -152,10 +155,11 @@ def get_alpha(uh,line_list,dy_list,N,l):
         # std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
+         pt=x_list[i][0]
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
          std_list.append(std)
-   return alpha_list, c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist
+   return alpha_list, c_list,std_list,pt_xlist,pt_ylist
 
 def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    tt=c*(dy_list)**alpha
