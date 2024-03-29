@@ -5,7 +5,7 @@ dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 dy_list_log=np.log(dy_list)
 uu=np.zeros(len(dy_list),dtype=float)
 for i in range(len(uu)):
-   uu[i]=10**(-7)*dy_list[i]**1.05
+   uu[i]=10**(-8)*dy_list[i]**1.05
 uu_log=np.log(uu)
 alpha,b,std=std_linreg(dy_list_log, uu_log) 
 c=exp(b)
