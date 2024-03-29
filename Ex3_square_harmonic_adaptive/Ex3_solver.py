@@ -144,11 +144,11 @@ def get_alpha(uh,line_list,dy_list,N,l):
       if min(uu)>0:
          u_tilde=np.zeros(len(uu),dtype=float)
          for i in range(len(uu)):
-            u_tilde[i]=uu[i]*exp(25)
+            u_tilde[i]=uu[i]
          dy_list_log=np.log(dy_list)
          uu_log=np.log(u_tilde)
          alpha,b,std=std_linreg(dy_list_log, uu_log) 
-         c=exp(b)*exp(-25)
+         c=exp(b)
         # res = stats.linregress(dy_list_log,uu_log)
         # c=exp(res.intercept)*exp(-25)
         # alpha=res.slope
