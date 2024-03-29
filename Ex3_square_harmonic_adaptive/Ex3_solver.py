@@ -139,7 +139,7 @@ def get_alpha(uh,line_list,dy_list,N,l):
       xl_list.append(pt-nv*l/2.)
       # sequence of points
       pp=[pt-yy*nv for yy in dy_list]
-      uu=uh.at(pp)
+      uu=np.array(uh.at(pp))
       uu_all_list.append(uu)
       if min(uu)>0:
          dy_list_log=np.log(dy_list)
