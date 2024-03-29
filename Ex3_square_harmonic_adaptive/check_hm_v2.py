@@ -74,9 +74,10 @@ for N in N_all:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
      
-     if nf<5 and std_list[i]>0.5*max(std_list):
+     if nf<3 and std_list[i]>0.5*max(std_list):
         plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
         nf=nf+1
+        print("solution is", uu_all_list[i])
 #     if nc<3 and std_list[i]<0.1*max(std_list):
 #        plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
 #        nc=nc+1
