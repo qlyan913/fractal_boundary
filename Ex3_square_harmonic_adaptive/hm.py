@@ -1,4 +1,4 @@
-# Qile Yan 2024-03-25
+# Qile Yan 2024-02-20
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
@@ -21,6 +21,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
+alpha_0=float(input("Enter the alpha0:"))
 #n=8
 #deg=5
 
@@ -33,6 +34,7 @@ mesh0 = Mesh(ngmsh)
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
 tolerance=1e-10
+
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
 PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
@@ -62,30 +64,34 @@ for N in N_all:
    ms_sum=0
    ms_u=0
    ms_u_sum=0
-   alpha_list,c_list,xl_list,uu_all_list=get_alpha(uh,line_list,dy_list,N,l)[0:4]
+   nf=0
+   nc=0
+   uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+   uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
    for i in range(len(alpha_list)):
-#     plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
      ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
      ms_u_sum=ms_u_sum+uh.at(xl_list[i]) 
-     if alpha_list[i]>1:
+     if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
+     if nf<3 and std_list[i]>0.5*max(std_list):
+        plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
+        nf=nf+1
+#     if nc<3 and std_list[i]<0.1*max(std_list):
 #        plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
+#        nc=nc+1
    ms_list.append(ms)
    ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
    ms_u_sum_list.append(ms_u_sum)
-   i_tmp=1
-  # plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}.png",uu_all_list[i_tmp],c_list[i_tmp],dy_list,alpha_list[i_tmp],uh.at(xl_list[i_tmp]),l/2.)
-
 plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')
 plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1}c_l|l/2|^{\alpha_l}$',r'$\sum_{\alpha_l>1}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}.png")
+plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}$' % alpha_0,r'$\sum_{\alpha_l>{%s}}u(x_l)$'% alpha_0])
+plt.savefig(f"figures/hm_n{n}_v2_{alpha_0}.png")
 plt.close()
-print(f"plot of harmonic measure of edges  with alpha larger than 1 is saved in figures/hm_n{n}.png")
+print(f"plot of harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_v2_{alpha_0}.png")
 
 ms_p=[]
 ms_u_p=[]
@@ -96,9 +102,16 @@ plt.figure()
 plt.loglog(l_list,ms_p,'b.')
 plt.loglog(l_list,ms_u_p,'k*')
 plt.xlabel('size of segments, $|l|$')
-plt.legend([r'$\sum_{\alpha_l>1}c_l|l/2|^{\alpha_l}/\sum_{l}c_l|l/2|^{\alpha_l}$',r'$\sum_{\alpha_l>1}u(x_l)/\sum_{l}u(x_l)$'])
-plt.savefig(f"figures/hm_n{n}_p.png")
+plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}/\sum_{l}c_l|l/2|^{\alpha_l}$' % (alpha_0),r'$\sum_{\alpha_l>{%s}}u(x_l)/\sum_{l}u(x_l)$' % (alpha_0)])
+plt.savefig(f"figures/hm_n{n}_p_v2_{alpha_0}.png")
 plt.close()
-print(f"plot of percentage of  harmonic measure of edges  with alpha larger than 1 is saved in figures/hm_n{n}_p.png")
+print(f"plot of percentage of  harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_p_v2_{alpha_0}.png")
 
+
+plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
+plt.xlabel('value of alpha')
+plt.savefig(f"reg_figs/distribution_alpha_n{n}_N{N}.png")
+plt.close()
+PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}")
 

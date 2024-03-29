@@ -135,7 +135,7 @@ def get_uu(uh,line_list,dy_list,N,l):
       uu_all_list.append(uu)
    return  uu_all_list, xl_list,x_list
 
-def get_alpha(uu_all,x_list,dy_list):
+def get_alpha(uu_all,x_list,xl_list,dy_list):
    dy_list_log=np.log(dy_list)
    # estiamte alpha and c
    alpha_list=[]
@@ -143,6 +143,8 @@ def get_alpha(uu_all,x_list,dy_list):
    pt_xlist=[]
    pt_ylist=[]
    std_list=[]
+   uu_list=[]
+   xll_list=[]
    for i in range(len(uu_all)):
       uu=uu_all[i]
       if min(uu)>0:
@@ -159,7 +161,9 @@ def get_alpha(uu_all,x_list,dy_list):
          pt_xlist.append(pt[0])
          pt_ylist.append(pt[1])
          std_list.append(std)
-   return alpha_list, c_list,std_list,pt_xlist,pt_ylist
+         uu_list.append(uu)
+         xll_list.append(xl_list[i])
+   return uu_list,xll_list, alpha_list, c_list,std_list,pt_xlist,pt_ylist
 
 def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
    tt=c*(dy_list)**alpha
