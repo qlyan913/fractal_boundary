@@ -2,7 +2,7 @@
 # Solve
 #   -\Delta u =f in Omega
 # with u = 0 on boundary
-# f=exp(-20*((x-0.5)**2+(y-0.5)**2))
+# f=exp(-2000*((x-0.5)**2+(y-0.5)**2))
 #
 # In this example, we would like to evaluate the solution at center of small squares.
 #
@@ -72,9 +72,12 @@ for N in N_all:
      if alpha_list[i]>alpha_0:
         ms=ms+c_list[i]*(l/2.)**alpha_list[i]
         ms_u=ms_u+uh.at(xl_list[i])
+     
      if nf<5 and std_list[i]>0.5*max(std_list):
         plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
         nf=nf+1
+     if nf>=5 and nf<7:
+        plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
    ms_list.append(ms)
    ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
