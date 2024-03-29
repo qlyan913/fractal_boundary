@@ -147,12 +147,12 @@ def get_alpha(uh,line_list,dy_list,N,l):
             u_tilde[i]=uu[i]*exp(25)
          dy_list_log=np.log(dy_list)
          uu_log=np.log(u_tilde)
-       #  alpha,b,std=std_linreg(dy_list_log, uu_log) 
-       #  c=exp(b)
-         res = stats.linregress(dy_list_log,uu_log)
-         c=exp(res.intercept)*exp(-25)
-         alpha=res.slope
-         std=res.stderr
+         alpha,b,std=std_linreg(dy_list_log, uu_log) 
+         c=exp(b)*exp(-25)
+        # res = stats.linregress(dy_list_log,uu_log)
+        # c=exp(res.intercept)*exp(-25)
+        # alpha=res.slope
+        # std=res.stderr
          alpha_list.append(alpha)
          c_list.append(c)
          pt_xlist.append(pt[0])
@@ -175,18 +175,15 @@ def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
 
 
 def std_linreg(x,y):
-    x_mean=np.mean(x)
-    x_std=np.std(x)
+    x_mean=np.min(x)
+    x_std=np.max(x)-np.min(x)
     x_tilde=(x-x_mean)/x_std
-    y_mean=np.mean(y)
-    y_std=np.std(y)
-    y_tilde=(y-y_mean)/y_std
-    res = stats.linregress(x_tilde, y_tilde)
+    res = stats.linregress(x_tilde, y)
     std=res.stderr
     b_tilde=res.intercept
     a_tilde=res.slope
-    a=a_tilde*y_std/x_std
-    b=-a_tilde*y_std/x_std*x_mean+y_std*b_tilde+y_mean
+    a=a_tilde/x_std
+    b=-a_tilde/x_std*x_mean+b_tilde
     return a,b, std
 
 def std_linreg_v2(x,y):
