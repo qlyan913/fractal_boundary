@@ -175,8 +175,8 @@ def plot_regression(filename,uu,c,dy_list,alpha,uxl,l_half):
 
 
 def std_linreg(x,y):
-    x_mean=np.min(x)
-    x_std=np.max(x)-np.min(x)
+    x_mean=np.mean(x)
+    x_std=np.std(x)
     x_tilde=(x-x_mean)/x_std
     res = stats.linregress(x_tilde, y)
     std=res.stderr
