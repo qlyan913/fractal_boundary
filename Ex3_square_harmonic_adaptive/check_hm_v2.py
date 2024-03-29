@@ -78,6 +78,7 @@ for N in N_all:
         nf=nf+1
      if nf>=5 and nf<7:
         plot_regression(f"reg_figs/n{n}/reg_n{n}_N{N}_i{i}.png",uu_all_list[i],c_list[i],dy_list,alpha_list[i],uh.at(xl_list[i]),l/2.)
+        nf=nf+1
    ms_list.append(ms)
    ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
@@ -105,4 +106,11 @@ plt.savefig(f"figures/hm_n{n}_p_v2_{alpha_0}.png")
 plt.close()
 print(f"plot of percentage of  harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_p_v2_{alpha_0}.png")
 
+
+plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
+plt.xlabel('value of alpha')
+plt.savefig(f"reg_figs/distribution_alpha_n{n}_N{N}.png")
+plt.close()
+PETSc.Sys.Print(f"plot of distribution of all estiamted alpha is saved in figures/distribution_alpha_n{n}_N{N}")
 
