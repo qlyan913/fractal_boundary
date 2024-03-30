@@ -84,12 +84,13 @@ for N in N_all:
    ms_sum_list.append(ms_sum)
    ms_u_list.append(ms_u)
    ms_u_sum_list.append(ms_u_sum)
+
 plt.figure()
 plt.loglog(l_list,ms_list,'b.')
 plt.loglog(l_list,ms_u_list,'k*')
 plt.xlabel('size of segments, $|l|$')
 plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}$' % alpha_0,r'$\sum_{\alpha_l>{%s}}u(x_l)$'% alpha_0])
-plt.savefig(f"figures/hm_n{n}_v2_{alpha_0}.png")
+plt.savefig(f"figures/hm_n{n}_v2_{alpha_0}.png", bbox_inches="tight")
 plt.close()
 print(f"plot of harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_v2_{alpha_0}.png")
 
@@ -103,7 +104,7 @@ plt.loglog(l_list,ms_p,'b.')
 plt.loglog(l_list,ms_u_p,'k*')
 plt.xlabel('size of segments, $|l|$')
 plt.legend([r'$\sum_{\alpha_l>{%s}}c_l|l/2|^{\alpha_l}/\sum_{l}c_l|l/2|^{\alpha_l}$' % (alpha_0),r'$\sum_{\alpha_l>{%s}}u(x_l)/\sum_{l}u(x_l)$' % (alpha_0)])
-plt.savefig(f"figures/hm_n{n}_p_v2_{alpha_0}.png")
+plt.savefig(f"figures/hm_n{n}_p_v2_{alpha_0}.png", bbox_inches="tight")
 plt.close()
 print(f"plot of percentage of  harmonic measure of edges  with alpha larger than {alpha_0} is saved in figures/hm_n{n}_p_v2_{alpha_0}.png")
 
