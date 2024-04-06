@@ -54,7 +54,7 @@ uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)
 uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
 sub_alpha=[]
 for i in range(len(pt_xlist)):
-   if pt_xlist[i]<=2./3. and pt_xlist[i]>=1./3.:
+   if pt_ylist[i]<=-1./3. :
       sub_alpha.append(alpha_list[i])
 
 
