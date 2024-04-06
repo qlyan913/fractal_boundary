@@ -77,7 +77,7 @@ dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 l= (1./3.)**n/N
 
 #alpha_list,c_list,xl_list,uu_all_list,std_list,pt_xlist,pt_ylist=get_alpha(uh,line_list,dy_list,N,l)
-uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)
 uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
 
 
@@ -105,7 +105,7 @@ plt.xlim(0,1)
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.savefig(f"figures/alpha_n{n}_N{N}.png",dpi=3000)
+plt.savefig(f"figures/alpha_n{n}_N{N}.png",dpi=500)
 plt.close()
 PETSc.Sys.Print(f"plot of alpha with color is saved in figures/alpha_n{n}_N{N}.png")
 
@@ -117,7 +117,7 @@ plt.xlim(0,1)
 plt.axis('equal')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.savefig(f"figures/alpha_std_n{n}_N{N}.png",dpi=3000)
+plt.savefig(f"figures/alpha_std_n{n}_N{N}.png",dpi=500)
 plt.close()
 PETSc.Sys.Print(f"plot of std of alpha with color is saved in figures/alpha_std_cm_n{n}_N{N}.png")
 

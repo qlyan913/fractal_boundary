@@ -54,28 +54,6 @@ def get_index_P1P2(vertices,pt_list):
        idx=[i for i,pt in enumerate(pt_list) if pt[1]==y and pt[0]<=x_max and pt[0]>=x_min ]
     return idx,flag
 
-def divide_line_N(vertices,N):
-    # Input
-    # vertices - array of shape 2x3.
-    #          - two points P1 P2
-    # N        - number of segments
-    # Output
-    # x_list -  array of shape Nx3. N points at the center of N segments over the line P1P2
-    # nv     -  array of shape 1x3. the normal vector towards outside
-    x_list=[]
-    P1 = vertices[0][0]
-    P2 = vertices[1][0]
-    dx = (P2-P1)/N
-    x0=P1+dx/2.
-    x_list.append(x0)
-    for i in range(1,N):
-        x0=x0+dx
-        x_list.append(x0)
-    Rot=np.array([[0, -1],[1, 0]]) # rotation matrix
-    nv=np.matmul(Rot,dx/3.)
-    nv=nv/ np.linalg.norm(nv)
-    return x_list, nv
-
 def divide_line(vertices,num_pts):
     # input
     # vertices - array of shape 2x3.

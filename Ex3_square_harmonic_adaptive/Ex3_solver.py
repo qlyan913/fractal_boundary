@@ -102,7 +102,7 @@ def plot_colourline(x,y,c,indx_list):
    # for idx in indx_list:
    #     for i in np.arange(len(idx)-1):
    #        ax.plot([x[idx[i]],x[idx[i+1]]], [y[idx[i]],y[idx[i+1]]], c=col[idx[i]],linewidth=0.3)
-    im = ax.scatter(x, y, c=c, s=0.1,cmap='jet',vmin=0.6, vmax=1.25)
+    im = ax.scatter(x, y, c=c, s=0.5,cmap='jet',vmin=0.6, vmax=1.25)
     return im
 
 def plot_colourline_std(x,y,c,indx_list):
@@ -115,13 +115,38 @@ def plot_colourline_std(x,y,c,indx_list):
     im = ax.scatter(x, y, c=c, s=0,cmap=cm.jet)
     return im
 
-def get_uu(uh,line_list,dy_list,N,l):
+def divide_line_N(vertices,N,n):
+    # Input
+    # vertices - array of shape 2x3.
+    #          - two points P1 P2
+    # N        - number of segments on the smallest edge (size of (1/3)^n/N)
+    # Output
+    # x_list -  array of shape Npx3. Np points at the center of segments over the line P1P2
+    # nv     -  array of shape 1x3. the normal vector towards outside
+    x_list=[]
+    P1 = vertices[0][0]
+    P2 = vertices[1][0]
+    L_p1p2=np.linalg.norm(P1-P2)
+    h=(1/3.)**n/N
+    Np=int(L_p1p2/h)
+    dx = (P2-P1)/Np
+    x0=P1+dx/2.
+    x_list.append(x0)
+    for i in range(1,Np):
+        x0=x0+dx
+        x_list.append(x0)
+    Rot=np.array([[0, -1],[1, 0]]) # rotation matrix
+    nv=np.matmul(Rot,dx/3.)
+    nv=nv/ np.linalg.norm(nv)
+    return x_list, nv
+
+def get_uu(uh,line_list,dy_list,N,l,n):
    xl_list=[]
    x_list=[]
    uu_all_list=[]
-   # divide the bottom edge into N segments
+   # divide the bottom edge into segments with size (1/3)^n/N
    for L in line_list:
-      pts_list,nv=divide_line_N(L,N)
+      pts_list,nv=divide_line_N(L,N,n)
       for pt in pts_list:
          x_list.append([pt,nv])
    alpha_list=[]
