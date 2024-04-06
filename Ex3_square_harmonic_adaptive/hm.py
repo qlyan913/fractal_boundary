@@ -66,7 +66,7 @@ for N in N_all:
    ms_u_sum=0
    nf=0
    nc=0
-   uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+   uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)
    uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
    for i in range(len(alpha_list)):
      ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]

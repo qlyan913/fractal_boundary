@@ -50,7 +50,7 @@ d_ins = np.linspace(0,7,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 
 l= (1./3.)**n/N
-uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l)
+uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)
 uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
 sub_alpha=[]
 for i in range(len(pt_xlist)):
