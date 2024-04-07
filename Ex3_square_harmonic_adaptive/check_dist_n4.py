@@ -22,7 +22,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=4
 deg=5
-N=128
+N=810
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
