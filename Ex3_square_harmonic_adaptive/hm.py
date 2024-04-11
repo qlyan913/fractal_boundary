@@ -39,8 +39,7 @@ uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
 PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
 # check the order alpha in u(x)=r^\alpha for x is close to the bottom boundary.
-alpha0=[]
-c0=[]
+
 # get the vertex on the bottom edge
 p3=[np.array([1,0]),1]
 p4=[np.array([0,0]),2]
