@@ -35,7 +35,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-10
+tolerance=1e-13
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
@@ -121,20 +121,20 @@ plt.savefig(f"figures/alpha_std_n{n}_N{N}.png",dpi=500)
 plt.close()
 PETSc.Sys.Print(f"plot of std of alpha with color is saved in figures/alpha_std_cm_n{n}_N{N}.png")
 
-plt.figure()
-plt.hist(c_list,bins=100)
-plt.xlabel('value of c')
-plt.savefig(f"figures/distribution_c_n{n}_N{N}.png")
-plt.close()
-PETSc.Sys.Print(f"plot of distribution of all estiamted c is saved in figures/distribution_c_n{n}_N{N}.png.")
+#plt.figure()
+#plt.hist(c_list,bins=100)
+#plt.xlabel('value of c')
+#plt.savefig(f"figures/distribution_c_n{n}_N{N}.png")
+#plt.close()
+#PETSc.Sys.Print(f"plot of distribution of all estiamted c is saved in figures/distribution_c_n{n}_N{N}.png.")
 
-with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
-    fieldnames = ['x','y','alpha','std_alpha', 'c']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writeheader()
-    for i in range(len(alpha_list)):
-       writer.writerow({'x':pt_xlist[i],'y':pt_ylist[i],'alpha': alpha_list[i],'std_alpha':std_list[i], 'c':c_list[i]})
-PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")
+#with open(f'results/Results_n{n}_N{N}.csv', 'w', newline='') as csvfile:
+#    fieldnames = ['x','y','alpha','std_alpha', 'c']
+#    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#    writer.writeheader()
+#    for i in range(len(alpha_list)):
+#       writer.writerow({'x':pt_xlist[i],'y':pt_ylist[i],'alpha': alpha_list[i],'std_alpha':std_list[i], 'c':c_list[i]})
+#PETSc.Sys.Print(f"Results of alpha and c are saved to  results/Results_n{n}_N{N}.csv")
 
 
 

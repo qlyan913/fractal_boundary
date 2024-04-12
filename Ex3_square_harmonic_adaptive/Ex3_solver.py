@@ -171,8 +171,8 @@ def get_alpha(uu_all,x_list,xl_list,dy_list):
    uu_list=[]
    xll_list=[]
    for i in range(len(uu_all)):
-      uu=uu_all[i]
-      if min(uu)>0:
+         uu=uu_all[i]
+      #if min(uu)>0:
          uu_log=np.log(uu)
          alpha,b,std=std_linreg(dy_list_log, uu_log) 
          c=exp(b)
