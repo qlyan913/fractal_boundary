@@ -20,15 +20,12 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
-alpha_0=float(input("Enter the alpha0:"))
-#n=8
-#deg=5
+N=int(input("Enter the number of segments on bottom:")) # number of segments on smallest eges when n+1 iteration fractal 
 
-# distance to boundary
-d_ins = np.linspace(0,7,20)
-dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
-
-def get_hm_subset(n,N, dy_list):
+def get_hm_subset(n,N,x0,x1):
+   # distance to boundary
+   d_ins = np.linspace(0,7,10)
+   dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
    mesh_size=1
    # choose a triangulation
    geo = MakeGeometry(n)
@@ -37,7 +34,7 @@ def get_hm_subset(n,N, dy_list):
    # max of refinement  
    max_iterations = 100
    # stop refinement when sum_eta less than tolerance
-   tolerance=1e-10
+   tolerance=1e-12
    uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
    PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
    p3=[np.array([1,0]),1]
@@ -48,11 +45,33 @@ def get_hm_subset(n,N, dy_list):
    l= (1./3.)**n/N
    ms_sum=0
    ms_u_sum=0
+   ns=0
    uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)
    uu_list,xl_list,alpha_list, c_list,std_list,pt_xlist,pt_ylist=get_alpha(uu_all_list,x_list,xl_list,dy_list)
+   sub_ptx=[]
+   sub_pty=[]
    for i in range(len(alpha_list)):
-     if alpha_list[i]>alpha_0:
+     if pt_xlist[i]>=x0 and pt_xlist[i]<=x1 :
+        sub_ptx.append(pt_xlist[i])
+        sub_pty.append(pt_ylist[i])
+        ns=ns+1
         ms_sum=ms_sum+c_list[i]*(l/2.)**alpha_list[i]
         ms_u_sum=ms_u_sum+uh.at(xl_list[i])
-   return ms_sum, ms_u_sum
+   return ms_sum, ms_u_sum, ns, sub_ptx,sub_pty
+
+x0=0.5*(1-(1./3.)**(n+1)) # x0=1/3+1/3^2+...+1/3^(n+1)
+x1=x0+(1./3.)**(n+1)+10**(-16)
+ms_sum, ms_u_sum, ns,sub_ptx,sub_pty = get_hm_subset(n,3*N,x0,x1)
+print("n=", n, " sum c l^alpha ", ms_sum, "sum u(x_l) ", ms_u_sum,"total segments ", ns) 
+ms_sum_2, ms_u_sum_2, ns,sub_ptx2,sub_pty2 = get_hm_subset(n+1,N,x0,x1)
+print("n=", n+1, " sum c l^alpha ", ms_sum_2, "sum u(x_l) ", ms_u_sum_2,"total segments ", ns) 
+print("the ratio is ", ms_sum_2/ms_sum)
+print("the ratio in u  is ", ms_u_sum_2/ms_u_sum)
+
+plt.figure()
+plt.scatter(sub_ptx,sub_pty,color='red')
+plt.scatter(sub_ptx2,sub_pty2,color='blue')
+plt.savefig(f"test_figs/sub_n{n}.png")
+print(f"the plot of subset is saved to test_figs/sub_n{n}.png")
+
 
