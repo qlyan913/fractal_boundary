@@ -22,8 +22,8 @@ from matplotlib.ticker import PercentFormatter
 deg=5
 def get_hm_subset(n,N):
    # distance to boundary
-   d_ins = np.linspace(0,5,10)
-   dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
+   d_ins = np.linspace(0,6,10)
+   dy_list=[0.5*(1/3.)**7*(1/2.)**i for i in d_ins]
    mesh_size=1
    # choose a triangulation
    geo = MakeGeometry(n)
@@ -57,7 +57,8 @@ def get_hm_subset(n,N):
 ms=[]
 ms_u=[]
 for n in range(1,7):
-   N=10*3**(8-n)
+ #  N=10*3**(8-n)
+   N=3**(7-n)*32
    ms_sum, ms_u_sum, ns,sub_ptx,sub_pty = get_hm_subset(n,N)
    ms.append(ms_sum)
    ms_u.append(ms_u_sum)

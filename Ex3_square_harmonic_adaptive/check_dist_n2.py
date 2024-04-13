@@ -22,7 +22,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=2
 deg=5
-N=7290
+N=3**(7-n)*32
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
@@ -31,7 +31,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-15
+tolerance=5*1e-17
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
@@ -46,8 +46,8 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-d_ins = np.linspace(0,7,20)
-dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
+d_ins = np.linspace(0,6,20)
+dy_list=[0.5*(1/3.)**7*(1/2.)**i for i in d_ins]
 
 l= (1./3.)**n/N
 uu_all_list, xl_list,x_list=get_uu(uh,line_list,dy_list,N,l,n)

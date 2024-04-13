@@ -19,11 +19,11 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
-#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-#deg=int(input("Enter the degree of polynomial in FEM space:"))
+n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+deg=int(input("Enter the degree of polynomial in FEM space:"))
 alpha_0=float(input("Enter the alpha0:"))
-n=6
-deg=5
+#n=6
+#deg=5
 #alpha_0=1
 mesh_size=1
 # choose a triangulation
@@ -47,10 +47,9 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-d_ins = np.linspace(0,5,20)
-dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
-
-N_all=[2*2**i for i in range(7)]
+d_ins = np.linspace(0,6,20)
+dy_list=[0.5*(1/3.)**7*(1/2.)**i for i in d_ins]
+N_all=[3**(7-n)*2**i for i in range(6)]
 l_list=[] # size of segments
 ms_list=[]
 ms_sum_list=[]
