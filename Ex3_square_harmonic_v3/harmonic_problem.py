@@ -15,7 +15,8 @@ from scipy import stats
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
 #mesh_size=float(input("Enter the meshsize for initial mesh: "))
-N= int(input("Enter the number of segments for estimation on the bottom  boundary: "))
+#N= int(input("Enter the number of segments for estimation on the bottom  boundary: "))
+N=3**5*32
 deg=5
 mesh_size=1
 # choose a triangulation
@@ -23,9 +24,9 @@ geo = MakeGeometry()
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
-max_iterations = 60
+max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-10
+tolerance=1e-15
 
 uh, mesh, f=get_solution(mesh0,tolerance,max_iterations,deg)
 
@@ -51,14 +52,13 @@ PETSc.Sys.Print(f"The plot of solution is saved to figures/solution.png")
 #outfile = File(f"figures/solution_{n}.pvd")
 #outfile.write(uh)
 
-n=10
 # divide the bottom edge into N segments
 x_list= np.linspace(0,1,N)+1/(2*N)
 alpha_list=[]
 c_list=[]
 for i in range(0,len(x_list)-1):
     # distance to boundary
-    dy_list=[(1/3.)**i for i in range(1,n+1)]
+    dy_list=[(1/3.)**5*(1/2)**i for i in range(1,7)]
     # sequence of points
     pp=[[x_list[i],yy] for yy in dy_list]
     uu=uh.at(pp)
