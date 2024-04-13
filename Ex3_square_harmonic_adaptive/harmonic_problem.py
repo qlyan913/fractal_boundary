@@ -35,7 +35,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-17
+tolerance=1e-16
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
@@ -72,7 +72,7 @@ p4=[np.array([0,0]),2]
 id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
-d_ins = np.linspace(0,7,20)
+d_ins = np.linspace(0,5,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 l= (1./3.)**n/N
 
