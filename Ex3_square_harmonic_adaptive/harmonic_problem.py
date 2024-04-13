@@ -35,7 +35,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-13
+tolerance=1e-17
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
