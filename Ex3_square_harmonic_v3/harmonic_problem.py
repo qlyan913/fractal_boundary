@@ -58,7 +58,7 @@ alpha_list=[]
 c_list=[]
 for i in range(0,len(x_list)-1):
     # distance to boundary
-    dy_list=[(1/3.)**5*(1/2)**i for i in range(1,7)]
+    dy_list=[(1/3.)**7*(1/2)**i for i in range(1,7)]
     # sequence of points
     pp=[[x_list[i],yy] for yy in dy_list]
     uu=uh.at(pp)
