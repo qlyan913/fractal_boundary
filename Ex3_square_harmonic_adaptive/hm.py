@@ -19,12 +19,12 @@ from geogen import *
 from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
-n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-deg=int(input("Enter the degree of polynomial in FEM space:"))
-alpha_0=float(input("Enter the alpha0:"))
-#n=8
-#deg=5
-
+#n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
+#deg=int(input("Enter the degree of polynomial in FEM space:"))
+#alpha_0=float(input("Enter the alpha0:"))
+n=6
+deg=5
+alpha_0=1
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
@@ -33,7 +33,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-10
+tolerance=1e-17 # 1e-15 when n<=4, 
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
