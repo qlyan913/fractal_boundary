@@ -152,3 +152,86 @@ Refined Mesh with degree of freedom  1993606 sum_eta is  3.2552926355664994e-17
 Calculating the alpha for points on the bottom boundary ...
 /home/yan00082/fractal_boundary/Ex3_square_harmonic_adaptive/Ex3_solver.py:176: RuntimeWarning: invalid value encountered in log
   uu_log=np.log(uu)
+Refined Mesh with degree of freedom  107641 sum_eta is  1.5974439407123063e-05
+Refined Mesh with degree of freedom  107791 sum_eta is  9.945508143260017e-07
+Refined Mesh with degree of freedom  108041 sum_eta is  9.756692308184918e-08
+Refined Mesh with degree of freedom  108416 sum_eta is  3.3936833169603244e-08
+Refined Mesh with degree of freedom  109791 sum_eta is  1.5212559365240025e-08
+Refined Mesh with degree of freedom  111196 sum_eta is  8.496081386664985e-09
+Refined Mesh with degree of freedom  113516 sum_eta is  4.334677145256396e-09
+Refined Mesh with degree of freedom  115976 sum_eta is  2.022864904980766e-09
+Refined Mesh with degree of freedom  118141 sum_eta is  1.1188605940065247e-09
+Refined Mesh with degree of freedom  121491 sum_eta is  6.354432525727327e-10
+Refined Mesh with degree of freedom  125606 sum_eta is  3.038410746505174e-10
+Refined Mesh with degree of freedom  131371 sum_eta is  1.6135721770467389e-10
+Refined Mesh with degree of freedom  138431 sum_eta is  8.9738510037389e-11
+Refined Mesh with degree of freedom  146326 sum_eta is  4.864947186019143e-11
+Refined Mesh with degree of freedom  156186 sum_eta is  2.4008352256157862e-11
+Refined Mesh with degree of freedom  166526 sum_eta is  1.2996063402183171e-11
+Refined Mesh with degree of freedom  179836 sum_eta is  6.518846467947772e-12
+Refined Mesh with degree of freedom  196191 sum_eta is  3.5494854525356655e-12
+Refined Mesh with degree of freedom  215301 sum_eta is  1.9333516666688475e-12
+Refined Mesh with degree of freedom  243306 sum_eta is  1.0096734751299391e-12
+Refined Mesh with degree of freedom  271721 sum_eta is  5.540882235374028e-13
+Refined Mesh with degree of freedom  311881 sum_eta is  2.855518674464874e-13
+Refined Mesh with degree of freedom  353666 sum_eta is  1.4780092562637908e-13
+Refined Mesh with degree of freedom  405136 sum_eta is  7.494533691077232e-14
+Refined Mesh with degree of freedom  469151 sum_eta is  3.727144773863335e-14
+Refined Mesh with degree of freedom  545791 sum_eta is  1.9239763785925355e-14
+Refined Mesh with degree of freedom  633351 sum_eta is  9.917478395055211e-15
+Refined Mesh with degree of freedom  746086 sum_eta is  5.157940135928853e-15
+Refined Mesh with degree of freedom  881061 sum_eta is  2.5867867626191193e-15
+Refined Mesh with degree of freedom  1043921 sum_eta is  1.2577163537458547e-15
+Refined Mesh with degree of freedom  1213861 sum_eta is  6.576832782296173e-16
+Refined Mesh with degree of freedom  1427146 sum_eta is  3.354204106006658e-16
+Refined Mesh with degree of freedom  1692621 sum_eta is  1.6767822832193774e-16
+Refined Mesh with degree of freedom  2030556 sum_eta is  7.626924509218639e-17
+Refined Mesh with degree of freedom  2395141 sum_eta is  4.2412966152379366e-17
+Calculating the alpha for points on the bottom boundary ...
+Refined Mesh with degree of freedom  322011 sum_eta is  6.575881462844954e-06
+Refined Mesh with degree of freedom  322086 sum_eta is  6.652657012035227e-07
+Refined Mesh with degree of freedom  322436 sum_eta is  3.2464514033420516e-08
+Refined Mesh with degree of freedom  323636 sum_eta is  1.4447632221786104e-08
+Refined Mesh with degree of freedom  325126 sum_eta is  8.081981670030446e-09
+Refined Mesh with degree of freedom  328116 sum_eta is  4.422142222360787e-09
+Refined Mesh with degree of freedom  330366 sum_eta is  2.32569903837539e-09
+Refined Mesh with degree of freedom  332891 sum_eta is  1.2995935997159925e-09
+Refined Mesh with degree of freedom  336481 sum_eta is  6.384589077343724e-10
+Refined Mesh with degree of freedom  340171 sum_eta is  3.4760663546292414e-10
+Refined Mesh with degree of freedom  344926 sum_eta is  1.7583780604144123e-10
+Refined Mesh with degree of freedom  351316 sum_eta is  9.441142191955437e-11
+Refined Mesh with degree of freedom  359206 sum_eta is  5.0608559335332786e-11
+Refined Mesh with degree of freedom  368441 sum_eta is  2.4388877102147972e-11
+Refined Mesh with degree of freedom  378716 sum_eta is  1.1597057569893565e-11
+Refined Mesh with degree of freedom  389341 sum_eta is  6.089622330947704e-12
+Refined Mesh with degree of freedom  401256 sum_eta is  3.351487491359363e-12
+Refined Mesh with degree of freedom  419081 sum_eta is  1.7729476446864408e-12
+Refined Mesh with degree of freedom  440656 sum_eta is  8.962029273699054e-13
+Refined Mesh with degree of freedom  470141 sum_eta is  4.709336052515281e-13
+Refined Mesh with degree of freedom  500176 sum_eta is  2.404968898034384e-13
+Refined Mesh with degree of freedom  537706 sum_eta is  1.2243246502831578e-13
+Refined Mesh with degree of freedom  580061 sum_eta is  6.327508028045844e-14
+Refined Mesh with degree of freedom  633656 sum_eta is  3.242756377842501e-14
+Refined Mesh with degree of freedom  702951 sum_eta is  1.6311304574344483e-14
+Refined Mesh with degree of freedom  786991 sum_eta is  8.193440793777388e-15
+Refined Mesh with degree of freedom  888976 sum_eta is  4.057221905527825e-15
+Refined Mesh with degree of freedom  1021586 sum_eta is  1.917178923538089e-15
+Refined Mesh with degree of freedom  1169871 sum_eta is  9.649548723716026e-16
+Refined Mesh with degree of freedom  1368701 sum_eta is  4.64266072224892e-16
+Refined Mesh with degree of freedom  1582031 sum_eta is  2.474548298100518e-16
+Refined Mesh with degree of freedom  1922416 sum_eta is  1.2937864250660978e-16
+Refined Mesh with degree of freedom  2397346 sum_eta is  8.66689048426351e-17
+Refined Mesh with degree of freedom  9512041 sum_eta is  2.2860319010724157e-17
+Calculating the alpha for points on the bottom boundary ...
+n= 1  sum c l^alpha  0.00019632348257132923 sum u(x_l)  0.00019631078132236504
+n= 2  sum c l^alpha  0.00019631333438166801 sum u(x_l)  0.00019629683537717221
+n= 3  sum c l^alpha  0.00019631471716596708 sum u(x_l)  0.00019629721475850512
+n= 4  sum c l^alpha  nan sum u(x_l)  0.00019629634490467334
+n= 5  sum c l^alpha  0.00019631314395058142 sum u(x_l)  0.00019629529624255393
+n= 6  sum c l^alpha  0.00019631299243127155 sum u(x_l)  0.0001962951393887546
+n= 1  sum c l^alpha  0.00019632348257132923 sum u(x_l)  0.00019631078132236504
+n= 2  sum c l^alpha  0.00019631333438166801 sum u(x_l)  0.00019629683537717221
+n= 3  sum c l^alpha  0.00019631471716596708 sum u(x_l)  0.00019629721475850512
+n= 4  sum c l^alpha  nan sum u(x_l)  0.00019629634490467334
+n= 5  sum c l^alpha  0.00019631314395058142 sum u(x_l)  0.00019629529624255393
+n= 6  sum c l^alpha  0.00019631299243127155 sum u(x_l)  0.0001962951393887546
