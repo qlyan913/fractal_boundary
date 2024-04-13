@@ -18,9 +18,8 @@ from Ex3_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
-deg=int(input("Enter the degree of polynomial in FEM space:"))
-#N=int(input("Enter the number of segments on bottom:")) # number of segments on smallest eges when n+1 iteration fractal 
-
+#deg=int(input("Enter the degree of polynomial in FEM space:"))
+deg=5
 def get_hm_subset(n,N):
    # distance to boundary
    d_ins = np.linspace(0,6,10)
@@ -33,7 +32,7 @@ def get_hm_subset(n,N):
    # max of refinement  
    max_iterations = 100
    # stop refinement when sum_eta less than tolerance
-   tolerance=1e-12
+   tolerance=1e-17
    uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
    PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
    p3=[np.array([1,0]),1]
@@ -55,10 +54,16 @@ def get_hm_subset(n,N):
       ms_u_sum=ms_u_sum+uh.at(xl_list[i])
    return ms_sum, ms_u_sum, ns, sub_ptx,sub_pty
 
-for n in range(1,8):
+ms=[]
+ms_u=[]
+for n in range(1,7):
    N=10*3**(8-n)
    ms_sum, ms_u_sum, ns,sub_ptx,sub_pty = get_hm_subset(n,N)
+   ms.append(ms_sum)
+   ms_u.append(ms_u_sum)
    print("n=", n, " sum c l^alpha ", ms_sum, "sum u(x_l) ", ms_u_sum) 
 
+for n in range(1,7):
+    print("n=", n, " sum c l^alpha ", ms[n-1], "sum u(x_l) ", ms_u[n-1]) 
 
 
