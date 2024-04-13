@@ -21,10 +21,10 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 #n=int(input("Enter the number of refinement steps for the pre-fractal upper boundary: "))
 #deg=int(input("Enter the degree of polynomial in FEM space:"))
-#alpha_0=float(input("Enter the alpha0:"))
+alpha_0=float(input("Enter the alpha0:"))
 n=6
 deg=5
-alpha_0=1
+#alpha_0=1
 mesh_size=1
 # choose a triangulation
 geo = MakeGeometry(n)
@@ -33,7 +33,7 @@ mesh0 = Mesh(ngmsh)
 # max of refinement
 max_iterations = 100
 # stop refinement when sum_eta less than tolerance
-tolerance=1e-17 # 1e-15 when n<=4, 
+tolerance=5*1e-17 # 1e-15 when n<=4, 
 
 uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
 
@@ -47,7 +47,7 @@ id_pts=2
 new_pts,id_pts,line_list,line_list2=koch_snowflake([],id_pts,[],[[p3,p4]], n)
 line_list=line_list+line_list2
 # distance to boundary
-d_ins = np.linspace(0,7,20)
+d_ins = np.linspace(0,5,20)
 dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
 
 N_all=[2*2**i for i in range(7)]

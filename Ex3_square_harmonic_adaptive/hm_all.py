@@ -22,7 +22,7 @@ from matplotlib.ticker import PercentFormatter
 deg=5
 def get_hm_subset(n,N):
    # distance to boundary
-   d_ins = np.linspace(0,6,10)
+   d_ins = np.linspace(0,5,10)
    dy_list=[0.5*(1/3.)**n*(1/2.)**i for i in d_ins]
    mesh_size=1
    # choose a triangulation
@@ -32,7 +32,7 @@ def get_hm_subset(n,N):
    # max of refinement  
    max_iterations = 100
    # stop refinement when sum_eta less than tolerance
-   tolerance=1e-17
+   tolerance=5*1e-17
    uh,f,V=harmonic_get_solution(mesh0,tolerance,max_iterations,deg)
    PETSc.Sys.Print("Calculating the alpha for points on the bottom boundary ...")
    p3=[np.array([1,0]),1]
