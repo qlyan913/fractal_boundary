@@ -85,7 +85,7 @@ c_std=statistics.stdev(c_list)
 PETSc.Sys.Print("Mean of the alpha is % s, the standard deviation is %s " %(alpha_mean,alpha_std))
 PETSc.Sys.Print("Mean of the c is % s, the standard deviation is %s " %(c_mean,c_std))
 
-plt.hist(alpha_list,bins=100,range=[0.6,1.25],weights=np.ones(len(alpha_list))/len(alpha_list))
+plt.hist(alpha_list,bins=100,range=[0.95,1.05],weights=np.ones(len(alpha_list))/len(alpha_list))
 plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
 plt.xlabel('value of alpha')
 plt.savefig(f"figures/distribution_alpha_n{n}_N{N}_v2.png")
