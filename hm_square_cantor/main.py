@@ -21,7 +21,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=int(input("Enter the number of refinement steps for the cantor set: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
-mesh_size=1
+mesh_size=0.2
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
@@ -37,9 +37,9 @@ plt.savefig(f"figures/square_{n}.png")
 print(f"plot of the mesh saved as figures/square_{n}.png")     
 
 # max of refinement
-max_iterations = 20
+max_iterations = 40
 # stop refinement when sum_eta less than tolerance
-tolerance=5*1e-17
+tolerance=1*1e-3
 uh,f,V=get_solution(mesh0,tolerance,max_iterations,deg)
 
 # plot solution
