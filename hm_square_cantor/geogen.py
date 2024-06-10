@@ -25,7 +25,7 @@ def MakeGeometry(cantor_level):
     geo.Append (["line", P3, P4], bc = 1)
     geo.Append (["line", P4, P1], bc = 1)
     
-    # Inside boundary
+   # Inside boundary
     line_list=cantor_line([[0.0,1.0]],cantor_level)
     for i in range(len(line_list)):
         x1=line_list[i][0]
@@ -34,7 +34,7 @@ def MakeGeometry(cantor_level):
         pnt2=(x2,0.0)
         P1=geo.AppendPoint(*pnt1)
         P2=geo.AppendPoint(*pnt2)
-        geo.Append (["line", P1, P2], bc = 2)
+        geo.Append (["line", P1, P2],leftdomain=1,rightdomain=1,maxh=0.025, bc = 2)
     return geo
 
 def divide_line(vertices):

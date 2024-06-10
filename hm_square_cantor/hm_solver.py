@@ -92,8 +92,7 @@ def get_solution(mesh0,tolerance,max_iterations,deg):
   # plt.savefig(f"figures/snow_{n}_ref_{it}.pdf")
   # plt.close()
   # PETSc.Sys.Print(f"refined mesh plot saved to 'figures/snow_{n}_ref_{it}.pdf'.")
-      PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)
-      
+      PETSc.Sys.Print("Refined Mesh with degree of freedom " , V.dof_dset.layout_vec.getSize(), 'sum_eta is ', sum_eta)     
    return uh,f,V
 
 

@@ -26,8 +26,18 @@ mesh_size=1
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
+# Plot the mesh
+plt.figure()
+triplot(mesh0)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Mesh')
+plt.show()
+plt.savefig(f"figures/square_{n}.png")
+print(f"plot of the mesh saved as figures/square_{n}.png")     
+
 # max of refinement
-max_iterations = 100
+max_iterations = 20
 # stop refinement when sum_eta less than tolerance
 tolerance=5*1e-17
 uh,f,V=get_solution(mesh0,tolerance,max_iterations,deg)
