@@ -34,7 +34,7 @@ def MakeGeometry(cantor_level):
         pnt2=(x2,0.0)
         P1=geo.AppendPoint(*pnt1)
         P2=geo.AppendPoint(*pnt2)
-        geo.Append (["line", P1, P2],leftdomain=1,rightdomain=1,maxh=0.2, bc = 2)
+        geo.Append (["line", P1, P2],leftdomain=1,rightdomain=1,maxh=0.01, bc = 2)
     return geo
 
 def divide_line(vertices):
