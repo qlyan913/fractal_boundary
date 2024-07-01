@@ -23,11 +23,11 @@ nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
 deg=int(input("Enter the degree of polynomial: "))
 mesh_size=0.2
 # choose a triangulation
-geo = MakeGeometry(n)
+geo = MakeGeometry(nn)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
-max_iterations = 40
+max_iterations = 20
 # stop refinement when sum_eta less than tolerance
 tolerance=1*1e-3
 df=[] # mesh size, degree of freedom
@@ -54,13 +54,13 @@ while sum_eta>tolerance and it<max_iterations:
     err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
     err.append(err_temp)
 import math
-NN=np.array([1.1*(df[i]/df[0])**2*err[0] for i in range(0,len(err))])
+#NN=np.array([1.1*(df[i]/df[0])**2*err[0] for i in range(0,len(err))])
 plt.figure(1)
 plt.loglog(df, err)
-plt.loglog(df, NN)
-plt.legend(['error', '$O(h^2)$'])
+#plt.loglog(df, NN)
+plt.legend(['error'])
 plt.xlabel('maximum of mesh size')
 plt.title('Test')
-plt.savefig("test_figs/test_3.png")
-print("Error vs mesh size saved to figures/test_3.png")
+plt.savefig(f"test_figs/test_{nn}.png")
+print(f"Error vs mesh size saved to figures/test_{nn}.png")
 plt.close()
