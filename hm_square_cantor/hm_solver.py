@@ -9,20 +9,33 @@ import matplotlib.pyplot as plt
 import numpy as np
 from geogen import *
 from scipy import stats
-def sq_solver(mesh, f,g_int,g_ext,V):
+def sq_solver(mesh, f,g_int,g_bot,g_right,g_top,g_left,V):
+#  The domain is \Omega=Q\Q_n where Q=[-1,1] x [-1, 1] and Q_n is the nth iteration of 1D cantor set inside Q.
+#  Boundary index are numbered as follows:
+#  1: exterior boundary: bottom y=-1
+#  2: exterior boundary: right x=2
+#  3: exterior boundary: top y=2
+#  4: exterior boundary: left x=-1
+#  5: interior boundary of square
     # Test and trial functions
     u = TrialFunction(V)
     v = TestFunction(V)
     a = dot(grad(u), grad(v))*dx
     L = f*v*dx
     # list of boundary ids that corresponds to the exterior boundary of the domain
-    bd_ext = (1) # 1: exterior
-    bd_int = (2) # 2: interior
-    bc_ext = DirichletBC(V, g_ext,bd_ext)
+    bd_bot = (1)
+    bc_bot = DirichletBC(V, g_bot,bd_bot)
+    bd_right = (2)
+    bc_right = DirichletBC(V, g_right,bd_right)
+    bd_top = (3)
+    bc_top = DirichletBC(V, g_top,bd_top)
+    bd_left = (4)
+    bc_left = DirichletBC(V, g_left,bd_left)
+    bd_int = (5) # 2: interior
     bc_int = DirichletBC(V, g_int,bd_int)
     uh = Function(V,name="uh")
     #solve(a == L, uh, bcs=bcs, solver_parameters={"ksp_type": "preonly", "pc_type": "lu"})
-    solve(a == L, uh, bcs=[bc_ext,bc_int], solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
+    solve(a == L, uh, bcs=[bc_bot,bc_right,bc_top,bc_left,bc_int], solver_parameters={'ksp_type': 'cg', 'pc_type': 'hypre','pc_hypre_type': 'boomeramg'})
     #solve(a == L, uh, bcs=bcs)
     return(uh)
 
@@ -79,8 +92,11 @@ def get_solution(mesh0,tolerance,max_iterations,deg):
       V = FunctionSpace(mesh0, "Lagrange", deg)
       f=Constant(0.0)
       g_int=Constant(0.0)
-      g_ext=Constant(1.0)
-      uh = sq_solver(mesh, f,g_int,g_ext,V)
+      g_bot=Constant(1.0)
+      g_right=Constant(1.0)
+      g_top=Constant(1.0)
+      g_left=Constant(1.0)
+      uh = sq_solver(mesh, f,g_int,g_bot,g_right,g_top,g_left,V)
       mark, sum_eta,eta_max = Mark(mesh,f,uh,V,tolerance)
       mesh0 = mesh.refine_marked_elements(mark)
   # meshplot = triplot(mesh)

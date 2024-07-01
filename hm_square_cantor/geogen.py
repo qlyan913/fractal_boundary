@@ -3,8 +3,11 @@ import numpy as np
 #  Create a mesh on sqaure with Cantor set inside
 #  The domain is \Omega=Q\Q_n where Q=[-1,1] x [-1, 1] and Q_n is the nth iteration of 1D cantor set inside Q.
 #  Boundary index are numbered as follows:
-#  1: exterior boundary of square
-#  2: interior boundary of square
+#  1: exterior boundary: bottom y=-1
+#  2: exterior boundary: right x=2
+#  3: exterior boundary: top y=2
+#  4: exterior boundary: left x=-1
+#  5: interior boundary of square
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 
@@ -21,9 +24,9 @@ def MakeGeometry(cantor_level):
     P3=geo.AppendPoint(*pnt3)
     P4=geo.AppendPoint(*pnt4)
     geo.Append (["line", P1, P2], bc = 1)
-    geo.Append (["line", P2, P3], bc = 1)
-    geo.Append (["line", P3, P4], bc = 1)
-    geo.Append (["line", P4, P1], bc = 1)
+    geo.Append (["line", P2, P3], bc = 2)
+    geo.Append (["line", P3, P4], bc = 3)
+    geo.Append (["line", P4, P1], bc = 4)
     
    # Inside boundary
     line_list=cantor_line([[0.0,1.0]],cantor_level)
@@ -34,7 +37,7 @@ def MakeGeometry(cantor_level):
         pnt2=(x2,0.0)
         P1=geo.AppendPoint(*pnt1)
         P2=geo.AppendPoint(*pnt2)
-        geo.Append (["line", P1, P2],leftdomain=1,rightdomain=1,maxh=0.01, bc = 2)
+        geo.Append (["line", P1, P2],leftdomain=1,rightdomain=1,maxh=0.01, bc = 5)
     return geo
 
 def divide_line(vertices):
