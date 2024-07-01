@@ -54,7 +54,7 @@ def Mark(msh, f, uh,V,tolerance):
      frac = .9
      delfrac =0.02
      # keep marking triangulation when sum_marked eta< part *sum of eta
-     part = .5
+     part = .4
      mark = Function(W)
      # Filling in the marked element vector using eta.
      with mark.dat.vec as markedVec:

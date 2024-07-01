@@ -27,7 +27,7 @@ geo = MakeGeometry(nn)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
 mesh0 = Mesh(ngmsh)
 # max of refinement
-max_iterations = 20
+max_iterations = 30
 # stop refinement when sum_eta less than tolerance
 tolerance=1*1e-3
 df=[] # mesh size, degree of freedom
@@ -40,7 +40,7 @@ while sum_eta>tolerance and it<max_iterations:
     x, y = SpatialCoordinate(mesh)
     V = FunctionSpace(mesh0, "Lagrange", deg)
     u = 2 + x**2 + 3*x*y
-    f=Constant(0.0)
+    f=Constant(-2.0)
     g_int=2 + x**2
     g_bot=2 + x**2 - 3*x
     g_right=2 + 4 + 6*y
