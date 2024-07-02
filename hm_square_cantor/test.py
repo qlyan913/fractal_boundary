@@ -19,8 +19,10 @@ from hm_solver import *
 from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 
-nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
-deg=int(input("Enter the degree of polynomial: "))
+#nn=int(input("Enter the number of iterations for the pre-fractal boundary: "))
+#deg=int(input("Enter the degree of polynomial: "))
+nn=2
+deg=1
 mesh_size=0.2
 # choose a triangulation
 geo = MakeGeometry(nn)
@@ -31,7 +33,8 @@ max_iterations = 30
 # stop refinement when sum_eta less than tolerance
 tolerance=1*1e-3
 df=[] # mesh size, degree of freedom
-err=[] # error of solution
+err=[] #  L2 error of solution
+err2=[] # H1 error 
 sum_eta=1
 it=0
 while sum_eta>tolerance and it<max_iterations:
@@ -53,13 +56,20 @@ while sum_eta>tolerance and it<max_iterations:
     df.append(V.dof_dset.layout_vec.getSize())
     err_temp=sqrt(assemble(dot(uh - u, uh - u) * dx))
     err.append(err_temp)
+    err2_temp=sqrt(assemble(dot(uh - u, uh - u) * dx)+assemble(dot(grad(uh) -grad(u), grad(uh) - grad(u)) * dx))
+    err2.append(err2_temp)
+    print("Error of solution in L2 norm is ", err_temp)
+    print("Error of solution in H1 norm is ", err2_temp)
 import math
-#NN=np.array([1.1*(df[i]/df[0])**2*err[0] for i in range(0,len(err))])
-plt.figure(1)
-plt.loglog(df, err)
-#plt.loglog(df, NN)
-plt.legend(['error'])
-plt.xlabel('maximum of mesh size')
+NN=np.array([(df[0]/df[i])**(1.)*err[0] for i in range(0,len(err))])
+NN2=np.array([(df[0]/df[i])**(1./2.)*err2[0] for i in range(0,len(err))])
+plt.figure()
+plt.loglog(df, err,marker='o')
+plt.loglog(df, err2,marker='s')
+plt.loglog(df, NN)
+plt.loglog(df, NN2)
+plt.legend(['$L^2$ error', '$H^1$ error', '$O(dof^{-1})$','$O(dof^{-1/2})$'])
+plt.xlabel('degree of freedom')
 plt.title('Test')
 plt.savefig(f"test_figs/test_{nn}.png")
 print(f"Error vs mesh size saved to figures/test_{nn}.png")
