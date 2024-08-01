@@ -21,7 +21,7 @@ from firedrake.pyplot import tripcolor
 from matplotlib.ticker import PercentFormatter
 n=int(input("Enter the number of refinement steps for the cantor set: "))
 deg=int(input("Enter the degree of polynomial in FEM space:"))
-mesh_size=0.2
+mesh_size=2
 # choose a triangulation
 geo = MakeGeometry(n)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
