@@ -23,7 +23,7 @@ from matplotlib.ticker import PercentFormatter
 #deg=int(input("Enter the degree of polynomial: "))
 nn=2
 deg=1
-mesh_size=0.2
+mesh_size=2
 # choose a triangulation
 geo = MakeGeometry(nn)
 ngmsh = geo.GenerateMesh(maxh=mesh_size)
