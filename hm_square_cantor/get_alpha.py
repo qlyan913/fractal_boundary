@@ -29,8 +29,9 @@ alpha_all=[]
 max_iterations = 40
 # stop refinement when sum_eta less than tolerance
 tolerance=1*1e-3
+dd=2
 for n in nc:
-   pp=[[0,3**(-n)],[1./9.,3**(-n)],[2./9.,3**(-n)],[1./3.,3**(-n)]]
+   pp=[[0,dd**(-n)],[1./9.,dd**(-n)],[2./9.,dd**(-n)],[1./3.,dd**(-n)]]
    # choose a triangulation
    geo = MakeGeometry(n)
    ngmsh = geo.GenerateMesh(maxh=mesh_size)
@@ -38,21 +39,21 @@ for n in nc:
    uh,f,V=get_solution(mesh0,tolerance,max_iterations,deg)
    u_val=uh.at(pp)
    u_all.append(u_val)
-   alpha=-np.log(u_val)/(n*np.log(3))
+   alpha=-np.log(u_val)/(n*np.log(dd))
    alpha_all.append(alpha)
  
-with open(f'results/alpha.csv', 'w', newline='') as csvfile:
+with open(f'results/alpha_{dd}n.csv', 'w', newline='') as csvfile:
       fieldnames = ['x=0', 'x=1/9','x=2/9','x=1/3']
       writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
       writer.writeheader()
       for i in range(len(alpha_all)):
          writer.writerow({'x=0': alpha_all[i][0], 'x=1/9':alpha_all[i][1],'x=2/9':alpha_all[i][2],'x=1/3':alpha_all[i][3]})
-PETSc.Sys.Print(f"Results of alpha are saved to  results/alpha.csv")
+PETSc.Sys.Print(f"Results of alpha are saved to  results/alpha_{dd}n.csv")
 
-with open(f'results/u_n.csv', 'w', newline='') as csvfile:
+with open(f'results/u_n_{dd}n.csv', 'w', newline='') as csvfile:
       fieldnames = ['x=0', 'x=1/9','x=2/9','x=1/3']
       writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
       writer.writeheader()
       for i in range(len(alpha_all)):
          writer.writerow({'x=0': u_all[i][0], 'x=1/9':u_all[i][1],'x=2/9':u_all[i][2],'x=1/3':u_all[i][3]})
-PETSc.Sys.Print(f"Evaluation of u are saved to  results/u_n.csv")
+PETSc.Sys.Print(f"Evaluation of u are saved to  results/u_n_{dd}n.csv")
